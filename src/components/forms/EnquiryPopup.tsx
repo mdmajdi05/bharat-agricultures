@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import {
   ArrowUpRight,
   Clock,
@@ -135,18 +134,6 @@ export default function EnquiryPopup() {
       >
         {/* ---------- Dark editorial header ---------- */}
         <div className="relative overflow-hidden bg-[#071b10] px-6 pb-7 pt-7 max-[560px]:px-5 max-[560px]:pb-6 max-[560px]:pt-6">
-          <Image
-            src="/images/machining.jpg"
-            alt=""
-            fill
-            sizes="452px"
-            className="pointer-events-none object-cover opacity-[0.16] saturate-[0.5]"
-            style={{ objectPosition: "center 58%" }}
-          />
-          <span
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 bg-[linear-gradient(100deg,#071b10_32%,rgba(7,27,16,0.9)_62%,rgba(7,27,16,0.7)_100%)]"
-          />
           <span
             aria-hidden="true"
             className="pointer-events-none absolute -right-20 -top-24 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(240,196,115,0.22),transparent_66%)]"
@@ -187,11 +174,10 @@ export default function EnquiryPopup() {
             </h2>
             <p
               id="ba-popup-desc"
-              className="mt-2.5 max-w-[36ch] text-[12px] leading-[1.65] text-[#f4f4ed]/60"
+              className="mt-2.5 max-w-[34ch] text-[12px] leading-[1.65] text-[#f4f4ed]/60"
             >
-              Sambhal se agricultural machinery, brick kiln machinery aur spare
-              parts ka direct manufacturer. Call, WhatsApp ya email par rate aur
-              guidance lein.
+              Koi form fill nahi. Bas ek tap — call, WhatsApp ya mail. Rate aur
+              salaah turant.
             </p>
           </div>
         </div>
