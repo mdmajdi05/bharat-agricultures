@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import {
   ArrowUpRight,
   Clock,
@@ -134,6 +135,18 @@ export default function EnquiryPopup() {
       >
         {/* ---------- Dark editorial header ---------- */}
         <div className="relative overflow-hidden bg-[#071b10] px-6 pb-7 pt-7 max-[560px]:px-5 max-[560px]:pb-6 max-[560px]:pt-6">
+          <Image
+            src="/images/machining.jpg"
+            alt=""
+            fill
+            sizes="452px"
+            className="pointer-events-none object-cover opacity-[0.16] saturate-[0.5]"
+            style={{ objectPosition: "center 58%" }}
+          />
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 bg-[linear-gradient(100deg,#071b10_32%,rgba(7,27,16,0.9)_62%,rgba(7,27,16,0.7)_100%)]"
+          />
           <span
             aria-hidden="true"
             className="pointer-events-none absolute -right-20 -top-24 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(240,196,115,0.22),transparent_66%)]"
@@ -156,29 +169,31 @@ export default function EnquiryPopup() {
             <X size={16} aria-hidden="true" />
           </button>
 
-          <span className="inline-flex items-center gap-2 rounded-full border border-[#f0c473]/35 bg-[#f0c473]/10 px-3 py-1 text-[8.5px] font-bold uppercase tracking-[0.18em] text-[#f2d49b]">
-            <span
-              aria-hidden="true"
-              className="h-1.5 w-1.5 rounded-full bg-[#f0c473] shadow-[0_0_0_3px_rgba(240,196,115,0.18)]"
-            />
-            Seedha manufacturer se
-          </span>
+          <div className="relative z-10">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#f0c473]/35 bg-[#f0c473]/10 px-3 py-1 text-[8.5px] font-bold uppercase tracking-[0.18em] text-[#f2d49b]">
+              <span
+                aria-hidden="true"
+                className="h-1.5 w-1.5 rounded-full bg-[#f0c473] shadow-[0_0_0_3px_rgba(240,196,115,0.18)]"
+              />
+              Seedha manufacturer se
+            </span>
 
-          <h2
-            id="ba-popup-title"
-            className="mt-4 max-w-[16ch] font-display text-[clamp(1.85rem,4.4vw,2.15rem)] leading-[1.04] tracking-[-0.035em] text-[#f4f4ed]"
-          >
-            Machine ki baat,
-            <span className="mt-0.5 block italic text-[#f0c473]">seedha humse.</span>
-          </h2>
-          <p
-            id="ba-popup-desc"
-            className="mt-2.5 max-w-[36ch] text-[12px] leading-[1.65] text-[#f4f4ed]/60"
-          >
-            Sambhal se agricultural machinery, brick kiln machinery aur spare
-            parts ka direct manufacturer. Call, WhatsApp ya email par rate aur
-            guidance lein.
-          </p>
+            <h2
+              id="ba-popup-title"
+              className="mt-4 max-w-[16ch] font-display text-[clamp(1.85rem,4.4vw,2.15rem)] leading-[1.04] tracking-[-0.035em] text-[#f4f4ed]"
+            >
+              Machine ki baat,
+              <span className="mt-0.5 block italic text-[#f0c473]">seedha humse.</span>
+            </h2>
+            <p
+              id="ba-popup-desc"
+              className="mt-2.5 max-w-[36ch] text-[12px] leading-[1.65] text-[#f4f4ed]/60"
+            >
+              Sambhal se agricultural machinery, brick kiln machinery aur spare
+              parts ka direct manufacturer. Call, WhatsApp ya email par rate aur
+              guidance lein.
+            </p>
+          </div>
         </div>
 
         {/* ---------- Contact actions ---------- */}
