@@ -1,84 +1,265 @@
 
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import {
+  ArrowUpRight,
+  Check,
+  Leaf,
+  ShieldCheck,
+  Sprout,
+} from "lucide-react";
+
 import ButtonLink from "@/components/ui/ButtonLink";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
-import { homeIntroCopy } from "@/data/siteContent";
 import { imageSizes, images } from "@/lib/images";
+
+/* All section content lives here */
+const content = {
+  eyebrow: "01 — WHO WE ARE",
+
+  heading: {
+    brand: "Bharat Agricultures.",
+    accent: "Sambhal ka agricultural machinery manufacturer.",
+  },
+
+  paragraphs: [
+    "Bharat Agricultures, Sambhal, Uttar Pradesh mein sthit ek agricultural machinery manufacturer hai. Hum kheti ke liye machinery aur equipment banane par focus karte hain, jo badalti agricultural needs ko dhyan mein rakhkar design kiye jaate hain.",
+
+    "Humara maqsad hai ki farmers aur agriculture industry tak useful machinery solutions pahunch sakein. Quality, practical design aur continuous improvement humare kaam ki buniyad hain.",
+  ],
+
+  image: {
+    alt: "Agricultural tractor working in a farm field",
+    brand: "BHARAT AGRICULTURES",
+    statement: "Kheti ki taqat.",
+    statementAccent: "Behtar kal ki shuruaat.",
+  },
+
+  badge: {
+    value: "13",
+    label: "Machines, tractors aur agricultural solutions",
+  },
+
+  features: [
+    {
+      icon: Sprout,
+      title: "Agriculture First",
+      description: "Har faisle mein kheti ki zarooraton ko ahmiyat.",
+    },
+    {
+      icon: ShieldCheck,
+      title: "Quality Focus",
+      description: "Product quality aur reliability par khaas dhyan.",
+    },
+    {
+      icon: Leaf,
+      title: "Growth Mindset",
+      description: "Modern agriculture ke saath aage badhne ki soch.",
+    },
+  ],
+
+  cta: {
+    label: "Humare Baare Mein",
+    href: "/about",
+  },
+
+  location: "SAMBHAL, UTTAR PRADESH",
+
+  bottom: [
+    "Agriculture First",
+    "Quality Driven",
+    "Future Focused",
+  ],
+};
 
 export default function Introduction() {
   return (
-    <section className={`
-          ba-section relative py-[var(--section-y)]
-          ba-intro overflow-hidden [&_h2]:text-[length:var(--display-lg)]
-          [&_h2_em]:text-gold-deep
-        `}>
-      <Container>
-        <div className={`
-          ba-intro__grid grid gap-[2.5rem]
-          min-[900px]:[grid-template-columns:1.05fr_0.95fr] min-[900px]:items-center min-[900px]:gap-[clamp(3rem,_7vw,_6.5rem)]
-        `}>
-          <Reveal className={`
-          ba-intro__copy grid content-start
-          gap-[1.25rem] min-[900px]:gap-[1.5rem]
-        `}>
-            <span className={`
-          ba-eyebrow inline-flex items-center
-          gap-[0.6rem] font-sans text-xs
-          font-bold tracking-[0.22em] uppercase
-          leading-[1.4] text-gold-deep [&::before]:[content:""]
-          [&::before]:w-[1.6rem] [&::before]:h-[1px] [&::before]:bg-[currentColor]
-          [&::before]:shrink-0 [.ba-form-panel_&]:[display:inline-block] [.ba-form-panel_&]:mb-[0.7rem]
-          [.ba-cta_&]:text-[color:rgba(10,_32,_20,_0.7)] [.ba-cta_&::before]:bg-[rgba(10,_32,_20,_0.45)]
-        `}>{homeIntroCopy.kicker}</span>
-            <h2>
-              {homeIntroCopy.title}
-              <br />
-              <em>{homeIntroCopy.titleAccent}</em>
-            </h2>
-            <div className={`
-          ba-intro__lead grid gap-[1rem]
-          max-w-[40rem] [&_p]:text-[length:0.92rem] [&_p]:leading-[1.9]
-          [&_p]:text-muted
-        `}>
-              {homeIntroCopy.paragraphs.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </div>
-            <ButtonLink href={homeIntroCopy.linkHref} variant="outline" className={"ba-intro__link [justify-self:start]"}>
-              {homeIntroCopy.linkLabel} <ArrowUpRight size={16} aria-hidden="true" />
-            </ButtonLink>
-          </Reveal>
+    <section
+      id="introduction"
+      className="relative isolate overflow-hidden bg-[#f5f2e9] py-[clamp(5rem,8vw,8rem)]"
+    >
+      {/* Subtle background decoration */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-40 -top-40 -z-10 h-[580px] w-[580px] rounded-full border border-[#dfe2d6]"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-20 -top-20 -z-10 h-[390px] w-[390px] rounded-full border border-[#dfe2d6]"
+      />
 
-          <Reveal className={"ba-intro__visual relative"} delay={120}>
-            <div className={`
-          ba-intro__figure relative aspect-[4_/_5]
-          max-h-[38rem] overflow-hidden rounded-lg
-          bg-cream-soft [&_img]:object-cover
-        `}>
+      <Container>
+        <div className="grid items-center gap-16 lg:grid-cols-[0.95fr_1.05fr] lg:gap-[clamp(3.5rem,6vw,6rem)]">
+
+          {/* IMAGE SIDE */}
+          <Reveal className="relative mx-auto w-full max-w-[570px] lg:mx-0">
+            {/* Decorative frame */}
+            <div
+              aria-hidden="true"
+              className="absolute -bottom-5 -left-5 right-10 top-10 rounded-[2rem] border border-[#bd9a51]/70"
+            />
+
+            <div className="relative aspect-[4/4.5] overflow-hidden rounded-tl-[125px] rounded-br-[65px] rounded-tr-xl rounded-bl-xl bg-[#173b26] shadow-[0_28px_65px_rgba(20,49,31,0.15)]">
               <Image
                 src={images.tractor}
-                alt={homeIntroCopy.imageAlt}
+                alt={content.image.alt}
                 fill
                 sizes={imageSizes.half}
+                className="object-cover transition-transform duration-700 hover:scale-105"
               />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-[#071b10]/85 via-transparent to-[#071b10]/10" />
+
+              {/* Image brand */}
+              <div className="absolute left-7 top-7 flex items-center gap-3">
+                <span className="h-px w-7 bg-[#e4bd65]" />
+                <span className="text-[9px] font-bold tracking-[0.2em] text-white">
+                  {content.image.brand}
+                </span>
+              </div>
+
+              {/* Image statement */}
+              <div className="absolute bottom-0 left-0 max-w-[390px] p-7 sm:p-9">
+                <span className="mb-4 block h-[2px] w-10 bg-[#e1b95e]" />
+
+                <p className="font-serif text-[clamp(1.8rem,3vw,2.7rem)] leading-[1.08] text-white">
+                  {content.image.statement}
+                  <span className="mt-1 block italic text-[#e8c77d]">
+                    {content.image.statementAccent}
+                  </span>
+                </p>
+              </div>
             </div>
-            <div className={`
-          ba-intro__badge absolute left-[0.9rem]
-          right-[0.9rem] bottom-[0.9rem] flex
-          items-center gap-[0.9rem] p-[1rem_1.1rem]
-          bg-[rgba(252,_251,_246,_0.95)] [border:1px_solid_rgba(10,_28,_17,_0.08)] rounded-md
-          shadow-soft backdrop-blur-[blur(10px)] [&_strong]:font-display
-          [&_strong]:text-[length:2rem] [&_strong]:font-medium [&_strong]:leading-none
-          [&_strong]:text-forest-800 [&_span]:text-[length:0.6rem] [&_span]:font-bold
-          [&_span]:tracking-[0.14em] [&_span]:uppercase [&_span]:leading-[1.6]
-          [&_span]:text-muted
-        `}>
-              <strong>{homeIntroCopy.badgeValue}</strong>
-              <span>{homeIntroCopy.badgeLabel}</span>
+
+            {/* Floating badge */}
+            <div className="absolute -bottom-7 right-3 flex max-w-[270px] items-center gap-4 rounded-lg border border-[#e8e1d3] bg-[#fffefa]/95 px-5 py-4 shadow-[0_15px_40px_rgba(15,43,26,0.14)] backdrop-blur-md sm:-right-7">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#e9eee3] text-[#315b39]">
+                <Sprout size={21} />
+              </div>
+
+              <div>
+                <strong className="block font-serif text-2xl leading-none text-[#173b26]">
+                  {content.badge.value}
+                </strong>
+                <span className="mt-1 block text-[9px] font-bold uppercase leading-relaxed tracking-[0.1em] text-[#7b8578]">
+                  {content.badge.label}
+                </span>
+              </div>
             </div>
           </Reveal>
+
+          {/* CONTENT SIDE */}
+          <Reveal className="relative pt-5 lg:pt-0" delay={120}>
+            {/* Eyebrow */}
+            <div className="mb-6 flex items-center gap-3">
+              <span className="h-px w-8 bg-[#b18a43]" />
+              <span className="text-[10px] font-bold uppercase tracking-[0.23em] text-[#94753a]">
+                {content.eyebrow}
+              </span>
+            </div>
+
+            {/* Main heading */}
+            <div className="max-w-[680px]">
+              <h2 className="font-serif text-[clamp(2.7rem,4.7vw,2.7rem)] font-medium leading-[0.98] tracking-[-0.045em] text-[#153522]">
+                {content.heading.brand}
+              </h2>
+
+              <p className="mt-4 max-w-[570px] font-serif text-[clamp(1.65rem,3vw,2.65rem)] italic leading-[1.12] tracking-[-0.025em] text-[#a17d37]">
+                {content.heading.accent}
+              </p>
+            </div>
+
+            {/* Gold divider */}
+            <div className="my-7 flex items-center gap-2">
+              <span className="h-[3px] w-12 rounded-full bg-[#b28b43]" />
+              <span className="h-[3px] w-5 rounded-full bg-[#b28b43]/40" />
+              <span className="h-[3px] w-2 rounded-full bg-[#b28b43]/20" />
+            </div>
+
+            {/* Paragraphs */}
+            <div className="grid max-w-[620px] gap-4">
+              {content.paragraphs.map((paragraph, index) => (
+                <p
+                  key={index}
+                  className="text-[13px] leading-[1.9] text-[#697568] sm:text-[14px] sm:leading-[1.95]"
+                >
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+
+            {/* Features */}
+            <div className="mt-7 border-y border-[#d9ded2]">
+              {content.features.map((feature) => {
+                const Icon = feature.icon;
+
+                return (
+                  <div
+                    key={feature.title}
+                    className="group flex items-center gap-4 border-b border-[#d9ded2] py-4 last:border-0"
+                  >
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#e8ecdf] text-[#315b39] transition-all duration-300 group-hover:bg-[#173b26] group-hover:text-[#e9c875]">
+                      <Icon size={17} strokeWidth={1.6} />
+                    </div>
+
+                    <div className="min-w-0 flex-1">
+                      <h3 className="font-serif text-[15px] font-semibold text-[#193b28]">
+                        {feature.title}
+                      </h3>
+
+                      <p className="mt-1 text-[11px] leading-relaxed text-[#7c887b]">
+                        {feature.description}
+                      </p>
+                    </div>
+
+                    <Check
+                      size={15}
+                      className="shrink-0 text-[#a98b4d]"
+                    />
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* CTA */}
+            <div className="mt-7 flex flex-wrap items-center gap-5">
+              <ButtonLink
+                href={content.cta.href}
+                variant="outline"
+                className="group min-h-[48px] rounded-md border-[#234a31] px-6 text-[12px] text-[#173b26] transition-all duration-300 hover:bg-[#173b26] hover:text-white"
+              >
+                {content.cta.label}
+
+                <ArrowUpRight
+                  size={16}
+                  className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+                  aria-hidden="true"
+                />
+              </ButtonLink>
+
+              <span className="text-[9px] font-bold uppercase tracking-[0.15em] text-[#929b8c]">
+                {content.location}
+              </span>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* Bottom brand strip */}
+        <div className="mt-24 grid overflow-hidden rounded-lg bg-[#153a25] sm:grid-cols-3">
+          {content.bottom.map((item, index) => (
+            <div
+              key={item}
+              className="flex items-center gap-4 border-b border-white/10 px-6 py-5 last:border-0 sm:border-b-0 sm:border-r sm:px-8 sm:last:border-r-0"
+            >
+              <span className="font-serif text-2xl italic text-[#d6b363]">
+                0{index + 1}
+              </span>
+
+              <p className="text-xs font-semibold text-white">
+                {item}
+              </p>
+            </div>
+          ))}
         </div>
       </Container>
     </section>

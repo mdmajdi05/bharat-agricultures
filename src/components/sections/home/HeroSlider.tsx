@@ -3,11 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState, type TouchEvent } from "react";
-import { ArrowRight, Cog, Handshake, ShieldCheck } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, Cog, Handshake, ShieldCheck } from "lucide-react";
 
 import type { HeroBadge, HeroCopy, HeroSlide } from "@/data/hero";
 
-const AUTOPLAY_MS = 5000;
+const AUTOPLAY_MS = 6500;
 
 const badgeIcon = {
   shield: ShieldCheck,
@@ -24,9 +24,11 @@ type HeroSliderProps = {
 };
 
 /**
- * Full-bleed hero reel: one photograph per product, the brand lockup and
- * claim on the left, trust icons underneath. Autoplay pauses when the visitor
- * prefers reduced motion; arrows, dots, swipe and arrow keys all navigate.
+ * Full-bleed hero reel.
+ *
+ * One photograph per business line, copy locked to the left over a forest
+ * wash, and a thumbnail strip directly underneath. Autoplay pauses for
+ * reduced-motion visitors; dots, thumbnails, swipe and arrow keys navigate.
  */
 export default function HeroSlider({ slides, copy, badges }: HeroSliderProps) {
   const [active, setActive] = useState(0);
@@ -34,6 +36,7 @@ export default function HeroSlider({ slides, copy, badges }: HeroSliderProps) {
   const touchStartX = useRef<number | null>(null);
 
   const total = slides.length;
+  const slide = slides[active];
 
   useEffect(() => {
     const query = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -79,167 +82,203 @@ export default function HeroSlider({ slides, copy, badges }: HeroSliderProps) {
     if (Math.abs(diff) > 45) goTo(active + (diff > 0 ? 1 : -1));
   };
 
-  if (total === 0) return null;
+  if (total === 0 || !slide) return null;
 
   return (
-    <section
-      id="hero"
-      aria-roledescription="carousel"
-      aria-label={`${copy.brandLine1} ${copy.brandLine2}`}
-      className="ba-hero relative isolate flex h-[calc(100svh-var(--hero-offset))] min-h-[640px] w-full items-center overflow-hidden"
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
-    >
-
-      <div className="absolute inset-0 z-0 h-full w-full">
-        {slides.map((slide, index) => (
-          <div
-            key={slide.slug}
-            aria-hidden={index !== active}
-            className={`ba-hero__slide absolute inset-0 h-full w-full ${
-              index === active ? "opacity-100" : "pointer-events-none opacity-0"
-            }`}
-          >
-            <Image
-              src={slide.image}
-              alt={index === active ? slide.imageAlt : ""}
-              fill
-              priority={index === 0}
-              sizes="100vw"
-              className="ba-hero__img"
-              style={{ objectPosition: slide.focus }}
-            />
-          </div>
-        ))}
-      </div>
-
-      <div aria-hidden="true" className="ba-hero__vignette absolute inset-0 z-10" />
-
-      <div className="relative z-20 mx-auto flex h-full w-full max-w-[1440px] flex-col justify-between px-6 pb-[calc(5.6rem+env(safe-area-inset-bottom))] pt-8 sm:px-12 sm:pt-10 md:px-16 lg:px-20 lg:pt-12 min-[1200px]:pb-12">
-        <div className="h-2 shrink-0" />
-
-        <div className="mt-auto w-full max-w-[36rem] pb-10 [text-shadow:0_1px_2px_rgba(3,14,9,0.6),0_10px_36px_rgba(3,14,9,0.5)] sm:pb-14">
-          <h1 className="text-balance font-display text-[clamp(2.05rem,6.6vw,4.1rem)] font-semibold uppercase leading-[1.04] tracking-[0.045em] text-[#f7f6f0]">
-            {copy.brandLine1}
-            <br />
-            <span className="tracking-[0.055em] text-[#f5eed6]">{copy.brandLine2}</span>
-          </h1>
-
-          <h2 className="mt-6 text-[clamp(1.1rem,2.5vw,1.55rem)] font-semibold leading-[1.3] text-white sm:mt-8">
-            {copy.subheading}{" "}
-            <span className="text-[#f2b842]">{copy.subheadingAccent}</span>
-          </h2>
-
-          <p className="mt-4 max-w-[46ch] text-[0.9rem] leading-[1.7] text-cream/80 sm:mt-5 sm:text-[0.98rem]">
-            {copy.description}
-          </p>
-
-          <div className="mt-7 flex flex-wrap items-center gap-3 sm:mt-9 sm:gap-4">
-            <Link
-              href={copy.primaryHref}
-              className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#f0a828] px-6 py-3 text-sm font-semibold text-[#1b1916] shadow-lg shadow-amber-950/30 transition-all duration-200 hover:bg-[#dba828] active:scale-[0.98] sm:px-7 sm:py-3.5 sm:text-[15px]"
+    <>
+      <section
+        id="home"
+        aria-roledescription="carousel"
+        aria-label="Featured machinery"
+        className="ba-hero relative isolate flex h-[calc(100svh-var(--hero-offset))] min-h-[660px] w-full items-center overflow-hidden"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
+        <div className="absolute inset-0 z-0 h-full w-full">
+          {slides.map((item, index) => (
+            <div
+              key={item.slug}
+              aria-hidden={index !== active}
+              className={`ba-hero__slide absolute inset-0 h-full w-full ${
+                index === active ? "opacity-100" : "pointer-events-none opacity-0"
+              }`}
             >
-              {copy.primaryLabel}
-              <ArrowRight
-                aria-hidden="true"
-                className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
+              <Image
+                src={item.image}
+                alt={index === active ? item.imageAlt : ""}
+                fill
+                priority={index === 0}
+                sizes="100vw"
+                className="ba-hero__img"
+                style={{ objectPosition: item.focus }}
               />
-            </Link>
-
-            <Link
-              href={copy.secondaryHref}
-              className="inline-flex items-center justify-center rounded-lg border border-white/80 px-6 py-3 text-sm font-medium text-white backdrop-blur-sm transition-all duration-200 hover:border-white hover:bg-white/10 active:scale-[0.98] sm:px-7 sm:py-3.5 sm:text-[15px]"
-            >
-              {copy.secondaryLabel}
-            </Link>
-          </div>
-
-          <ul className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3 text-[0.7rem] font-normal text-cream/90 sm:mt-10 sm:text-[0.8rem]">
-            {badges.map((badge, index) => {
-              const Icon = badgeIcon[badge.icon];
-
-              return (
-                <li
-                  key={badge.icon}
-                  className={`flex items-center gap-2 ${
-                    index === 0
-                      ? "sm:border-r sm:border-white/20 sm:pr-5"
-                      : index === badges.length - 1
-                        ? "sm:pl-5"
-                        : "sm:border-r sm:border-white/20 sm:px-5"
-                  }`}
-                >
-                  <Icon
-                    aria-hidden="true"
-                    className="h-[1.15rem] w-[1.15rem] shrink-0 text-[#f2b842] sm:h-5 sm:w-5"
-                    strokeWidth={1.8}
-                  />
-                  <span className="leading-[1.35]">
-                    {badge.lines.map((line, lineIndex) => (
-                      <span key={line}>
-                        {lineIndex > 0 ? <br /> : null}
-                        {line}
-                      </span>
-                    ))}
-                  </span>
-                </li>
-              );
-            })}
-          </ul>
+            </div>
+          ))}
         </div>
 
-        <div className="flex w-full items-center justify-between gap-4 pt-5 sm:pt-6">
-          <div className="hidden w-24 sm:block" />
+        <div aria-hidden="true" className="ba-hero__vignette absolute inset-0 z-10" />
 
-          <div className="mx-auto flex items-center justify-center gap-2 sm:mx-0">
-            {slides.map((slide, index) => {
-              const isActive = index === active;
+        <div className="relative z-20 mx-auto flex h-full w-full max-w-[1440px] flex-col px-6 sm:px-10 md:px-14 lg:px-20">
+          <div className="flex flex-1 items-center pb-28 pt-16 sm:pb-32 sm:pt-20 lg:pb-28">
+            <div key={slide.slug} className="ba-hero-rise w-full max-w-[44rem] [text-shadow:0_1px_2px_rgba(3,14,9,0.45),0_12px_40px_rgba(3,14,9,0.35)]">
+              <p className="text-[length:0.72rem] font-bold uppercase leading-[1.5] tracking-[0.24em] text-[#f2b842] sm:text-xs">
+                {slide.eyebrow}
+              </p>
 
-              return (
-                <button
-                  key={slide.slug}
-                  type="button"
-                  onClick={() => goTo(index)}
-                  aria-label={`${copy.slideLabel}: ${slide.name}`}
-                  aria-current={isActive ? "true" : undefined}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    isActive ? "w-8 bg-[#f2b842]" : "w-2 bg-white/40 hover:bg-white/70"
+              <h1 className="mt-4 text-[clamp(2.5rem,7vw,5.1rem)] font-semibold uppercase leading-[0.98] tracking-[0.02em] text-[#f7f6f0] sm:mt-5">
+                <span className="block">{slide.title}</span>
+                <span className="block text-[#f2b842]">{slide.titleAccent}</span>
+              </h1>
+
+              <p className="mt-5 max-w-[36rem] text-[clamp(1rem,1.55vw,1.32rem)] leading-[1.6] text-cream/95 sm:mt-6">
+                {slide.subtitle}{" "}
+                <span className="font-semibold text-[#f2b842]">{slide.subtitleAccent}</span>
+                {slide.description ? (
+                  <>
+                    <br className="hidden sm:block" />{" "}
+                    <span className="text-[0.93em] text-cream/80">{slide.description}</span>
+                  </>
+                ) : null}
+              </p>
+
+              <div className="mt-7 flex flex-wrap items-center gap-3 sm:mt-9 sm:gap-4">
+                <Link
+                  href={slide.primaryHref}
+                  className="group inline-flex min-h-[3.2rem] items-center justify-center gap-2.5 rounded-lg border border-[#f2b842] bg-[#f0a828] px-6 text-sm font-bold text-[#1b1916] shadow-lg shadow-amber-950/25 transition-all duration-200 hover:bg-[#ffc94d] hover:-translate-y-0.5 active:scale-[0.98] sm:min-h-[3.4rem] sm:px-7 sm:text-[15px]"
+                >
+                  {slide.primaryLabel}
+                  <ArrowRight
+                    aria-hidden="true"
+                    className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
+                  />
+                </Link>
+
+                <Link
+                  href={slide.secondaryHref}
+                  className="inline-flex min-h-[3.2rem] items-center justify-center rounded-lg border border-white/80 bg-black/15 px-6 text-sm font-semibold text-white transition-all duration-200 hover:border-white hover:bg-white hover:text-forest-900 active:scale-[0.98] sm:min-h-[3.4rem] sm:px-7 sm:text-[15px]"
+                >
+                  {slide.secondaryLabel}
+                </Link>
+              </div>
+
+              {slide.showBadges ? (
+                <ul className="ba-hero__badges mt-8 flex flex-wrap items-center gap-x-5 gap-y-3 text-[0.72rem] leading-[1.35] text-cream/90 sm:mt-11 sm:gap-x-6 sm:text-[13px]">
+                  {badges.map((badge, index) => {
+                    const Icon = badgeIcon[badge.icon];
+
+                    return (
+                      <li
+                        key={badge.icon}
+                        className={`flex items-center gap-2.5 ${
+                          index === badges.length - 1
+                            ? ""
+                            : "border-r border-[rgba(244,181,45,0.55)] pr-5 sm:pr-6"
+                        }`}
+                      >
+                        <Icon
+                          aria-hidden="true"
+                          className="h-5 w-5 shrink-0 text-[#f2b842]"
+                          strokeWidth={1.8}
+                        />
+                        <span>
+                          {badge.lines.map((line, lineIndex) => (
+                            <span key={line}>
+                              {lineIndex > 0 ? <br /> : null}
+                              {line}
+                            </span>
+                          ))}
+                        </span>
+                      </li>
+                    );
+                  })}
+                </ul>
+              ) : null}
+            </div>
+          </div>
+
+          <div className="absolute inset-x-6 bottom-5 flex items-center justify-between gap-4 sm:inset-x-10 sm:bottom-6 md:inset-x-14 lg:inset-x-20">
+            <div className="flex items-center gap-2.5">
+              {slides.map((item, index) => {
+                const isActive = index === active;
+
+                return (
+                  <button
+                    key={item.slug}
+                    type="button"
+                    onClick={() => goTo(index)}
+                    aria-label={`${copy.slideLabel} ${index + 1}: ${item.name}`}
+                    aria-current={isActive ? "true" : undefined}
+                    className={`h-2 rounded-full transition-all duration-300 ${
+                      isActive ? "w-7 bg-[#f2b842]" : "w-2 bg-white/45 hover:bg-white/75"
+                    }`}
+                  />
+                );
+              })}
+            </div>
+
+            <div className="flex items-center gap-3">
+              <span className="text-xs font-semibold tracking-[0.14em] text-white/90 tabular-nums sm:text-sm">
+                {pad(active + 1)} / {pad(total)}
+              </span>
+              <span className="hidden h-[1.5px] w-10 bg-white/45 sm:block sm:w-16" />
+            </div>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          onClick={prev}
+          aria-label={copy.prevLabel}
+          className="absolute left-4 top-1/2 z-30 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/50 bg-black/30 text-white transition-all duration-200 hover:bg-[#f2b842] hover:text-forest-900 active:scale-95 sm:flex lg:left-6"
+        >
+          <ChevronLeft aria-hidden="true" className="h-6 w-6" strokeWidth={2.1} />
+        </button>
+
+        <button
+          type="button"
+          onClick={next}
+          aria-label={copy.nextLabel}
+          className="absolute right-4 top-1/2 z-30 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/50 bg-black/30 text-white transition-all duration-200 hover:bg-[#f2b842] hover:text-forest-900 active:scale-95 sm:flex lg:right-6"
+        >
+          <ChevronRight aria-hidden="true" className="h-6 w-6" strokeWidth={2.1} />
+        </button>
+      </section>
+
+      <div aria-label="Featured categories" className="bg-[#061b0e] px-[var(--gutter)] py-3 sm:py-4">
+        <div className="mx-auto grid max-w-[1440px] grid-cols-4 gap-2 sm:gap-4">
+          {slides.map((item, index) => {
+            const isActive = index === active;
+
+            return (
+              <button
+                key={item.slug}
+                type="button"
+                onClick={() => goTo(index)}
+                aria-label={`${copy.thumbnailLabel} ${index + 1}: ${item.name}`}
+                aria-current={isActive ? "true" : undefined}
+                className={`group relative h-[4.6rem] overflow-hidden rounded-lg border-2 transition-colors duration-200 sm:h-[6rem] lg:h-[7.8rem] lg:rounded-xl ${
+                  isActive ? "border-[#f2b842]" : "border-white/20 hover:border-white/50"
+                }`}
+              >
+                <Image
+                  src={item.image}
+                  alt=""
+                  fill
+                  sizes="(max-width: 640px) 25vw, 360px"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  style={{ objectPosition: item.focus }}
+                />
+                <span
+                  aria-hidden="true"
+                  className={`absolute inset-0 bg-forest-950 transition-opacity duration-200 ${
+                    isActive ? "opacity-0" : "opacity-35 group-hover:opacity-10"
                   }`}
                 />
-              );
-            })}
-          </div>
-
-          <div className="flex items-center gap-3">
-            <span className="text-xs font-medium tracking-wider text-white/90 tabular-nums sm:text-sm">
-              {pad(active + 1)} / {pad(total)}
-            </span>
-            <div className="hidden h-[1.5px] w-10 bg-white/40 sm:block sm:w-16" />
-          </div>
+              </button>
+            );
+          })}
         </div>
       </div>
-
-      <button
-        type="button"
-        onClick={prev}
-        aria-label={copy.prevLabel}
-        className="absolute left-6 top-1/2 z-30 hidden h-12 w-12 -translate-y-1/2 lg:flex items-center justify-center rounded-full border border-white/15 bg-black/40 text-white/90 backdrop-blur-md transition-all duration-200 hover:bg-black/70 hover:text-white active:scale-95"
-      >
-        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} className="-ml-0.5 h-6 w-6">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-        </svg>
-      </button>
-
-      <button
-        type="button"
-        onClick={next}
-        aria-label={copy.nextLabel}
-        className="absolute right-6 top-1/2 z-30 hidden h-12 w-12 -translate-y-1/2 lg:flex items-center justify-center rounded-full border border-white/15 bg-black/40 text-white/90 backdrop-blur-md transition-all duration-200 hover:bg-black/70 hover:text-white active:scale-95"
-      >
-        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} className="-mr-0.5 h-6 w-6">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-        </svg>
-      </button>
-    </section>
+    </>
   );
 }

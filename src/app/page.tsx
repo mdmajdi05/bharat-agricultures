@@ -11,8 +11,8 @@ import ProductShowcase from "@/components/sections/home/ProductShowcase";
 import QualityBand from "@/components/sections/home/QualityBand";
 import FaqSection from "@/components/sections/shared/FaqSection";
 import { faqSchema, JsonLd, webPageSchema } from "@/components/seo/StructuredData";
-import { agriculturalProducts, brickKilnProducts } from "@/data/products";
-import { homeBrickKilnCopy, homeFaqCopy, homeShowcaseCopy, seoMetadata } from "@/data/siteContent";
+import { products } from "@/data/products";
+import { homeFaqCopy, seoMetadata } from "@/data/siteContent";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createMetadata({
@@ -35,20 +35,7 @@ export default function HomePage() {
       <Hero />
       <Marquee />
       <Introduction />
-      <ProductShowcase
-        copy={homeShowcaseCopy}
-        products={agriculturalProducts}
-        ariaLabel="Agricultural machinery categories"
-      />
-      <ProductShowcase
-        copy={homeBrickKilnCopy}
-        products={brickKilnProducts}
-        className={`
-          ba-section relative py-[var(--section-y)]
-          ba-section--soft bg-cream-soft showcase
-        `}
-        ariaLabel="Brick kiln machinery categories"
-      />
+      <ProductShowcase products={products} />
       <MachineGuide />
       <QualityBand />
       <Capabilities />
