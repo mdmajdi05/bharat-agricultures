@@ -82,50 +82,46 @@ export const heroSlides: HeroSlide[] = heroSlideSlugs.map((slug) => {
 });
 
 export type HeroCopy = {
-  eyebrow: string;
-  title: string;
-  titleAccent: string;
-  lead: string;
+  /** Brand title, split across two lines in the hero. */
+  brandLine1: string;
+  brandLine2: string;
+  subheading: string;
+  subheadingAccent: string;
+  description: string;
   primaryLabel: string;
   primaryHref: string;
   secondaryLabel: string;
   secondaryHref: string;
-  indexLabel: string;
+  /** Accessible labels for the reel controls. */
+  prevLabel: string;
+  nextLabel: string;
   slideLabel: string;
-  viewLabel: string;
-  pauseLabel: string;
-  playLabel: string;
-  pauseText: string;
-  playText: string;
 };
-
-export type HeroStat = {
-  value: string;
-  label: string;
-};
-
-/** Small proof row that sits under the hero copy. */
-export const heroStats: HeroStat[] = [
-  { value: "06", label: "Component categories" },
-  { value: "02", label: "Core industries" },
-  { value: "B2B", label: "Built for business" },
-];
 
 export const heroCopy: HeroCopy = {
-  eyebrow: "Manufacturer · Sambhal, Uttar Pradesh",
-  title: "Agricultural & Brick Kiln Machinery",
-  titleAccent: "Manufacturer in India",
-  lead:
-    "Sambhal, Uttar Pradesh se agricultural aur brick kiln machinery ka seedha manufacturer — thresher, harrow aur land leveler se lekar pugmill, ID fan aur coal crusher tak.",
-  primaryLabel: "Get a quote",
-  primaryHref: "/enquiry",
-  secondaryLabel: "Explore machinery",
-  secondaryHref: "/agricultural-machinery",
-  indexLabel: "Product index",
-  slideLabel: "Show product",
-  viewLabel: "View machine",
-  pauseLabel: "Pause product slideshow",
-  playLabel: "Play product slideshow",
-  pauseText: "Pause",
-  playText: "Play",
+  brandLine1: "Bharat",
+  brandLine2: "Agricultures",
+  subheading: "Manufacturer of Agricultural &",
+  subheadingAccent: "Brick Kiln Machinery",
+  description:
+    "Reliable and quality-driven machinery solutions designed for modern agriculture and industrial operations.",
+  primaryLabel: "Explore Our Machinery",
+  primaryHref: "/products",
+  secondaryLabel: "Get a Quote",
+  secondaryHref: "/enquiry",
+  prevLabel: "Previous slide",
+  nextLabel: "Next slide",
+  slideLabel: "Go to slide",
 };
+
+export type HeroBadge = {
+  icon: "shield" | "gear" | "handshake";
+  /** Two short lines, rendered as-is. */
+  lines: [string, string] | [string];
+};
+
+export const heroBadges: HeroBadge[] = [
+  { icon: "shield", lines: ["High Quality", "Machines"] },
+  { icon: "gear", lines: ["Reliable Performance"] },
+  { icon: "handshake", lines: ["Trusted Partner"] },
+];

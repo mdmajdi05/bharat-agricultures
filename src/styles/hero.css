@@ -1,285 +1,66 @@
 /* ============================================================
-   HOME HERO — EDITORIAL SPLIT
+   HOME HERO — FULL-BLEED PRODUCT REEL
    ------------------------------------------------------------
-   Copy and proof row on the left, two photographs on the right.
-   Nothing plays, nothing floats: the section is a plain page
-   opening that ends at the fold on tall screens.
+   A single photograph fills the frame; the brand lockup, claim
+   and trust row sit on the left over a forest vignette. Dots and
+   a slide counter sit at the foot of the frame.
    ============================================================ */
 
 .ba-hero {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  border-bottom: 1px solid rgba(23, 37, 27, 0.1);
+  background: #051109;
+  color: #fff;
+}
+
+/* Soft foliage atmosphere in the far-left corner. */
+.ba-hero__leaves {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -60px;
+  z-index: 15;
+  width: 280px;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at left,
+    rgba(20, 48, 28, 0.65) 0%,
+    rgba(10, 28, 16, 0.35) 45%,
+    transparent 75%
+  );
+  filter: blur(25px);
+}
+
+/* Dark wash that keeps the copy legible without flattening the photo. */
+.ba-hero__vignette {
   background:
-    radial-gradient(110% 80% at 84% 6%, rgba(216, 164, 64, 0.12) 0%, rgba(216, 164, 64, 0) 58%),
-    linear-gradient(180deg, var(--c-paper) 0%, var(--c-cream) 100%);
-  color: var(--c-ink);
+    radial-gradient(
+      circle at 18% 50%,
+      rgba(5, 18, 12, 0.94) 0%,
+      rgba(5, 18, 12, 0.88) 32%,
+      rgba(5, 18, 12, 0.45) 60%,
+      rgba(5, 18, 12, 0.12) 85%,
+      transparent 100%
+    ),
+    linear-gradient(
+      to right,
+      rgba(2, 12, 8, 0.96) 0%,
+      rgba(2, 12, 8, 0.78) 42%,
+      rgba(2, 12, 8, 0.3) 68%,
+      transparent 100%
+    ),
+    linear-gradient(to top, rgba(1, 8, 5, 0.7) 0%, transparent 22%);
 }
 
-.ba-hero__inner {
-  display: grid;
-  gap: clamp(1.75rem, 5vw, 3.5rem);
-  align-items: center;
-  min-height: calc(100svh - var(--hero-offset));
-  padding-block: clamp(2rem, 5vw, 3.5rem) clamp(2rem, 5vw, 3.5rem);
-}
-
-/* ============================================================
-   COPY
-   ============================================================ */
-
-.ba-hero__copy {
-  display: grid;
-  justify-items: start;
-  align-content: center;
-  gap: clamp(0.8rem, 1.5svh, 1.05rem);
-  min-width: 0;
-}
-
-.ba-hero__kicker {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  max-width: 100%;
-  color: var(--c-muted);
-  font-size: clamp(0.56rem, 1.6vw, 0.62rem);
-  font-weight: 800;
-  line-height: 1.35;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
-.ba-hero__kicker::before {
-  content: "";
-  flex: none;
-  width: 0.32rem;
-  height: 0.32rem;
-  border-radius: 50%;
-  background: var(--c-gold);
-  box-shadow: 0 0 0 3px rgba(216, 164, 64, 0.14);
-}
-
-.ba-hero__title {
-  max-width: 22ch;
-  color: var(--c-ink);
-  font-family: var(--font-display);
-  font-size: clamp(2.15rem, 6.2vw, 4.15rem);
-  font-weight: 500;
-  line-height: 0.99;
-  letter-spacing: -0.035em;
-  text-wrap: balance;
-}
-
-.ba-hero__title em {
-  font-style: italic;
-  color: var(--c-gold-deep);
-}
-
-.ba-hero__lead {
-  max-width: 46ch;
-  color: var(--c-muted);
-  font-size: clamp(0.88rem, 2vw, 0.98rem);
-  line-height: 1.65;
-}
-
-.ba-hero__actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.75rem 1.35rem;
-  padding-top: 0.3rem;
-}
-
-.ba-hero__cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.45rem;
-  min-height: 2.9rem;
-  padding: 0.8rem 1.3rem;
-  border-radius: 2px;
-  background: linear-gradient(135deg, #f7dca4 0%, #e8b458 46%, #d8a440 100%);
-  color: #102314;
-  font-size: 0.6rem;
-  font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  box-shadow:
-    0 16px 34px -16px rgba(216, 164, 64, 0.7),
-    inset 0 1px 0 rgba(255, 255, 255, 0.55);
-  transition:
-    background 0.2s var(--ease),
-    box-shadow 0.2s var(--ease),
-    transform 0.2s var(--ease);
-}
-
-.ba-hero__cta:hover {
-  background: linear-gradient(135deg, #fde8bb 0%, #f0c473 46%, #e0ae4c 100%);
-  box-shadow:
-    0 20px 38px -16px rgba(216, 164, 64, 0.85),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6);
-  transform: translateY(-1px);
-}
-
-.ba-hero__cta svg {
-  transition: transform 0.2s var(--ease);
-}
-
-.ba-hero__cta:hover svg {
-  transform: translate(2px, -2px);
-}
-
-.ba-hero__link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.35rem 0;
-  border-bottom: 1px solid rgba(169, 122, 32, 0.45);
-  color: var(--c-ink);
-  font-size: 0.58rem;
-  font-weight: 800;
-  line-height: 1.2;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  transition:
-    color 0.2s var(--ease),
-    border-color 0.2s var(--ease);
-}
-
-.ba-hero__link svg {
-  flex: none;
-  color: var(--c-gold-deep);
-  transition: transform 0.25s var(--ease);
-}
-
-.ba-hero__link:hover {
-  border-color: var(--c-gold-deep);
-  color: var(--c-gold-deep);
-}
-
-.ba-hero__link:hover svg {
-  transform: translate(2px, -2px);
-}
-
-/* ============================================================
-   PROOF ROW — 06 / 02 / B2B
-   ============================================================ */
-
-.ba-hero__stats {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.9rem;
-  width: 100%;
-  margin-top: clamp(0.9rem, 2.5vw, 1.6rem);
-  padding-top: clamp(0.9rem, 2vw, 1.15rem);
-  border-top: 1px solid rgba(23, 37, 27, 0.14);
-}
-
-.ba-hero__stat {
-  display: grid;
-  gap: 0.3rem;
-  min-width: 0;
-}
-
-.ba-hero__stat-value {
-  color: var(--c-ink);
-  font-family: var(--font-display);
-  font-size: clamp(1.25rem, 3.2vw, 1.7rem);
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: -0.02em;
-}
-
-.ba-hero__stat-label {
-  color: var(--c-muted);
-  font-size: clamp(0.52rem, 1.5vw, 0.58rem);
-  font-weight: 700;
-  line-height: 1.35;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-}
-
-/* ============================================================
-   PHOTOGRAPHS
-   ============================================================ */
-
-.ba-hero__stage {
-  position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-  gap: 0.6rem;
-  min-width: 0;
-}
-
-.ba-hero__frame {
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 1 / 1.2;
-  border-radius: 2px;
-  background: var(--c-cream-soft);
-  box-shadow: var(--shadow-soft);
+.ba-hero__slide {
+  transition: opacity 700ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .ba-hero__img {
   object-fit: cover;
-  transition: transform 0.9s var(--ease);
-}
-
-.ba-hero__frame:hover .ba-hero__img {
-  transform: scale(1.03);
-}
-
-/* ============================================================
-   DESKTOP — copy left, overlapping photographs right
-   ============================================================ */
-
-@media (min-width: 1000px) {
-  .ba-hero__inner {
-    grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
-    column-gap: clamp(2.5rem, 6vw, 6rem);
-  }
-
-  .ba-hero__title {
-    font-size: clamp(2.7rem, 4.3vw, 4.3rem);
-    line-height: 0.96;
-    letter-spacing: -0.038em;
-  }
-
-  .ba-hero__stage {
-    display: block;
-    padding: 0 0 clamp(1.5rem, 3vw, 2.25rem) clamp(1.5rem, 3vw, 2.25rem);
-  }
-
-  .ba-hero__frame--main {
-    aspect-ratio: 4 / 4.6;
-    box-shadow: var(--shadow-card);
-  }
-
-  .ba-hero__frame--inset {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 44%;
-    aspect-ratio: 1 / 1.15;
-    border: 5px solid var(--c-paper);
-  }
-}
-
-/* The fixed mobile action bar only exists below 1200px. */
-@media (max-width: 1199px) {
-  .ba-hero__inner {
-    padding-bottom: calc(4.6rem + env(safe-area-inset-bottom));
-  }
+  filter: brightness(0.9);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ba-hero__img {
+  .ba-hero__slide {
     transition: none;
-  }
-
-  .ba-hero__frame:hover .ba-hero__img {
-    transform: none;
   }
 }
