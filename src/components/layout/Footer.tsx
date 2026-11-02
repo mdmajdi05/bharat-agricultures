@@ -25,7 +25,7 @@ export default function Footer() {
           bg-cream rounded-[12px] [&_img]:w-[10.5rem]
           [&_img]:h-[auto] [&_img]:[mix-blend-mode:multiply]
         `} aria-label={`${site.name} home`}>
-              <Image src="/bharat-agricultures-logo.png" alt={site.name} width={360} height={128} />
+              <Image src="/footer-logo.png" alt={site.name} width={1600} height={569} sizes="168px" />
             </Link>
             <p className={`
           ba-footer__about mt-[1.25rem] max-w-[34ch]

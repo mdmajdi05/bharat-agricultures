@@ -55,7 +55,7 @@ export default function Header() {
           shrink-0 [&_img]:w-[8.6rem] [&_img]:h-[auto]
           [&_img]:[mix-blend-mode:multiply] min-[1200px]:[&_img]:w-[11rem]
         `} aria-label={`${site.name} home`}>
-            <Image src="/bharat-agricultures-logo.png" alt={`${site.name} — ${site.tagline}`} width={320} height={114} priority />
+            <Image src="/header-logo.png" alt={`${site.name} — ${site.tagline}`} width={838} height={298} priority sizes="(max-width: 1200px) 138px, 176px" />
           </Link>
 
           <DesktopNav />

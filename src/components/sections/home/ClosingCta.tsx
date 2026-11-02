@@ -13,7 +13,7 @@ export default function ClosingCta() {
           [&::before]:bottom-[-14rem] [&::before]:w-[34rem] [&::before]:h-[34rem]
           [&::before]:[border:1px_solid_rgba(10,_32,_20,_0.18)] [&::before]:rounded-full [&::before]:shadow-[0_0_0_3.5rem_rgba(10,_32,_20,_0.06),_0_0_0_7rem_rgba(10,_32,_20,_0.04)]
           [&::before]:pointer-events-none [&_h2]:text-[length:clamp(2.5rem,_9vw,_5rem)] [&_h2]:leading-[0.98]
-          [&_h2]:tracking-[-0.04em] [&_h2_em]:text-forest-700
+          [&_h2]:tracking-[-0.04em] [&_h2_em]:!text-forest-900
         `}>
       <Container>
         <div className={`
@@ -42,10 +42,10 @@ export default function ClosingCta() {
           ba-cta__circle grid [place-items:center]
           gap-[0.3rem] w-[7.5rem] h-[7.5rem]
           p-[1rem] rounded-full bg-forest-950
-          text-cream text-[length:0.62rem] font-bold
+          !text-cream text-[length:0.62rem] font-bold
           tracking-[0.14em] uppercase text-[center]
           leading-normal [transition:transform_0.4s_var(--ease),_background-color_0.3s_var(--ease)] [&:hover]:[transform:rotate(-6deg)_scale(1.03)]
-          [&:hover]:bg-forest-800 min-[900px]:w-[9rem] min-[900px]:h-[9rem]
+          [&:hover]:bg-forest-800 [&:hover]:!text-cream min-[900px]:w-[9rem] min-[900px]:h-[9rem]
           min-[900px]:shrink-0
         `}>
             {closingCtaCopy.ctaLabel} <ArrowUpRight size={22} aria-hidden="true" />
