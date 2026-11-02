@@ -1,33 +1,61 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import Image from "next/image";
-import { ArrowUpRight, CheckCircle2, ChevronDown, MessageCircle, X } from "lucide-react";
+import {
+  ArrowUpRight,
+  Clock,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Phone,
+  X,
+} from "lucide-react";
 
-import { site } from "@/lib/site";
+import { emailHref, phoneHref, site, whatsappHref } from "@/lib/site";
 
 const SHOW_DELAY_MS = 5000;
-const whatsappPopupHref = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(
+
+const whatsappPopupHref = `${whatsappHref}?text=${encodeURIComponent(
   "Hello Bharat Agricultures! I visited your website and would like to know more about your machinery.",
 )}`;
 
-const requirements = [
-  "Agricultural machinery",
-  "Brick kiln machinery",
-  "Spare parts",
-  "Something else",
-];
-
-const fieldClass =
-  "w-full rounded-lg border border-[#d9dbcf] bg-white px-3.5 py-3 text-[13px] leading-none text-[#183d2d] placeholder:text-[#9aa094] transition-colors duration-200 focus:border-[#c3a25c] focus:outline-none focus:ring-4 focus:ring-[#d8a440]/15";
-const labelClass =
-  "mb-1.5 block text-[8.5px] font-bold uppercase tracking-[0.16em] text-[#7b8277]";
+const actions = [
+  {
+    key: "call",
+    label: "Call karein",
+    value: site.phone,
+    note: "Mon–Sat, 9 AM – 7 PM",
+    href: phoneHref,
+    Icon: Phone,
+    external: false,
+    primary: true,
+  },
+  {
+    key: "whatsapp",
+    label: "WhatsApp par message",
+    value: "Turant baat karein",
+    note: "Photo ya part number bhej dein",
+    href: whatsappPopupHref,
+    Icon: MessageCircle,
+    external: true,
+    primary: false,
+  },
+  {
+    key: "mail",
+    label: "Email karein",
+    value: site.email,
+    note: "Drawing ya requirement attach karein",
+    href: emailHref,
+    Icon: Mail,
+    external: false,
+    primary: false,
+  },
+] as const;
 
 export default function EnquiryPopup() {
   const [open, setOpen] = useState(false);
-  const [sent, setSent] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
-  const nameRef = useRef<HTMLInputElement>(null);
+  const firstActionRef = useRef<HTMLAnchorElement>(null);
   const lastFocused = useRef<Element | null>(null);
 
   const close = useCallback(() => {
@@ -53,7 +81,7 @@ export default function EnquiryPopup() {
 
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    window.setTimeout(() => nameRef.current?.focus(), 80);
+    window.setTimeout(() => firstActionRef.current?.focus(), 80);
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -64,7 +92,7 @@ export default function EnquiryPopup() {
       if (event.key !== "Tab") return;
 
       const focusables = cardRef.current?.querySelectorAll<HTMLElement>(
-        'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])',
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
       );
       if (!focusables || focusables.length === 0) return;
 
@@ -91,7 +119,7 @@ export default function EnquiryPopup() {
 
   return (
     <div
-      className="ba-popup-overlay fixed inset-0 z-[4000] grid place-items-center bg-[rgba(5,19,12,0.52)] p-[18px] backdrop-blur-[6px] max-[560px]:place-items-end max-[560px]:p-0"
+      className="ba-popup-overlay fixed inset-0 z-[4000] grid place-items-center bg-[rgba(5,19,12,0.55)] p-[18px] backdrop-blur-[7px] max-[560px]:place-items-end max-[560px]:p-0"
       onClick={(event) => {
         if (event.target === event.currentTarget) close();
       }}
@@ -102,166 +130,154 @@ export default function EnquiryPopup() {
         aria-modal="true"
         aria-labelledby="ba-popup-title"
         aria-describedby="ba-popup-desc"
-        className="ba-popup-card relative max-h-[calc(100dvh-36px)] w-full max-w-[470px] overflow-y-auto rounded-[20px] border border-[#e8e2d2] bg-[#fffdf8] text-[#17251b] shadow-[0_30px_80px_rgba(5,19,12,0.28)] max-[560px]:max-h-[92dvh] max-[560px]:max-w-none max-[560px]:rounded-b-none max-[560px]:rounded-t-[22px]"
+        className="ba-popup-card relative max-h-[calc(100dvh-36px)] w-full max-w-[452px] overflow-y-auto rounded-[22px] border border-[#e8e2d2] bg-[#fffdf8] text-[#17251b] shadow-[0_34px_90px_rgba(5,19,12,0.34)] max-[560px]:max-h-[90dvh] max-[560px]:max-w-none max-[560px]:rounded-b-none max-[560px]:rounded-t-[24px]"
       >
-        <button
-          type="button"
-          onClick={close}
-          aria-label="Close enquiry form"
-          className="absolute right-3 top-3 z-20 grid h-10 w-10 place-items-center rounded-full border border-[#e7e2d3] bg-[#fffdf8]/95 text-[#17251b] backdrop-blur-sm transition-all duration-200 hover:rotate-90 hover:border-[#183d2d] hover:bg-[#183d2d] hover:text-[#f4f4ed]"
-        >
-          <X size={17} aria-hidden="true" />
-        </button>
-
-        <div className="relative h-[118px] overflow-hidden rounded-t-[20px] bg-[#0b2417] max-[560px]:h-[104px]">
-          <Image
-            src="/images/products/cultivator.jpg"
-            alt=""
-            fill
-            sizes="470px"
-            className="object-cover"
-            style={{ objectPosition: "center 58%" }}
+        {/* ---------- Dark editorial header ---------- */}
+        <div className="relative overflow-hidden bg-[#071b10] px-6 pb-7 pt-7 max-[560px]:px-5 max-[560px]:pb-6 max-[560px]:pt-6">
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute -right-20 -top-24 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(240,196,115,0.22),transparent_66%)]"
           />
           <span
             aria-hidden="true"
-            className="absolute inset-0 bg-[linear-gradient(180deg,rgba(253,252,247,0.04)_0%,rgba(253,252,247,0.48)_68%,#fffdf8_100%)]"
+            className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(240,196,115,0.5),transparent)]"
           />
-          <span className="absolute bottom-3 left-4 inline-flex items-center gap-2 rounded-full bg-[#183d2d] px-3 py-1.5 text-[9px] font-bold uppercase tracking-[0.12em] text-[#f4f4ed] shadow-[0_8px_20px_rgba(24,61,45,0.24)]">
-            <span aria-hidden="true" className="h-1 w-1 rounded-full bg-[#e2bd70]" />
-            Free consultation
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute -bottom-6 right-0 hidden h-28 w-44 opacity-25 [background-image:radial-gradient(circle,rgba(244,244,237,0.5)_1px,transparent_1px)] [background-size:14px_14px] [mask-image:linear-gradient(to_left,black,transparent)] sm:block"
+          />
+
+          <button
+            type="button"
+            onClick={close}
+            aria-label="Close contact card"
+            className="absolute right-4 top-4 z-20 grid h-9 w-9 place-items-center rounded-full border border-[#f4f4ed]/25 text-[#f4f4ed]/80 transition-all duration-200 hover:rotate-90 hover:border-[#f0c473] hover:bg-[#f0c473] hover:text-[#071b10]"
+          >
+            <X size={16} aria-hidden="true" />
+          </button>
+
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#f0c473]/35 bg-[#f0c473]/10 px-3 py-1 text-[8.5px] font-bold uppercase tracking-[0.18em] text-[#f2d49b]">
+            <span
+              aria-hidden="true"
+              className="h-1.5 w-1.5 rounded-full bg-[#f0c473] shadow-[0_0_0_3px_rgba(240,196,115,0.18)]"
+            />
+            Seedha manufacturer se
           </span>
+
+          <h2
+            id="ba-popup-title"
+            className="mt-4 max-w-[16ch] font-display text-[clamp(1.85rem,4.4vw,2.15rem)] leading-[1.04] tracking-[-0.035em] text-[#f4f4ed]"
+          >
+            Machine ki baat,
+            <span className="mt-0.5 block italic text-[#f0c473]">seedha humse.</span>
+          </h2>
+          <p
+            id="ba-popup-desc"
+            className="mt-2.5 max-w-[36ch] text-[12px] leading-[1.65] text-[#f4f4ed]/60"
+          >
+            Sambhal se agricultural machinery, brick kiln machinery aur spare
+            parts ka direct manufacturer. Call, WhatsApp ya email par rate aur
+            guidance lein.
+          </p>
         </div>
 
+        {/* ---------- Contact actions ---------- */}
         <div className="px-6 pb-6 pt-5 max-[560px]:px-5 max-[560px]:pb-[calc(1.4rem+env(safe-area-inset-bottom,0px))]">
-          {sent ? (
-            <div className="py-4 text-center">
-              <span className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-[#183d2d]/8 text-[#183d2d]">
-                <CheckCircle2 size={30} strokeWidth={1.6} aria-hidden="true" />
-              </span>
-              <h2 className="mt-4 font-display text-[26px] leading-[1.1] tracking-[-0.03em] text-[#183d2d]">
-                Shukriya!
-              </h2>
-              <p className="mx-auto mt-2 max-w-[32ch] text-[13px] leading-[1.7] text-[#5f665d]">
-                Aapki request mil gayi hai. Hamari team jaldi hi aapko call karke sahi machine
-                aur rate bata degi.
-              </p>
-              <button
-                type="button"
-                onClick={close}
-                className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#183d2d] px-4 py-3 text-[11px] font-bold uppercase tracking-[0.1em] text-[#f4f4ed] transition-colors duration-200 hover:bg-[#0f2d1c]"
-              >
-                Close
-              </button>
-            </div>
-          ) : (
-            <>
-              <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-[#a97a20]">
-                Bharat Agricultures · Sambhal
-              </p>
-              <h2
-                id="ba-popup-title"
-                className="mt-1.5 font-display text-[26px] leading-[1.08] tracking-[-0.03em] text-[#183d2d] max-[560px]:text-[23px]"
-              >
-                Sahi machine, sahi salaah.
-              </h2>
-              <p
-                id="ba-popup-desc"
-                className="mt-2 text-[12.5px] leading-[1.65] text-[#5f665d]"
-              >
-                Apni zaroorat batayein — machine, rate ya spare part. Hamari team seedha aapko
-                guide karegi.
-              </p>
+          <p className="text-[8.5px] font-bold uppercase tracking-[0.2em] text-[#8b9187]">
+            Kaise baat karna chahenge?
+          </p>
 
-              <form
-                className="mt-4 grid gap-3"
-                onSubmit={(event) => {
-                  event.preventDefault();
-                  setSent(true);
-                }}
-              >
-                <div className="grid grid-cols-2 gap-3 max-[420px]:grid-cols-1">
-                  <label>
-                    <span className={labelClass}>Aapka naam</span>
-                    <input
-                      ref={nameRef}
-                      required
-                      name="name"
-                      autoComplete="name"
-                      placeholder="Naam likhein"
-                      className={fieldClass}
-                    />
-                  </label>
+          <div className="mt-3 grid gap-2.5">
+            {actions.map((action) => {
+              const { Icon } = action;
 
-                  <label>
-                    <span className={labelClass}>Mobile number</span>
-                    <input
-                      required
-                      type="tel"
-                      name="phone"
-                      autoComplete="tel"
-                      inputMode="tel"
-                      pattern="[0-9+\s-]{10,15}"
-                      placeholder="10-digit mobile"
-                      className={fieldClass}
-                    />
-                  </label>
-                </div>
-
-                <label>
-                  <span className={labelClass}>Kya chahiye?</span>
-                  <span className="relative block">
-                    <select
-                      required
-                      name="requirement"
-                      defaultValue=""
-                      className={`${fieldClass} appearance-none pr-9`}
-                    >
-                      <option value="" disabled>
-                        Select requirement
-                      </option>
-                      {requirements.map((item) => (
-                        <option key={item} value={item}>
-                          {item}
-                        </option>
-                      ))}
-                    </select>
-                    <ChevronDown
-                      size={15}
+              if (action.primary) {
+                return (
+                  <a
+                    key={action.key}
+                    ref={firstActionRef}
+                    href={action.href}
+                    className="group flex items-center gap-3.5 rounded-[14px] bg-[#183d2d] p-3 pr-4 shadow-[0_12px_26px_rgba(24,61,45,0.22)] transition-colors duration-200 hover:bg-[#0f2d1c]"
+                  >
+                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#f0c473] text-[#071b10]">
+                      <Icon size={18} strokeWidth={2} aria-hidden="true" />
+                    </span>
+                    <span className="min-w-0 flex-1">
+                      <span className="block text-[8.5px] font-bold uppercase tracking-[0.16em] !text-[#f0c473]">
+                        {action.label}
+                      </span>
+                      <span className="mt-0.5 block truncate font-display text-[1.22rem] leading-tight tracking-[-0.02em] !text-[#f4f4ed]">
+                        {action.value}
+                      </span>
+                    </span>
+                    <ArrowUpRight
+                      size={17}
                       aria-hidden="true"
-                      className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-[#7b8277]"
+                      className="shrink-0 text-[#f4f4ed]/55 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[#f0c473]"
                     />
-                  </span>
-                </label>
+                  </a>
+                );
+              }
 
-                <button
-                  type="submit"
-                  className="group mt-0.5 inline-flex min-h-[46px] w-full items-center justify-center gap-2 rounded-lg bg-[#183d2d] px-4 py-3 text-[10.5px] font-bold uppercase tracking-[0.1em] !text-[#f4f4ed] shadow-[0_12px_26px_rgba(24,61,45,0.2)] transition-colors duration-200 hover:bg-[#0f2d1c]"
-                >
-                  Request a callback
-                  <ArrowUpRight
-                    size={15}
-                    aria-hidden="true"
-                    className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                  />
-                </button>
-              </form>
+              const hoverClass =
+                action.key === "whatsapp"
+                  ? "hover:border-[#1f9d55]/45 hover:bg-[#eef8f1]"
+                  : "hover:border-[#c3a25c]/60 hover:bg-[#fbf5e6]";
 
-              <div className="mt-3.5 flex flex-col items-center gap-2">
+              return (
                 <a
-                  href={whatsappPopupHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-[10.5px] font-semibold !text-[#334f3c] transition-colors duration-200 hover:!text-[#a97a20]"
+                  key={action.key}
+                  href={action.href}
+                  {...(action.external
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
+                  className={`group flex items-center gap-3.5 rounded-[14px] border border-[#e4dfd0] bg-white p-3 pr-4 transition-colors duration-200 ${hoverClass}`}
                 >
-                  <MessageCircle size={13} aria-hidden="true" />
-                  WhatsApp par baat karein
+                  <span
+                    className={`grid h-11 w-11 shrink-0 place-items-center rounded-full border ${
+                      action.key === "whatsapp"
+                        ? "border-[#1f9d55]/25 bg-[#1f9d55]/10 text-[#178046]"
+                        : "border-[#c3a25c]/35 bg-[#c3a25c]/10 text-[#9a7326]"
+                    }`}
+                  >
+                    <Icon size={18} strokeWidth={1.9} aria-hidden="true" />
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-[8.5px] font-bold uppercase tracking-[0.16em] text-[#8b9187]">
+                      {action.label}
+                    </span>
+                    <span className="mt-0.5 block truncate text-[13.5px] font-semibold leading-tight !text-[#183d2d]">
+                      {action.value}
+                    </span>
+                    <span className="mt-0.5 block truncate text-[10px] leading-tight text-[#8b9187]">
+                      {action.note}
+                    </span>
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-[#e4dfd0] text-[#8b9187] transition-all duration-200 group-hover:border-[#183d2d] group-hover:bg-[#183d2d] group-hover:text-[#f4f4ed]"
+                  >
+                    <ArrowUpRight size={14} aria-hidden="true" />
+                  </span>
                 </a>
-                <p className="text-center text-[9.5px] tracking-[0.03em] text-[#8b9187]">
-                  No spam · Direct manufacturer se salaah
-                </p>
-              </div>
-            </>
-          )}
+              );
+            })}
+          </div>
+
+          <div className="mt-4 flex flex-wrap items-center justify-between gap-x-5 gap-y-2 border-t border-[#e8e2d2] pt-3.5">
+            <span className="inline-flex items-center gap-1.5 text-[9.5px] font-medium text-[#8b9187]">
+              <Clock size={11} aria-hidden="true" className="text-[#a97a20]" />
+              Mon–Sat · 9 AM – 7 PM
+            </span>
+            <span className="inline-flex items-center gap-1.5 text-[9.5px] font-medium text-[#8b9187]">
+              <MapPin size={11} aria-hidden="true" className="text-[#a97a20]" />
+              Sambhal, Uttar Pradesh
+            </span>
+          </div>
+
+          <p className="mt-3 text-center text-[9px] tracking-[0.03em] text-[#a4a89e]">
+            No spam · Direct manufacturer se salaah
+          </p>
         </div>
       </div>
     </div>
