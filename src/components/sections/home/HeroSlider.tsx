@@ -27,8 +27,8 @@ type HeroSliderProps = {
  * Full-bleed hero reel.
  *
  * One photograph per business line, copy locked to the left over a forest
- * wash, and a thumbnail strip directly underneath. Autoplay pauses for
- * reduced-motion visitors; dots, thumbnails, swipe and arrow keys navigate.
+ * wash. Autoplay pauses for reduced-motion visitors; dots, swipe and arrow
+ * keys navigate.
  */
 export default function HeroSlider({ slides, copy, badges }: HeroSliderProps) {
   const [active, setActive] = useState(0);
@@ -243,42 +243,6 @@ export default function HeroSlider({ slides, copy, badges }: HeroSliderProps) {
           <ChevronRight aria-hidden="true" className="h-6 w-6" strokeWidth={2.1} />
         </button>
       </section>
-
-      <div aria-label="Featured categories" className="bg-[#061b0e] px-[var(--gutter)] py-3 sm:py-4">
-        <div className="mx-auto grid max-w-[1440px] grid-cols-4 gap-2 sm:gap-4">
-          {slides.map((item, index) => {
-            const isActive = index === active;
-
-            return (
-              <button
-                key={item.slug}
-                type="button"
-                onClick={() => goTo(index)}
-                aria-label={`${copy.thumbnailLabel} ${index + 1}: ${item.name}`}
-                aria-current={isActive ? "true" : undefined}
-                className={`group relative h-[4.6rem] overflow-hidden rounded-lg border-2 transition-colors duration-200 sm:h-[6rem] lg:h-[7.8rem] lg:rounded-xl ${
-                  isActive ? "border-[#f2b842]" : "border-white/20 hover:border-white/50"
-                }`}
-              >
-                <Image
-                  src={item.image}
-                  alt=""
-                  fill
-                  sizes="(max-width: 640px) 25vw, 360px"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  style={{ objectPosition: item.focus }}
-                />
-                <span
-                  aria-hidden="true"
-                  className={`absolute inset-0 bg-forest-950 transition-opacity duration-200 ${
-                    isActive ? "opacity-0" : "opacity-35 group-hover:opacity-10"
-                  }`}
-                />
-              </button>
-            );
-          })}
-        </div>
-      </div>
     </>
   );
 }
