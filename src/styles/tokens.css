@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-forest-950: var(--c-forest-950);
+  --color-forest-900: var(--c-forest-900);
+  --color-forest-800: var(--c-forest-800);
+  --color-forest-700: var(--c-forest-700);
+  --color-forest-600: var(--c-forest-600);
+  --color-ink: var(--c-ink);
+  --color-cream: var(--c-cream);
+  --color-cream-soft: var(--c-cream-soft);
+  --color-paper: var(--c-paper);
+  --color-gold: var(--c-gold);
+  --color-gold-soft: var(--c-gold-soft);
+  --color-gold-bright: var(--c-gold-bright);
+  --color-gold-deep: var(--c-gold-deep);
+  --color-muted: var(--c-muted);
+  --color-muted-dark: var(--c-muted-dark);
+  --color-line: var(--c-line);
+  --color-line-strong: var(--c-line-strong);
+  --color-line-dark: var(--c-line-dark);
+  --color-line-dark-strong: var(--c-line-dark-strong);
+  --font-display: var(--font-fraunces), "Fraunces", Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-manrope), "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@theme {
+  --animate-marquee: marquee 38s linear infinite;
+
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@theme {
+  --c-forest-950: #05130c;
+  --c-forest-900: #0a2014;
+  --c-forest-800: #0f2d1c;
+  --c-forest-700: #164029;
+  --c-forest-600: #1e5236;
+  --c-ink: #17251b;
+  --c-cream: #f4f4ed;
+  --c-cream-soft: #eee9da;
+  --c-paper: #fcfbf6;
+  --c-gold: #d8a440;
+  --c-gold-soft: #e6bb6a;
+  --c-gold-bright: #f0c473;
+  --c-gold-deep: #a97a20;
+  --c-muted: #687269;
+  --c-muted-dark: #b9c4b8;
+  --c-line: rgba(223, 227, 217, 0.13);
+  --c-line-strong: rgba(223, 227, 217, 0.26);
+  --c-line-dark: rgba(246, 243, 233, 0.14);
+  --c-line-dark-strong: rgba(246, 243, 233, 0.3);
+  --font-sans: var(--font-manrope), "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: var(--font-fraunces), "Fraunces", Georgia, "Times New Roman", serif;
+
+  --text-xs: 0.6875rem;
+  --text-sm: 0.8125rem;
+  --text-base: 1rem;
+  --text-lg: clamp(1.0625rem, 2.6vw, 1.1875rem);
+
+  --display-xl: clamp(2.85rem, 12.5vw, 6.75rem);
+  --display-lg: clamp(2.3rem, 8vw, 4.25rem);
+  --display-md: clamp(1.85rem, 5.5vw, 3rem);
+  --display-sm: clamp(1.35rem, 3.6vw, 1.75rem);
+  --container-max: 1320px;
+  --gutter: 1.25rem;
+  --section-y: clamp(4rem, 10vw, 7.5rem);
+  --header-h: 4.25rem;
+  /* Header height plus its 1px hairline, so the hero ends exactly at the fold. */
+  --hero-offset: calc(var(--header-h) + 1px);
+  --radius-xs: 4px;
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 26px;
+  --radius-pill: 999px;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --shadow-card: 0 24px 60px -32px rgba(5, 19, 12, 0.45);
+  --shadow-soft: 0 18px 45px -30px rgba(5, 19, 12, 0.35);
+}
+
+/* ============================================================
+   SCROLL REVEAL
+   ------------------------------------------------------------
+   Scoped to `scripting: enabled` so the content only starts hidden
+   when the browser can actually run the IntersectionObserver that
+   reveals it. Without JS the `@media` block never matches and every
+   `.ba-reveal` stays visible.
+   ============================================================ */
+
+@media (scripting: enabled) {
+  .ba-reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition:
+      opacity 0.7s var(--ease),
+      transform 0.7s var(--ease);
+  }
+
+  .ba-reveal.ba-is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ba-reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+}
+
+/* ============================================================
+   HERO HEADLINE SWAP
+   ------------------------------------------------------------
+   Runs whenever the keyed headline block remounts, i.e. on every
+   slide change. Motion is skipped for reduced-motion visitors.
+   ============================================================ */
+
+@keyframes ba-hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.ba-hero-rise {
+  animation: ba-hero-rise 640ms var(--ease) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ba-hero-rise {
+    animation: none;
+  }
+}
