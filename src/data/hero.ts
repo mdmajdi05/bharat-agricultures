@@ -13,8 +13,6 @@ export type HeroSlide = {
   slug: string;
   name: string;
   tagline: string;
-  /** Card line — reused as the hero slide paragraph. */
-  description: string;
   family: string;
   image: string;
   imageAlt: string;
@@ -75,7 +73,6 @@ export const heroSlides: HeroSlide[] = heroSlideSlugs.map((slug) => {
     slug: product.slug,
     name: product.name,
     tagline: product.tagline,
-    description: product.description,
     family: familyLabel[product.category],
     image: photo.src,
     imageAlt: photo.alt,
@@ -101,6 +98,18 @@ export type HeroCopy = {
   pauseText: string;
   playText: string;
 };
+
+export type HeroStat = {
+  value: string;
+  label: string;
+};
+
+/** Small proof row that sits under the hero copy. */
+export const heroStats: HeroStat[] = [
+  { value: "06", label: "Component categories" },
+  { value: "02", label: "Core industries" },
+  { value: "B2B", label: "Built for business" },
+];
 
 export const heroCopy: HeroCopy = {
   eyebrow: "Manufacturer · Sambhal, Uttar Pradesh",

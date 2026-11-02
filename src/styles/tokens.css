@@ -142,3 +142,19 @@
     animation: none;
   }
 }
+
+/* ============================================================
+   DARK BUTTON
+   ------------------------------------------------------------
+   The header wraps its actions in a container that forces every
+   anchor to inherit the ink colour. Two classes win that back so
+   the dark CTA keeps its cream label.
+   ============================================================ */
+
+.ba-btn.ba-btn--dark {
+  color: var(--c-cream);
+}
+
+.ba-btn.ba-btn--dark:hover {
+  color: var(--c-cream);
+}
