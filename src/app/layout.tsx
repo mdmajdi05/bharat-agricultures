@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import MobileCtaBar from "@/components/layout/MobileCtaBar";
+import FloatingContactWidget from "@/components/layout/FloatingContactWidget";
 import EnquiryPopup from "@/components/forms/EnquiryPopup";
 import OrganizationJsonLd from "@/components/seo/OrganizationJsonLd";
 import { chromeCopy } from "@/data/siteContent";
@@ -145,6 +146,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <main id="main">{children}</main>
         <Footer />
         <MobileCtaBar />
+        <FloatingContactWidget />
         <EnquiryPopup />
         <OrganizationJsonLd />
       </body>

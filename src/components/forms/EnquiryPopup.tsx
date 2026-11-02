@@ -176,8 +176,8 @@ export default function EnquiryPopup() {
               id="ba-popup-desc"
               className="mt-2.5 max-w-[34ch] text-[12px] leading-[1.65] text-[#f4f4ed]/60"
             >
-              Koi form fill nahi. Bas ek tap — call, WhatsApp ya mail. Rate aur
-              salaah turant.
+              Thresher, cleaner, harrow ya brick kiln machine — rate aur guidance
+              ke liye seedha humse baat karein.
             </p>
           </div>
         </div>
