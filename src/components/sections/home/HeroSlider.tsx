@@ -90,7 +90,6 @@ export default function HeroSlider({ slides, copy, badges }: HeroSliderProps) {
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
-      <div aria-hidden="true" className="ba-hero__leaves" />
 
       <div className="absolute inset-0 z-0 h-full w-full">
         {slides.map((slide, index) => (
@@ -116,26 +115,26 @@ export default function HeroSlider({ slides, copy, badges }: HeroSliderProps) {
 
       <div aria-hidden="true" className="ba-hero__vignette absolute inset-0 z-10" />
 
-      <div className="relative z-20 mx-auto flex h-full w-full max-w-[1440px] flex-col justify-between px-6 py-10 pb-[calc(5.4rem+env(safe-area-inset-bottom))] sm:px-12 md:px-16 lg:px-20 min-[1200px]:pb-10">
-        <div className="h-4 sm:h-6" />
+      <div className="relative z-20 mx-auto flex h-full w-full max-w-[1440px] flex-col justify-between px-6 pb-[calc(5.6rem+env(safe-area-inset-bottom))] pt-8 sm:px-12 sm:pt-10 md:px-16 lg:px-20 lg:pt-12 min-[1200px]:pb-12">
+        <div className="h-2 shrink-0" />
 
-        <div className="my-auto max-w-2xl lg:max-w-[620px]">
-          <h1 className="font-display text-[clamp(2.2rem,7.2vw,4.25rem)] font-semibold uppercase leading-[1.05] tracking-[0.04em] text-[#f7f6f0]">
+        <div className="mt-auto w-full max-w-[36rem] pb-10 [text-shadow:0_1px_2px_rgba(3,14,9,0.6),0_10px_36px_rgba(3,14,9,0.5)] sm:pb-14">
+          <h1 className="text-balance font-display text-[clamp(2.05rem,6.6vw,4.1rem)] font-semibold uppercase leading-[1.04] tracking-[0.045em] text-[#f7f6f0]">
             {copy.brandLine1}
             <br />
-            <span className="tracking-[0.05em] text-[#f5eed6]">{copy.brandLine2}</span>
+            <span className="tracking-[0.055em] text-[#f5eed6]">{copy.brandLine2}</span>
           </h1>
 
-          <h2 className="mt-4 text-[clamp(1.15rem,2.6vw,1.65rem)] font-semibold leading-snug text-white sm:mt-5">
+          <h2 className="mt-6 text-[clamp(1.1rem,2.5vw,1.55rem)] font-semibold leading-[1.3] text-white sm:mt-8">
             {copy.subheading}{" "}
             <span className="text-[#f2b842]">{copy.subheadingAccent}</span>
           </h2>
 
-          <p className="mt-4 max-w-lg text-sm leading-relaxed text-cream/85 sm:mt-5 sm:text-base">
+          <p className="mt-4 max-w-[46ch] text-[0.9rem] leading-[1.7] text-cream/80 sm:mt-5 sm:text-[0.98rem]">
             {copy.description}
           </p>
 
-          <div className="mt-7 flex flex-wrap items-center gap-4 sm:mt-8 sm:gap-5">
+          <div className="mt-7 flex flex-wrap items-center gap-3 sm:mt-9 sm:gap-4">
             <Link
               href={copy.primaryHref}
               className="group inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#f0a828] px-6 py-3 text-sm font-semibold text-[#1b1916] shadow-lg shadow-amber-950/30 transition-all duration-200 hover:bg-[#dba828] active:scale-[0.98] sm:px-7 sm:py-3.5 sm:text-[15px]"
@@ -155,23 +154,27 @@ export default function HeroSlider({ slides, copy, badges }: HeroSliderProps) {
             </Link>
           </div>
 
-          <ul className="mt-10 flex flex-wrap items-center gap-y-4 pt-4 text-xs font-normal text-cream/90 sm:mt-12 sm:text-[13px]">
+          <ul className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3 text-[0.7rem] font-normal text-cream/90 sm:mt-10 sm:text-[0.8rem]">
             {badges.map((badge, index) => {
               const Icon = badgeIcon[badge.icon];
 
               return (
                 <li
                   key={badge.icon}
-                  className={`flex items-center gap-2.5 ${
+                  className={`flex items-center gap-2 ${
                     index === 0
-                      ? "border-r border-white/20 pr-4 sm:pr-6"
+                      ? "sm:border-r sm:border-white/20 sm:pr-5"
                       : index === badges.length - 1
-                        ? "pl-4 sm:pl-6"
-                        : "border-r border-white/20 px-4 sm:px-6"
+                        ? "sm:pl-5"
+                        : "sm:border-r sm:border-white/20 sm:px-5"
                   }`}
                 >
-                  <Icon aria-hidden="true" className="h-5 w-5 shrink-0 text-[#f2b842]" strokeWidth={1.8} />
-                  <span className="leading-tight">
+                  <Icon
+                    aria-hidden="true"
+                    className="h-[1.15rem] w-[1.15rem] shrink-0 text-[#f2b842] sm:h-5 sm:w-5"
+                    strokeWidth={1.8}
+                  />
+                  <span className="leading-[1.35]">
                     {badge.lines.map((line, lineIndex) => (
                       <span key={line}>
                         {lineIndex > 0 ? <br /> : null}
@@ -185,7 +188,7 @@ export default function HeroSlider({ slides, copy, badges }: HeroSliderProps) {
           </ul>
         </div>
 
-        <div className="flex w-full items-center justify-between gap-4 pt-6">
+        <div className="flex w-full items-center justify-between gap-4 pt-5 sm:pt-6">
           <div className="hidden w-24 sm:block" />
 
           <div className="mx-auto flex items-center justify-center gap-2 sm:mx-0">
@@ -220,9 +223,9 @@ export default function HeroSlider({ slides, copy, badges }: HeroSliderProps) {
         type="button"
         onClick={prev}
         aria-label={copy.prevLabel}
-        className="absolute left-3 top-1/2 z-30 hidden h-10 w-10 sm:flex -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-black/40 text-white/90 backdrop-blur-md transition-all duration-200 hover:bg-black/70 hover:text-white active:scale-95 sm:left-6 sm:h-12 sm:w-12"
+        className="absolute left-6 top-1/2 z-30 hidden h-12 w-12 -translate-y-1/2 lg:flex items-center justify-center rounded-full border border-white/15 bg-black/40 text-white/90 backdrop-blur-md transition-all duration-200 hover:bg-black/70 hover:text-white active:scale-95"
       >
-        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} className="-ml-0.5 h-5 w-5 sm:h-6 sm:w-6">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} className="-ml-0.5 h-6 w-6">
           <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
         </svg>
       </button>
@@ -231,9 +234,9 @@ export default function HeroSlider({ slides, copy, badges }: HeroSliderProps) {
         type="button"
         onClick={next}
         aria-label={copy.nextLabel}
-        className="absolute right-3 top-1/2 z-30 hidden h-10 w-10 sm:flex -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-black/40 text-white/90 backdrop-blur-md transition-all duration-200 hover:bg-black/70 hover:text-white active:scale-95 sm:right-6 sm:h-12 sm:w-12"
+        className="absolute right-6 top-1/2 z-30 hidden h-12 w-12 -translate-y-1/2 lg:flex items-center justify-center rounded-full border border-white/15 bg-black/40 text-white/90 backdrop-blur-md transition-all duration-200 hover:bg-black/70 hover:text-white active:scale-95"
       >
-        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} className="-mr-0.5 h-5 w-5 sm:h-6 sm:w-6">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} className="-mr-0.5 h-6 w-6">
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
         </svg>
       </button>

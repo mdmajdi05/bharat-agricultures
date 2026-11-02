@@ -2,8 +2,8 @@
    HOME HERO — FULL-BLEED PRODUCT REEL
    ------------------------------------------------------------
    A single photograph fills the frame; the brand lockup, claim
-   and trust row sit on the left over a forest vignette. Dots and
-   a slide counter sit at the foot of the frame.
+   and trust row sit in the lower-left over a soft forest scrim.
+   Dots and a slide counter sit at the foot of the frame.
    ============================================================ */
 
 .ba-hero {
@@ -11,43 +11,39 @@
   color: #fff;
 }
 
-/* Soft foliage atmosphere in the far-left corner. */
-.ba-hero__leaves {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: -60px;
-  z-index: 15;
-  width: 280px;
-  pointer-events: none;
-  background: radial-gradient(
-    ellipse at left,
-    rgba(20, 48, 28, 0.65) 0%,
-    rgba(10, 28, 16, 0.35) 45%,
-    transparent 75%
-  );
-  filter: blur(25px);
-}
-
-/* Dark wash that keeps the copy legible without flattening the photo. */
+/*
+ * Scrim only where the copy sits: the top and right of the photograph stay
+ * clean so the machine is clearly visible.
+ */
 .ba-hero__vignette {
   background:
-    radial-gradient(
-      circle at 18% 50%,
-      rgba(5, 18, 12, 0.94) 0%,
-      rgba(5, 18, 12, 0.88) 32%,
-      rgba(5, 18, 12, 0.45) 60%,
-      rgba(5, 18, 12, 0.12) 85%,
-      transparent 100%
+    linear-gradient(
+      to top,
+      rgba(3, 14, 9, 0.96) 0%,
+      rgba(3, 14, 9, 0.9) 22%,
+      rgba(3, 14, 9, 0.62) 44%,
+      rgba(3, 14, 9, 0.24) 62%,
+      transparent 80%
     ),
     linear-gradient(
       to right,
-      rgba(2, 12, 8, 0.96) 0%,
-      rgba(2, 12, 8, 0.78) 42%,
-      rgba(2, 12, 8, 0.3) 68%,
-      transparent 100%
-    ),
-    linear-gradient(to top, rgba(1, 8, 5, 0.7) 0%, transparent 22%);
+      rgba(3, 14, 9, 0.72) 0%,
+      rgba(3, 14, 9, 0.38) 34%,
+      rgba(3, 14, 9, 0.08) 58%,
+      transparent 74%
+    );
+}
+
+@media (max-width: 767px) {
+  .ba-hero__vignette {
+    background: linear-gradient(
+      to top,
+      rgba(3, 14, 9, 0.95) 0%,
+      rgba(3, 14, 9, 0.82) 38%,
+      rgba(3, 14, 9, 0.4) 68%,
+      rgba(3, 14, 9, 0.14) 100%
+    );
+  }
 }
 
 .ba-hero__slide {
@@ -56,7 +52,6 @@
 
 .ba-hero__img {
   object-fit: cover;
-  filter: brightness(0.9);
 }
 
 @media (prefers-reduced-motion: reduce) {
