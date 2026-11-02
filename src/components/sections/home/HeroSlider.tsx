@@ -90,11 +90,11 @@ export default function HeroSlider({ slides, copy, badges }: HeroSliderProps) {
         id="home"
         aria-roledescription="carousel"
         aria-label="Featured machinery"
-        className="ba-hero relative isolate flex h-[calc(100svh-var(--hero-offset))] min-h-[660px] w-full items-center overflow-hidden"
+        className="ba-hero relative isolate flex h-[calc(100svh-var(--hero-offset))] min-h-[660px] w-full items-center overflow-hidden max-md:h-auto max-md:min-h-0"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
-        <div className="absolute inset-0 z-0 h-full w-full">
+        <div className="absolute inset-0 z-0 h-full w-full max-md:hidden">
           {slides.map((item, index) => (
             <div
               key={item.slug}
@@ -116,11 +116,11 @@ export default function HeroSlider({ slides, copy, badges }: HeroSliderProps) {
           ))}
         </div>
 
-        <div aria-hidden="true" className="ba-hero__vignette absolute inset-0 z-10" />
+        <div aria-hidden="true" className="ba-hero__vignette absolute inset-0 z-10 max-md:hidden" />
 
-        <div className="relative z-20 mx-auto flex h-full w-full max-w-[1440px] flex-col px-6 sm:px-10 md:px-14 lg:px-20">
-          <div className="flex flex-1 items-center pb-28 pt-16 sm:pb-32 sm:pt-20 lg:pb-28">
-            <div key={slide.slug} className="ba-hero-rise w-full max-w-[44rem] [text-shadow:0_1px_2px_rgba(3,14,9,0.45),0_12px_40px_rgba(3,14,9,0.35)]">
+        <div className="relative z-20 mx-auto flex h-full w-full max-w-[1440px] flex-col px-6 sm:px-10 md:px-14 lg:px-20 max-md:h-auto max-md:px-0">
+          <div className="flex flex-1 items-center pb-28 pt-16 sm:pb-32 sm:pt-20 lg:pb-28 max-md:flex-none max-md:px-6 max-md:pb-8 max-md:pt-10">
+            <div key={slide.slug} className="ba-hero-rise w-full max-w-[44rem] [text-shadow:0_1px_2px_rgba(3,14,9,0.45),0_12px_40px_rgba(3,14,9,0.35)] max-md:[text-shadow:none]">
               <p className="text-[length:0.72rem] font-bold uppercase leading-[1.5] tracking-[0.24em] text-[#f2b842] sm:text-xs">
                 {slide.eyebrow}
               </p>
@@ -196,7 +196,21 @@ export default function HeroSlider({ slides, copy, badges }: HeroSliderProps) {
             </div>
           </div>
 
-          <div className="absolute inset-x-6 bottom-5 flex items-center justify-between gap-4 sm:inset-x-10 sm:bottom-6 md:inset-x-14 lg:inset-x-20">
+          <div className="relative w-full overflow-hidden border-y border-[#f2b842]/15 md:hidden">
+            <div className="relative aspect-[1828/860] w-full">
+              <Image
+                src={slide.image}
+                alt={slide.imageAlt}
+                fill
+                sizes="100vw"
+                priority={active === 0}
+                className="ba-hero__img"
+                style={{ objectPosition: slide.focus }}
+              />
+            </div>
+          </div>
+
+          <div className="absolute inset-x-6 bottom-5 flex items-center justify-between gap-4 sm:inset-x-10 sm:bottom-6 md:inset-x-14 lg:inset-x-20 max-md:static max-md:inset-auto max-md:px-6 max-md:py-5">
             <div className="flex items-center gap-2.5">
               {slides.map((item, index) => {
                 const isActive = index === active;
