@@ -15,6 +15,7 @@ import { partsPages } from "@/data/partsPages";
 import { partsHubCopy } from "@/data/siteContent";
 import { imageSizes, images } from "@/lib/images";
 import { createMetadata } from "@/lib/seo";
+import { whatsappQuoteHref } from "@/lib/site";
 
 export const metadata: Metadata = createMetadata({
   title: partsCategory.metaTitle,
@@ -85,7 +86,7 @@ export default function MachineryPartsPage() {
                   {paragraph}
                 </p>
               ))}
-              <Link href="/enquiry" className={`
+              <Link href={whatsappQuoteHref()} target="_blank" rel="noopener noreferrer" className={`
           ba-text-link inline-flex items-center
           gap-[0.45rem] pb-[0.35rem] [border-bottom:1px_solid_var(--c-line-strong)]
           text-[length:0.72rem] font-bold tracking-[0.09em]

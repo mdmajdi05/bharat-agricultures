@@ -10,10 +10,12 @@ import {
   ChevronRight,
   Cog,
   Handshake,
+  Leaf,
   ShieldCheck,
 } from "lucide-react";
 
 import type { HeroBadge, HeroCopy, HeroSlide } from "@/data/hero";
+import { whatsappQuoteHref } from "@/lib/site";
 
 const AUTOPLAY_MS = 6500;
 
@@ -112,7 +114,7 @@ export default function HeroSlider({
       id="home"
       aria-roledescription="carousel"
       aria-label="Featured machinery"
-      className="ba-hero relative isolate flex h-[calc(100svh-var(--hero-offset))] min-h-[660px] w-full items-center overflow-hidden max-md:h-auto max-md:min-h-[calc(100svh-var(--hero-offset))]"
+      className="ba-hero relative isolate flex h-[calc(100svh-var(--hero-offset))] min-h-[660px] w-full items-center overflow-hidden max-md:min-h-[570px]"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
@@ -154,13 +156,13 @@ export default function HeroSlider({
             }`}
           >
             <Image
-              src={item.image}
-              alt={index === active ? item.imageAlt : ""}
+              src={item.mobileImage ?? item.image}
+              alt={index === active ? item.mobileImageAlt ?? item.imageAlt : ""}
               fill
               priority={index === 0}
               sizes="100vw"
               className="ba-hero__img object-cover"
-              style={{ objectPosition: "72% center" }}
+              style={{ objectPosition: item.focus }}
             />
           </div>
         ))}
@@ -175,32 +177,33 @@ export default function HeroSlider({
       {/* MOBILE GRADIENT OVERLAY */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-10 hidden bg-gradient-to-r from-[#062719]/95 via-[#082c20]/85 via-45% to-[#082c20]/20 max-md:block"
+        className="ba-hero__mobile-vignette pointer-events-none absolute inset-0 z-10 hidden max-md:block"
       />
 
       {/* MOBILE BOTTOM DARKENING */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-10 hidden h-[40%] bg-gradient-to-t from-[#061d14]/75 to-transparent max-md:block"
+        className="ba-hero__mobile-bottom pointer-events-none absolute inset-x-0 bottom-0 z-10 hidden max-md:block"
       />
 
       {/* MAIN CONTENT */}
       <div className="relative z-20 mx-auto flex h-full w-full max-w-[1440px] flex-col px-6 sm:px-10 md:px-14 lg:px-20 max-md:min-h-[inherit] max-md:px-0">
 
         {/* CONTENT AREA */}
-        <div className="flex flex-1 items-center pb-28 pt-16 sm:pb-32 sm:pt-20 lg:pb-28 max-md:items-center max-md:px-6 max-md:py-12 max-md:pb-28">
+        <div className="ba-hero__content flex flex-1 items-center pb-28 pt-16 sm:pb-32 sm:pt-20 lg:pb-28 max-md:items-start max-md:px-5 max-md:py-5 max-md:pb-0">
 
           <div
             key={slide.slug}
-            className="ba-hero-rise w-full max-w-[44rem] [text-shadow:0_1px_2px_rgba(3,14,9,0.45),0_12px_40px_rgba(3,14,9,0.35)]"
+            className="ba-hero__copy ba-hero-rise w-full max-w-[44rem] [text-shadow:0_1px_2px_rgba(3,14,9,0.45),0_12px_40px_rgba(3,14,9,0.35)]"
           >
             {/* EYEBROW */}
-            <p className="text-[length:0.72rem] font-bold uppercase leading-[1.5] tracking-[0.24em] text-[#f2b842] sm:text-xs max-md:text-[11px] max-md:tracking-[0.22em]">
+            <p className="ba-hero__eyebrow text-[length:0.72rem] font-bold uppercase leading-[1.5] tracking-[0.24em] text-[#f2b842] sm:text-xs max-md:text-[11px] max-md:tracking-[0.22em]">
+              <Leaf aria-hidden="true" className="hidden h-3.5 w-3.5 max-md:block" />
               {slide.eyebrow}
             </p>
 
             {/* HEADING */}
-            <h1 className="mt-4 text-[clamp(2.5rem,7vw,5.1rem)] font-semibold uppercase leading-[0.98] tracking-[0.02em] text-[#f7f6f0] sm:mt-5 max-md:mt-3 max-md:text-[clamp(2.7rem,10vw,4rem)] max-md:leading-[0.98]">
+            <h1 className="ba-hero__heading mt-4 text-[clamp(2.5rem,7vw,5.1rem)] font-semibold uppercase leading-[0.98] tracking-[0.02em] text-[#f7f6f0] sm:mt-5 max-md:mt-3 max-md:text-[clamp(2.35rem,9.5vw,3rem)] max-md:leading-[0.98]">
               <span className="block">{slide.title}</span>
               <span className="block text-[#f2b842]">
                 {slide.titleAccent}
@@ -208,7 +211,7 @@ export default function HeroSlider({
             </h1>
 
             {/* DESCRIPTION */}
-            <p className="mt-5 max-w-[36rem] text-[clamp(1rem,1.55vw,1.32rem)] leading-[1.6] text-cream/95 sm:mt-6 max-md:mt-4 max-md:max-w-[340px] max-md:text-[15px] max-md:leading-[1.65]">
+            <p className="ba-hero__description mt-5 max-w-[36rem] text-[clamp(1rem,1.55vw,1.32rem)] leading-[1.6] text-cream/95 sm:mt-6 max-md:mt-4 max-md:max-w-[340px] max-md:text-[15px] max-md:leading-[1.45]">
               {slide.subtitle}{" "}
               <span className="font-semibold text-[#f2b842]">
                 {slide.subtitleAccent}
@@ -225,7 +228,7 @@ export default function HeroSlider({
             </p>
 
             {/* CTA BUTTONS */}
-            <div className="mt-7 flex flex-wrap items-center gap-3 sm:mt-9 sm:gap-4 max-md:mt-6 max-md:flex-col max-md:items-start max-md:gap-3">
+            <div className="ba-hero__actions mt-7 flex flex-wrap items-center gap-3 sm:mt-9 sm:gap-4 max-md:mt-6 max-md:flex-col max-md:items-start max-md:gap-3">
               <Link
                 href={slide.primaryHref}
                 className="group inline-flex min-h-[3.2rem] items-center justify-center gap-2.5 rounded-lg border border-[#f2b842] bg-[#f0a828] px-6 text-sm font-bold text-[#1b1916] shadow-lg shadow-amber-950/25 transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#ffc94d] active:scale-[0.98] sm:min-h-[3.4rem] sm:px-7 sm:text-[15px] max-md:min-h-[3.5rem] max-md:min-w-[190px] max-md:rounded-full max-md:px-7 max-md:text-[14px]"
@@ -239,7 +242,13 @@ export default function HeroSlider({
               </Link>
 
               <Link
-                href={slide.secondaryHref}
+                href={
+                  slide.secondaryHref.startsWith("/enquiry")
+                    ? whatsappQuoteHref()
+                    : slide.secondaryHref
+                }
+                target={slide.secondaryHref.startsWith("/enquiry") ? "_blank" : undefined}
+                rel={slide.secondaryHref.startsWith("/enquiry") ? "noopener noreferrer" : undefined}
                 className="inline-flex min-h-[3.2rem] items-center justify-center rounded-lg border border-white/80 bg-black/15 px-6 text-sm font-semibold text-white transition-all duration-200 hover:border-white hover:bg-white hover:text-forest-900 active:scale-[0.98] sm:min-h-[3.4rem] sm:px-7 sm:text-[15px] max-md:min-h-[3.5rem] max-md:min-w-[190px] max-md:rounded-full max-md:px-7 max-md:text-[14px]"
               >
                 {slide.secondaryLabel}
@@ -248,14 +257,14 @@ export default function HeroSlider({
 
             {/* FEATURE BADGES */}
             {slide.showBadges ? (
-              <ul className="ba-hero__badges mt-8 flex flex-wrap items-center gap-x-5 gap-y-3 text-[0.72rem] leading-[1.35] text-cream/90 sm:mt-11 sm:gap-x-6 sm:text-[13px] max-md:mt-9 max-md:grid max-md:grid-cols-3 max-md:gap-2">
+              <ul className="ba-hero__badges mt-8 flex flex-wrap items-center gap-x-5 gap-y-3 text-[0.72rem] leading-[1.35] text-cream/90 sm:mt-11 sm:gap-x-6 sm:text-[13px] max-md:mt-3 max-md:grid max-md:grid-cols-3 max-md:gap-2">
                 {badges.map((badge, index) => {
                   const Icon = badgeIcon[badge.icon];
 
                   return (
                     <li
                       key={badge.icon}
-                      className={`flex items-center gap-2.5 ${
+                      className={`ba-hero__badge flex items-center gap-2.5 ${
                         index === badges.length - 1
                           ? ""
                           : "border-r border-[rgba(244,181,45,0.55)] pr-5 sm:pr-6"
@@ -263,11 +272,11 @@ export default function HeroSlider({
                     >
                       <Icon
                         aria-hidden="true"
-                        className="h-5 w-5 shrink-0 text-[#f2b842] max-md:h-6 max-md:w-6"
+                        className="ba-hero__badge-icon h-5 w-5 shrink-0 text-[#f2b842] max-md:h-6 max-md:w-6"
                         strokeWidth={1.8}
                       />
 
-                      <span className="max-md:text-[11px] max-md:leading-[1.35]">
+                      <span className="ba-hero__badge-label max-md:text-[11px] max-md:leading-[1.35]">
                         {badge.lines.map((line, lineIndex) => (
                           <span key={line}>
                             {lineIndex > 0 ? <br /> : null}

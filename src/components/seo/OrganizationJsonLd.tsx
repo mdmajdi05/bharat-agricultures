@@ -10,8 +10,9 @@ export default function OrganizationJsonLd() {
     name: site.name,
     legalName: site.legalName,
     url: site.url,
-    logo: `${site.url}/bharat-agricultures-logo.png`,
+    logo: `${site.url}/header-logo.png`,
     description: site.description,
+    sameAs: [site.instagramUrl],
     email: site.email,
     telephone: site.phone,
     address: {

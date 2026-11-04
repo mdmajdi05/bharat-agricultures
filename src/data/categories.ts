@@ -148,19 +148,19 @@ export const brickKilnCategory: Category = {
   name: "Brick Kiln Machinery",
   metaTitle: "Brick Kiln Machinery Manufacturer in India | Sambhal, UP",
   metaDescription:
-    "Brick kiln machinery manufacturer in India. Pugmill machine, ID fan aur coal crusher Sambhal, Uttar Pradesh se. Clay mixing se firing tak direct factory rate.",
+    "Brick kiln machinery manufacturer in Sambhal, UP. Pugmill, gara and brick-making machines, ID fans and coal crushers. Discuss kiln setup and request a factory quote.",
   hero: {
-    kicker: "Brick kiln machinery / 03 machines",
+    kicker: "Brick kiln machinery / 05 machines",
     title: "Brick Kiln Machinery Manufacturer in India",
     copy:
-      "Clay mixing, airflow aur coal sizing — brick kiln ke teen sabse zaroori kaam ke liye machinery. Sambhal, Uttar Pradesh ki apni unit se, seedha kiln owners ke liye.",
+      "Clay mixing, gara process, brick production, airflow aur coal sizing ke liye brick kiln machinery. Sambhal, Uttar Pradesh ki apni unit se, kiln owners ke liye.",
     image: "warehouse",
     current: "Brick Kiln Machinery",
   },
   introTitle: "Eent ki quality, sahi machinery se shuru hoti hai",
   intro: [
-    "Brick kiln mein sab kuch firing par nahi tikta. Clay jitni barabar mix hogi, eent utni hi strong banegi. Hawa ka flow jitna control mein hoga, firing utni hi steady rahegi. Aur coal ka size jitna uniform hoga, fuel utna hi kam waste hoga. Teen kaam, teen machines.",
-    "Hum pugmill machine, ID fan aur coal crusher Sambhal, Uttar Pradesh mein banate hain. Kiln ka size, daily production aur existing layout samajhkar hi machine suggest ki jati hai — kyunki ek hi model har bhatte par fit nahi hota.",
+    "Brick kiln mein clay preparation, gara process, brick production, airflow aur fuel sizing ke liye alag machinery ki zaroorat ho sakti hai. Kaunsi machine fit hoti hai, ye kiln ke process, material aur output par depend karta hai.",
+    "Hum pugmill machine, gara machine, brick-making machine, ID fan aur coal crusher Sambhal, Uttar Pradesh se offer karte hain. Kiln ka size, daily production aur existing layout samajhkar configuration discuss hoti hai — kyunki ek hi model har bhatte par fit nahi hota.",
   ],
   quickPicks: [
     {
@@ -178,10 +178,20 @@ export const brickKilnCategory: Category = {
       copy: "Coal ko ek jaise size mein todna, taaki firing consistent rahe.",
       slugs: ["coal-crusher-machine"],
     },
+    {
+      label: "Gara process",
+      copy: "Kiln ke material, site aur production target ke hisaab se gara machine configuration.",
+      slugs: ["gara-machine-for-brick-kiln"],
+    },
+    {
+      label: "Brick production",
+      copy: "Brick type, output target aur site requirements ke hisaab se brick-making machine selection.",
+      slugs: ["brick-making-machine"],
+    },
   ],
   gridTitle: "Hamari brick kiln machinery",
   gridCopy:
-    "Teen machines jo brick kiln ki daily line ka core hain. Har machine ka page use case, parts aur quote ka rasta dikhata hai.",
+    "Clay preparation, gara process, brick production, airflow aur coal sizing ke liye paanch machine pages. Har page par use case, configuration guidance aur quote ka rasta diya gaya hai.",
   benefits: [
     {
       title: "Kiln ke layout ke hisaab se",
@@ -196,6 +206,10 @@ export const brickKilnCategory: Category = {
       copy: "Har machine ka maksad ek hi hai: kiln ka output consistent rahe aur fuel waste kam ho.",
     },
     {
+      title: "Requirement-led configuration",
+      copy: "Brick type, site layout, power aur target output ke basis par machine specifications quote se pehle confirm ki jaati hain.",
+    },
+    {
       title: "Direct manufacturer rate",
       copy: "Machine apni unit mein banti hai, isliye rate par seedhi baat hoti hai — bina beech ke commission ke.",
     },
@@ -203,7 +217,7 @@ export const brickKilnCategory: Category = {
   process: [
     {
       title: "Kiln ka size batayein",
-      copy: "Daily eent production, kiln ka type aur available power — in teeno se machine ka size tay hota hai.",
+      copy: "Daily eent production, kiln ka type, gara process aur available power — in details se machine configuration discuss hoti hai.",
     },
     {
       title: "Site aur layout discuss",
@@ -224,12 +238,16 @@ export const brickKilnCategory: Category = {
       a: "Haan. Aapke kiln ka size, duct layout aur power availability batayein — hum usi setup ke hisaab se machine bana sakte hain.",
     },
     {
-      q: "Teen machines ek saath lene par kya fayda hai?",
+      q: "Multiple brick kiln machines ek saath lene par kya fayda hai?",
       a: "Ek hi manufacturer se lene par sizing, dispatch aur spare parts ka coordination aasan rehta hai. Bulk requirement par rate aur schedule discuss kiya ja sakta hai.",
     },
     {
       q: "Maintenance ke liye kya spare rakhna chahiye?",
       a: "Pugmill ke blades, crusher ke hammers aur screen, aur fan ki bearings. Ye wear parts hain aur inka ek spare set rakhna production rukne se bachata hai.",
+    },
+    {
+      q: "Gara machine aur brick-making machine ka quote kaise lein?",
+      a: "Kiln ka type, brick ya material requirement, target output, site layout aur power availability share karein. In details ke basis par configuration aur quotation discuss hoti hai.",
     },
   ],
   ctaTitle: "Kiln ka size aur daily production batayein — sahi setup suggest karenge.",

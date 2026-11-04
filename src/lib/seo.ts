@@ -11,10 +11,10 @@ type PageMeta = {
 /** Consistent per-page metadata: canonical URL, Open Graph and Twitter cards. */
 export function createMetadata({ title, description, path = "/", image }: PageMeta): Metadata {
   const url = `${site.url}${path === "/" ? "" : path}`;
-  const ogImage = image ?? `${site.url}/bharat-agricultures-logo.png`;
+  const ogImage = image ?? `${site.url}/header-logo.png`;
 
   return {
-    title,
+    title: { absolute: title },
     description,
     alternates: { canonical: path },
     openGraph: {

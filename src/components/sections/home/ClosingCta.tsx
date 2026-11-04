@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import Container from "@/components/ui/Container";
 import { closingCtaCopy } from "@/data/home";
+import { whatsappQuoteHref } from "@/lib/site";
 
 export default function ClosingCta() {
   return (
@@ -38,7 +39,7 @@ export default function ClosingCta() {
               <em>{closingCtaCopy.titleAccent}</em>
             </h2>
           </div>
-          <Link href={closingCtaCopy.ctaHref} className={`
+          <Link href={whatsappQuoteHref()} target="_blank" rel="noopener noreferrer" className={`
           ba-cta__circle grid [place-items:center]
           gap-[0.3rem] w-[7.5rem] h-[7.5rem]
           p-[1rem] rounded-full bg-forest-950

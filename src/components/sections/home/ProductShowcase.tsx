@@ -15,22 +15,6 @@ interface ProductShowcaseProps {
   products: Product[];
 }
 
-const productImage: Record<string, string> = {
-  "agricultural-dust-cleaner-machine": "/images/wheat-grain.jpg",
-  "paddy-cleaner-machine": "/images/products/paddy-cleaner.jpg",
-  "disc-harrow": "/images/products/cultivator.jpg",
-  "agricultural-harrow-machine": "/images/soil-preparation.jpg",
-  "hawa-thresher-machine": "/images/wheat-field.jpg",
-  "agricultural-thresher-machine": "/images/products/thresher.jpg",
-  "maize-thresher-machine": "/images/wheat-grain.jpg",
-  "plate-land-leveler": "/images/tractor-field.jpg",
-  "2-in-1-land-leveler": "/images/hero-field.jpg",
-  "tractor-cultivator": "/images/products/cultivator.jpg",
-  "pugmill-machine": "/images/products/pugmill.jpg",
-  "id-fan-for-brick-kiln": "/images/machining.jpg",
-  "coal-crusher-machine": "/images/welding.jpg",
-};
-
 const filters: { label: string; shortLabel: string; value: Filter }[] = [
   { label: "All machinery", shortLabel: "All", value: "all" },
   { label: "Agricultural", shortLabel: "Agricultural", value: "agricultural" },
@@ -150,7 +134,7 @@ export default function ProductShowcase({ products }: ProductShowcaseProps) {
                 aria-label={`View ${product.name}`}
               >
                 <Image
-                  src={productImage[product.slug] ?? product.image}
+                  src={product.image}
                   alt={product.name}
                   fill
                   sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"

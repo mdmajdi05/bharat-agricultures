@@ -22,6 +22,7 @@ import { partsPages } from "@/data/partsPages";
 import { productsPageCopy, seoMetadata } from "@/data/siteContent";
 import { imageSizes, images } from "@/lib/images";
 import { createMetadata } from "@/lib/seo";
+import { whatsappQuoteHref } from "@/lib/site";
 
 export const metadata: Metadata = createMetadata({
   ...seoMetadata.products,
@@ -132,7 +133,7 @@ export default function ProductsPage() {
           [&_p]:text-muted
         `} delay={120}>
             <p>{productsPageCopy.note}</p>
-            <Link href="/enquiry" className={`
+            <Link href={whatsappQuoteHref()} target="_blank" rel="noopener noreferrer" className={`
           ba-text-link inline-flex items-center
           gap-[0.45rem] pb-[0.35rem] [border-bottom:1px_solid_var(--c-line-strong)]
           text-[length:0.72rem] font-bold tracking-[0.09em]

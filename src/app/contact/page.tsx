@@ -18,6 +18,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import { contactCardData, contactPageCopy, pageHeroContact, seoMetadata } from "@/data/siteContent";
 import { images } from "@/lib/images";
 import { createMetadata } from "@/lib/seo";
+import { whatsappQuoteHref } from "@/lib/site";
 
 export const metadata: Metadata = createMetadata({
   ...seoMetadata.contact,
@@ -213,7 +214,7 @@ export default function ContactPage() {
           [&_p]:text-muted
         `} delay={80}>
             <p>{contactPageCopy.serviceAreaNote}</p>
-            <Link href="/enquiry" className={`
+            <Link href={whatsappQuoteHref()} target="_blank" rel="noopener noreferrer" className={`
           ba-text-link inline-flex items-center
           gap-[0.45rem] pb-[0.35rem] [border-bottom:1px_solid_var(--c-line-strong)]
           text-[length:0.72rem] font-bold tracking-[0.09em]

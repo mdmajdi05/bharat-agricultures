@@ -1,8 +1,7 @@
 ﻿
-import Link from "next/link";
 import { ArrowUpRight, Phone } from "lucide-react";
 import { chromeCopy } from "@/data/siteContent";
-import { phoneHref } from "@/lib/site";
+import { phoneHref, whatsappQuoteHref } from "@/lib/site";
 
 /** Thumb-reach actions for mobile. Hidden on desktop via CSS. */
 export default function MobileCtaBar() {
@@ -30,7 +29,7 @@ export default function MobileCtaBar() {
         `}>
         <Phone size={15} aria-hidden="true" /> {chromeCopy.callCta}
       </a>
-      <Link href="/enquiry" className={`
+      <a href={whatsappQuoteHref()} target="_blank" rel="noopener noreferrer" className={`
           ba-btn inline-flex items-center
           justify-center gap-[0.55rem] min-h-[3rem]
           p-[0.8rem_1.4rem] [border:1px_solid_transparent] rounded-full
@@ -44,7 +43,7 @@ export default function MobileCtaBar() {
           bg-forest-900 text-cream [&:hover]:bg-forest-700
         `}>
         {chromeCopy.quoteCta} <ArrowUpRight size={15} aria-hidden="true" />
-      </Link>
+      </a>
     </div>
   );
 }

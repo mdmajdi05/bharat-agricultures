@@ -19,13 +19,15 @@ export type HeroSlide = {
   description?: string;
   image: string;
   imageAlt: string;
+  mobileImage?: string;
+  mobileImageAlt?: string;
   /** `object-position` for the plate crop. */
   focus: string;
   primaryLabel: string;
   primaryHref: string;
   secondaryLabel: string;
   secondaryHref: string;
-  /** The brand slide carries the trust row; the category slides stay lighter. */
+  /** Show the machinery benefits row below the description. */
   showBadges?: boolean;
 };
 
@@ -42,6 +44,8 @@ export const heroSlides: HeroSlide[] = [
       "Reliable, quality-driven machinery solutions for modern agriculture and industrial operations.",
     image: "/herosection-images/Bharat Agriculture Harrow at Sunset.png",
     imageAlt: "Bharat Agricultures harrow standing in a field at sunset",
+    mobileImage: "/Hero-sec/Disc harrow.png",
+    mobileImageAlt: "Bharat Agricultures disc harrow in a field at sunset",
     focus: "55% 52%",
     primaryLabel: "Explore Our Machinery",
     primaryHref: "/products",
@@ -61,11 +65,14 @@ export const heroSlides: HeroSlide[] = [
       "Practical equipment built to keep the whole season moving, from the first pass to the final clean.",
     image: "/herosection-images/Blue Bharat Agricultural Thresher at Sunset.png",
     imageAlt: "Blue Bharat Agricultures thresher in a field at sunset",
+    mobileImage: "/Hero-sec/dust cleaner.png",
+    mobileImageAlt: "Bharat Agricultures agricultural dust cleaner in a field",
     focus: "58% 52%",
     primaryLabel: "Explore Agricultural Machinery",
     primaryHref: "/agricultural-machinery",
     secondaryLabel: "Request Details",
     secondaryHref: "/enquiry",
+    showBadges: true,
   },
   {
     slug: "brick-kiln-machinery",
@@ -79,11 +86,14 @@ export const heroSlides: HeroSlide[] = [
       "Machinery and components for brick manufacturing operations, from material handling to process support.",
     image: "/herosection-images/Industrial Brick Press at Sunset.png",
     imageAlt: "Industrial brick press working beside stacked bricks at sunset",
+    mobileImage: "/Hero-sec/Coal Crusher.png",
+    mobileImageAlt: "Bharat Agricultures coal crusher with conveyor",
     focus: "56% 52%",
     primaryLabel: "Explore Brick Kiln Machinery",
     primaryHref: "/brick-kiln-machinery",
     secondaryLabel: "Get a Quote",
     secondaryHref: "/enquiry",
+    showBadges: true,
   },
   {
     slug: "pugmill-machine",
@@ -95,13 +105,16 @@ export const heroSlides: HeroSlide[] = [
     subtitleAccent: "for every brick batch.",
     description:
       "Heavy-duty pugmills that prepare clay evenly, so brick quality stays consistent through the season.",
-    image: "/herosection-images/Blue Agricultural Mixer at Sunset.png",
-    imageAlt: "Blue Bharat Agricultures pugmill machine in the field at sunset",
+    image: "/products/pugmill machine.png",
+    imageAlt: "Bharat Agricultures pugmill machine for brick kilns",
+    mobileImage: "/Hero-sec/Bricks Mkaing Machine.png",
+    mobileImageAlt: "Bharat Agricultures brick-making machine",
     focus: "55% 52%",
     primaryLabel: "View Pugmill Machine",
     primaryHref: "/products/pugmill-machine",
     secondaryLabel: "Ask for Details",
     secondaryHref: "/enquiry",
+    showBadges: true,
   },
   {
     slug: "land-leveler",
@@ -113,13 +126,16 @@ export const heroSlides: HeroSlide[] = [
     subtitleAccent: "season after season.",
     description:
       "Strong land levelers that spread soil evenly and prepare a clean seedbed with fewer passes.",
-    image: "/herosection-images/Blue Land Leveler at Sunset.png",
-    imageAlt: "Blue land leveler ready for field preparation at sunset",
+    image: "/products/Plate Land Leveler.png",
+    imageAlt: "Bharat Agricultures plate land leveler",
+    mobileImage: "/Hero-sec/Disc harrow.png",
+    mobileImageAlt: "Bharat Agricultures disc harrow preparing a field",
     focus: "55% 55%",
     primaryLabel: "View Land Leveler",
     primaryHref: "/products/plate-land-leveler",
     secondaryLabel: "Get a Quote",
     secondaryHref: "/enquiry",
+    showBadges: true,
   },
   {
     slug: "thresher",
@@ -131,13 +147,16 @@ export const heroSlides: HeroSlide[] = [
     subtitleAccent: "effort and downtime.",
     description:
       "Threshers built for long harvest days — steady output, simple maintenance and dependable spares.",
-    image: "/herosection-images/Bharat Agriculture Thresher at Sunset.png",
-    imageAlt: "Green Bharat Agricultures thresher with grain at sunset",
+    image: "/products/Thresher.png",
+    imageAlt: "Bharat Agricultures agricultural thresher",
+    mobileImage: "/Hero-sec/Hawa thresher.png",
+    mobileImageAlt: "Bharat Agricultures Hawa thresher in a field",
     focus: "55% 52%",
     primaryLabel: "View Thresher",
     primaryHref: "/products/agricultural-thresher-machine",
     secondaryLabel: "Ask for Details",
     secondaryHref: "/enquiry",
+    showBadges: true,
   },
 ];
 
@@ -163,7 +182,7 @@ export type HeroBadge = {
 };
 
 export const heroBadges: HeroBadge[] = [
-  { icon: "shield", lines: ["High Quality", "Machines"] },
-  { icon: "gear", lines: ["Reliable Performance"] },
-  { icon: "handshake", lines: ["Trusted Partner"] },
+  { icon: "gear", lines: ["Steady", "Output"] },
+  { icon: "gear", lines: ["Easy", "Maintenance"] },
+  { icon: "shield", lines: ["Dependable", "Spares"] },
 ];

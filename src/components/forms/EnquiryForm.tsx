@@ -1,22 +1,35 @@
 ﻿"use client";
-import { useState } from "react";
-import { ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { products } from "@/data/products";
 import { enquiryFormCopy } from "@/data/siteContent";
+import { whatsappMessageHref } from "@/lib/site";
 
 type EnquiryFormProps = {
   defaultProduct?: string;
 };
 
 export default function EnquiryForm({ defaultProduct = "" }: EnquiryFormProps) {
-  const [sent, setSent] = useState(false);
-
   return (
     <form
       className={"ba-form grid gap-[1.05rem]"}
       onSubmit={(event) => {
         event.preventDefault();
-        setSent(true);
+        const formData = new FormData(event.currentTarget);
+        const productSlug = formData.get("product")?.toString() ?? "";
+        const productName =
+          products.find((product) => product.slug === productSlug)?.name ??
+          (productSlug === "other" ? "Other" : "Not specified");
+        const message = [
+          "Hello Bharat Agricultures! I would like to enquire about machinery.",
+          "",
+          `Name: ${formData.get("name")?.toString().trim() ?? ""}`,
+          `Email: ${formData.get("email")?.toString().trim() ?? ""}`,
+          `Phone: ${formData.get("phone")?.toString().trim() || "Not provided"}`,
+          `Product: ${productName}`,
+          `Requirement: ${formData.get("message")?.toString().trim() ?? ""}`,
+        ].join("\n");
+
+        window.location.assign(whatsappMessageHref(message));
       }}
     >
       <div className={`
@@ -175,19 +188,6 @@ export default function EnquiryForm({ defaultProduct = "" }: EnquiryFormProps) {
         `} type="submit">
         {enquiryFormCopy.submitLabel} <ArrowUpRight size={17} aria-hidden="true" />
       </button>
-
-      {sent ? (
-        <p className={`
-          ba-form-success flex items-start
-          gap-[0.5rem] p-[0.8rem_1rem] [border:1px_solid_rgba(30,_82,_54,_0.24)]
-          rounded-sm bg-[rgba(30,_82,_54,_0.07)] text-[length:0.78rem]
-          leading-[1.6] text-forest-700 [&_svg]:shrink-0
-          [&_svg]:mt-[0.15rem]
-        `} role="status">
-          <CheckCircle2 size={17} aria-hidden="true" />
-          <span>{enquiryFormCopy.success}</span>
-        </p>
-      ) : null}
 
       <small className={`
           ba-form__note text-[length:0.68rem] leading-[1.6]

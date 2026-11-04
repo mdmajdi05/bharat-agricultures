@@ -3,17 +3,29 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { createPortal } from "react-dom";
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
 import { primaryNav } from "@/data/navigation";
 import { chromeCopy } from "@/data/siteContent";
-import { emailHref, phoneHref, site } from "@/lib/site";
+import { emailHref, phoneHref, site, whatsappQuoteHref } from "@/lib/site";
 
 export default function MobileMenu() {
   const [open, setOpen] = useState(false);
+  const [portalContainer, setPortalContainer] = useState<HTMLElement | null>(null);
   const pathname = usePathname();
   const toggleRef = useRef<HTMLButtonElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    setPortalContainer(document.body);
+  }, []);
+
+  useEffect(() => {
+    const openFromPopupBackdrop = () => setOpen(true);
+    window.addEventListener("ba:open-mobile-menu", openFromPopupBackdrop);
+    return () => window.removeEventListener("ba:open-mobile-menu", openFromPopupBackdrop);
+  }, []);
 
   // Close the menu whenever the route changes.
   useEffect(() => {
@@ -59,12 +71,29 @@ export default function MobileMenu() {
         aria-label={chromeCopy.openMenu}
         aria-expanded={open}
         aria-controls="mobile-menu"
-        onClick={() => setOpen(true)}
+        onClick={() => {
+          if (open) {
+            setOpen(false);
+            return;
+          }
+
+          window.dispatchEvent(new Event("ba:close-enquiry-popup"));
+          setOpen(true);
+        }}
       >
         <Menu size={20} aria-hidden="true" />
       </button>
 
-      <div id="mobile-menu" className={`ba-mobile-menu [position:fixed] [inset:0] [z-index:100] [display:flex] [flex-direction:column] [background:var(--c-forest-950)] [color:var(--c-cream)] [opacity:0] [visibility:hidden] [transition:opacity_0.3s_var(--ease),_visibility_0.3s_var(--ease)] [&.ba-is-open]:[opacity:1] [&.ba-is-open]:[visibility:visible]${open ? " ba-is-open" : ""}`} aria-hidden={!open}>
+      {portalContainer && createPortal(
+        <div
+          id="mobile-menu"
+          className={`ba-mobile-menu${open ? " ba-is-open" : ""}`}
+          role="dialog"
+          aria-modal={open || undefined}
+          aria-label="Mobile navigation"
+          aria-hidden={!open}
+          inert={!open}
+        >
         <div className={`
           ba-mobile-menu__top flex items-center
           justify-between gap-[1rem] h-[var(--header-h)]
@@ -75,7 +104,7 @@ export default function MobileMenu() {
           bg-cream rounded-[8px] [&_img]:w-[7.6rem]
           [&_img]:h-[auto] [&_img]:[mix-blend-mode:multiply]
         `} aria-label={`${site.name} home`}>
-            <Image src="/bharat-agricultures-logo.png" alt={site.name} width={320} height={114} />
+            <Image src="/header-logo.png" alt={site.name} width={838} height={298} />
           </Link>
           <button
             ref={closeRef}
@@ -159,7 +188,7 @@ export default function MobileMenu() {
           ba-mobile-menu__footer mt-auto pt-[1.75rem]
           grid gap-[1rem]
         `}>
-            <Link href="/enquiry" className={`
+            <a href={whatsappQuoteHref()} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className={`
           ba-btn inline-flex items-center
           justify-center gap-[0.55rem] min-h-[3rem]
           p-[0.8rem_1.4rem] [border:1px_solid_transparent] rounded-full
@@ -174,7 +203,7 @@ export default function MobileMenu() {
           ba-btn--block w-full
         `}>
               {chromeCopy.requestQuote} <ArrowUpRight size={16} aria-hidden="true" />
-            </Link>
+        </a>
             <div className={`
           ba-mobile-menu__contact grid gap-[0.35rem]
           text-[length:0.8rem] text-muted-dark [&_a:hover]:text-gold-bright
@@ -185,7 +214,9 @@ export default function MobileMenu() {
             </div>
           </div>
         </div>
-      </div>
+        </div>,
+        portalContainer,
+      )}
     </>
   );
 }

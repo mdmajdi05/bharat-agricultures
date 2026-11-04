@@ -49,7 +49,7 @@ export const homeBrickKilnCopy = {
   kicker: "03 — Brick kiln machinery",
   title: "Brick kiln machinery manufacturer in India",
   copy:
-    "Brick making machinery, pugmill machines, ID fans aur coal crushers — brick factories ke clay mixing, airflow aur fuel sizing ke liye.",
+    "Gara aur brick-making machines, pugmills, ID fans aur coal crushers — brick factories ke process, airflow aur fuel sizing ke liye.",
   linkLabel: "See all brick kiln machinery",
   linkHref: "/brick-kiln-machinery",
   railNote: "Swipe to explore →",
@@ -549,8 +549,8 @@ export const contactCardData = [
     kicker: "Visit",
     title: "Factory location",
     value: site.address,
-    href: null,
-    linkLabel: null,
+    href: site.googleMapsUrl,
+    linkLabel: "Open in Google Maps",
   },
   {
     icon: "Phone",
@@ -882,7 +882,7 @@ export const seoMetadata = {
   home: {
     title: "Agricultural & Brick Kiln Machinery Manufacturer in India",
     description:
-      "Bharat Agricultures — agricultural machinery aur brick kiln machinery manufacturer, Sambhal, Uttar Pradesh. Thresher, cleaner, harrow, land leveler, pugmill, ID fan aur coal crusher.",
+      "Bharat Agricultures — agricultural machinery aur brick kiln machinery manufacturer, Sambhal, Uttar Pradesh. Thresher, cleaner, harrow, land leveler, gara machine, brick-making machine, pugmill, ID fan aur coal crusher.",
   },
   about: {
     title: "About Us | Agricultural & Brick Kiln Machinery Manufacturer",
@@ -902,7 +902,7 @@ export const seoMetadata = {
   products: {
     title: "Machinery & Parts | Agricultural and Brick Kiln",
     description:
-      "Agricultural machinery, brick kiln machinery aur machinery parts — teen product families, 13 machines aur spare support. Sambhal, Uttar Pradesh se.",
+      `Agricultural machinery, brick kiln machinery aur machinery parts — teen product families, ${products.length} machines aur spare support. Sambhal, Uttar Pradesh se.`,
   },
   contact: {
     title: "Contact Us | Machinery Enquiry & Factory Visit",

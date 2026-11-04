@@ -49,7 +49,7 @@ export const capabilities = [
   {
     title: "Poora range, ek jagah",
     copy:
-      "Dust cleaner aur paddy cleaner se lekar thresher, harrow, land leveler, cultivator, pugmill, ID fan aur coal crusher tak — khet aur bhatte ki zaroorat ek hi manufacturer se.",
+      "Dust cleaner aur paddy cleaner se lekar thresher, harrow, land leveler, cultivator, pugmill, gara machine, brick-making machine, ID fan aur coal crusher tak — khet aur bhatte ki zaroorat ek hi manufacturer se.",
   },
   {
     title: "Kisan, dealer, kiln owner",

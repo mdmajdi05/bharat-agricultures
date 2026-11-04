@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
-import MobileCtaBar from "@/components/layout/MobileCtaBar";
 import FloatingContactWidget from "@/components/layout/FloatingContactWidget";
 import EnquiryPopup from "@/components/forms/EnquiryPopup";
 import OrganizationJsonLd from "@/components/seo/OrganizationJsonLd";
@@ -62,6 +61,8 @@ export const metadata: Metadata = {
     "cultivator manufacturer",
     "brick kiln machinery",
     "pugmill machine manufacturer",
+    "gara machine for brick kiln",
+    "brick-making machine manufacturer",
     "ID fan for brick kiln",
     "coal crusher machine",
     "agricultural machinery parts",
@@ -84,7 +85,7 @@ export const metadata: Metadata = {
   },
   robots: { index: true, follow: true },
   alternates: { canonical: "/" },
-  icons: { icon: "/bharat-agricultures-logo.png" },
+  icons: { icon: "/header-logo.png" },
 };
 
 export const viewport: Viewport = {
@@ -145,7 +146,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Header />
         <main id="main">{children}</main>
         <Footer />
-        <MobileCtaBar />
         <FloatingContactWidget />
         <EnquiryPopup />
         <OrganizationJsonLd />

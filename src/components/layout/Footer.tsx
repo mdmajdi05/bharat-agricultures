@@ -1,7 +1,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowUpRight, Camera, Mail, MapPin, Phone } from "lucide-react";
 import ButtonLink from "@/components/ui/ButtonLink";
 import Container from "@/components/ui/Container";
 import { footerColumns } from "@/data/navigation";
@@ -40,7 +40,10 @@ export default function Footer() {
           [&_a]:[overflow-wrap:anywhere] ba-footer__contact--brand mt-[1.4rem]
         `}>
               <p>
-                <MapPin size={16} aria-hidden="true" /> {site.address}
+                <MapPin size={16} aria-hidden="true" />
+                <a href={site.googleMapsUrl} target="_blank" rel="noopener noreferrer">
+                  {site.address} — View on Google Maps
+                </a>
               </p>
               <p>
                 <Phone size={16} aria-hidden="true" /> <a href={phoneHref}>{site.phone}</a>
@@ -48,6 +51,23 @@ export default function Footer() {
               <p>
                 <Mail size={16} aria-hidden="true" /> <a href={emailHref}>{site.email}</a>
               </p>
+            </div>
+
+            <div className="mt-5 grid gap-2">
+              <span className="text-[length:0.64rem] font-bold uppercase tracking-[0.2em] text-gold-bright">
+                Follow us
+              </span>
+              <a
+                href={site.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow Bharat Agricultures on Instagram"
+                className="inline-flex items-center gap-2 text-[length:0.85rem] text-[color:rgba(246,_243,_233,_0.76)] transition-colors hover:text-gold-bright"
+              >
+                <Camera size={16} aria-hidden="true" />
+                Instagram
+                <ArrowUpRight size={13} aria-hidden="true" />
+              </a>
             </div>
 
             <ButtonLink href="/enquiry" variant="gold" className={"ba-footer__cta mt-[1.5rem]"}>

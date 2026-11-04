@@ -14,6 +14,7 @@ import { getProductsBySlugs } from "@/data/products";
 import type { PartsPage } from "@/data/partsPages";
 import { partsTemplateCopy } from "@/data/siteContent";
 import { imageSizes, images } from "@/lib/images";
+import { whatsappQuoteHref } from "@/lib/site";
 
 type PartsTemplateProps = {
   page: PartsPage;
@@ -85,7 +86,7 @@ export default function PartsTemplate({ page }: PartsTemplateProps) {
                   {paragraph}
                 </p>
               ))}
-              <Link href="/enquiry" className={`
+              <Link href={whatsappQuoteHref()} target="_blank" rel="noopener noreferrer" className={`
           ba-text-link inline-flex items-center
           gap-[0.45rem] pb-[0.35rem] [border-bottom:1px_solid_var(--c-line-strong)]
           text-[length:0.72rem] font-bold tracking-[0.09em]

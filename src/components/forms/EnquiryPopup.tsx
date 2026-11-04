@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import {
   ArrowUpRight,
   Clock,
@@ -54,6 +55,7 @@ const actions = [
 
 export default function EnquiryPopup() {
   const [open, setOpen] = useState(false);
+  const [portalContainer, setPortalContainer] = useState<HTMLElement | null>(null);
   const cardRef = useRef<HTMLDivElement>(null);
   const firstActionRef = useRef<HTMLAnchorElement>(null);
   const lastFocused = useRef<Element | null>(null);
@@ -61,13 +63,25 @@ export default function EnquiryPopup() {
   const close = useCallback(() => {
     setOpen(false);
     window.setTimeout(() => {
+      if (document.getElementById("mobile-menu")?.classList.contains("ba-is-open")) return;
       if (lastFocused.current instanceof HTMLElement) lastFocused.current.focus();
     }, 0);
+  }, []);
+
+  useEffect(() => {
+    setPortalContainer(document.documentElement);
+  }, []);
+
+  useEffect(() => {
+    const closeForMobileMenu = () => setOpen(false);
+    window.addEventListener("ba:close-enquiry-popup", closeForMobileMenu);
+    return () => window.removeEventListener("ba:close-enquiry-popup", closeForMobileMenu);
   }, []);
 
   // Show on every page load / refresh, five seconds after it settles.
   useEffect(() => {
     const timer = window.setTimeout(() => {
+      if (document.getElementById("mobile-menu")?.classList.contains("ba-is-open")) return;
       lastFocused.current = document.activeElement;
       setOpen(true);
     }, SHOW_DELAY_MS);
@@ -115,22 +129,40 @@ export default function EnquiryPopup() {
     };
   }, [open, close]);
 
-  if (!open) return null;
+  if (!open || !portalContainer) return null;
 
   return (
-    <div
-      className="ba-popup-overlay fixed inset-0 z-[4000] grid place-items-center bg-[rgba(5,19,12,0.55)] p-[18px] backdrop-blur-[7px] max-[560px]:place-items-end max-[560px]:p-0"
-      onClick={(event) => {
-        if (event.target === event.currentTarget) close();
-      }}
-    >
+    <>
+    {createPortal(
+      <div
+        className="ba-popup-overlay fixed inset-0 z-[4000] grid place-items-center overflow-y-auto bg-[rgba(5,19,12,0.55)] p-3 backdrop-blur-[7px] min-[561px]:p-[18px]"
+        onClick={(event) => {
+          if (event.target !== event.currentTarget) return;
+
+          const menuButton = document.querySelector<HTMLButtonElement>(
+            'button[aria-controls="mobile-menu"]',
+          );
+          const bounds = menuButton?.getBoundingClientRect();
+          const clickedMenuButton =
+            bounds !== undefined &&
+            event.clientX >= bounds.left &&
+            event.clientX <= bounds.right &&
+            event.clientY >= bounds.top &&
+            event.clientY <= bounds.bottom;
+
+          if (clickedMenuButton) {
+            window.dispatchEvent(new Event("ba:open-mobile-menu"));
+          }
+          close();
+        }}
+      >
       <div
         ref={cardRef}
         role="dialog"
         aria-modal="true"
         aria-labelledby="ba-popup-title"
         aria-describedby="ba-popup-desc"
-        className="ba-popup-card relative max-h-[calc(100dvh-36px)] w-full max-w-[452px] overflow-y-auto rounded-[22px] border border-[#e8e2d2] bg-[#fffdf8] text-[#17251b] shadow-[0_34px_90px_rgba(5,19,12,0.34)] max-[560px]:max-h-[90dvh] max-[560px]:max-w-none max-[560px]:rounded-b-none max-[560px]:rounded-t-[24px]"
+        className="ba-popup-card relative max-h-[calc(100dvh-24px)] w-full max-w-[452px] overflow-y-auto rounded-[22px] border border-[#e8e2d2] bg-[#fffdf8] text-[#17251b] shadow-[0_34px_90px_rgba(5,19,12,0.34)] min-[561px]:max-h-[calc(100dvh-36px)]"
       >
         {/* ---------- Dark editorial header ---------- */}
         <div className="relative overflow-hidden bg-[#071b10] px-6 pb-7 pt-7 max-[560px]:px-5 max-[560px]:pb-6 max-[560px]:pt-6">
@@ -281,6 +313,9 @@ export default function EnquiryPopup() {
           </p>
         </div>
       </div>
-    </div>
+      </div>,
+      portalContainer,
+    )}
+    </>
   );
 }

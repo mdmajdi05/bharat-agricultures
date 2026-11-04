@@ -11,20 +11,20 @@ const hairline = "border-[#dcded2]";
 
 const stageVisuals = [
   {
-    image: "/images/products/cultivator.jpg",
-    alt: "Tractor cultivator working the soil",
+    image: "/products/cultivator.png",
+    alt: "Bharat Agricultures tractor cultivator",
   },
   {
-    image: "/images/tractor-field.jpg",
-    alt: "Tractor working in an open field",
+    image: "/products/Plate Land Leveler.png",
+    alt: "Bharat Agricultures plate land leveler",
   },
   {
-    image: "/images/products/thresher.jpg",
-    alt: "Thresher separating grain after harvest",
+    image: "/products/Thresher.png",
+    alt: "Bharat Agricultures agricultural thresher",
   },
   {
-    image: "/images/products/paddy-cleaner.jpg",
-    alt: "Paddy cleaner preparing grain for market",
+    image: "/products/Paddy Cleaner.png",
+    alt: "Bharat Agricultures paddy cleaner",
   },
 ];
 

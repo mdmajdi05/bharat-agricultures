@@ -95,7 +95,9 @@ export function localBusinessSchema(): JsonLdData {
     url: site.url,
     telephone: site.phone,
     email: site.email,
-    image: `${site.url}/bharat-agricultures-logo.png`,
+    image: `${site.url}/header-logo.png`,
+    hasMap: site.googleMapsUrl,
+    sameAs: [site.instagramUrl],
     address: {
       "@type": "PostalAddress",
       streetAddress: site.streetAddress,
@@ -119,6 +121,8 @@ export function productSchema(product: {
   category: string;
   faqs: { q: string; a: string }[];
 }): JsonLdData {
+  const url = `${site.url}/products/${product.slug}`;
+
   return {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -132,9 +136,11 @@ export function productSchema(product: {
     },
     manufacturer: {
       "@type": "Organization",
+      "@id": `${site.url}/#organization`,
       name: site.name,
       url: site.url,
     },
-    url: `${site.url}/products/${product.slug}`,
+    url,
+    mainEntityOfPage: url,
   };
 }

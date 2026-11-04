@@ -43,10 +43,23 @@ const options = [
 export default function FloatingContactWidget() {
   const [open, setOpen] = useState(false);
   const [pulse, setPulse] = useState(false);
+  const [heroVisible, setHeroVisible] = useState(false);
 
   useEffect(() => {
     const timer = window.setTimeout(() => setPulse(true), 3500);
     return () => window.clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const hero = document.getElementById("home");
+    if (!hero) return;
+
+    const observer = new IntersectionObserver(([entry]) => {
+      setHeroVisible(entry.isIntersecting);
+    });
+    observer.observe(hero);
+
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -59,7 +72,7 @@ export default function FloatingContactWidget() {
   }, [open]);
 
   return (
-    <div className="fixed bottom-[calc(4.9rem+env(safe-area-inset-bottom))] right-4 z-[70] flex flex-col items-end gap-3 min-[1200px]:bottom-6 min-[1200px]:right-6">
+    <div className={`fixed bottom-[calc(4.9rem+env(safe-area-inset-bottom))] right-4 z-[70] flex flex-col items-end gap-3 min-[1200px]:bottom-6 min-[1200px]:right-6 ${heroVisible && !open ? "max-md:hidden" : ""}`}>
       {open && (
         <div
           role="dialog"
