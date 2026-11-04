@@ -18,7 +18,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import { contactCardData, contactPageCopy, pageHeroContact, seoMetadata } from "@/data/siteContent";
 import { images } from "@/lib/images";
 import { createMetadata } from "@/lib/seo";
-import { whatsappQuoteHref } from "@/lib/site";
+import { site, whatsappQuoteHref } from "@/lib/site";
 
 export const metadata: Metadata = createMetadata({
   ...seoMetadata.contact,
@@ -114,6 +114,39 @@ export default function ContactPage() {
                 </Reveal>
               );
             })}
+          </div>
+        </Container>
+      </section>
+
+      <section className="ba-section relative py-[var(--section-y)] ba-section--paper bg-paper">
+        <Container>
+          <div className="ba-contact-map grid gap-[1.5rem] min-[900px]:grid-cols-[0.8fr_1.2fr] min-[900px]:items-end min-[900px]:gap-[3rem]">
+            <div className="grid content-start gap-[0.9rem]">
+              <span className="ba-eyebrow text-gold-deep">Find our manufacturing unit</span>
+              <h2 className="text-[length:var(--display-md)]">Visit Bharat Agricultures</h2>
+              <p className="max-w-[42ch] text-[0.9rem] leading-[1.8] text-muted">
+                {site.address}. Call ahead to confirm your visit and speak with our team.
+              </p>
+              <a
+                href={site.googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ba-btn ba-btn--dark mt-[0.35rem] inline-flex min-h-[3rem] w-fit items-center justify-center gap-[0.55rem] rounded-full bg-forest-900 px-[1.35rem] text-[0.72rem] font-bold uppercase tracking-[0.08em] text-cream transition-colors hover:bg-forest-700"
+              >
+                <MapPin size={16} aria-hidden="true" />
+                Open location in Google Maps
+                <ArrowUpRight size={15} aria-hidden="true" />
+              </a>
+            </div>
+            <div className="ba-contact-map__frame relative min-h-[280px] overflow-hidden rounded-lg border border-line bg-cream-soft shadow-soft min-[640px]:min-h-[360px]">
+              <iframe
+                title={`Map showing ${site.name} in ${site.locality}, ${site.region}`}
+                src={`https://maps.google.com/maps?hl=en&q=${encodeURIComponent(`Bharat Agriculture Industries, ${site.address}, 244302`)}&t=&z=14&ie=UTF8&iwloc=&output=embed`}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="absolute inset-0 h-full w-full border-0"
+              />
+            </div>
           </div>
         </Container>
       </section>

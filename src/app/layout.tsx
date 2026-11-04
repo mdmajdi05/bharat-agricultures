@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
+import Script from "next/script";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import FloatingContactWidget from "@/components/layout/FloatingContactWidget";
@@ -86,6 +87,12 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   alternates: { canonical: "/" },
   icons: { icon: "/header-logo.png" },
+  verification: {
+    google: "x8M9ZPirPTfSPL1Mdx9l3z4sEsntJkeQH_2Sn-TX02M",
+    other: {
+      "msvalidate.01": "94A8005D68616DB02F60C229FC1F12E5",
+    },
+  },
 };
 
 export const viewport: Viewport = {
@@ -149,6 +156,18 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <FloatingContactWidget />
         <EnquiryPopup />
         <OrganizationJsonLd />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-Q770DV8118"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){window.dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-Q770DV8118');
+          `}
+        </Script>
       </body>
     </html>
   );

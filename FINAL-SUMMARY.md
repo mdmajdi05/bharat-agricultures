@@ -70,7 +70,7 @@ bharat-agricultures-visual-refresh/
 
 ### ⚠️ Pre-Launch Notes (not changed per instructions)
 - `src/lib/site.ts` — placeholders: phone `+91-XXXXXXXXXX`, email `info@yourdomain.com`, address `Sambhal, Uttar Pradesh` — should be replaced with real details
-- `NEXT_PUBLIC_SITE_URL` — not set, configure for production domain
+- Production canonical domain is `https://bharatagricultures.com` (configured in `src/lib/site.ts`)
 - Contact form — remains front-end demo, no backend integration
 
 ---

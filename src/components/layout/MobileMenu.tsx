@@ -68,9 +68,10 @@ export default function MobileMenu() {
           [border:1px_solid_var(--c-line-strong)] rounded-full [transition:background-color_0.2s_var(--ease),_color_0.2s_var(--ease)]
           [&:hover]:bg-forest-900 [&:hover]:text-cream min-[1200px]:hidden
         `}
-        aria-label={chromeCopy.openMenu}
+        aria-label={open ? chromeCopy.closeMenu : chromeCopy.openMenu}
         aria-expanded={open}
         aria-controls="mobile-menu"
+        aria-haspopup="dialog"
         onClick={() => {
           if (open) {
             setOpen(false);
@@ -81,7 +82,7 @@ export default function MobileMenu() {
           setOpen(true);
         }}
       >
-        <Menu size={20} aria-hidden="true" />
+        {open ? <X size={20} aria-hidden="true" /> : <Menu size={20} aria-hidden="true" />}
       </button>
 
       {portalContainer && createPortal(
@@ -106,6 +107,7 @@ export default function MobileMenu() {
         `} aria-label={`${site.name} home`}>
             <Image src="/header-logo.png" alt={site.name} width={838} height={298} />
           </Link>
+          <span className="ba-mobile-menu__caption">Site navigation</span>
           <button
             ref={closeRef}
             type="button"
@@ -127,12 +129,8 @@ export default function MobileMenu() {
           p-[1.5rem_var(--gutter)] flex flex-col
         `}>
           <nav aria-label="Mobile">
-            {primaryNav.map((item, index) => {
+            {primaryNav.map((item) => {
               const active = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
-              const number = <span className={`
-          ba-mobile-menu__index font-sans text-[length:0.62rem]
-          font-bold tracking-[0.2em] text-gold
-        `}>{String(index + 1).padStart(2, "0")}</span>;
 
               if (!item.children) {
                 return (
@@ -143,7 +141,6 @@ export default function MobileMenu() {
                     aria-current={active ? "page" : undefined}
                   >
                     {item.label}
-                    {number}
                   </Link>
                 );
               }
@@ -159,10 +156,9 @@ export default function MobileMenu() {
           gap-[0.55rem] [&_svg]:text-gold [&_svg]:[transition:transform_0.25s_var(--ease)]
           [.ba-mobile-menu-group[open]_&_svg]:[transform:rotate(180deg)]
         `}>
-                      {item.label}
-                      <ChevronDown size={16} aria-hidden="true" />
-                    </span>
-                    {number}
+          {item.label}
+          <ChevronDown size={16} aria-hidden="true" />
+        </span>
                   </summary>
                   <div className={`
           ba-mobile-menu__sublinks grid gap-[0.1rem]

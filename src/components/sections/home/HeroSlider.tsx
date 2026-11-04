@@ -18,6 +18,7 @@ import type { HeroBadge, HeroCopy, HeroSlide } from "@/data/hero";
 import { whatsappQuoteHref } from "@/lib/site";
 
 const AUTOPLAY_MS = 6500;
+const DESKTOP_SLIDE_COUNT = 3;
 
 const badgeIcon = {
   shield: ShieldCheck,
@@ -40,10 +41,26 @@ export default function HeroSlider({
 }: HeroSliderProps) {
   const [active, setActive] = useState(0);
   const [reducedMotion, setReducedMotion] = useState(false);
+  const [desktop, setDesktop] = useState(false);
   const touchStartX = useRef<number | null>(null);
 
-  const total = slides.length;
+  const total = desktop
+    ? Math.min(slides.length, DESKTOP_SLIDE_COUNT)
+    : slides.length;
   const slide = slides[active];
+
+  useEffect(() => {
+    const query = window.matchMedia("(min-width: 768px)");
+    const sync = () => {
+      setDesktop(query.matches);
+      setActive(0);
+    };
+
+    sync();
+    query.addEventListener("change", sync);
+
+    return () => query.removeEventListener("change", sync);
+  }, []);
 
   useEffect(() => {
     const query = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -120,7 +137,7 @@ export default function HeroSlider({
     >
       {/* DESKTOP BACKGROUND */}
       <div className="absolute inset-0 z-0 hidden h-full w-full md:block">
-        {slides.map((item, index) => (
+        {slides.slice(0, DESKTOP_SLIDE_COUNT).map((item, index) => (
           <div
             key={item.slug}
             aria-hidden={index !== active}
@@ -295,7 +312,7 @@ export default function HeroSlider({
         {/* SLIDER PAGINATION */}
         <div className="absolute inset-x-6 bottom-5 z-30 flex items-center justify-between gap-4 sm:inset-x-10 sm:bottom-6 md:inset-x-14 lg:inset-x-20 max-md:inset-x-6 max-md:bottom-5">
           <div className="flex items-center gap-2.5">
-            {slides.map((item, index) => {
+            {slides.slice(0, total).map((item, index) => {
               const isActive = index === active;
 
               return (

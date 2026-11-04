@@ -115,7 +115,18 @@ export default function Footer() {
           <span>
             © {new Date().getFullYear()} {site.name}. All rights reserved.
           </span>
-          <span>{footerCopy.bottomNote}</span>
+          <div className="flex flex-wrap items-center gap-x-[1rem] gap-y-[0.35rem]">
+            <span>{footerCopy.bottomNote}</span>
+            <Link href="/sitemap-html" className="transition-colors hover:text-gold-bright">
+              HTML Sitemap
+            </Link>
+            <a href="/sitemap.xml" className="transition-colors hover:text-gold-bright">
+              XML Sitemap
+            </a>
+            <a href="/llms.txt" className="transition-colors hover:text-gold-bright">
+              LLMs.txt
+            </a>
+          </div>
         </div>
       </Container>
     </footer>

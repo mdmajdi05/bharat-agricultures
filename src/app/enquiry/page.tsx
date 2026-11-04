@@ -23,6 +23,7 @@ export const metadata: Metadata = createMetadata({
   ...seoMetadata.enquiry,
   path: "/enquiry",
   image: images.warehouse,
+  robots: { index: false, follow: true },
 });
 
 export default async function EnquiryPage({ searchParams }: {

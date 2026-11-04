@@ -36,7 +36,7 @@ npm run check
 5. The supplied logo is stored at `public/bharat-agricultures-logo.png`.
 6. Connect `src/components/ContactForm.tsx` to a backend/API or email service. Current form is a front-end demo and does not send email.
 7. Add verified company details, certifications, product specifications and legal pages. Do not publish placeholder claims.
-8. Set `NEXT_PUBLIC_SITE_URL` to your production domain.
+8. The production domain is set to `https://bharatagricultures.com` in `src/lib/site.ts`; update it there if the domain changes.
 
 ## SEO structure
 - `/` homepage
