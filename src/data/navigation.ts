@@ -57,6 +57,7 @@ export const footerColumns: { title: string; links: NavChild[] }[] = [
       { href: "/infrastructure", label: "Infrastructure" },
       { href: "/contact", label: "Contact" },
       { href: "/enquiry", label: "Send an enquiry" },
+      { href: "/sitemap-html", label: "HTML sitemap" },
     ],
   },
 ];
