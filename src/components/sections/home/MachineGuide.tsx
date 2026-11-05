@@ -5,9 +5,9 @@ import { ArrowUpRight } from "lucide-react";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { homeMachineGuideCopy } from "@/data/siteContent";
+import { getSiteContent } from "@/data/localized";
 
-const hairline = "border-[#dcded2]";
+const hairline = "border-line";
 
 const stageVisuals = [
   {
@@ -28,13 +28,14 @@ const stageVisuals = [
   },
 ];
 
-export default function MachineGuide() {
+export default async function MachineGuide() {
+  const { homeMachineGuideCopy } = await getSiteContent();
   const { kicker, title, copy, groups, note, linkHref, linkLabel } = homeMachineGuideCopy;
 
   return (
     <section
       id="machine-guide"
-      className="relative isolate overflow-hidden bg-[#f5f2e9] py-[clamp(4rem,7vw,6rem)]"
+      className="relative isolate overflow-hidden bg-page py-[clamp(4rem,7vw,6rem)]"
     >
       <Container>
         <Reveal>
@@ -44,10 +45,10 @@ export default function MachineGuide() {
             <SectionHeading kicker={kicker} title={title} copy={copy} />
 
             <div className="max-w-[21rem] shrink-0 lg:pb-1">
-              <p className="text-[12px] leading-[1.75] text-[#6c7169]">{note}</p>
+              <p className="text-[12px] leading-[1.75] text-muted">{note}</p>
               <Link
                 href={linkHref}
-                className="group mt-4 inline-flex items-center gap-2 border-b border-[#b9bdb0] pb-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-[#183d2d] transition-colors duration-200 hover:border-[#a97a20] hover:text-[#a97a20]"
+                className="group mt-4 inline-flex items-center gap-2 border-b border-line-strong pb-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-ink transition-colors duration-200 hover:border-gold-deep hover:text-gold-deep"
               >
                 {linkLabel}
                 <ArrowUpRight
@@ -70,7 +71,7 @@ export default function MachineGuide() {
                   <Link
                     href={group.links[0]?.href ?? "/products"}
                     aria-label={`Explore ${group.label}`}
-                    className="relative block aspect-square overflow-hidden rounded-lg bg-[#e6e8dc] ring-1 ring-[#183d2d]/5 sm:aspect-[4/3]"
+                    className="relative block aspect-square overflow-hidden rounded-lg bg-cream-soft ring-1 ring-line sm:aspect-[4/3]"
                   >
                     <Image
                       src={visual.image}
@@ -83,17 +84,17 @@ export default function MachineGuide() {
 
                   <div className="min-w-0">
                     <div className="flex items-center gap-3 pt-1 sm:pt-4">
-                      <span className="font-display text-[1.05rem] leading-none tracking-[-0.03em] text-[#a97a20]">
+                      <span className="font-display text-[1.05rem] leading-none tracking-[-0.03em] text-gold-deep">
                         {String(index + 1).padStart(2, "0")}
                       </span>
                       <span className={`h-px flex-1 ${hairline}`} />
                     </div>
 
-                    <h3 className="mt-2.5 font-display text-[1.3rem] leading-[1.2] tracking-[-0.02em] text-[#183d2d] sm:text-[1.4rem]">
+                    <h3 className="mt-2.5 font-display text-[1.3rem] leading-[1.2] tracking-[-0.02em] text-ink sm:text-[1.4rem]">
                       {group.label}
                     </h3>
 
-                    <p className="mt-1.5 text-[11.5px] leading-[1.7] text-[#6c7169]">
+                    <p className="mt-1.5 text-[11.5px] leading-[1.7] text-muted">
                       {group.copy}
                     </p>
 
@@ -102,13 +103,13 @@ export default function MachineGuide() {
                         <li key={link.href}>
                           <Link
                             href={link.href}
-                            className="group/link inline-flex items-center gap-1 text-[11px] font-semibold text-[#334f3c] transition-colors duration-200 hover:text-[#a97a20]"
+                            className="group/link inline-flex items-center gap-1 text-[11px] font-semibold text-ink transition-colors duration-200 hover:text-gold-deep"
                           >
                             {link.label}
                             <ArrowUpRight
                               size={11}
                               aria-hidden="true"
-                              className="text-[#a9b0a4] transition-all duration-200 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 group-hover/link:text-[#a97a20]"
+                              className="text-muted transition-all duration-200 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 group-hover/link:text-gold-deep"
                             />
                           </Link>
                         </li>

@@ -1,10 +1,12 @@
 ﻿
 import { ArrowUpRight, Phone } from "lucide-react";
-import { chromeCopy } from "@/data/siteContent";
+import { getSiteContent } from "@/data/localized";
 import { phoneHref, whatsappQuoteHref } from "@/lib/site";
 
 /** Thumb-reach actions for mobile. Hidden on desktop via CSS. */
-export default function MobileCtaBar() {
+export default async function MobileCtaBar() {
+  const { chromeCopy } = await getSiteContent();
+
   return (
     <div className={`
           ba-mobile-cta fixed left-[0]

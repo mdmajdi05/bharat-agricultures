@@ -3,14 +3,16 @@ import type { Metadata } from "next";
 import { ArrowUpRight } from "lucide-react";
 import ButtonLink from "@/components/ui/ButtonLink";
 import Container from "@/components/ui/Container";
-import { notFoundCopy } from "@/data/siteContent";
+import { getSiteContent } from "@/data/localized";
 
 export const metadata: Metadata = {
   title: "Page not found",
   robots: { index: false, follow: true },
 };
 
-export default function NotFound() {
+export default async function NotFound() {
+  const { notFoundCopy } = await getSiteContent();
+
   return (
     <section className={`
           ba-not-found min-h-[72svh] grid

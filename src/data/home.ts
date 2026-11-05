@@ -14,12 +14,12 @@ export const marqueeItems = [
   "Coal Crusher",
 ] as const;
 
-export const qualityPoints = [
+export const qualityPoints: readonly string[] = [
   "Seedha manufacturer se",
   "Poore range ka spare support",
   "Kisan aur dealer, dono ke liye",
   "Sambhal, Uttar Pradesh base",
-] as const;
+];
 
 export const qualityBandCopy = {
   kicker: "05 — Our approach",

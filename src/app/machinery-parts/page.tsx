@@ -10,21 +10,48 @@ import { breadcrumbSchema, faqSchema, itemListSchema, JsonLd, webPageSchema } fr
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { partsCategory } from "@/data/categories";
-import { partsPages } from "@/data/partsPages";
-import { partsHubCopy } from "@/data/siteContent";
+import { partsCategory as staticPartsCategory } from "@/data/categories";
+import { getCategory, getPartsPages, getSiteContent } from "@/data/localized";
+import { getNavigationLabel } from "@/data/navigation";
 import { imageSizes, images } from "@/lib/images";
+import { getLocale } from "@/lib/locale";
 import { createMetadata } from "@/lib/seo";
 import { whatsappQuoteHref } from "@/lib/site";
 
-export const metadata: Metadata = createMetadata({
-  title: partsCategory.metaTitle,
-  description: partsCategory.metaDescription,
-  path: `/${partsCategory.slug}`,
-  image: images.machining,
-});
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  const [partsCategory, partsPages] = await Promise.all([
+    getCategory(staticPartsCategory.slug),
+    getPartsPages(),
+  ]);
+  if (!partsCategory) return {};
 
-export default function MachineryPartsPage() {
+  return createMetadata({
+    title: partsCategory.metaTitle,
+    description: partsCategory.metaDescription,
+    path: `/${partsCategory.slug}`,
+    locale,
+    keywords: [
+      "agricultural machinery parts manufacturer India",
+      "brick kiln machinery spare parts",
+      "industrial casting components manufacturer",
+      "machinery spares Sambhal",
+      ...partsPages.map((page) => page.name),
+    ],
+    image: images.machining,
+  });
+}
+
+export default async function MachineryPartsPage() {
+  const [category, partsPages, { partsHubCopy }, locale] = await Promise.all([
+    getCategory(staticPartsCategory.slug),
+    getPartsPages(),
+    getSiteContent(),
+    getLocale(),
+  ]);
+  const partsCategory = category ?? staticPartsCategory;
+  const partsLabel = getNavigationLabel("Machinery Parts", locale);
+
   return (
     <>
       <JsonLd
@@ -44,7 +71,7 @@ export default function MachineryPartsPage() {
       <JsonLd
         data={breadcrumbSchema([
           { name: "Home", href: "/" },
-          { name: "Machinery Parts", href: "/machinery-parts" },
+          { name: partsLabel, href: "/machinery-parts" },
         ])}
       />
       <JsonLd data={faqSchema(partsCategory.faqs)} />

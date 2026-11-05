@@ -13,7 +13,7 @@ import {
 
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
-import { homePartsCopy } from "@/data/siteContent";
+import { getSiteContent } from "@/data/localized";
 
 const categories = [
   {
@@ -45,7 +45,8 @@ const trustItems = [
   { icon: Handshake, label: "Reliable Support" },
 ];
 
-export default function PartsTeaser() {
+export default async function PartsTeaser() {
+  const { homePartsCopy } = await getSiteContent();
   const { kicker, copy, cards, linkHref } = homePartsCopy;
 
   return (

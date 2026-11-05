@@ -3,18 +3,21 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown } from "lucide-react";
-import { primaryNav } from "@/data/navigation";
+import { getPrimaryNav } from "@/data/navigation";
+import type { Locale } from "@/lib/locale";
 
-export default function DesktopNav() {
+export default function DesktopNav({ locale }: { locale: Locale }) {
   const pathname = usePathname();
+  const activePathname = pathname.replace(/^\/(en|hi)(?=\/|$)/, "") || "/";
 
   return (
     <nav className={`
           ba-desktop-nav hidden min-[1200px]:flex
           min-[1200px]:items-center min-[1200px]:gap-[1.05rem] min-[1320px]:gap-[1.5rem]
         `} aria-label="Primary">
-      {primaryNav.map((item) => {
-        const active = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+      {getPrimaryNav(locale).map((item) => {
+        const itemPath = item.href.replace(/^\/(en|hi)(?=\/|$)/, "") || "/";
+        const active = itemPath === "/" ? activePathname === "/" : activePathname.startsWith(itemPath);
 
         if (!item.children) {
           return (

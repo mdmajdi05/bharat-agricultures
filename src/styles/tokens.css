@@ -7,6 +7,7 @@
   --color-forest-700: var(--c-forest-700);
   --color-forest-600: var(--c-forest-600);
   --color-ink: var(--c-ink);
+  --color-page: var(--c-page);
   --color-cream: var(--c-cream);
   --color-cream-soft: var(--c-cream-soft);
   --color-paper: var(--c-paper);
@@ -41,6 +42,7 @@
   --c-forest-700: #164029;
   --c-forest-600: #1e5236;
   --c-ink: #17251b;
+  --c-page: #f4f4ed;
   --c-cream: #f4f4ed;
   --c-cream-soft: #eee9da;
   --c-paper: #fcfbf6;
@@ -80,6 +82,39 @@
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
   --shadow-card: 0 24px 60px -32px rgba(5, 19, 12, 0.45);
   --shadow-soft: 0 18px 45px -30px rgba(5, 19, 12, 0.35);
+}
+
+:root {
+  background-color: var(--c-page);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --c-ink: #edf2e8;
+  /* Cream stays light because it is also used for text on dark panels. */
+  --c-page: #0c130d;
+  --c-cream-soft: #1a251b;
+  --c-paper: #172219;
+  --c-gold-deep: #e6bb6a;
+  --c-muted: #b4c0b3;
+  --c-line: rgba(235, 243, 231, 0.13);
+  --c-line-strong: rgba(235, 243, 231, 0.28);
+  --shadow-card: 0 24px 60px -32px rgba(0, 0, 0, 0.75);
+  --shadow-soft: 0 18px 45px -30px rgba(0, 0, 0, 0.6);
+}
+
+:root[data-theme="dark"] .ba-desktop-nav .ba-nav-link {
+  color: var(--c-ink);
+}
+
+/* Keep the dark header logo legible against the dark page background. */
+:root[data-theme="dark"] .ba-brand img {
+  mix-blend-mode: normal;
+  background: #fff;
+  border-radius: 8px;
+  padding: 5px 9px;
+  box-shadow: none;
+  filter: none;
 }
 
 /* ============================================================
@@ -278,9 +313,7 @@
   min-height: clamp(20rem, 42vw, 31rem);
   align-items: center;
   padding-block: clamp(3rem, 8vw, 6.5rem);
-  background:
-    radial-gradient(circle at 88% 18%, rgba(216, 164, 64, 0.13), transparent 28rem),
-    linear-gradient(135deg, #05130c 0%, #0a2014 65%, #103521 100%);
+  background: linear-gradient(135deg, #05130c 0%, #0a2014 65%, #103521 100%);
 }
 
 .ba-page-hero__inner {

@@ -10,17 +10,30 @@ import ButtonLink from "@/components/ui/ButtonLink";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { infrastructurePageCopy, pageHero, seoMetadata } from "@/data/siteContent";
+import { getSiteContent } from "@/data/localized";
 import { imageSizes, images } from "@/lib/images";
+import { getLocale } from "@/lib/locale";
 import { createMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = createMetadata({
-  ...seoMetadata.infrastructure,
-  path: "/infrastructure",
-  image: images.warehouse,
-});
+export async function generateMetadata(): Promise<Metadata> {
+  const [locale, { seoMetadata }] = await Promise.all([getLocale(), getSiteContent()]);
+  return createMetadata({
+    ...seoMetadata.infrastructure,
+    path: "/infrastructure",
+    locale,
+    keywords: [
+      "machinery manufacturing unit Sambhal",
+      "agricultural machinery fabrication Uttar Pradesh",
+      "industrial machinery assembly India",
+      "Bharat Agricultures factory",
+    ],
+    image: images.warehouse,
+  });
+}
 
-export default function InfrastructurePage() {
+export default async function InfrastructurePage() {
+  const { infrastructurePageCopy, pageHero, seoMetadata } = await getSiteContent();
+
   return (
     <>
       <JsonLd

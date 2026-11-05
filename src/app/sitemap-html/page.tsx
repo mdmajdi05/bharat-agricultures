@@ -2,72 +2,95 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { breadcrumbSchema, JsonLd, webPageSchema } from "@/components/seo/StructuredData";
 import Container from "@/components/ui/Container";
-import { partsPages } from "@/data/partsPages";
-import { products } from "@/data/products";
+import { getPartsPages, getProducts } from "@/data/localized";
+import { getLocale } from "@/lib/locale";
 import { createMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = createMetadata({
-  title: "HTML Sitemap",
-  description:
-    "Browse Bharat Agricultures pages, agricultural machinery, brick kiln machinery and spare parts.",
-  path: "/sitemap-html",
-});
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  const isHinglish = locale === "hi";
+  return createMetadata({
+    title: isHinglish ? "Website ke sabhi pages" : "HTML Sitemap",
+    description: isHinglish
+      ? "Bharat Agricultures ke pages, kheti ki machinery, eent bhatta machinery aur spare parts ek jagah dekhein."
+      : "Browse Bharat Agricultures pages, agricultural machinery, brick kiln machinery and spare parts.",
+    path: "/sitemap-html",
+    locale,
+    keywords: ["Bharat Agricultures website pages", "agricultural machinery catalogue", "brick kiln equipment catalogue"],
+  });
+}
 
-const pageGroups = [
-  {
-    title: "Company",
-    links: [
-      { title: "Home", href: "/" },
-      { title: "About Us", href: "/about" },
-      { title: "Quality Commitment", href: "/quality" },
-      { title: "Infrastructure", href: "/infrastructure" },
-      { title: "Contact", href: "/contact" },
-    ],
-  },
-  {
-    title: "Agricultural machinery",
-    links: [
-      { title: "All Agricultural Machinery", href: "/agricultural-machinery" },
-      ...products
-        .filter((product) => product.category === "agricultural")
-        .map((product) => ({
-          title: product.name,
-          href: `/products/${product.slug}`,
+export default async function HtmlSitemapPage() {
+  const [products, partsPages, locale] = await Promise.all([
+    getProducts(),
+    getPartsPages(),
+    getLocale(),
+  ]);
+  const isHinglish = locale === "hi";
+  const pageGroups = [
+    {
+      title: isHinglish ? "Company" : "Company",
+      links: [
+        { title: isHinglish ? "Home" : "Home", href: "/" },
+        { title: isHinglish ? "Hamare baare mein" : "About Us", href: "/about" },
+        { title: isHinglish ? "Quality ka vaada" : "Quality Commitment", href: "/quality" },
+        { title: isHinglish ? "Hamari unit" : "Infrastructure", href: "/infrastructure" },
+        { title: isHinglish ? "Sampark" : "Contact", href: "/contact" },
+      ],
+    },
+    {
+      title: isHinglish ? "Kheti ki machinery" : "Agricultural machinery",
+      links: [
+        {
+          title: isHinglish ? "Kheti ki saari machinery" : "All Agricultural Machinery",
+          href: "/agricultural-machinery",
+        },
+        ...products
+          .filter((product) => product.category === "agricultural")
+          .map((product) => ({
+            title: product.name,
+            href: `/products/${product.slug}`,
+          })),
+      ],
+    },
+    {
+      title: isHinglish ? "Eent bhatta machinery" : "Brick kiln machinery",
+      links: [
+        {
+          title: isHinglish ? "Eent bhatta ki saari machinery" : "All Brick Kiln Machinery",
+          href: "/brick-kiln-machinery",
+        },
+        ...products
+          .filter((product) => product.category === "brick-kiln")
+          .map((product) => ({
+            title: product.name,
+            href: `/products/${product.slug}`,
+          })),
+      ],
+    },
+    {
+      title: isHinglish ? "Machinery ke parts" : "Machinery parts",
+      links: [
+        {
+          title: isHinglish ? "Saare machinery parts" : "All Machinery Parts",
+          href: "/machinery-parts",
+        },
+        ...partsPages.map((page) => ({
+          title: page.name,
+          href: `/machinery-parts/${page.slug}`,
         })),
-    ],
-  },
-  {
-    title: "Brick kiln machinery",
-    links: [
-      { title: "All Brick Kiln Machinery", href: "/brick-kiln-machinery" },
-      ...products
-        .filter((product) => product.category === "brick-kiln")
-        .map((product) => ({
-          title: product.name,
-          href: `/products/${product.slug}`,
-        })),
-    ],
-  },
-  {
-    title: "Machinery parts",
-    links: [
-      { title: "All Machinery Parts", href: "/machinery-parts" },
-      ...partsPages.map((page) => ({
-        title: page.name,
-        href: `/machinery-parts/${page.slug}`,
-      })),
-    ],
-  },
-];
+      ],
+    },
+  ];
 
-export default function HtmlSitemapPage() {
   return (
     <>
       <JsonLd
         data={webPageSchema({
-          name: "HTML Sitemap",
-          description:
-            "Browse Bharat Agricultures pages, agricultural machinery, brick kiln machinery and spare parts.",
+          name: isHinglish ? "Website ke sabhi pages" : "HTML Sitemap",
+          description: isHinglish
+            ? "Bharat Agricultures ke pages, kheti ki machinery, eent bhatta machinery aur spare parts ek jagah dekhein."
+            : "Browse Bharat Agricultures pages, agricultural machinery, brick kiln machinery and spare parts.",
           path: "/sitemap-html",
         })}
       />
@@ -80,10 +103,16 @@ export default function HtmlSitemapPage() {
       <section className="ba-section relative py-[var(--section-y)]">
         <Container>
           <div className="mb-[2.5rem] max-w-[46rem]">
-            <p className="ba-eyebrow text-gold-deep">Explore the website</p>
-            <h1 className="mt-[0.8rem] text-[length:var(--display-lg)]">HTML Sitemap</h1>
+            <p className="ba-eyebrow text-gold-deep">
+              {isHinglish ? "Website explore karein" : "Explore the website"}
+            </p>
+            <h1 className="mt-[0.8rem] text-[length:var(--display-lg)]">
+              {isHinglish ? "Website ke sabhi pages" : "HTML Sitemap"}
+            </h1>
             <p className="mt-[1rem] max-w-[60ch] text-[0.95rem] leading-[1.8] text-muted">
-              Browse our company information, machinery ranges and product pages.
+              {isHinglish
+                ? "Company ki jaankari, machinery range aur product pages ek jagah dekhein."
+                : "Browse our company information, machinery ranges and product pages."}
             </p>
           </div>
           <div className="grid gap-[1rem] min-[760px]:grid-cols-2 min-[1100px]:grid-cols-4">

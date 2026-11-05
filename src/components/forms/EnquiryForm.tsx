@@ -1,14 +1,18 @@
 ﻿"use client";
 import { ArrowUpRight } from "lucide-react";
-import { products } from "@/data/products";
-import { enquiryFormCopy } from "@/data/siteContent";
+import type { Product } from "@/data/products";
+import type { enquiryFormCopy } from "@/data/siteContent";
+import type { Locale } from "@/lib/locale";
 import { whatsappMessageHref } from "@/lib/site";
 
 type EnquiryFormProps = {
+  copy: typeof enquiryFormCopy;
   defaultProduct?: string;
+  locale: Locale;
+  products: Product[];
 };
 
-export default function EnquiryForm({ defaultProduct = "" }: EnquiryFormProps) {
+export default function EnquiryForm({ copy, defaultProduct = "", locale, products }: EnquiryFormProps) {
   return (
     <form
       className={"ba-form grid gap-[1.05rem]"}
@@ -20,7 +24,9 @@ export default function EnquiryForm({ defaultProduct = "" }: EnquiryFormProps) {
           products.find((product) => product.slug === productSlug)?.name ??
           (productSlug === "other" ? "Other" : "Not specified");
         const message = [
-          "Hello Bharat Agricultures! I would like to enquire about machinery.",
+          locale === "hi"
+            ? "Namaste Bharat Agricultures! Mujhe machinery ke baare mein enquiry karni hai."
+            : "Hello Bharat Agricultures! I would like to enquire about machinery.",
           "",
           `Name: ${formData.get("name")?.toString().trim() ?? ""}`,
           `Email: ${formData.get("email")?.toString().trim() ?? ""}`,
@@ -40,51 +46,51 @@ export default function EnquiryForm({ defaultProduct = "" }: EnquiryFormProps) {
           ba-field grid gap-[0.4rem]
           [&_>_span]:text-[length:0.62rem] [&_>_span]:font-bold [&_>_span]:tracking-[0.16em]
           [&_>_span]:uppercase [&_>_span]:text-muted [&_input]:w-full
-          [&_input]:p-[0.85rem_1rem] [&_input]:bg-[#fff] [&_input]:[border:1px_solid_var(--c-line-strong)]
+          [&_input]:p-[0.85rem_1rem] [&_input]:bg-page [&_input]:[border:1px_solid_var(--c-line-strong)]
           [&_input]:rounded-sm [&_input]:text-[length:0.92rem] [&_input]:leading-normal
           [&_input]:[transition:border-color_0.2s_var(--ease),_box-shadow_0.2s_var(--ease)] [&_select]:w-full [&_select]:p-[0.85rem_1rem]
-          [&_select]:bg-[#fff] [&_select]:[border:1px_solid_var(--c-line-strong)] [&_select]:rounded-sm
+          [&_select]:bg-page [&_select]:[border:1px_solid_var(--c-line-strong)] [&_select]:rounded-sm
           [&_select]:text-[length:0.92rem] [&_select]:leading-normal [&_select]:[transition:border-color_0.2s_var(--ease),_box-shadow_0.2s_var(--ease)]
-          [&_textarea]:w-full [&_textarea]:p-[0.85rem_1rem] [&_textarea]:bg-[#fff]
+          [&_textarea]:w-full [&_textarea]:p-[0.85rem_1rem] [&_textarea]:bg-page
           [&_textarea]:[border:1px_solid_var(--c-line-strong)] [&_textarea]:rounded-sm [&_textarea]:text-[length:0.92rem]
-          [&_textarea]:leading-normal [&_textarea]:[transition:border-color_0.2s_var(--ease),_box-shadow_0.2s_var(--ease)] [&_input::placeholder]:text-[color:rgba(95,_108,_97,_0.6)]
-          [&_textarea::placeholder]:text-[color:rgba(95,_108,_97,_0.6)] [&_input:focus]:[outline:none] [&_input:focus]:border-gold
+          [&_textarea]:leading-normal [&_textarea]:[transition:border-color_0.2s_var(--ease),_box-shadow_0.2s_var(--ease)] [&_input::placeholder]:text-muted
+          [&_textarea::placeholder]:text-muted [&_input:focus]:[outline:none] [&_input:focus]:border-gold
           [&_input:focus]:shadow-[0_0_0_4px_rgba(216,_164,_64,_0.16)] [&_select:focus]:[outline:none] [&_select:focus]:border-gold
           [&_select:focus]:shadow-[0_0_0_4px_rgba(216,_164,_64,_0.16)] [&_textarea:focus]:[outline:none] [&_textarea:focus]:border-gold
           [&_textarea:focus]:shadow-[0_0_0_4px_rgba(216,_164,_64,_0.16)] [&_textarea]:min-h-[8rem] [&_textarea]:[resize:vertical]
-          [&_select]:[appearance:none] [&_select]:[background-image:url("data:image/svg+xml,%3Csvg_xmlns='http://www.w3.org/2000/svg'_width='14'_height='14'_viewBox='0_0_24_24'_fill='none'_stroke='%230a1c11'_stroke-width='2'_stroke-linecap='round'_stroke-linejoin='round'%3E%3Cpath_d='m6_9_6_6_6-6'/%3E%3C/svg%3E")] [&_select]:[background-repeat:no-repeat]
+          [&_select]:[appearance:none] [&_select]:[background-image:url("data:image/svg+xml,%3Csvg_xmlns='http://www.w3.org/2000/svg'_width='14'_height='14'_viewBox='0_0_24_24'_fill='none'_stroke='%23a97a20'_stroke-width='2'_stroke-linecap='round'_stroke-linejoin='round'%3E%3Cpath_d='m6_9_6_6_6-6'/%3E%3C/svg%3E")] [&_select]:[background-repeat:no-repeat]
           [&_select]:[background-position:right_1rem_center] [&_select]:[background-size:0.85rem] [&_select]:pr-[2.5rem]
         `}>
-          <span>{enquiryFormCopy.nameLabel}</span>
-          <input required name="name" autoComplete="name" placeholder={enquiryFormCopy.namePlaceholder} />
+          <span>{copy.nameLabel}</span>
+          <input required name="name" autoComplete="name" placeholder={copy.namePlaceholder} />
         </label>
 
         <label className={`
           ba-field grid gap-[0.4rem]
           [&_>_span]:text-[length:0.62rem] [&_>_span]:font-bold [&_>_span]:tracking-[0.16em]
           [&_>_span]:uppercase [&_>_span]:text-muted [&_input]:w-full
-          [&_input]:p-[0.85rem_1rem] [&_input]:bg-[#fff] [&_input]:[border:1px_solid_var(--c-line-strong)]
+          [&_input]:p-[0.85rem_1rem] [&_input]:bg-page [&_input]:[border:1px_solid_var(--c-line-strong)]
           [&_input]:rounded-sm [&_input]:text-[length:0.92rem] [&_input]:leading-normal
           [&_input]:[transition:border-color_0.2s_var(--ease),_box-shadow_0.2s_var(--ease)] [&_select]:w-full [&_select]:p-[0.85rem_1rem]
-          [&_select]:bg-[#fff] [&_select]:[border:1px_solid_var(--c-line-strong)] [&_select]:rounded-sm
+          [&_select]:bg-page [&_select]:[border:1px_solid_var(--c-line-strong)] [&_select]:rounded-sm
           [&_select]:text-[length:0.92rem] [&_select]:leading-normal [&_select]:[transition:border-color_0.2s_var(--ease),_box-shadow_0.2s_var(--ease)]
-          [&_textarea]:w-full [&_textarea]:p-[0.85rem_1rem] [&_textarea]:bg-[#fff]
+          [&_textarea]:w-full [&_textarea]:p-[0.85rem_1rem] [&_textarea]:bg-page
           [&_textarea]:[border:1px_solid_var(--c-line-strong)] [&_textarea]:rounded-sm [&_textarea]:text-[length:0.92rem]
-          [&_textarea]:leading-normal [&_textarea]:[transition:border-color_0.2s_var(--ease),_box-shadow_0.2s_var(--ease)] [&_input::placeholder]:text-[color:rgba(95,_108,_97,_0.6)]
-          [&_textarea::placeholder]:text-[color:rgba(95,_108,_97,_0.6)] [&_input:focus]:[outline:none] [&_input:focus]:border-gold
+          [&_textarea]:leading-normal [&_textarea]:[transition:border-color_0.2s_var(--ease),_box-shadow_0.2s_var(--ease)] [&_input::placeholder]:text-muted
+          [&_textarea::placeholder]:text-muted [&_input:focus]:[outline:none] [&_input:focus]:border-gold
           [&_input:focus]:shadow-[0_0_0_4px_rgba(216,_164,_64,_0.16)] [&_select:focus]:[outline:none] [&_select:focus]:border-gold
           [&_select:focus]:shadow-[0_0_0_4px_rgba(216,_164,_64,_0.16)] [&_textarea:focus]:[outline:none] [&_textarea:focus]:border-gold
           [&_textarea:focus]:shadow-[0_0_0_4px_rgba(216,_164,_64,_0.16)] [&_textarea]:min-h-[8rem] [&_textarea]:[resize:vertical]
-          [&_select]:[appearance:none] [&_select]:[background-image:url("data:image/svg+xml,%3Csvg_xmlns='http://www.w3.org/2000/svg'_width='14'_height='14'_viewBox='0_0_24_24'_fill='none'_stroke='%230a1c11'_stroke-width='2'_stroke-linecap='round'_stroke-linejoin='round'%3E%3Cpath_d='m6_9_6_6_6-6'/%3E%3C/svg%3E")] [&_select]:[background-repeat:no-repeat]
+          [&_select]:[appearance:none] [&_select]:[background-image:url("data:image/svg+xml,%3Csvg_xmlns='http://www.w3.org/2000/svg'_width='14'_height='14'_viewBox='0_0_24_24'_fill='none'_stroke='%23a97a20'_stroke-width='2'_stroke-linecap='round'_stroke-linejoin='round'%3E%3Cpath_d='m6_9_6_6_6-6'/%3E%3C/svg%3E")] [&_select]:[background-repeat:no-repeat]
           [&_select]:[background-position:right_1rem_center] [&_select]:[background-size:0.85rem] [&_select]:pr-[2.5rem]
         `}>
-          <span>{enquiryFormCopy.emailLabel}</span>
+          <span>{copy.emailLabel}</span>
           <input
             required
             type="email"
             name="email"
             autoComplete="email"
-            placeholder={enquiryFormCopy.emailPlaceholder}
+            placeholder={copy.emailPlaceholder}
           />
         </label>
 
@@ -92,55 +98,55 @@ export default function EnquiryForm({ defaultProduct = "" }: EnquiryFormProps) {
           ba-field grid gap-[0.4rem]
           [&_>_span]:text-[length:0.62rem] [&_>_span]:font-bold [&_>_span]:tracking-[0.16em]
           [&_>_span]:uppercase [&_>_span]:text-muted [&_input]:w-full
-          [&_input]:p-[0.85rem_1rem] [&_input]:bg-[#fff] [&_input]:[border:1px_solid_var(--c-line-strong)]
+          [&_input]:p-[0.85rem_1rem] [&_input]:bg-page [&_input]:[border:1px_solid_var(--c-line-strong)]
           [&_input]:rounded-sm [&_input]:text-[length:0.92rem] [&_input]:leading-normal
           [&_input]:[transition:border-color_0.2s_var(--ease),_box-shadow_0.2s_var(--ease)] [&_select]:w-full [&_select]:p-[0.85rem_1rem]
-          [&_select]:bg-[#fff] [&_select]:[border:1px_solid_var(--c-line-strong)] [&_select]:rounded-sm
+          [&_select]:bg-page [&_select]:[border:1px_solid_var(--c-line-strong)] [&_select]:rounded-sm
           [&_select]:text-[length:0.92rem] [&_select]:leading-normal [&_select]:[transition:border-color_0.2s_var(--ease),_box-shadow_0.2s_var(--ease)]
-          [&_textarea]:w-full [&_textarea]:p-[0.85rem_1rem] [&_textarea]:bg-[#fff]
+          [&_textarea]:w-full [&_textarea]:p-[0.85rem_1rem] [&_textarea]:bg-page
           [&_textarea]:[border:1px_solid_var(--c-line-strong)] [&_textarea]:rounded-sm [&_textarea]:text-[length:0.92rem]
-          [&_textarea]:leading-normal [&_textarea]:[transition:border-color_0.2s_var(--ease),_box-shadow_0.2s_var(--ease)] [&_input::placeholder]:text-[color:rgba(95,_108,_97,_0.6)]
-          [&_textarea::placeholder]:text-[color:rgba(95,_108,_97,_0.6)] [&_input:focus]:[outline:none] [&_input:focus]:border-gold
+          [&_textarea]:leading-normal [&_textarea]:[transition:border-color_0.2s_var(--ease),_box-shadow_0.2s_var(--ease)] [&_input::placeholder]:text-muted
+          [&_textarea::placeholder]:text-muted [&_input:focus]:[outline:none] [&_input:focus]:border-gold
           [&_input:focus]:shadow-[0_0_0_4px_rgba(216,_164,_64,_0.16)] [&_select:focus]:[outline:none] [&_select:focus]:border-gold
           [&_select:focus]:shadow-[0_0_0_4px_rgba(216,_164,_64,_0.16)] [&_textarea:focus]:[outline:none] [&_textarea:focus]:border-gold
           [&_textarea:focus]:shadow-[0_0_0_4px_rgba(216,_164,_64,_0.16)] [&_textarea]:min-h-[8rem] [&_textarea]:[resize:vertical]
-          [&_select]:[appearance:none] [&_select]:[background-image:url("data:image/svg+xml,%3Csvg_xmlns='http://www.w3.org/2000/svg'_width='14'_height='14'_viewBox='0_0_24_24'_fill='none'_stroke='%230a1c11'_stroke-width='2'_stroke-linecap='round'_stroke-linejoin='round'%3E%3Cpath_d='m6_9_6_6_6-6'/%3E%3C/svg%3E")] [&_select]:[background-repeat:no-repeat]
+          [&_select]:[appearance:none] [&_select]:[background-image:url("data:image/svg+xml,%3Csvg_xmlns='http://www.w3.org/2000/svg'_width='14'_height='14'_viewBox='0_0_24_24'_fill='none'_stroke='%23a97a20'_stroke-width='2'_stroke-linecap='round'_stroke-linejoin='round'%3E%3Cpath_d='m6_9_6_6_6-6'/%3E%3C/svg%3E")] [&_select]:[background-repeat:no-repeat]
           [&_select]:[background-position:right_1rem_center] [&_select]:[background-size:0.85rem] [&_select]:pr-[2.5rem]
         `}>
-          <span>{enquiryFormCopy.phoneLabel}</span>
-          <input name="phone" type="tel" autoComplete="tel" placeholder={enquiryFormCopy.phonePlaceholder} />
+          <span>{copy.phoneLabel}</span>
+          <input name="phone" type="tel" autoComplete="tel" placeholder={copy.phonePlaceholder} />
         </label>
 
         <label className={`
           ba-field grid gap-[0.4rem]
           [&_>_span]:text-[length:0.62rem] [&_>_span]:font-bold [&_>_span]:tracking-[0.16em]
           [&_>_span]:uppercase [&_>_span]:text-muted [&_input]:w-full
-          [&_input]:p-[0.85rem_1rem] [&_input]:bg-[#fff] [&_input]:[border:1px_solid_var(--c-line-strong)]
+          [&_input]:p-[0.85rem_1rem] [&_input]:bg-page [&_input]:[border:1px_solid_var(--c-line-strong)]
           [&_input]:rounded-sm [&_input]:text-[length:0.92rem] [&_input]:leading-normal
           [&_input]:[transition:border-color_0.2s_var(--ease),_box-shadow_0.2s_var(--ease)] [&_select]:w-full [&_select]:p-[0.85rem_1rem]
-          [&_select]:bg-[#fff] [&_select]:[border:1px_solid_var(--c-line-strong)] [&_select]:rounded-sm
+          [&_select]:bg-page [&_select]:[border:1px_solid_var(--c-line-strong)] [&_select]:rounded-sm
           [&_select]:text-[length:0.92rem] [&_select]:leading-normal [&_select]:[transition:border-color_0.2s_var(--ease),_box-shadow_0.2s_var(--ease)]
-          [&_textarea]:w-full [&_textarea]:p-[0.85rem_1rem] [&_textarea]:bg-[#fff]
+          [&_textarea]:w-full [&_textarea]:p-[0.85rem_1rem] [&_textarea]:bg-page
           [&_textarea]:[border:1px_solid_var(--c-line-strong)] [&_textarea]:rounded-sm [&_textarea]:text-[length:0.92rem]
-          [&_textarea]:leading-normal [&_textarea]:[transition:border-color_0.2s_var(--ease),_box-shadow_0.2s_var(--ease)] [&_input::placeholder]:text-[color:rgba(95,_108,_97,_0.6)]
-          [&_textarea::placeholder]:text-[color:rgba(95,_108,_97,_0.6)] [&_input:focus]:[outline:none] [&_input:focus]:border-gold
+          [&_textarea]:leading-normal [&_textarea]:[transition:border-color_0.2s_var(--ease),_box-shadow_0.2s_var(--ease)] [&_input::placeholder]:text-muted
+          [&_textarea::placeholder]:text-muted [&_input:focus]:[outline:none] [&_input:focus]:border-gold
           [&_input:focus]:shadow-[0_0_0_4px_rgba(216,_164,_64,_0.16)] [&_select:focus]:[outline:none] [&_select:focus]:border-gold
           [&_select:focus]:shadow-[0_0_0_4px_rgba(216,_164,_64,_0.16)] [&_textarea:focus]:[outline:none] [&_textarea:focus]:border-gold
           [&_textarea:focus]:shadow-[0_0_0_4px_rgba(216,_164,_64,_0.16)] [&_textarea]:min-h-[8rem] [&_textarea]:[resize:vertical]
-          [&_select]:[appearance:none] [&_select]:[background-image:url("data:image/svg+xml,%3Csvg_xmlns='http://www.w3.org/2000/svg'_width='14'_height='14'_viewBox='0_0_24_24'_fill='none'_stroke='%230a1c11'_stroke-width='2'_stroke-linecap='round'_stroke-linejoin='round'%3E%3Cpath_d='m6_9_6_6_6-6'/%3E%3C/svg%3E")] [&_select]:[background-repeat:no-repeat]
+          [&_select]:[appearance:none] [&_select]:[background-image:url("data:image/svg+xml,%3Csvg_xmlns='http://www.w3.org/2000/svg'_width='14'_height='14'_viewBox='0_0_24_24'_fill='none'_stroke='%23a97a20'_stroke-width='2'_stroke-linecap='round'_stroke-linejoin='round'%3E%3Cpath_d='m6_9_6_6_6-6'/%3E%3C/svg%3E")] [&_select]:[background-repeat:no-repeat]
           [&_select]:[background-position:right_1rem_center] [&_select]:[background-size:0.85rem] [&_select]:pr-[2.5rem]
         `}>
-          <span>{enquiryFormCopy.productLabel}</span>
+          <span>{copy.productLabel}</span>
           <select name="product" defaultValue={defaultProduct}>
             <option value="" disabled>
-              {enquiryFormCopy.productPlaceholder}
+              {copy.productPlaceholder}
             </option>
             {products.map((product) => (
               <option value={product.slug} key={product.slug}>
                 {product.name}
               </option>
             ))}
-            <option value="other">{enquiryFormCopy.productOther}</option>
+            <option value="other">{copy.productOther}</option>
           </select>
         </label>
       </div>
@@ -149,27 +155,27 @@ export default function EnquiryForm({ defaultProduct = "" }: EnquiryFormProps) {
           ba-field grid gap-[0.4rem]
           [&_>_span]:text-[length:0.62rem] [&_>_span]:font-bold [&_>_span]:tracking-[0.16em]
           [&_>_span]:uppercase [&_>_span]:text-muted [&_input]:w-full
-          [&_input]:p-[0.85rem_1rem] [&_input]:bg-[#fff] [&_input]:[border:1px_solid_var(--c-line-strong)]
+          [&_input]:p-[0.85rem_1rem] [&_input]:bg-page [&_input]:[border:1px_solid_var(--c-line-strong)]
           [&_input]:rounded-sm [&_input]:text-[length:0.92rem] [&_input]:leading-normal
           [&_input]:[transition:border-color_0.2s_var(--ease),_box-shadow_0.2s_var(--ease)] [&_select]:w-full [&_select]:p-[0.85rem_1rem]
-          [&_select]:bg-[#fff] [&_select]:[border:1px_solid_var(--c-line-strong)] [&_select]:rounded-sm
+          [&_select]:bg-page [&_select]:[border:1px_solid_var(--c-line-strong)] [&_select]:rounded-sm
           [&_select]:text-[length:0.92rem] [&_select]:leading-normal [&_select]:[transition:border-color_0.2s_var(--ease),_box-shadow_0.2s_var(--ease)]
-          [&_textarea]:w-full [&_textarea]:p-[0.85rem_1rem] [&_textarea]:bg-[#fff]
+          [&_textarea]:w-full [&_textarea]:p-[0.85rem_1rem] [&_textarea]:bg-page
           [&_textarea]:[border:1px_solid_var(--c-line-strong)] [&_textarea]:rounded-sm [&_textarea]:text-[length:0.92rem]
-          [&_textarea]:leading-normal [&_textarea]:[transition:border-color_0.2s_var(--ease),_box-shadow_0.2s_var(--ease)] [&_input::placeholder]:text-[color:rgba(95,_108,_97,_0.6)]
-          [&_textarea::placeholder]:text-[color:rgba(95,_108,_97,_0.6)] [&_input:focus]:[outline:none] [&_input:focus]:border-gold
+          [&_textarea]:leading-normal [&_textarea]:[transition:border-color_0.2s_var(--ease),_box-shadow_0.2s_var(--ease)] [&_input::placeholder]:text-muted
+          [&_textarea::placeholder]:text-muted [&_input:focus]:[outline:none] [&_input:focus]:border-gold
           [&_input:focus]:shadow-[0_0_0_4px_rgba(216,_164,_64,_0.16)] [&_select:focus]:[outline:none] [&_select:focus]:border-gold
           [&_select:focus]:shadow-[0_0_0_4px_rgba(216,_164,_64,_0.16)] [&_textarea:focus]:[outline:none] [&_textarea:focus]:border-gold
           [&_textarea:focus]:shadow-[0_0_0_4px_rgba(216,_164,_64,_0.16)] [&_textarea]:min-h-[8rem] [&_textarea]:[resize:vertical]
-          [&_select]:[appearance:none] [&_select]:[background-image:url("data:image/svg+xml,%3Csvg_xmlns='http://www.w3.org/2000/svg'_width='14'_height='14'_viewBox='0_0_24_24'_fill='none'_stroke='%230a1c11'_stroke-width='2'_stroke-linecap='round'_stroke-linejoin='round'%3E%3Cpath_d='m6_9_6_6_6-6'/%3E%3C/svg%3E")] [&_select]:[background-repeat:no-repeat]
+          [&_select]:[appearance:none] [&_select]:[background-image:url("data:image/svg+xml,%3Csvg_xmlns='http://www.w3.org/2000/svg'_width='14'_height='14'_viewBox='0_0_24_24'_fill='none'_stroke='%23a97a20'_stroke-width='2'_stroke-linecap='round'_stroke-linejoin='round'%3E%3Cpath_d='m6_9_6_6_6-6'/%3E%3C/svg%3E")] [&_select]:[background-repeat:no-repeat]
           [&_select]:[background-position:right_1rem_center] [&_select]:[background-size:0.85rem] [&_select]:pr-[2.5rem]
         `}>
-        <span>{enquiryFormCopy.messageLabel}</span>
+        <span>{copy.messageLabel}</span>
         <textarea
           required
           name="message"
           rows={4}
-          placeholder={enquiryFormCopy.messagePlaceholder}
+          placeholder={copy.messagePlaceholder}
         />
       </label>
 
@@ -186,13 +192,13 @@ export default function EnquiryForm({ defaultProduct = "" }: EnquiryFormProps) {
           [.ba-not-found_&]:mt-[0] [.ba-spec-card_&]:[justify-self:start] ba-btn--dark
           bg-forest-900 text-cream [&:hover]:bg-forest-700
         `} type="submit">
-        {enquiryFormCopy.submitLabel} <ArrowUpRight size={17} aria-hidden="true" />
+        {copy.submitLabel} <ArrowUpRight size={17} aria-hidden="true" />
       </button>
 
       <small className={`
           ba-form__note text-[length:0.68rem] leading-[1.6]
           text-muted
-        `}>{enquiryFormCopy.note}</small>
+        `}>{copy.note}</small>
     </form>
   );
 }

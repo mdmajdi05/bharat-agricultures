@@ -10,9 +10,10 @@ import { breadcrumbSchema, faqSchema, itemListSchema, JsonLd, webPageSchema } fr
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { getProductsBySlugs } from "@/data/products";
+import { getNavigationLabel } from "@/data/navigation";
+import { getProductsBySlugs, getSiteContent } from "@/data/localized";
 import type { PartsPage } from "@/data/partsPages";
-import { partsTemplateCopy } from "@/data/siteContent";
+import { getLocale } from "@/lib/locale";
 import { imageSizes, images } from "@/lib/images";
 import { whatsappQuoteHref } from "@/lib/site";
 
@@ -20,8 +21,13 @@ type PartsTemplateProps = {
   page: PartsPage;
 };
 
-export default function PartsTemplate({ page }: PartsTemplateProps) {
-  const related = getProductsBySlugs(page.relatedProductSlugs);
+export default async function PartsTemplate({ page }: PartsTemplateProps) {
+  const [{ partsTemplateCopy }, related, locale] = await Promise.all([
+    getSiteContent(),
+    getProductsBySlugs(page.relatedProductSlugs),
+    getLocale(),
+  ]);
+  const partsLabel = getNavigationLabel("Machinery Parts", locale);
 
   return (
     <>
@@ -42,7 +48,7 @@ export default function PartsTemplate({ page }: PartsTemplateProps) {
       <JsonLd
         data={breadcrumbSchema([
           { name: "Home", href: "/" },
-          { name: "Machinery Parts", href: "/machinery-parts" },
+          { name: partsLabel, href: "/machinery-parts" },
           { name: page.name, href: `/machinery-parts/${page.slug}` },
         ])}
       />
@@ -54,7 +60,7 @@ export default function PartsTemplate({ page }: PartsTemplateProps) {
         copy={page.hero.copy}
         image={page.hero.image}
         current={page.hero.current}
-        trail={[{ href: "/machinery-parts", label: "Machinery Parts" }]}
+        trail={[{ href: "/machinery-parts", label: partsLabel }]}
       />
 
       <section className={"ba-section relative py-[var(--section-y)]"}>

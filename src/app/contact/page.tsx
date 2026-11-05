@@ -15,16 +15,27 @@ import {
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { contactCardData, contactPageCopy, pageHeroContact, seoMetadata } from "@/data/siteContent";
+import { getProducts, getSiteContent } from "@/data/localized";
 import { images } from "@/lib/images";
+import { getLocale } from "@/lib/locale";
 import { createMetadata } from "@/lib/seo";
 import { site, whatsappQuoteHref } from "@/lib/site";
 
-export const metadata: Metadata = createMetadata({
-  ...seoMetadata.contact,
-  path: "/contact",
-  image: images.warehouse,
-});
+export async function generateMetadata(): Promise<Metadata> {
+  const [locale, { seoMetadata }] = await Promise.all([getLocale(), getSiteContent()]);
+  return createMetadata({
+    ...seoMetadata.contact,
+    path: "/contact",
+    locale,
+    keywords: [
+      "Bharat Agricultures contact",
+      "agricultural machinery supplier Sambhal",
+      "brick kiln machine enquiry",
+      "farm machinery factory visit Uttar Pradesh",
+    ],
+    image: images.warehouse,
+  });
+}
 
 const iconMap = {
   MapPin,
@@ -33,7 +44,11 @@ const iconMap = {
   MessageCircle,
 } as const;
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const [locale, { contactCardData, contactPageCopy, enquiryFormCopy, pageHeroContact, seoMetadata }, products] =
+    await Promise.all([getLocale(), getSiteContent(), getProducts()]);
+  const isHinglish = locale === "hi";
+
   return (
     <>
       <JsonLd
@@ -122,10 +137,17 @@ export default function ContactPage() {
         <Container>
           <div className="ba-contact-map grid gap-[1.5rem] min-[900px]:grid-cols-[0.8fr_1.2fr] min-[900px]:items-end min-[900px]:gap-[3rem]">
             <div className="grid content-start gap-[0.9rem]">
-              <span className="ba-eyebrow text-gold-deep">Find our manufacturing unit</span>
-              <h2 className="text-[length:var(--display-md)]">Visit Bharat Agricultures</h2>
+              <span className="ba-eyebrow text-gold-deep">
+                {isHinglish ? "Hamari manufacturing unit" : "Find our manufacturing unit"}
+              </span>
+              <h2 className="text-[length:var(--display-md)]">
+                {isHinglish ? "Bharat Agricultures par aayein" : "Visit Bharat Agricultures"}
+              </h2>
               <p className="max-w-[42ch] text-[0.9rem] leading-[1.8] text-muted">
-                {site.address}. Call ahead to confirm your visit and speak with our team.
+                {site.address}.{" "}
+                {isHinglish
+                  ? "Visit se pehle call karke samay confirm karein aur hamari team se baat karein."
+                  : "Call ahead to confirm your visit and speak with our team."}
               </p>
               <a
                 href={site.googleMapsUrl}
@@ -134,7 +156,7 @@ export default function ContactPage() {
                 className="ba-btn ba-btn--dark mt-[0.35rem] inline-flex min-h-[3rem] w-fit items-center justify-center gap-[0.55rem] rounded-full bg-forest-900 px-[1.35rem] text-[0.72rem] font-bold uppercase tracking-[0.08em] text-cream transition-colors hover:bg-forest-700"
               >
                 <MapPin size={16} aria-hidden="true" />
-                Open location in Google Maps
+                {isHinglish ? "Google Maps par location kholein" : "Open location in Google Maps"}
                 <ArrowUpRight size={15} aria-hidden="true" />
               </a>
             </div>
@@ -220,7 +242,7 @@ export default function ContactPage() {
           ba-form-panel__intro mt-[0.45rem] mb-[1.5rem]
           text-[length:0.8rem] text-muted
         `}>{contactPageCopy.formCopy}</p>
-              <EnquiryForm />
+              <EnquiryForm copy={enquiryFormCopy} locale={locale} products={products} />
             </Reveal>
           </div>
         </Container>

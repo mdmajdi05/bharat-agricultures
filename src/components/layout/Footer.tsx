@@ -4,11 +4,17 @@ import Link from "next/link";
 import { ArrowUpRight, Camera, Mail, MapPin, Phone } from "lucide-react";
 import ButtonLink from "@/components/ui/ButtonLink";
 import Container from "@/components/ui/Container";
-import { footerColumns } from "@/data/navigation";
-import { footerCopy } from "@/data/siteContent";
+import { getFooterColumns } from "@/data/navigation";
+import { getSiteContent } from "@/data/localized";
+import { getLocale, localizedPath } from "@/lib/locale";
 import { emailHref, phoneHref, site } from "@/lib/site";
 
-export default function Footer() {
+export default async function Footer() {
+  const locale = await getLocale();
+  const isHinglish = locale === "hi";
+  const { footerCopy } = await getSiteContent();
+  const footerColumns = getFooterColumns(locale);
+
   return (
     <footer className={`
           ba-site-footer bg-forest-950 text-cream
@@ -20,9 +26,9 @@ export default function Footer() {
           min-[640px]:grid-cols-2 min-[1200px]:[grid-template-columns:1.35fr_1fr_0.95fr_1fr_0.95fr] min-[1200px]:gap-[2.5rem]
         `}>
           <div className={"ba-footer__brand min-[640px]:col-start-[1_/_-1] min-[1200px]:col-start-[auto]"}>
-            <Link href="/" className={`
+            <Link href={localizedPath("/", locale)} className={`
           ba-footer__brand-plate [display:inline-block] p-[0.85rem_1rem]
-          bg-cream rounded-[12px] [&_img]:w-[10.5rem]
+          bg-white rounded-[12px] [&_img]:w-[10.5rem]
           [&_img]:h-[auto] [&_img]:[mix-blend-mode:multiply]
         `} aria-label={`${site.name} home`}>
               <Image src="/footer-logo.png" alt={site.name} width={1600} height={569} sizes="168px" />
@@ -42,7 +48,7 @@ export default function Footer() {
               <p>
                 <MapPin size={16} aria-hidden="true" />
                 <a href={site.googleMapsUrl} target="_blank" rel="noopener noreferrer">
-                  {site.address} — View on Google Maps
+                  {site.address} — {isHinglish ? "Google Maps par dekhein" : "View on Google Maps"}
                 </a>
               </p>
               <p>
@@ -55,13 +61,13 @@ export default function Footer() {
 
             <div className="mt-5 grid gap-2">
               <span className="text-[length:0.64rem] font-bold uppercase tracking-[0.2em] text-gold-bright">
-                Follow us
+                {isHinglish ? "Humein follow karein" : "Follow us"}
               </span>
               <a
                 href={site.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Follow Bharat Agricultures on Instagram"
+                aria-label={isHinglish ? "Bharat Agricultures ko Instagram par follow karein" : "Follow Bharat Agricultures on Instagram"}
                 className="inline-flex items-center gap-2 text-[length:0.85rem] text-[color:rgba(246,_243,_233,_0.76)] transition-colors hover:text-gold-bright"
               >
                 <Camera size={16} aria-hidden="true" />
@@ -113,15 +119,12 @@ export default function Footer() {
           min-[640px]:justify-between
         `}>
           <span>
-            © {new Date().getFullYear()} {site.name}. All rights reserved.
+            © {new Date().getFullYear()} {site.name}. {isHinglish ? "Sabhi adhikar surakshit." : "All rights reserved."}
           </span>
           <div className="flex flex-wrap items-center gap-x-[1rem] gap-y-[0.35rem]">
             <span>{footerCopy.bottomNote}</span>
             <a href="/sitemap.xml" className="transition-colors hover:text-gold-bright">
-              XML Sitemap
-            </a>
-            <a href="/llms.txt" className="transition-colors hover:text-gold-bright">
-              LLMs.txt
+              {isHinglish ? "XML Sitemap" : "XML Sitemap"}
             </a>
           </div>
         </div>

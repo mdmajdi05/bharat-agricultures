@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -6,14 +6,28 @@ import { usePathname } from "next/navigation";
 import { createPortal } from "react-dom";
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
-import { primaryNav } from "@/data/navigation";
-import { chromeCopy } from "@/data/siteContent";
+import LanguageSwitcher from "@/components/layout/LanguageSwitcher";
+import ThemeToggle from "@/components/layout/ThemeToggle";
+import { getPrimaryNav } from "@/data/navigation";
+import type { Locale } from "@/lib/locale";
 import { emailHref, phoneHref, site, whatsappQuoteHref } from "@/lib/site";
 
-export default function MobileMenu() {
+type MobileMenuProps = {
+  locale: Locale;
+  chromeCopy: {
+    allPrefix: string;
+    closeMenu: string;
+    openMenu: string;
+    requestQuote: string;
+  };
+};
+
+export default function MobileMenu({ locale, chromeCopy }: MobileMenuProps) {
+  const isHinglish = locale === "hi";
   const [open, setOpen] = useState(false);
   const [portalContainer, setPortalContainer] = useState<HTMLElement | null>(null);
   const pathname = usePathname();
+  const activePathname = pathname.replace(/^\/(en|hi)(?=\/|$)/, "") || "/";
   const toggleRef = useRef<HTMLButtonElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
 
@@ -100,28 +114,30 @@ export default function MobileMenu() {
           justify-between gap-[1rem] h-[var(--header-h)]
           px-[var(--gutter)] [border-bottom:1px_solid_var(--c-line-dark)] shrink-0
         `}>
-          <Link href="/" className={`
+          <Link href={locale === "hi" ? "/" : "/en"} className={`
           ba-mobile-menu__brand inline-flex p-[0.4rem_0.55rem]
-          bg-cream rounded-[8px] [&_img]:w-[7.6rem]
+          bg-white rounded-[8px] [&_img]:w-[7.6rem]
           [&_img]:h-[auto] [&_img]:[mix-blend-mode:multiply]
         `} aria-label={`${site.name} home`}>
             <Image src="/header-logo.png" alt={site.name} width={838} height={298} />
           </Link>
-          <span className="ba-mobile-menu__caption">Site navigation</span>
-          <button
-            ref={closeRef}
-            type="button"
-            className={`
-          ba-mobile-menu__close grid [place-items:center]
-          w-[2.75rem] h-[2.75rem] [border:1px_solid_var(--c-line-dark-strong)]
-          rounded-full bg-transparent text-cream
-        `}
-            aria-label={chromeCopy.closeMenu}
-            tabIndex={open ? 0 : -1}
-            onClick={() => setOpen(false)}
-          >
-            <X size={20} aria-hidden="true" />
-          </button>
+          <div className="flex items-center gap-[0.55rem]">
+            <ThemeToggle />
+            <button
+              ref={closeRef}
+              type="button"
+              className={`
+            ba-mobile-menu__close grid [place-items:center]
+            w-[2.75rem] h-[2.75rem] [border:1px_solid_var(--c-line-dark-strong)]
+            rounded-full bg-transparent text-cream
+          `}
+              aria-label={chromeCopy.closeMenu}
+              tabIndex={open ? 0 : -1}
+              onClick={() => setOpen(false)}
+            >
+              <X size={20} aria-hidden="true" />
+            </button>
+          </div>
         </div>
 
         <div className={`
@@ -129,8 +145,9 @@ export default function MobileMenu() {
           p-[1.5rem_var(--gutter)] flex flex-col
         `}>
           <nav aria-label="Mobile">
-            {primaryNav.map((item) => {
-              const active = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+            {getPrimaryNav(locale).map((item) => {
+              const itemPath = item.href.replace(/^\/(en|hi)(?=\/|$)/, "") || "/";
+              const active = itemPath === "/" ? activePathname === "/" : activePathname.startsWith(itemPath);
 
               if (!item.children) {
                 return (
@@ -184,6 +201,19 @@ export default function MobileMenu() {
           ba-mobile-menu__footer mt-auto pt-[1.75rem]
           grid gap-[1rem]
         `}>
+            <div className={`
+          ba-mobile-menu__language flex items-center
+          justify-between gap-[1rem] pb-[0.9rem]
+          [border-bottom:1px_solid_var(--c-line-dark)]
+        `}>
+              <span className={`
+          text-[length:0.62rem] font-bold uppercase
+          tracking-[0.18em] text-muted-dark
+        `}>
+                {isHinglish ? "Bhasha" : "Language"}
+              </span>
+              <LanguageSwitcher />
+            </div>
             <a href={whatsappQuoteHref()} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className={`
           ba-btn inline-flex items-center
           justify-center gap-[0.55rem] min-h-[3rem]

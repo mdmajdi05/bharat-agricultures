@@ -15,23 +15,37 @@ import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { emailHref, phoneHref, site, whatsappHref } from "@/lib/site";
-import { enquiryPageCopy, seoMetadata } from "@/data/siteContent";
+import { getProducts, getSiteContent } from "@/data/localized";
 import { imageSizes, images } from "@/lib/images";
+import { getLocale } from "@/lib/locale";
 import { createMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = createMetadata({
-  ...seoMetadata.enquiry,
-  path: "/enquiry",
-  image: images.warehouse,
-  robots: { index: false, follow: true },
-});
+export async function generateMetadata(): Promise<Metadata> {
+  const [locale, { seoMetadata }] = await Promise.all([getLocale(), getSiteContent()]);
+  return createMetadata({
+    ...seoMetadata.enquiry,
+    path: "/enquiry",
+    locale,
+    keywords: [
+      "agricultural machinery price enquiry",
+      "brick kiln machinery quote",
+      "machinery spare parts enquiry India",
+    ],
+    image: images.warehouse,
+    robots: { index: false, follow: true },
+  });
+}
 
 export default async function EnquiryPage({ searchParams }: {
   searchParams: Promise<{ product?: string }>;
 }) {
   const { product } = await searchParams;
   const defaultProduct = product ? product : "";
-
+  const [locale, { enquiryFormCopy, enquiryPageCopy, seoMetadata }, products] = await Promise.all([
+    getLocale(),
+    getSiteContent(),
+    getProducts(),
+  ]);
   return (
     <>
       <JsonLd
@@ -170,7 +184,7 @@ export default async function EnquiryPage({ searchParams }: {
           ba-form-panel__intro mt-[0.45rem] mb-[1.5rem]
           text-[length:0.8rem] text-muted
         `}>{enquiryPageCopy.formIntro}</p>
-              <EnquiryForm defaultProduct={defaultProduct} />
+              <EnquiryForm copy={enquiryFormCopy} defaultProduct={defaultProduct} locale={locale} products={products} />
             </div>
           </div>
         </Container>

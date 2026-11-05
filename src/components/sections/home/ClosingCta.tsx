@@ -2,10 +2,11 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import Container from "@/components/ui/Container";
-import { closingCtaCopy } from "@/data/home";
+import { getHomeContent } from "@/data/localized";
 import { whatsappQuoteHref } from "@/lib/site";
 
-export default function ClosingCta() {
+export default async function ClosingCta() {
+  const { closingCtaCopy } = await getHomeContent();
   return (
     <section className={`
           ba-cta relative overflow-hidden

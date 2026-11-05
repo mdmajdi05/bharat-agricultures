@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { partsPages } from "@/data/partsPages";
 import { products } from "@/data/products";
+import { localizedAlternates, localizedPath, type Locale } from "@/lib/locale";
 import { site } from "@/lib/site";
 
 const staticRoutes = [
@@ -19,21 +20,35 @@ const staticRoutes = [
 const categoryRoutes = new Set(["/agricultural-machinery", "/brick-kiln-machinery", "/machinery-parts"]);
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
+  const routes = [
     ...staticRoutes.map((path) => ({
-      url: `${site.url}${path}`,
-      changeFrequency: "monthly" as const,
+      path,
       priority: path === "" ? 1 : categoryRoutes.has(path) ? 0.85 : 0.7,
     })),
     ...partsPages.map((page) => ({
-      url: `${site.url}/machinery-parts/${page.slug}`,
-      changeFrequency: "monthly" as const,
+      path: `/machinery-parts/${page.slug}`,
       priority: 0.75,
     })),
     ...products.map((product) => ({
-      url: `${site.url}/products/${product.slug}`,
-      changeFrequency: "monthly" as const,
+      path: `/products/${product.slug}`,
       priority: 0.75,
     })),
+  ];
+
+  return [
+    ...routes.flatMap(({ path, priority }) => {
+      const alternates = localizedAlternates(path);
+
+      return (["en", "hi"] as const satisfies readonly Locale[]).map((locale) => ({
+        url: `${site.url}${localizedPath(path, locale)}`,
+        changeFrequency: "monthly" as const,
+        priority,
+        alternates: {
+          languages: Object.fromEntries(
+            Object.entries(alternates).map(([language, href]) => [language, `${site.url}${href}`]),
+          ),
+        },
+      }));
+    }),
   ];
 }

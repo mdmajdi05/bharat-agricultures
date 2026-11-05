@@ -12,34 +12,24 @@ import ButtonLink from "@/components/ui/ButtonLink";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { getProduct, products } from "@/data/products";
-import { agriculturalCategory, brickKilnCategory } from "@/data/categories";
-import { productPageCopy } from "@/data/siteContent";
+import { getCategory, getPartsPage, getProduct, getProducts, getSiteContent } from "@/data/localized";
+import { products as allProducts } from "@/data/products";
 import { imageSizes } from "@/lib/images";
+import { getLocale, localizedPath } from "@/lib/locale";
 import { createMetadata } from "@/lib/seo";
 
 type ProductPageProps = {
   params: Promise<{ slug: string }>;
 };
 
-const categoryInfo = {
-  agricultural: {
-    label: agriculturalCategory.name,
-    href: `/${agriculturalCategory.slug}`,
-  },
-  "brick-kiln": {
-    label: brickKilnCategory.name,
-    href: `/${brickKilnCategory.slug}`,
-  },
-} as const;
-
 export function generateStaticParams() {
-  return products.map((product) => ({ slug: product.slug }));
+  return allProducts.map((product) => ({ slug: product.slug }));
 }
 
 export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const product = getProduct(slug);
+  const product = await getProduct(slug);
+  const locale = await getLocale();
 
   if (!product) return {};
 
@@ -47,17 +37,38 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
     title: product.metaTitle,
     description: product.metaDescription,
     path: `/products/${product.slug}`,
+    locale,
+    keywords: [
+      `${product.name.toLowerCase()} manufacturer India`,
+      `${product.name.toLowerCase()} machine Sambhal`,
+      product.category === "agricultural" ? "agricultural machinery manufacturer" : "brick kiln machinery manufacturer",
+      `${product.name.toLowerCase()} spare parts`,
+    ],
     image: product.image,
   });
 }
 
 export default async function ProductDetailPage({ params }: ProductPageProps) {
   const { slug } = await params;
-  const product = getProduct(slug);
+  const [product, products, { productPageCopy }, locale] = await Promise.all([
+    getProduct(slug),
+    getProducts(),
+    getSiteContent(),
+    getLocale(),
+  ]);
 
   if (!product) notFound();
 
-  const category = categoryInfo[product.category];
+  const [categoryData, relatedParts] = await Promise.all([
+    getCategory(product.category === "agricultural" ? "agricultural-machinery" : "brick-kiln-machinery"),
+    getPartsPage(product.category === "agricultural" ? "agricultural-parts" : "brick-kiln-parts"),
+  ]);
+
+  const category = {
+    label: categoryData?.name ?? (product.category === "agricultural" ? "Agricultural Machinery" : "Brick Kiln Machinery"),
+    href: product.category === "agricultural" ? "/agricultural-machinery" : "/brick-kiln-machinery",
+  };
+
   const related = products
     .filter((item) => item.category === product.category && item.slug !== product.slug)
     .slice(0, 3);
@@ -104,7 +115,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
           tracking-[0.16em] uppercase text-[color:rgba(246,_243,_233,_0.45)]
           [&_a]:[transition:color_0.2s_var(--ease)] [&_a:hover]:text-gold-bright [&_span[aria-current="page"]]:text-gold-bright
         `} aria-label="Breadcrumb">
-                <Link href="/">Home</Link>
+                <Link href={localizedPath("/", locale)}>Home</Link>
                 <span aria-hidden="true">/</span>
                 <Link href={category.href}>{category.label}</Link>
                 <span aria-hidden="true">/</span>
@@ -401,6 +412,17 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         `}>
               {productPageCopy.allPrefix} {category.label} <ArrowUpRight size={15} aria-hidden="true" />
             </Link>
+            {relatedParts && (
+              <Link href={`/machinery-parts/${relatedParts.slug}`} className={`
+          ba-text-link inline-flex items-center
+          gap-[0.45rem] pb-[0.35rem] [border-bottom:1px_solid_var(--c-line-strong)]
+          text-[length:0.72rem] font-bold tracking-[0.09em]
+          uppercase [transition:color_0.2s_var(--ease),_border-color_0.2s_var(--ease)] [&_svg]:[transition:transform_0.25s_var(--ease)]
+          [&:hover]:text-gold-deep [&:hover]:border-gold-deep [&:hover_svg]:[transform:translate(2px,_-2px)]
+        `}>
+                {relatedParts.name} <ArrowUpRight size={15} aria-hidden="true" />
+              </Link>
+            )}
           </Reveal>
 
           <div className={`

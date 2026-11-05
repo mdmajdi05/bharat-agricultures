@@ -280,7 +280,7 @@ export default function HeroSlider({
 
                   return (
                     <li
-                      key={badge.icon}
+                      key={`${badge.icon}-${index}`}
                       className={`ba-hero__badge flex items-center gap-2.5 ${
                         index === badges.length - 1
                           ? ""
@@ -295,7 +295,7 @@ export default function HeroSlider({
 
                       <span className="ba-hero__badge-label max-md:text-[11px] max-md:leading-[1.35]">
                         {badge.lines.map((line, lineIndex) => (
-                          <span key={line}>
+                          <span key={`${line}-${lineIndex}`}>
                             {lineIndex > 0 ? <br /> : null}
                             {line}
                           </span>

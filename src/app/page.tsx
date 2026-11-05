@@ -11,16 +11,31 @@ import ProductShowcase from "@/components/sections/home/ProductShowcase";
 import QualityBand from "@/components/sections/home/QualityBand";
 import FaqSection from "@/components/sections/shared/FaqSection";
 import { faqSchema, JsonLd, webPageSchema } from "@/components/seo/StructuredData";
-import { products } from "@/data/products";
-import { homeFaqCopy, seoMetadata } from "@/data/siteContent";
+import { getProducts, getSiteContent } from "@/data/localized";
+import { getLocale } from "@/lib/locale";
 import { createMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = createMetadata({
-  ...seoMetadata.home,
-  path: "/",
-});
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  const { seoMetadata } = await getSiteContent();
+  return createMetadata({
+    ...seoMetadata.home,
+    path: "/",
+    locale,
+    keywords: [
+      "agricultural machinery manufacturer India",
+      "farm machinery manufacturer Sambhal",
+      "brick kiln machinery manufacturer",
+      "thresher and paddy cleaner manufacturer",
+    ],
+  });
+}
 
-export default function HomePage() {
+export default async function HomePage() {
+  const [{ homeFaqCopy, seoMetadata }, products] = await Promise.all([
+    getSiteContent(),
+    getProducts(),
+  ]);
   return (
     <>
       <JsonLd
@@ -31,6 +46,7 @@ export default function HomePage() {
         })}
       />
       <JsonLd data={faqSchema(homeFaqCopy.faqs)} />
+
 
       <Hero />
       <Marquee />

@@ -6,7 +6,8 @@ import Header from "@/components/layout/Header";
 import FloatingContactWidget from "@/components/layout/FloatingContactWidget";
 import EnquiryPopup from "@/components/forms/EnquiryPopup";
 import OrganizationJsonLd from "@/components/seo/OrganizationJsonLd";
-import { chromeCopy } from "@/data/siteContent";
+import { getSiteContent } from "@/data/localized";
+import { getLocale } from "@/lib/locale";
 import { site } from "@/lib/site";
 
 import "@/styles/tokens.css";
@@ -99,20 +100,31 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   themeColor: "#05130c",
-  colorScheme: "light",
+  colorScheme: "light dark",
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const [locale, { chromeCopy }] = await Promise.all([getLocale(), getSiteContent()]);
+
   return (
     <html
-      lang="en-IN"
+      lang={locale === "hi" ? "hi-Latn-IN" : "en-IN"}
+      data-theme="light"
       suppressHydrationWarning
-      className={`${display.variable} ${sans.variable} ba-__html [-webkit-text-size-adjust:100%] [scroll-behavior:smooth] motion-reduce:[scroll-behavior:auto] [color-scheme:light] min-[640px]:[--gutter:2rem] min-[1100px]:[--gutter:2.5rem] min-[1100px]:[--header-h:5rem] min-[1200px]:[--hero-offset:calc(var(--header-h)_+_2.4rem_+_1px)]`}
+      className={`${display.variable} ${sans.variable} ba-__html [-webkit-text-size-adjust:100%] [scroll-behavior:smooth] motion-reduce:[scroll-behavior:auto] min-[640px]:[--gutter:2rem] min-[1100px]:[--gutter:2.5rem] min-[1100px]:[--header-h:5rem] min-[1200px]:[--hero-offset:calc(var(--header-h)_+_2.4rem_+_1px)]`}
     >
+      <head>
+        <script
+          id="ba-theme-init"
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var k="ba-theme";var s=localStorage.getItem(k);var d=window.matchMedia("(prefers-color-scheme: dark)").matches;var t=s==="dark"||s==="light"?s:(d?"dark":"light");var r=document.documentElement;r.dataset.theme=t;r.style.colorScheme=t;}catch(e){}})();`,
+          }}
+        />
+      </head>
       <body className={`
           ba-__body [&_*]:[box-sizing:border-box] [&_*::before]:[box-sizing:border-box]
           [&_*::after]:[box-sizing:border-box] [&_section[id]]:[scroll-margin-top:calc(var(--header-h)_+_1.5rem)] m-[0]
-          bg-cream text-ink font-sans
+          bg-page text-ink font-sans
           text-base leading-[1.65] tracking-[-0.008em]
           [-webkit-font-smoothing:antialiased] [-moz-osx-font-smoothing:grayscale] overflow-x-hidden
           [&_h1]:m-[0] [&_h2]:m-[0] [&_h3]:m-[0]
@@ -141,6 +153,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           motion-reduce:[&_*::after]:[animation-iteration-count:1!important] motion-reduce:[&_*::after]:[transition-duration:0.01ms!important] [&.ba-menu-open]:overflow-hidden
           max-[1199px]:pb-[calc(4.1rem_+_env(safe-area-inset-bottom))]
         `}>
+          {/* <input type="radio" name="ba-menu-toggle" id="ba-menu-toggle" className="hidden peer" >English, Hindi</input>
+          <input type="checkbox" name="ba-menu-toggle" id="ba-menu-toggle" className="hidden peer" /> */}
         <a href="#main" className={`
           ba-skip-link fixed top-[0.75rem]
           left-[0.75rem] z-[200] p-[0.7rem_1rem]
@@ -153,8 +167,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Header />
         <main id="main">{children}</main>
         <Footer />
-        <FloatingContactWidget />
-        <EnquiryPopup />
+        <FloatingContactWidget locale={locale} />
+        <EnquiryPopup locale={locale} />
         <OrganizationJsonLd />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-Q770DV8118"

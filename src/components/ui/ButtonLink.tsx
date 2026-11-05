@@ -1,6 +1,6 @@
 ﻿import Link from "next/link";
 import type { ComponentProps, ReactNode } from "react";
-import { getProduct } from "@/data/products";
+import { getProduct } from "@/data/localized";
 import { site, whatsappQuoteHref } from "@/lib/site";
 
 type Variant = "gold" | "dark" | "outline" | "outlineLight";
@@ -21,7 +21,7 @@ const variantClass: Record<Variant, string> = {
 };
 
 /** Brand button that keeps client-side navigation through next/link. */
-export default function ButtonLink({
+export default async function ButtonLink({
   href,
   variant = "gold",
   block = false,
@@ -34,7 +34,7 @@ export default function ButtonLink({
   const productSlug = isQuoteAction
     ? new URL(href, site.url).searchParams.get("product")
     : null;
-  const productName = productSlug ? getProduct(productSlug)?.name : undefined;
+  const productName = productSlug ? (await getProduct(productSlug))?.name : undefined;
   const destination = isQuoteAction ? whatsappQuoteHref(productName) : href;
 
   return (

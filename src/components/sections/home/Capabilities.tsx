@@ -3,9 +3,10 @@ import { ArrowUpRight } from "lucide-react";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { capabilities, capabilitiesCopy } from "@/data/home";
+import { getHomeContent } from "@/data/localized";
 
-export default function Capabilities() {
+export default async function Capabilities() {
+  const { capabilities, capabilitiesCopy } = await getHomeContent();
   return (
     <section className={`
           ba-section relative py-[var(--section-y)]

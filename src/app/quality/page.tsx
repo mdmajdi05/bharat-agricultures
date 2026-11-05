@@ -10,17 +10,30 @@ import ButtonLink from "@/components/ui/ButtonLink";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { pageHero, qualityPageCopy, seoMetadata } from "@/data/siteContent";
+import { getSiteContent } from "@/data/localized";
 import { imageSizes, images } from "@/lib/images";
+import { getLocale } from "@/lib/locale";
 import { createMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = createMetadata({
-  ...seoMetadata.quality,
-  path: "/quality",
-  image: images.welding,
-});
+export async function generateMetadata(): Promise<Metadata> {
+  const [locale, { seoMetadata }] = await Promise.all([getLocale(), getSiteContent()]);
+  return createMetadata({
+    ...seoMetadata.quality,
+    path: "/quality",
+    locale,
+    keywords: [
+      "agricultural machinery quality checks",
+      "machinery fabrication and assembly",
+      "farm equipment manufacturer quality process",
+      "brick kiln machinery manufacturer India",
+    ],
+    image: images.welding,
+  });
+}
 
-export default function QualityPage() {
+export default async function QualityPage() {
+  const { pageHero, qualityPageCopy, seoMetadata } = await getSiteContent();
+
   return (
     <>
       <JsonLd

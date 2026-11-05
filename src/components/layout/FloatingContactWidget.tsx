@@ -3,44 +3,69 @@
 import { useEffect, useState } from "react";
 import { ArrowUpRight, Mail, MessageCircle, Phone, X } from "lucide-react";
 
+import type { Locale } from "@/lib/locale";
 import { emailHref, phoneHref, site, whatsappHref } from "@/lib/site";
 
-const whatsappChatHref = `${whatsappHref}?text=${encodeURIComponent(
-  "Hello Bharat Agricultures! I want to know about machinery, rates and spare parts.",
-)}`;
-
-const options = [
-  {
-    key: "whatsapp",
-    label: "WhatsApp",
-    note: "Chat instantly",
-    href: whatsappChatHref,
-    external: true,
-    Icon: MessageCircle,
-    tone: "green",
+const widgetCopy = {
+  en: {
+    kicker: "Straight from the manufacturer",
+    title: "Talk to us",
+    description: "Machine, rate or spare part — talk to us whichever way suits you.",
+    whatsappNote: "Chat instantly",
+    callLabel: "Call now",
+    mailLabel: "Email us",
+    openOptions: "Open contact options",
+    closeOptions: "Close contact options",
+    messenger:
+      "Hello Bharat Agricultures! I want to know about machinery, rates and spare parts.",
   },
-  {
-    key: "call",
-    label: "Call now",
-    note: site.phone,
-    href: phoneHref,
-    external: false,
-    Icon: Phone,
-    tone: "gold",
+  hi: {
+    kicker: "Seedha manufacturer se",
+    title: "Baat karein",
+    description: "Machine, rate ya spare part — jahan comfortable hain, wahin se baat karein.",
+    whatsappNote: "Turant chat karein",
+    callLabel: "Call karein",
+    mailLabel: "Email karein",
+    openOptions: "Contact options kholein",
+    closeOptions: "Contact options band karein",
+    messenger:
+      "Namaste Bharat Agricultures! Mujhe machinery, rate aur spare parts ke baare mein jaanna hai.",
   },
-  {
-    key: "mail",
-    label: "Email us",
-    note: site.email,
-    href: emailHref,
-    external: false,
-    Icon: Mail,
-    tone: "forest",
-  },
-] as const;
+} as const;
 
 /** Floating chat launcher — quick WhatsApp / call / email actions on every page. */
-export default function FloatingContactWidget() {
+export default function FloatingContactWidget({ locale }: { locale: Locale }) {
+  const copy = widgetCopy[locale];
+  const whatsappChatHref = `${whatsappHref}?text=${encodeURIComponent(copy.messenger)}`;
+  const options = [
+    {
+      key: "whatsapp",
+      label: "WhatsApp",
+      note: copy.whatsappNote,
+      href: whatsappChatHref,
+      external: true,
+      Icon: MessageCircle,
+      tone: "green",
+    },
+    {
+      key: "call",
+      label: copy.callLabel,
+      note: site.phone,
+      href: phoneHref,
+      external: false,
+      Icon: Phone,
+      tone: "gold",
+    },
+    {
+      key: "mail",
+      label: copy.mailLabel,
+      note: site.email,
+      href: emailHref,
+      external: false,
+      Icon: Mail,
+      tone: "forest",
+    },
+  ] as const;
   const [open, setOpen] = useState(false);
   const [pulse, setPulse] = useState(false);
   const [heroVisible, setHeroVisible] = useState(false);
@@ -76,8 +101,8 @@ export default function FloatingContactWidget() {
       {open && (
         <div
           role="dialog"
-          aria-label="Quick contact options"
-          className="ba-popup-card w-[19rem] origin-bottom-right overflow-hidden rounded-[18px] border border-[#e8e2d2] bg-[#fffdf8] text-[#17251b] shadow-[0_22px_60px_rgba(5,19,12,0.26)]"
+          aria-label={copy.openOptions}
+          className="ba-popup-card w-[19rem] origin-bottom-right overflow-hidden rounded-[18px] border border-line bg-paper text-ink shadow-[0_22px_60px_rgba(5,19,12,0.26)]"
         >
           <div className="relative overflow-hidden bg-[#071b10] px-5 pb-4 pt-4">
             <span
@@ -88,23 +113,23 @@ export default function FloatingContactWidget() {
               <div>
                 <p className="inline-flex items-center gap-1.5 text-[8px] font-bold uppercase tracking-[0.18em] text-[#f2d49b]">
                   <span aria-hidden="true" className="h-1 w-1 rounded-full bg-[#f0c473]" />
-                  Seedha manufacturer se
+                  {copy.kicker}
                 </p>
                 <p className="mt-1.5 font-display text-[1.3rem] leading-[1.1] tracking-[-0.02em] text-[#f4f4ed]">
-                  Baat karein
+                  {copy.title}
                 </p>
               </div>
               <button
                 type="button"
                 onClick={() => setOpen(false)}
-                aria-label="Close contact options"
+                aria-label={copy.closeOptions}
                 className="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-[#f4f4ed]/25 !text-[#f4f4ed]/80 transition-colors duration-200 hover:border-[#f0c473] hover:bg-[#f0c473] hover:!text-[#071b10]"
               >
                 <X size={13} aria-hidden="true" />
               </button>
             </div>
             <p className="relative z-10 mt-1.5 text-[10.5px] leading-[1.55] text-[#f4f4ed]/55">
-              Machine, rate ya spare part — jahan comfortable hain, wahin se baat karein.
+              {copy.description}
             </p>
           </div>
 
@@ -115,8 +140,8 @@ export default function FloatingContactWidget() {
                 option.tone === "green"
                   ? "border-[#1f9d55]/25 bg-[#1f9d55]/10 text-[#178046]"
                   : option.tone === "gold"
-                    ? "border-[#c3a25c]/35 bg-[#c3a25c]/10 text-[#9a7326]"
-                    : "border-[#183d2d]/20 bg-[#183d2d]/10 text-[#183d2d]";
+                    ? "border-gold/35 bg-gold/10 text-gold-deep"
+                    : "border-line bg-cream-soft text-gold-deep";
 
               return (
                 <a
@@ -125,7 +150,7 @@ export default function FloatingContactWidget() {
                   {...(option.external
                     ? { target: "_blank", rel: "noopener noreferrer" }
                     : {})}
-                  className="group flex items-center gap-3 rounded-xl border border-[#e8e2d2] bg-white px-3 py-2.5 transition-colors duration-200 hover:border-[#183d2d]/40 hover:bg-[#fbf8ee]"
+                  className="group flex items-center gap-3 rounded-xl border border-line bg-paper px-3 py-2.5 transition-colors duration-200 hover:border-gold/50 hover:bg-cream-soft"
                 >
                   <span
                     className={`grid h-9 w-9 shrink-0 place-items-center rounded-full border ${tone}`}
@@ -133,17 +158,17 @@ export default function FloatingContactWidget() {
                     <Icon size={15} strokeWidth={1.9} aria-hidden="true" />
                   </span>
                   <span className="min-w-0 flex-1">
-                    <span className="block text-[11.5px] font-bold leading-tight !text-[#183d2d]">
+                    <span className="block text-[11.5px] font-bold leading-tight !text-ink">
                       {option.label}
                     </span>
-                    <span className="mt-0.5 block truncate text-[9.5px] leading-tight text-[#8b9187]">
+                    <span className="mt-0.5 block truncate text-[9.5px] leading-tight text-muted">
                       {option.note}
                     </span>
                   </span>
                   <ArrowUpRight
                     size={13}
                     aria-hidden="true"
-                    className="shrink-0 text-[#a4a89e] transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                    className="shrink-0 text-muted transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-gold-deep"
                   />
                 </a>
               );
@@ -167,7 +192,7 @@ export default function FloatingContactWidget() {
           type="button"
           onClick={() => setOpen((value) => !value)}
           aria-expanded={open}
-          aria-label={open ? "Close contact options" : "Open contact options"}
+          aria-label={open ? copy.closeOptions : copy.openOptions}
           className="group relative grid h-14 w-14 place-items-center overflow-hidden rounded-full border border-[#d8b26a] bg-[linear-gradient(145deg,#f9e3b6_0%,#f0c473_46%,#dfa93f_100%)] !text-[#0a2317] shadow-[0_16px_36px_rgba(5,19,12,0.32)] transition-all duration-200 hover:-translate-y-0.5 hover:scale-[1.04] hover:shadow-[0_20px_44px_rgba(5,19,12,0.38)]"
         >
           <span

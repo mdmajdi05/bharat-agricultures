@@ -1,8 +1,9 @@
-import { products } from "@/data/products";
+import { getProducts } from "@/data/localized";
 import { site } from "@/lib/site";
 
 /** Organization structured data for search engines. */
-export default function OrganizationJsonLd() {
+export default async function OrganizationJsonLd() {
+  const products = await getProducts();
   const data = {
     "@context": "https://schema.org",
     "@type": "Organization",

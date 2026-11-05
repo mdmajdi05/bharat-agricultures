@@ -12,7 +12,7 @@ import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import type { Category } from "@/data/categories";
 import type { Product } from "@/data/products";
-import { categoryTemplateCopy } from "@/data/siteContent";
+import { getSiteContent } from "@/data/localized";
 import { imageSizes, images } from "@/lib/images";
 
 type CategoryTemplateProps = {
@@ -20,7 +20,9 @@ type CategoryTemplateProps = {
   products: Product[];
 };
 
-export default function CategoryTemplate({ category, products }: CategoryTemplateProps) {
+export default async function CategoryTemplate({ category, products }: CategoryTemplateProps) {
+  const { categoryTemplateCopy } = await getSiteContent();
+
   return (
     <>
       <JsonLd

@@ -11,7 +11,7 @@ export const site = {
   url: "https://bharatagricultures.com",
   phone: "+91 94126 37062",
   whatsapp: "919412637062",
-  email: "bharat.agri.in@gmail.com",
+  email: "bharatagricultures@gmail.com",
   address: "Transport Nagar, Chandausi Road, Sambhal, Uttar Pradesh, India",
   googleMapsUrl: "https://maps.app.goo.gl/19otDJyQooMHscz28",
   instagramUrl: "https://www.instagram.com/bharat.agri_2008/",

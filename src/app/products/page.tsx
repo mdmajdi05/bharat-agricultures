@@ -17,26 +17,51 @@ import {
 } from "@/components/seo/StructuredData";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
-import { agriculturalProducts, brickKilnProducts, products } from "@/data/products";
-import { partsPages } from "@/data/partsPages";
-import { productsPageCopy, seoMetadata } from "@/data/siteContent";
+import {
+  getAgriculturalProducts,
+  getBrickKilnProducts,
+  getPartsPages,
+  getProducts,
+  getSiteContent,
+} from "@/data/localized";
 import { imageSizes, images } from "@/lib/images";
+import { getLocale } from "@/lib/locale";
 import { createMetadata } from "@/lib/seo";
 import { whatsappQuoteHref } from "@/lib/site";
 
-export const metadata: Metadata = createMetadata({
-  ...seoMetadata.products,
-  path: "/products",
-  image: images.wheat,
-});
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  const { seoMetadata } = await getSiteContent();
+  return createMetadata({
+    ...seoMetadata.products,
+    path: "/products",
+    locale,
+    keywords: [
+      "agricultural machinery and brick kiln equipment",
+      "farm machinery range India",
+      "industrial machinery parts manufacturer",
+      "Bharat Agricultures products",
+    ],
+    image: images.wheat,
+  });
+}
 
-const cardMeta = [
-  { count: agriculturalProducts.length, unit: "machines" },
-  { count: brickKilnProducts.length, unit: "machines" },
-  { count: partsPages.length, unit: "parts categories" },
-];
+export default async function ProductsPage() {
+  const [{ productsPageCopy, seoMetadata }, products, agriculturalProducts, brickKilnProducts, partsPages] =
+    await Promise.all([
+      getSiteContent(),
+      getProducts(),
+      getAgriculturalProducts(),
+      getBrickKilnProducts(),
+      getPartsPages(),
+    ]);
 
-export default function ProductsPage() {
+  const cardMeta = [
+    { count: agriculturalProducts.length, unit: "machines" },
+    { count: brickKilnProducts.length, unit: "machines" },
+    { count: partsPages.length, unit: "parts categories" },
+  ];
+
   return (
     <>
       <JsonLd

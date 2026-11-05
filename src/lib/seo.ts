@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
+import type { Locale } from "@/lib/locale";
+import { localizedAlternates, localizedPath } from "@/lib/locale";
 import { site } from "@/lib/site";
 
 type PageMeta = {
   title: string;
   description: string;
   path?: string;
+  keywords?: string[];
+  locale?: Locale;
   image?: string;
   robots?: Metadata["robots"];
 };
@@ -14,26 +18,35 @@ export function createMetadata({
   title,
   description,
   path = "/",
+  keywords = [],
+  locale = "en",
   image,
   robots,
 }: PageMeta): Metadata {
-  const url = `${site.url}${path === "/" ? "" : path}`;
+  const canonicalPath = localizedPath(path, locale);
+  const url = `${site.url}${canonicalPath}`;
   const ogImage = image ?? `${site.url}/header-logo.png`;
   const brandedTitle = title.includes(site.name)
     ? title
-    : `${title} | ${site.name}`;
+    : title.length <= 48
+      ? `${title} | ${site.name}`
+      : title;
 
   return {
     title: { absolute: brandedTitle },
     description,
+    keywords,
     ...(robots ? { robots } : {}),
-    alternates: { canonical: path },
+    alternates: {
+      canonical: canonicalPath,
+      languages: localizedAlternates(path),
+    },
     openGraph: {
       title: brandedTitle,
       description,
       url,
       siteName: site.name,
-      locale: "en_IN",
+      locale: locale === "hi" ? "hi_IN" : "en_IN",
       type: "website",
       images: [{ url: ogImage, alt: site.name }],
     },

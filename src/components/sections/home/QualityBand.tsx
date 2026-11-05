@@ -3,12 +3,13 @@ import Image from "next/image";
 import { ArrowUpRight, BadgeCheck, Boxes, Factory, ShieldCheck } from "lucide-react";
 import ButtonLink from "@/components/ui/ButtonLink";
 import Reveal from "@/components/ui/Reveal";
-import { qualityBandCopy, qualityPoints } from "@/data/home";
+import { getHomeContent } from "@/data/localized";
 import { imageSizes, images } from "@/lib/images";
 
 const icons = [BadgeCheck, ShieldCheck, Boxes, Factory];
 
-export default function QualityBand() {
+export default async function QualityBand() {
+  const { qualityBandCopy, qualityPoints } = await getHomeContent();
   return (
     <section className={`
           ba-quality grid overflow-hidden

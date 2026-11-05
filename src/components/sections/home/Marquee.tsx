@@ -1,7 +1,9 @@
 
-import { marqueeItems } from "@/data/home";
+import { getHomeContent } from "@/data/localized";
 
-export default function Marquee() {
+export default async function Marquee() {
+  const { marqueeItems } = await getHomeContent();
+
   return (
     <div className={`
           ba-marquee overflow-hidden py-[0.9rem]

@@ -12,25 +12,43 @@ import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import {
-  aboutBodyCopy,
-  aboutFaqCopy,
-  aboutProcess,
-  aboutSections,
-  aboutStats,
-  aboutValues,
-  pageHero,
-  seoMetadata,
-} from "@/data/siteContent";
+  getSiteContent,
+  isHinglish,
+} from "@/data/localized";
 import { imageSizes, images } from "@/lib/images";
+import { getLocale } from "@/lib/locale";
 import { createMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = createMetadata({
-  ...seoMetadata.about,
-  path: "/about",
-  image: images.barn,
-});
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  const { seoMetadata } = await getSiteContent();
+  return createMetadata({
+    ...seoMetadata.about,
+    path: "/about",
+    locale,
+    keywords: [
+      "Bharat Agricultures",
+      "agricultural machinery manufacturer Sambhal",
+      "brick kiln equipment manufacturer Uttar Pradesh",
+      "farm machinery company India",
+    ],
+    image: images.barn,
+  });
+}
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const {
+    aboutBodyCopy,
+    aboutFaqCopy,
+    aboutProcess,
+    aboutSections,
+    aboutStats,
+    aboutValues,
+    pageHero,
+    seoMetadata,
+  } = await getSiteContent();
+  const hinglish = await isHinglish();
+
   return (
     <>
       <JsonLd
@@ -226,7 +244,7 @@ export default function AboutPage() {
           min-[900px]:[.ba-showcase-head_&]:[justify-self:end] [.ba-split-body_&]:[justify-self:start] [.ba-split-body_&]:mt-[0.35rem]
           min-[900px]:[.ba-parts-teaser-head_&]:[justify-self:end]
         `}>
-              Infrastructure dekhein <ArrowUpRight size={15} aria-hidden="true" />
+              {hinglish ? "Infrastructure dekhein" : "View infrastructure"} <ArrowUpRight size={15} aria-hidden="true" />
             </Link>
           </Reveal>
         </Container>
