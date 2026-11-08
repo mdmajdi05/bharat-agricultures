@@ -887,36 +887,36 @@ export const productPageCopy = {
 
 export const seoMetadata = {
   home: {
-    title: "Farm & Brick Kiln Machinery Manufacturer in Sambhal, UP",
+    title: "Kheti Aur Eent Bhatta Machinery — Sambhal Factory Rate",
     description:
       "Sambhal, UP ka agricultural aur brick kiln machinery manufacturer. Thresher, cleaner, disc harrow, land leveler, pugmill, ID fan, coal crusher. Factory rate.",
   },
   about: {
-    title: "About Bharat Agricultures | Farm Machinery Manufacturer",
+    title: "Bharat Agricultures Kaise Kaam Karta Hai | Sambhal",
     description:
       "Bharat Agricultures, Sambhal, UP mein agricultural aur brick kiln machinery banata hai. Kaam karne ka tareeka, product range, quality aur direct supply jaanein.",
   },
   quality: {
-    title: "Quality Commitment | Agricultural Machinery Manufacturer",
+    title: "Kheti Machinery Quality Process | Sambhal Manufacturer",
     description:
       "Sahi material, sahi fit aur dispatch se pehle basic run test — agricultural aur brick kiln machinery ke practical quality standards. Spare support bhi.",
   },
   infrastructure: {
-    title: "Manufacturing Unit in Sambhal, UP | Farm Machinery Factory",
+    title: "Sambhal Factory Setup | Machinery Kaise Banti Hai",
     description:
       "Fabrication, machining, assembly aur dispatch — Sambhal, Uttar Pradesh ki hamari manufacturing unit ka setup aur machinery banane ka practical tareeka.",
   },
   products: {
-    title: "Agricultural & Brick Kiln Machinery | Full Product Range",
+    title: "Saari Machinery — Kheti Aur Eent Bhatta | Sambhal Rate",
     description: `Agricultural machinery, brick kiln machinery aur spare parts — teen product families, ${products.length} machines aur spare support. Sambhal, UP se direct factory rate.`,
   },
   contact: {
-    title: "Contact Bharat Agricultures | Sambhal, UP Factory",
+    title: "Bharat Agricultures Se Baat Karein | Sambhal, UP",
     description:
       "Machine rate, spare parts ya factory visit ke liye Bharat Agricultures se baat karein. Sambhal, Uttar Pradesh. Call, WhatsApp ya enquiry form.",
   },
   enquiry: {
-    title: "Send Machine Enquiry | Get Factory Price & Spare Parts",
+    title: "Machine Ka Rate Poochein | Seedha Sambhal Factory",
     description:
       "Apni machine requirement, volume aur location bhejein. Hum matching model, configuration aur seedha factory rate bhej denge. Sambhal, UP.",
   },

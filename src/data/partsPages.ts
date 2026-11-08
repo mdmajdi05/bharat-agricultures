@@ -34,7 +34,7 @@ export const agriculturalPartsPage: PartsPage = {
   slug: "agricultural-parts",
   name: "Agricultural Machinery Parts",
   navLabel: "Agricultural Parts",
-  metaTitle: "Agricultural Machinery Parts Manufacturer in Sambhal, UP",
+  metaTitle: "Kheti Machinery Parts — Tines, Blades, Jaali | Sambhal",
   metaDescription:
     "Agricultural machinery parts manufacturer in Sambhal, UP. Thresher, harrow, cultivator aur cleaner ke tines, blades, jaali aur bearings. Direct spare support.",
   hero: {
@@ -108,7 +108,7 @@ export const brickKilnPartsPage: PartsPage = {
   slug: "brick-kiln-parts",
   name: "Brick Kiln Machinery Parts",
   navLabel: "Brick Kiln Parts",
-  metaTitle: "Brick Kiln Machinery Parts Manufacturer in Sambhal, UP",
+  metaTitle: "Eent Bhatta Machinery Spare Parts | Sambhal Factory",
   metaDescription:
     "Brick kiln machinery parts manufacturer in Sambhal, UP. Pugmill blades, coal crusher hammers, screens aur ID fan components. Direct spare support.",
   hero: {
@@ -178,7 +178,7 @@ export const castingPartsPage: PartsPage = {
   slug: "casting-parts",
   name: "Casting Parts",
   navLabel: "Casting Parts",
-  metaTitle: "Casting Parts Manufacturer in Sambhal, UP | As Per Drawing",
+  metaTitle: "Casting Parts — Drawing Ke Hisaab Se | Sambhal",
   metaDescription:
     "Casting parts manufacturer in Sambhal, UP. Drawing ya sample ke hisaab se agricultural aur brick kiln machinery ke components. Factory rate aur bulk supply.",
   hero: {

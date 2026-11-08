@@ -43,7 +43,7 @@ export const agriculturalCategory: Category = {
   slug: "agricultural-machinery",
   navLabel: "Agricultural Machinery",
   name: "Agricultural Machinery",
-  metaTitle: "Agricultural Machinery Manufacturer in Sambhal, UP",
+  metaTitle: "Kheti Ki Machinery — Tractor Operated | Sambhal Rate",
   metaDescription:
     "Agricultural machinery manufacturer in Sambhal, UP. Thresher, paddy cleaner, disc harrow, cultivator aur land leveler — direct factory rate aur spare support.",
   hero: {
@@ -146,7 +146,7 @@ export const brickKilnCategory: Category = {
   slug: "brick-kiln-machinery",
   navLabel: "Brick Kiln Machinery",
   name: "Brick Kiln Machinery",
-  metaTitle: "Brick Kiln Machinery Manufacturer in Sambhal, UP",
+  metaTitle: "Eent Bhatta Machinery | Sambhal Se Direct Factory Rate",
   metaDescription:
     "Brick kiln machinery manufacturer in Sambhal, UP. Pugmill, gara machine, brick making machine, ID fan aur coal crusher. Factory quote lein.",
   hero: {
@@ -258,7 +258,7 @@ export const partsCategory: Category = {
   slug: "machinery-parts",
   navLabel: "Machinery Parts",
   name: "Machinery Parts",
-  metaTitle: "Agricultural & Brick Kiln Machinery Parts Manufacturer",
+  metaTitle: "Kheti Aur Bhatta Machinery Parts | Sambhal Spare Support",
   metaDescription:
     "Agricultural aur brick kiln machinery parts manufacturer in Sambhal, UP. Tines, blades, jaali, bearings, pugmill blades aur casting parts. Direct spare support.",
   hero: {
