@@ -34,9 +34,9 @@ export const agriculturalPartsPage: PartsPage = {
   slug: "agricultural-parts",
   name: "Agricultural Machinery Parts",
   navLabel: "Agricultural Parts",
-  metaTitle: "Kheti Machinery Parts — Tines, Blades, Jaali | Sambhal",
+  metaTitle: "Agricultural Machinery Spare Parts | Tines, Blades, Jaali",
   metaDescription:
-    "Agricultural machinery parts manufacturer in Sambhal, UP. Thresher, harrow, cultivator aur cleaner ke tines, blades, jaali aur bearings. Direct spare support.",
+    "Thresher, harrow, cultivator aur cleaner ke liye agricultural machinery spare parts dekhein. Tines, blades, jaali, screens aur bearings ki availability aur matching parts ke liye enquiry bhejein.",
   hero: {
     kicker: "Machinery parts / Kheti",
     title: "Agricultural Machinery Parts",
@@ -108,9 +108,9 @@ export const brickKilnPartsPage: PartsPage = {
   slug: "brick-kiln-parts",
   name: "Brick Kiln Machinery Parts",
   navLabel: "Brick Kiln Parts",
-  metaTitle: "Eent Bhatta Machinery Spare Parts | Sambhal Factory",
+  metaTitle: "Brick Kiln Machinery Spare Parts | Pugmill Blades, Hammers",
   metaDescription:
-    "Brick kiln machinery parts manufacturer in Sambhal, UP. Pugmill blades, coal crusher hammers, screens aur ID fan components. Direct spare support.",
+    "Brick kiln machinery ke liye pugmill blades, coal crusher hammers, screens aur ID fan components dekhein. Existing machine ke model ya sample ke hisaab se spare parts ke liye enquiry karein.",
   hero: {
     kicker: "Machinery parts / Eent Bhatta",
     title: "Brick Kiln Machinery Parts",
@@ -178,9 +178,9 @@ export const castingPartsPage: PartsPage = {
   slug: "casting-parts",
   name: "Casting Parts",
   navLabel: "Casting Parts",
-  metaTitle: "Casting Parts — Drawing Ke Hisaab Se | Sambhal",
+  metaTitle: "Custom Casting Parts Manufacturer | Drawing Aur Sample Based",
   metaDescription:
-    "Casting parts manufacturer in Sambhal, UP. Drawing ya sample ke hisaab se agricultural aur brick kiln machinery ke components. Factory rate aur bulk supply.",
+    "Agricultural aur brick kiln machinery ke casting components drawing ya sample ke basis par banwane ke liye enquiry karein. Part drawing, material requirement aur quantity share karke quotation maangein.",
   hero: {
     kicker: "Machinery parts / Casting kaam",
     title: "Casting Parts",

@@ -17,9 +17,9 @@ export const products: Product[] = [
     tagline: "Clean grain, better price",
     description:
       "Dust cleaner machine built in Sambhal, Uttar Pradesh that removes dust, soil and light impurities from grain so it is ready for the mandi or storage.",
-    metaTitle: "Dust Cleaner Machine Manufacturer in Sambhal, UP",
+    metaTitle: "Agricultural Dust Cleaner Machine for Wheat, Paddy & Seeds",
     metaDescription:
-      "Dust cleaner machine manufacturer in Sambhal, UP. Remove dust, soil and light impurities from wheat, paddy, mustard and gram. Call for a factory price.",
+      "Explore a grain cleaning machine for removing dust and light impurities from crops such as wheat, paddy, mustard and gram. Check the available setup and contact Bharat Agricultures for model details and pricing.",
     intro: [
       "After harvesting or threshing, grain usually carries dust, fine soil, husk and leaf particles. This material adds dead weight, attracts moisture in storage and lowers the price in the mandi. A dust cleaner uses a combination of airflow and screening to separate grain from light impurities.",
       "Bharat Agricultures builds this machine at its own manufacturing unit in Sambhal, Uttar Pradesh. The setup can be adjusted for farmers, FPOs, traders and mills. Tell us which grain you handle, how much you need to clean per hour and whether the machine will run on electricity or an engine, and we will suggest the right configuration.",
@@ -88,9 +88,9 @@ export const products: Product[] = [
     tagline: "Clean paddy before milling",
     description:
       "Paddy cleaner machine removes leaves, husk, stones and light impurities from paddy. Cleaner paddy before milling means less broken rice.",
-    metaTitle: "Paddy Cleaner Machine Manufacturer in Sambhal, UP",
+    metaTitle: "Paddy Cleaner Machine for Rice Processing | Manufacturer",
     metaDescription:
-      "Paddy cleaner machine manufacturer in Sambhal, UP. Remove leaves, stones, husk and light impurities from paddy. Tractor or motor setup, direct factory rate.",
+      "Find a paddy cleaning machine designed to separate leaves, husk, stones and other light impurities from paddy. Ask about tractor-driven or motor-operated configurations and request a quotation.",
     intro: [
       "Paddy arriving from the mandi brings leaves, stems, stones and clods of soil with it. If this material enters the milling line, the chance of broken rice increases and the machines carry extra load. A paddy cleaner separates light and heavy impurities before the next process.",
       "We build this machine in Sambhal, Uttar Pradesh and tune the setup to the paddy variety, moisture and required output. Whether you run a small mill or a large rice plant, the machine has to match your line capacity, so we understand the requirement before suggesting a model.",
@@ -159,9 +159,9 @@ export const products: Product[] = [
     tagline: "Deep, even field preparation",
     description:
       "Disc harrow mixes fertiliser, crop residue and hard soil. A strong frame and disc gangs for primary and secondary tillage.",
-    metaTitle: "Disc Harrow Manufacturer in Sambhal, UP | Heavy Duty",
+    metaTitle: "Disc Harrow Manufacturer in India | Tractor Mounted Implement",
     metaDescription:
-      "Heavy-duty disc harrow manufacturer in Sambhal, UP. Mix stubble, crop residue and hard soil for seedbed preparation. Direct factory price and spare support.",
+      "Explore a tractor-mounted disc harrow for soil tillage and incorporating crop residues into the field. Review the implement details, available model information and replacement parts, then request a manufacturer quotation.",
     intro: [
       "When a field carries last season's stubble, fertiliser or hard soil, a plough alone is not enough. The rotating discs of a disc harrow cut and turn the soil so fertiliser and crop residue mix below the surface and the top layer is levelled.",
       "This implement works for both primary and secondary field preparation. We build disc harrows in Sambhal, Uttar Pradesh with a strong frame, quality discs and correctly fitted bearings so the machine runs straight through long working hours.",
@@ -230,9 +230,9 @@ export const products: Product[] = [
     tagline: "Even seedbed, better germination",
     description:
       "Tine harrow breaks soil into a fine tilth for seedbed preparation. Seed and fertiliser spread evenly and water reaches the root zone.",
-    metaTitle: "Agricultural Harrow Manufacturer in Sambhal, UP",
+    metaTitle: "Tine Harrow for Tractor | Agricultural Harrow Machine",
     metaDescription:
-      "Agricultural harrow manufacturer in Sambhal, UP. Tine harrow for even soil, seed and fertiliser in seedbed preparation. Factory rate for farmers and dealers.",
+      "View a tractor-compatible tine harrow for agricultural soil preparation. Check the implement design and available configuration for your field requirements, and contact Bharat Agricultures for product details.",
     intro: [
       "Seed germinates well when the soil around it is firm and water reaches the root zone. Large clods and gaps spoil the seedbed. A harrow breaks the soil into a finer tilth and levels the surface so seed depth stays uniform.",
       "We build agricultural harrows at our unit with a frame, tines and hitch that keep the implement running straight behind the tractor. A harrow does light work, so attention goes into material and welding to avoid repeated repairs.",
@@ -301,9 +301,9 @@ export const products: Product[] = [
     tagline: "Light crop, easy threshing",
     description:
       "Hawa thresher is built for small crops and lower volumes. The drum and air setup separate grain from husk without excess breakage.",
-    metaTitle: "Hawa Thresher Machine Manufacturer in Sambhal, UP",
+    metaTitle: "Hawa Thresher Machine for Small-Scale Crop Threshing",
     metaDescription:
-      "Hawa thresher machine manufacturer in Sambhal, UP. A light, easy threshing machine for small crops. Direct factory rate, spare parts and delivery support.",
+      "Learn about the Hawa thresher machine and the crops it is designed to process. Contact Bharat Agricultures to confirm crop suitability, machine configuration, spare part availability and pricing.",
     intro: [
       "Large threshers do not suit every field. Where the crop area is small, taking a big engine to the field is difficult, or a farmer wants to thresh on his own land, a lighter hawa thresher is more practical.",
       "In a hawa thresher, grain leaves the drum and airflow carries away husk and light material. We build it in Sambhal, Uttar Pradesh and set the drum speed and air opening for the crop so grain breakage stays low.",
@@ -372,9 +372,9 @@ export const products: Product[] = [
     tagline: "Thresh the crop, save the time",
     description:
       "Multi-crop agricultural thresher for wheat, paddy and pulses. Drum, concave and cleaning sieve are adjusted to suit the crop.",
-    metaTitle: "Thresher Machine Manufacturer in Sambhal, UP | Multi-Crop",
+    metaTitle: "Multi Crop Thresher Manufacturer | Wheat, Paddy & Pulses",
     metaDescription:
-      "Multi-crop thresher machine manufacturer in Sambhal, UP. Tractor-operated thresher for wheat, paddy, gram and pulses. Factory rate and spare parts support.",
+      "Explore a tractor-operated multi crop thresher for suitable crops such as wheat, paddy, gram and pulses. Review machine details and ask about model options, spare parts and manufacturer pricing.",
     intro: [
       "Threshing happens in a short window and the weather cannot be trusted. If the machine stops midway or breaks too much grain, the whole harvest can suffer. The thresher setup must therefore match the crop; a large drum alone is not enough.",
       "We build multi-crop threshers in Sambhal, Uttar Pradesh. Drum speed, concave gap, sieve and blower are combined so the machine works on wheat, paddy and pulses. Tell us your main crop and we will suggest the right setup.",
@@ -443,9 +443,9 @@ export const products: Product[] = [
     tagline: "Separate maize, keep grain whole",
     description:
       "Maize thresher separates grain from the cob. The drum and concave gap are set for maize so grain breakage stays low.",
-    metaTitle: "Maize Thresher Machine Manufacturer in Sambhal, UP",
+    metaTitle: "Maize Thresher Machine Manufacturer | Corn Shelling Equipment",
     metaDescription:
-      "Maize thresher machine manufacturer in Sambhal, UP. Correct drum and concave setup for maize shelling. Direct factory rate, spare parts and buying guidance.",
+      "Find a maize thresher for separating kernels from maize cobs. Review the drum and concave configuration, confirm suitability for your crop requirements and request machine and spare part details.",
     intro: [
       "Maize threshing is different from wheat. Cobs are larger, grain is attached firmly, and at high speed the grain cracks and quality drops. A maize thresher therefore needs a drum, concave and feeding system designed for maize.",
       "We build maize threshers in Sambhal, Uttar Pradesh. Cobs move in a straight flow, the drum separates the grain and husk is removed. Tell us your maize variety and volume, and we will set up the machine accordingly.",
@@ -514,9 +514,9 @@ export const products: Product[] = [
     tagline: "Level fields, save water",
     description:
       "Plate land leveler levels the field surface so irrigation water spreads evenly and does not collect in low spots.",
-    metaTitle: "Plate Land Leveler Manufacturer in Sambhal, UP",
+    metaTitle: "Plate Land Leveler Manufacturer | Tractor Field Leveling",
     metaDescription:
-      "Plate land leveler manufacturer in Sambhal, UP. Level your field and save water with a strong plate and adjustable blade. Sizes to match your tractor.",
+      "Prepare a more even field surface with a tractor-compatible plate land leveler. Explore the adjustable blade, available sizes and tractor requirements before requesting a model recommendation or quotation.",
     intro: [
       "If a field is uneven, water collects in one place and another area stays dry. Germination becomes uneven and irrigation costs rise. A plate land leveler cuts soil from high spots, moves it into low spots and levels the surface.",
       "This is not done in one pass; two or three passes are usually needed. The blade, plate and hitch therefore have to be strong. We build plate land levelers in Sambhal, Uttar Pradesh, sizing the width and plate thickness to the tractor HP.",
@@ -585,9 +585,9 @@ export const products: Product[] = [
     tagline: "Two jobs, one implement",
     description:
       "2 in 1 land leveler moves soil and levels the surface in one implement, saving field preparation time and fuel.",
-    metaTitle: "2 in 1 Land Leveler Manufacturer in Sambhal, UP",
+    metaTitle: "2-in-1 Land Leveler for Tractor | Soil Shifting & Leveling",
     metaDescription:
-      "2 in 1 land leveler manufacturer in Sambhal, UP. Soil shifting and levelling in one implement, sized to your tractor. Direct factory rate and spare support.",
+      "Explore a 2-in-1 land leveler designed for soil shifting and field leveling. Check tractor compatibility and available configurations, then contact Bharat Agricultures for product specifications and pricing.",
     intro: [
       "In many fields, levelling alone is not enough. Soil is excess in one place and missing in another, so it first has to be shifted and then levelled. Using two separate implements costs both time and diesel.",
       "A 2 in 1 land leveler does both jobs in one unit. The front section cuts and moves soil while the rear section finishes the surface. We build it in Sambhal, Uttar Pradesh and size it to the tractor HP.",
@@ -656,9 +656,9 @@ export const products: Product[] = [
     tagline: "The first step of tillage",
     description:
       "Tractor cultivator breaks hard soil and prepares the field for sowing. Spring and rigid tine options, sized to your tractor.",
-    metaTitle: "Tractor Cultivator Manufacturer in Sambhal, UP",
+    metaTitle: "Tractor Cultivator Manufacturer | Agricultural Tillage Implement",
     metaDescription:
-      "Tractor cultivator manufacturer in Sambhal, UP. Heavy-duty cultivator for breaking hard soil and seedbed preparation. Direct factory rate and spare parts.",
+      "Prepare farmland with a tractor cultivator used to loosen soil and support seedbed preparation. Review the available implement details, tractor suitability and replacement parts before requesting a quotation.",
     intro: [
       "After harvest, the soil becomes hard. If seed is sown directly, roots have no space to move down and germination suffers. Cultivator tines break the soil and loosen it enough for seed and fertiliser to go in.",
       "We build tractor cultivators in Sambhal, Uttar Pradesh. Tine count, frame width and hitch angle are set so the implement runs straight behind the tractor with a low draft. Spring tine options are better for stony ground.",
@@ -731,9 +731,9 @@ export const products: Product[] = [
     tagline: "Even clay mix, stronger bricks",
     description:
       "Pugmill machine mixes soil, water and additives evenly. It prepares consistent clay for the brick kiln so brick quality stays uniform.",
-    metaTitle: "Pugmill Machine Manufacturer for Brick Kiln | Sambhal, UP",
+    metaTitle: "Pugmill Machine for Brick Kiln | Clay Mixing Equipment",
     metaDescription:
-      "Pugmill machine manufacturer for brick kiln in Sambhal, UP. Even clay mixing of soil, water and additives. Setup matched to your kiln capacity and factory rate.",
+      "Explore pugmill equipment used to mix clay or soil with water for brick production. Discuss your kiln setup and production requirements with Bharat Agricultures to identify a suitable machine configuration.",
     intro: [
       "Brick quality depends on the soil, but even more on how evenly the soil is mixed. If dry lumps remain in the clay, bricks crack and weak spots appear after firing. A pugmill mixes soil with water to make uniform clay.",
       "Bharat Agricultures builds pugmill machines for brick kilns in Sambhal, Uttar Pradesh. The mixing chamber, shafts and blades are designed around the kiln's daily requirement. Share your soil type and production volume and we will suggest the right size.",
@@ -802,9 +802,9 @@ export const products: Product[] = [
     tagline: "Controlled airflow, better firing",
     description:
       "ID fan controls induced draught in a brick kiln. Correct airflow gives even firing, saves fuel and keeps the smoke path clear.",
-    metaTitle: "ID Fan for Brick Kiln Manufacturer | Sambhal, UP",
+    metaTitle: "Brick Kiln ID Fan Manufacturer | Induced Draft Fan",
     metaDescription:
-      "ID fan for brick kiln manufacturer in Sambhal, UP. Control firing, save fuel and maintain consistent airflow with an induced draught fan. Factory rate.",
+      "View induced draft fans used in brick kiln air and flue-gas systems. Share your plant requirements to discuss airflow needs, fan configuration and suitable equipment options.",
     intro: [
       "Firing in a brick kiln works best when airflow stays under control. Too much draught burns fuel quickly and overfires some bricks; too little draught slows firing and traps smoke. An ID fan manages this airflow.",
       "We build ID fans for brick kilns in Sambhal, Uttar Pradesh. The fan housing, impeller and shaft are balanced so vibration stays low during long runs. Share your kiln size and duct layout and we will suggest a matching fan.",
@@ -873,9 +873,9 @@ export const products: Product[] = [
     tagline: "Right coal size, steady firing",
     description:
       "Coal crusher breaks coal to the right size for a brick kiln. Uniform coal size keeps firing consistent and reduces fuel waste.",
-    metaTitle: "Coal Crusher Machine Manufacturer for Brick Kiln",
+    metaTitle: "Coal Crusher Machine for Brick Kilns | Manufacturer",
     metaDescription:
-      "Coal crusher machine manufacturer for brick kiln in Sambhal, UP. Crush coal to the right size for steady firing and less fuel waste. Direct factory rate.",
+      "Explore coal crushing equipment for preparing coal to a required size for brick kiln operations. Contact Bharat Agricultures to discuss machine configuration, operating requirements and replacement parts.",
     intro: [
       "In a brick kiln, coal size directly affects firing. Large pieces burn slowly and small pieces burn fast, so kiln temperature does not stay even. A coal crusher breaks coal into a uniform size for steady firing.",
       "We build coal crushers for brick kilns in Sambhal, Uttar Pradesh. The crushing chamber, hammers and screen are set for your coal and required output size. Tell us which coal you use and how much you need to crush.",
@@ -944,9 +944,9 @@ export const products: Product[] = [
     tagline: "A setup matched to your kiln",
     description:
       "Requirement-led machine selection for the gara process at a brick kiln. Bharat Agricultures in Sambhal, Uttar Pradesh discusses configuration around kiln layout and target production.",
-    metaTitle: "Gara Machine for Brick Kiln | Manufacturer in Sambhal",
+    metaTitle: "Gara Machine for Brick Kiln | Clay Preparation Equipment",
     metaDescription:
-      "Gara machine for brick kiln manufacturer in Sambhal, UP. Suitable capacity for clay and soil preparation. Configuration and quote as per kiln layout.",
+      "Review the gara machine used in brick kiln clay or soil preparation. Share your plant layout and operating requirements to discuss the appropriate machine arrangement and request a quotation.",
     intro: [
       "When choosing a gara machine for a brick kiln, it is important to understand the kiln layout, the material used and the target production. Without these details, capacity or machine configuration cannot be decided correctly.",
       "Bharat Agricultures builds brick kiln machinery in Sambhal, Uttar Pradesh. Share details of your gara process, required output and site power availability; we will discuss the configuration and quote directly. Final specifications are confirmed before ordering.",
@@ -1015,9 +1015,9 @@ export const products: Product[] = [
     tagline: "The right machine for brick production",
     description:
       "Brick-making machine selection for kiln owners and brick manufacturers. Bharat Agricultures in Sambhal, Uttar Pradesh discusses machine setup around your brick type, production target and site requirements.",
-    metaTitle: "Brick Making Machine Manufacturer in Sambhal, UP",
+    metaTitle: "Brick Making Machine Manufacturer in India | Bharat Agricultures",
     metaDescription:
-      "Brick making machine manufacturer in Sambhal, UP. Configuration matched to your output, clay and site requirements. Direct factory quote and spare support.",
+      "Explore brick making equipment for your production setup. Share details about the clay, required output and site conditions so the suitable machine configuration and quotation can be discussed.",
     intro: [
       "Selecting the right brick-making machine depends on brick type, production target and available space at the site. Matching these requirements first lets you discuss a relevant configuration for your production line.",
       "Bharat Agricultures builds brick kiln machinery in Sambhal, Uttar Pradesh. Share your brick requirement, expected output, material and available power. We will discuss the configuration and quotation; the model and specifications are confirmed before ordering.",

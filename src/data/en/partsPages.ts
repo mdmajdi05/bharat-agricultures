@@ -7,9 +7,9 @@ export const agriculturalPartsPage: PartsPage = {
   slug: "agricultural-parts",
   name: "Agricultural Machinery Parts",
   navLabel: "Agricultural Parts",
-  metaTitle: "Agricultural Machinery Parts Manufacturer in Sambhal, UP",
+  metaTitle: "Agricultural Machinery Spare Parts | Tines, Blades & Screens",
   metaDescription:
-    "Agricultural machinery parts manufacturer in Sambhal, UP. Tines, blades, screens and bearings for threshers, harrows, cultivators and cleaners. Spare support.",
+    "Find replacement parts for threshers, harrows, cultivators and grain cleaners. Explore agricultural tines, blades, screens, jaali and bearings, and enquire about matching components for your machine.",
   hero: {
     kicker: "Machinery parts / Agricultural",
     title: "Agricultural Machinery Parts",
@@ -81,9 +81,9 @@ export const brickKilnPartsPage: PartsPage = {
   slug: "brick-kiln-parts",
   name: "Brick Kiln Machinery Parts",
   navLabel: "Brick Kiln Parts",
-  metaTitle: "Brick Kiln Machinery Parts Manufacturer in Sambhal, UP",
+  metaTitle: "Brick Kiln Machinery Spare Parts | Pugmill Blades & Hammers",
   metaDescription:
-    "Brick kiln machinery parts manufacturer in Sambhal, UP. Pugmill blades, coal crusher hammers, screens and ID fan components. Direct spare support.",
+    "Browse replacement components for brick kiln equipment, including pugmill blades, coal crusher hammers, screens and ID fan parts. Share your machine details or sample to enquire about suitable spares.",
   hero: {
     kicker: "Machinery parts / Brick kiln",
     title: "Brick Kiln Machinery Parts",
@@ -151,9 +151,9 @@ export const castingPartsPage: PartsPage = {
   slug: "casting-parts",
   name: "Casting Parts",
   navLabel: "Casting Parts",
-  metaTitle: "Casting Parts Manufacturer in Sambhal, UP | As Per Drawing",
+  metaTitle: "Custom Casting Parts Manufacturer | Made to Drawing or Sample",
   metaDescription:
-    "Casting parts manufacturer in Sambhal, UP. Components made to your drawing or sample for agricultural and brick kiln machinery. Factory rate and bulk supply.",
+    "Enquire about casting components for agricultural and brick kiln machinery based on your drawing or sample. Share the part design, material requirements and quantity to discuss manufacturing and pricing.",
   hero: {
     kicker: "Machinery parts / Casting",
     title: "Casting Parts",

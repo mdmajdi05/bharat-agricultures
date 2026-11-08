@@ -887,38 +887,38 @@ export const productPageCopy = {
 
 export const seoMetadata = {
   home: {
-    title: "Kheti Aur Eent Bhatta Machinery — Sambhal Factory Rate",
+    title: "Agricultural Aur Brick Kiln Machinery Manufacturer | Bharat Agricultures",
     description:
-      "Sambhal, UP ka agricultural aur brick kiln machinery manufacturer. Thresher, cleaner, disc harrow, land leveler, pugmill, ID fan, coal crusher. Factory rate.",
+      "Bharat Agricultures, Sambhal (UP) mein kheti aur eent bhatta machinery banata hai. Thresher, paddy cleaner, disc harrow, land leveler, pugmill aur machinery parts dekhein. Factory enquiry ke liye sampark karein.",
   },
   about: {
-    title: "Bharat Agricultures Kaise Kaam Karta Hai | Sambhal",
+    title: "Bharat Agricultures Ke Baare Mein | Machinery Manufacturer, Sambhal",
     description:
-      "Bharat Agricultures, Sambhal, UP mein agricultural aur brick kiln machinery banata hai. Kaam karne ka tareeka, product range, quality aur direct supply jaanein.",
+      "Bharat Agricultures ki manufacturing journey, product range aur kaam karne ka tareeka jaaniye. Sambhal, Uttar Pradesh se agricultural aur brick kiln machinery ki supply aur customer support ke baare mein padhein.",
   },
   quality: {
-    title: "Kheti Machinery Quality Process | Sambhal Manufacturer",
+    title: "Agricultural Machinery Ki Quality Aur Testing | Bharat Agricultures",
     description:
-      "Sahi material, sahi fit aur dispatch se pehle basic run test — agricultural aur brick kiln machinery ke practical quality standards. Spare support bhi.",
+      "Machinery banane mein material selection, fitting, fabrication aur dispatch se pehle ki checking kaise hoti hai, jaaniye. Bharat Agricultures ke agricultural aur brick kiln machinery quality process ko dekhein.",
   },
   infrastructure: {
-    title: "Sambhal Factory Setup | Machinery Kaise Banti Hai",
+    title: "Sambhal Machinery Manufacturing Unit | Bharat Agricultures",
     description:
-      "Fabrication, machining, assembly aur dispatch — Sambhal, Uttar Pradesh ki hamari manufacturing unit ka setup aur machinery banane ka practical tareeka.",
+      "Hamari Sambhal, UP manufacturing unit mein fabrication, machining, assembly aur dispatch ka process dekhein. Agricultural aur brick kiln machinery factory ke setup aur production workflow ke baare mein jaaniye.",
   },
   products: {
-    title: "Saari Machinery — Kheti Aur Eent Bhatta | Sambhal Rate",
-    description: `Agricultural machinery, brick kiln machinery aur spare parts — teen product families, ${products.length} machines aur spare support. Sambhal, UP se direct factory rate.`,
+    title: "Agricultural Aur Brick Kiln Machinery Range | Bharat Agricultures",
+    description: "Kheti aur eent bhatta ke liye machines aur spare parts ek jagah dekhein. Thresher, cleaner, harrow, land leveler, cultivator, pugmill, ID fan aur coal crusher ke product details aur enquiry options paayein.",
   },
   contact: {
-    title: "Bharat Agricultures Se Baat Karein | Sambhal, UP",
+    title: "Bharat Agricultures Contact | Machine Price Aur Spare Parts Enquiry",
     description:
-      "Machine rate, spare parts ya factory visit ke liye Bharat Agricultures se baat karein. Sambhal, Uttar Pradesh. Call, WhatsApp ya enquiry form.",
+      "Agricultural ya brick kiln machine ka price, spare parts aur product details jaanne ke liye Bharat Agricultures se sampark karein. Sambhal, Uttar Pradesh factory ke liye call, WhatsApp ya enquiry form use karein.",
   },
   enquiry: {
-    title: "Machine Ka Rate Poochein | Seedha Sambhal Factory",
+    title: "Agricultural Aur Brick Kiln Machine Ka Rate Poochhein",
     description:
-      "Apni machine requirement, volume aur location bhejein. Hum matching model, configuration aur seedha factory rate bhej denge. Sambhal, UP.",
+      "Apni required machine, tractor ya plant details, quantity aur location share karein. Bharat Agricultures se suitable model, available configuration aur factory quotation ke liye enquiry bhejein.",
   },
 };
 

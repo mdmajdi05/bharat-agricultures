@@ -189,9 +189,9 @@ export const englishUiCopy = {
   },
 
   htmlSitemap: {
-    title: "HTML Sitemap",
+    title: "Website Sitemap | Bharat Agricultures",
     description:
-      "Browse Bharat Agricultures pages, agricultural machinery, brick kiln machinery and spare parts.",
+      "Find links to the main Bharat Agricultures pages, including agricultural equipment, brick kiln machinery, product information and spare parts categories.",
     exploreKicker: "Explore the website",
     intro: "Browse our company information, machinery ranges and product pages.",
     breadcrumb: "HTML Sitemap",

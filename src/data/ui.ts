@@ -214,9 +214,9 @@ export const uiCopy = {
     // HTML SITEMAP
     // --------------------------------------------------------
     htmlSitemap: {
-      title: "Website ke sabhi pages",
+      title: "Bharat Agricultures Website Sitemap | Sabhi Pages",
       description:
-        "Bharat Agricultures ke pages, kheti ki machinery, eent bhatta machinery aur spare parts ek jagah dekhein.",
+        "Bharat Agricultures website ke important pages, agricultural machinery, brick kiln equipment aur spare parts sections ke links yahan dekhein.",
       exploreKicker: "Website explore karein",
       intro: "Company ki jaankari, machinery range aur product pages ek jagah dekhein.",
       breadcrumb: "HTML Sitemap",

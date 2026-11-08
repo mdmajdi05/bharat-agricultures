@@ -53,9 +53,9 @@ export const products: Product[] = [
     tagline: "Dana saaf, rate behtar",
     description:
       "Sambhal, Uttar Pradesh mein bana dust cleaner machine — dana se dhool, mitti aur halka kachra alag karta hai, taaki mandi aur storage ke liye grain taiyar rahe.",
-    metaTitle: "Dust Cleaner Machine Ka Rate | Sambhal Manufacturer",
+    metaTitle: "Agricultural Dust Cleaner Machine | Gehun, Dhan Aur Sarson",
     metaDescription:
-      "Dust cleaner machine manufacturer in Sambhal, UP. Gehun, dhan aur sarson se dhool aur halka kachra alag karein. Factory rate aur spare parts support.",
+      "Gehun, dhan, sarson aur gram ki safai ke liye agricultural dust cleaner machine dekhein. Fasal se dhool aur halke impurities alag karne wale model ki details aur factory price ke liye enquiry karein.",
     intro: [
       "Fasal katne ya thresh hone ke baad dane ke saath dhool, mitti ka bareek powder, bhusa aur patte aana aam baat hai. Ye kachra weight badhata hai, godown mein nami kheenchta hai aur mandi mein rate kam karwata hai. Dust cleaner machine hawa aur jaali ka combination use karke dane ko halke kachre se alag karti hai.",
       "Bharat Agricultures ye machine Sambhal, Uttar Pradesh ki apni manufacturing unit mein banata hai. Kisan, FPO, vyapari aur mill — sabke liye setup adjust kiya ja sakta hai. Aapka anaaj kaunsa hai, ghante mein kitna dana saaf karna hai aur machine bijli se chalegi ya engine se, ye batayein aur hum sahi configuration suggest kar denge.",
@@ -124,9 +124,9 @@ export const products: Product[] = [
     tagline: "Dhan ki safai, milling se pehle",
     description:
       "Paddy cleaner machine dhan se patte, bhusa, kankar aur halka kachra alag karti hai. Milling se pehle saaf dhan se broken rice kam hota hai.",
-    metaTitle: "Paddy Cleaner Machine | Sambhal Se Factory Rate",
+    metaTitle: "Paddy Cleaner Machine | Dhan Safai Machine, Sambhal",
     metaDescription:
-      "Paddy cleaner machine manufacturer in Sambhal, UP. Dhan se patte, kankar, bhusa aur halka kachra alag karein. Tractor aur motor dono setup, direct factory rate.",
+      "Dhan se patte, bhusa, kankar aur halki ashuddhiyan alag karne ke liye paddy cleaner machine. Tractor-operated aur motor setup ki details, suitable configuration aur factory quotation ke liye sampark karein.",
     intro: [
       "Dhan mandi se aata hai to uske saath patte, tana, kankar aur mitti ke dhele bhi aate hain. Agar ye kachra milling mein chala jaye to rice break hone ka chance badh jata hai aur machine par extra load padta hai. Paddy cleaner dhan ko halke aur bhaari kachre se alag karke agla process aasan banati hai.",
       "Hum ye machine Sambhal, Uttar Pradesh mein banate hain aur dhan ki variety, moisture aur required output ke hisaab se setup tune karte hain. Chhoti mill ho ya bada rice plant, aapki line ki capacity ke saath match karna zaroori hai — isliye pehle requirement samajhna, phir machine suggest karna.",
@@ -195,9 +195,9 @@ export const products: Product[] = [
     tagline: "Zameen ki tayari, gehri aur barabar",
     description:
       "Disc harrow se khad, fasal avshesh aur sakhi mitti mix hoti hai. Primary aur secondary tillage ke liye mazboot frame aur disc gangs.",
-    metaTitle: "Heavy Duty Disc Harrow | Tractor Operated, Sambhal",
+    metaTitle: "Disc Harrow Manufacturer | Tractor Mounted Disc Harrow",
     metaDescription:
-      "Heavy-duty disc harrow manufacturer in Sambhal, UP. Khat, fasal avshesh aur sakhi mitti mix karke seedbed taiyar karein. Direct factory price aur spare support.",
+      "Tractor-mounted disc harrow se mitti ki tillage aur fasal ke avshesh ko soil mein milane mein madad milti hai. Disc harrow ke model, implement details aur spare parts ke liye Bharat Agricultures se enquiry karein.",
     intro: [
       "Jab khet mein pichhli fasal ka thaan, khad ya sakhi mitti ho, to sirf hal se kaam nahi chalta. Disc harrow ke ghoomte disc mitti ko kaat kar palat dete hain, jisse khad aur fasal avshesh neeche mil jaate hain aur upar ki satah barabar hoti hai.",
       "Ye implement kheti ki primary aur secondary dono tayari mein kaam aata hai. Hum disc harrow Sambhal, Uttar Pradesh mein banate hain — frame ki mazbooti, disc ki quality aur bearing ka fit aisa rakha jata hai ki machine long run mein seedhi chale.",
@@ -266,9 +266,9 @@ export const products: Product[] = [
     tagline: "Seedbed barabar, beej ki growth behtar",
     description:
       "Tine harrow mitti ko bhusa bana kar seedbed taiyar karta hai. Beej aur khad barabar failte hain aur paani root zone tak pahunchta hai.",
-    metaTitle: "Agricultural Harrow Price | Sambhal Manufacturer",
+    metaTitle: "Tine Harrow Machine | Agricultural Harrow for Tractor",
     metaDescription:
-      "Agricultural harrow manufacturer in Sambhal, UP. Tine harrow se mitti, bhusa, beej aur khad barabar karein. Kisan aur dealer ke liye direct factory rate.",
+      "Kheton ki soil preparation ke liye tine harrow machine ke details dekhein. Tractor ke saath use hone wale agricultural harrow ke design, available setup aur price ke liye enquiry bhejein.",
     intro: [
       "Beej tabhi achha ugta hai jab mitti uske around tight ho aur paani root zone tak pahunche. Bade dhele aur gaps seedbed kharab kar dete hain. Harrow mitti ko todkar bhusa banata hai aur satah ko itna barabar karta hai ki beej ki depth ek jaisi rahe.",
       "Hum agricultural harrow apni unit mein banate hain — frame, tines aur hitch ka fit aisa hota hai ki implement tractor ke peeche seedha chale. Harrow halka kaam nahi hai; isliye material aur welding par dhyan diya jata hai, taaki baar-baar repair na karna pade.",
@@ -337,9 +337,9 @@ export const products: Product[] = [
     tagline: "Halki fasal, aasan threshing",
     description:
       "Hawa thresher chhoti fasal aur kam volume ke liye bana hai. Drum aur hawa ka setup dane ko bhusa se alag karta hai, bina zyada toot-phoot ke.",
-    metaTitle: "Hawa Thresher Machine | Sambhal Factory Rate",
+    metaTitle: "Hawa Thresher Machine | Chhoti Fasal Ki Threshing",
     metaDescription:
-      "Hawa thresher machine manufacturer in Sambhal, UP. Chhoti fasal aur halki threshing ke liye aasan machine. Direct factory rate, spare parts aur support.",
+      "Hawa thresher machine ki details dekhein, jo specified chhoti faslon ki threshing ke liye banayi gayi hai. Suitable crop, machine setup, spare parts aur factory price confirm karne ke liye enquiry karein.",
     intro: [
       "Bade thresher har jagah fit nahi hote. Jahan fasal ka area chhota hai, khet tak bade engine ka jaana mushkil hai, ya jahan kisan apne khet mein hi threshing karna chahta hai — wahan hawa thresher ka halka setup zyada practical rehta hai.",
       "Hawa thresher mein dana drum se nikalta hai aur hawa ka flow bhusa aur halka kachra alag karta hai. Hum ise Sambhal, Uttar Pradesh mein banate hain aur fasal ke hisaab se drum ki speed aur hawa ka opening set karte hain, taaki dana zyada na toote.",
@@ -408,9 +408,9 @@ export const products: Product[] = [
     tagline: "Fasal nikalo, waqt bachao",
     description:
       "Multi-crop agricultural thresher gehun, dhan aur dalhan ke liye. Drum, concave aur cleaning sieve ka setup fasal ke hisaab se adjust hota hai.",
-    metaTitle: "Multi-Crop Thresher Machine | Sambhal Factory Rate",
+    metaTitle: "Multi Crop Thresher Machine | Gehun, Dhan Aur Dalhan",
     metaDescription:
-      "Multi-crop thresher machine manufacturer in Sambhal, UP. Gehun, dhan, chana aur dalhan ke liye tractor-operated thresher. Factory rate aur spare parts support.",
+      "Gehun, dhan, chana aur suitable dalhan crops ki threshing ke liye multi crop thresher machine dekhein. Tractor-operated setup, model details aur spare parts ke liye Bharat Agricultures se factory quotation maangein.",
     intro: [
       "Threshing ka waqt short hota hai aur mausam ka bharosa nahi hota. Agar machine beech mein ruk jaye ya dana zyada tootne lage to poori fasal ka nuksan ho sakta hai. Isliye thresher ka setup fasal ke hisaab se sahi hona chahiye — sirf bada drum kaafi nahi hota.",
       "Hum multi-crop thresher Sambhal, Uttar Pradesh mein banate hain. Drum ki speed, concave gap, sieve aur blower ka combination aise set kiya jata hai ki gehun, dhan aur dalhan teeno par kaam ho. Aap apni main fasal batayein, hum uske hisaab se setup suggest karenge.",
@@ -479,9 +479,9 @@ export const products: Product[] = [
     tagline: "Makka alag, dana salaamat",
     description:
       "Maize thresher makka ke bhutte se dana alag karta hai. Drum aur concave ka gap makke ke size ke hisaab se set hota hai, taaki dana kam toote.",
-    metaTitle: "Maize Thresher Machine Ka Rate | Sambhal, UP",
+    metaTitle: "Maize Thresher Machine | Makka Sheller Manufacturer",
     metaDescription:
-      "Maize thresher machine manufacturer in Sambhal, UP. Makka shelling ke liye sahi drum aur concave setup. Direct factory rate, spare parts aur buying guidance.",
+      "Makka ke dane alag karne ke liye maize thresher machine ke drum aur concave setup ki details dekhein. Crop requirement, machine configuration, spare parts aur price ke liye enquiry bhejein.",
     intro: [
       "Makka ki threshing gehun se alag hoti hai. Bhutte bade hote hain, dana chipka hua hota hai aur zyada speed par dana toot kar quality kharab ho jati hai. Isliye maize thresher ka drum, concave aur feeding system makke ke hisaab se design karna padta hai.",
       "Hum maize thresher Sambhal, Uttar Pradesh mein banate hain. Feeding ke waqt bhutte ek seedhe flow mein jaate hain, drum dana nikalta hai aur bhusa alag hota hai. Aap makke ki variety aur volume batayein, hum setup usi hisaab se karenge.",
@@ -550,9 +550,9 @@ export const products: Product[] = [
     tagline: "Khet barabar, paani bachat",
     description:
       "Plate land leveler khet ki satah barabar karta hai, jisse sinchai ka paani ek jaisa failta hai aur low spots mein nahi rukta.",
-    metaTitle: "Plate Land Leveler | Khet Barabar Karne Ki Machine",
+    metaTitle: "Plate Land Leveler Manufacturer | Tractor Land Leveling",
     metaDescription:
-      "Plate land leveler manufacturer in Sambhal, UP. Khet barabar karein aur paani bachayein. Mazboot plate, adjustable blade aur tractor ke hisaab se size.",
+      "Khet ki satah ko level karne ke liye plate land leveler dekhein. Adjustable blade aur tractor ke hisaab se available size ki details jaaniye. Model selection aur factory quotation ke liye sampark karein.",
     intro: [
       "Khet agar ooncha-neecha hai to paani ek jagah bhar jata hai aur doosri jagah sookhi reh jati hai. Isse beej ka ugna ek jaisa nahi hota aur sinchai ka kharcha badh jata hai. Plate land leveler mitti ko kaat kar low spots mein daalta hai aur satah barabar karta hai.",
       "Ye kaam ek baar mein nahi hota — do-teen passes lagte hain. Isliye machine ka blade, plate aur hitch mazboot hona chahiye. Hum plate land leveler Sambhal, Uttar Pradesh mein banate hain, tractor ke HP ke hisaab se size aur plate ki thickness rakhte hain.",
@@ -621,9 +621,9 @@ export const products: Product[] = [
     tagline: "Do kaam, ek implement",
     description:
       "2 in 1 land leveler ek hi implement mein mitti shift karta hai aur satah barabar karta hai — khet ki tayari ka waqt aur fuel bachta hai.",
-    metaTitle: "2 in 1 Land Leveler | Sambhal Se Seedha Rate",
+    metaTitle: "2 in 1 Land Leveler | Soil Shifting Aur Field Leveling",
     metaDescription:
-      "2 in 1 land leveler manufacturer in Sambhal, UP. Ek hi implement mein mitti shifting aur leveling. Tractor size ke hisaab se setup, direct factory rate.",
+      "Soil shifting aur field leveling ke kaam ke liye 2 in 1 land leveler ke features aur setup dekhein. Tractor compatibility, available configuration aur price ke liye Bharat Agricultures ko enquiry bhejein.",
     intro: [
       "Kai kheton mein sirf leveling kaafi nahi hoti. Kahin mitti zyada hai to kahin gap — aise mein pehle mitti idhar-udhar shift karni padti hai, phir satah barabar karni padti hai. Do alag implement lagane se waqt aur diesel dono lagte hain.",
       "2 in 1 land leveler ye dono kaam ek hi unit mein karta hai. Aage ka section mitti ko kaat kar shift karta hai aur peeche ka hissa satah ko finish karta hai. Hum ise Sambhal, Uttar Pradesh mein banate hain aur tractor ke HP ke hisaab se size dete hain.",
@@ -692,9 +692,9 @@ export const products: Product[] = [
     tagline: "Jutai ka pehla step",
     description:
       "Tractor cultivator sakhi mitti todta hai aur khet ko sowing ke liye taiyar karta hai. Spring aur rigid tine options, tractor ke hisaab se size.",
-    metaTitle: "Tractor Cultivator | Kheti Ke Liye, Sambhal Rate",
+    metaTitle: "Tractor Cultivator Manufacturer | Agricultural Cultivator",
     metaDescription:
-      "Tractor cultivator manufacturer in Sambhal, UP. Sakhi mitti todne aur seedbed taiyari ke liye heavy-duty cultivator. Direct factory rate aur spare parts.",
+      "Tractor cultivator se hard soil ko loosen karne aur field preparation mein madad milti hai. Cultivator model, working width, tractor suitability aur spare parts details ke liye enquiry karein.",
     intro: [
       "Fasal katne ke baad khet ki mitti sakhi ho jati hai. Agar seedha beej daal diya jaye to root ko neeche jaane ki jagah nahi milti aur ugna kam ho jata hai. Cultivator ki tines mitti ko todti hain aur soil ko itna loose karti hain ki beej aur khad andar chala jaye.",
       "Hum tractor cultivator Sambhal, Uttar Pradesh mein banate hain. Tine count, frame ki width aur hitch ka angle aisa rakha jata hai ki implement tractor ke saath seedha chale aur draft kam pade. Spring tine wala option pathar wali zameen ke liye behtar rehta hai.",
@@ -767,9 +767,9 @@ export const products: Product[] = [
     tagline: "Mitti mix, eent strong",
     description:
       "Pugmill machine mitti, paani aur additives ko barabar mix karta hai. Brick kiln ke liye consistent clay taiyar hoti hai, jisse eent ki quality ek jaisi rehti hai.",
-    metaTitle: "Pugmill Machine For Brick Kiln | Sambhal Factory",
+    metaTitle: "Brick Kiln Pugmill Machine | Clay Mixing Equipment",
     metaDescription:
-      "Pugmill machine manufacturer for brick kiln in Sambhal, UP. Mitti, paani aur additives ka barabar clay mix. Kiln capacity ke hisaab se setup, factory rate.",
+      "Brick kiln ke liye pugmill machine dekhein, jo mitti aur paani ko mix karne ke kaam aati hai. Kiln requirement, machine configuration aur suitable capacity ke liye Bharat Agricultures se quotation maangein.",
     intro: [
       "Eent ki quality mitti par depend karti hai, lekin usse bhi zyada is baat par ki mitti kitni barabar mix hui hai. Agar clay mein sookhe dhele reh jayein to eent mein crack aata hai aur firing ke baad weak spot ban jata hai. Pugmill machine mitti ko paani ke saath mila kar ek jaisa clay banati hai.",
       "Bharat Agricultures brick kiln ke liye pugmill machine Sambhal, Uttar Pradesh mein banata hai. Mixing chamber, shafts aur blades ka design kiln ki daily requirement ke hisaab se rakha jata hai. Aapki mitti ka type aur production ka volume batayein, hum sahi size suggest karenge.",
@@ -838,9 +838,9 @@ export const products: Product[] = [
     tagline: "Airflow control, behtar firing",
     description:
       "ID fan brick kiln ka induced draught control karta hai. Sahi airflow se firing barabar hoti hai, fuel bachta hai aur dhuen ka rasta theek rehta hai.",
-    metaTitle: "Brick Kiln ID Fan | Sambhal Se Manufacturer Rate",
+    metaTitle: "Brick Kiln ID Fan Manufacturer | Induced Draft Fan",
     metaDescription:
-      "ID fan for brick kiln manufacturer in Sambhal, UP. Firing control, fuel bachat aur consistent airflow ke liye induced draught fan. Factory rate aur support.",
+      "Brick kiln ke induced draft system ke liye ID fan ki details dekhein. Airflow requirement, fan configuration aur plant suitability ke hisaab se product information aur factory quotation ke liye sampark karein.",
     intro: [
       "Brick kiln mein firing tab theek hoti hai jab hawa ka flow control mein rahe. Zyada draught se fuel jaldi jal jata hai aur eent ke kuch hisse zyada pak jaate hain; kam draught se firing slow reh jati hai aur dhuaan rukta hai. ID fan yahi airflow manage karta hai.",
       "Hum brick kiln ke liye ID fan Sambhal, Uttar Pradesh mein banate hain. Fan housing, impeller aur shaft ka balancing aise kiya jata hai ki lambe chalane par vibration kam rahe. Aapke kiln ka size aur duct layout batayein, hum matching fan suggest karenge.",
@@ -909,9 +909,9 @@ export const products: Product[] = [
     tagline: "Coal sizing, steady firing",
     description:
       "Coal crusher brick kiln ke liye coal ko sahi size mein todta hai. Barabar coal size se firing consistent rehti hai aur fuel waste kam hota hai.",
-    metaTitle: "Coal Crusher Machine | Eent Bhatta Ke Liye, Sambhal",
+    metaTitle: "Coal Crusher Machine for Brick Kiln | Sambhal Manufacturer",
     metaDescription:
-      "Coal crusher machine manufacturer for brick kiln in Sambhal, UP. Coal ko sahi size mein crush karein, steady firing aur kam fuel waste. Factory rate.",
+      "Brick kiln mein use hone wale coal ko required size mein crush karne ke liye coal crusher machine dekhein. Machine details, configuration aur spare parts ke liye Bharat Agricultures se enquiry karein.",
     intro: [
       "Brick kiln mein coal ka size seedha firing par asar dalta hai. Bade tukde dheere jalte hain aur chhote tukde jaldi — isse kiln ka temperature ek jaisa nahi rehta. Coal crusher coal ko ek jaise size mein todta hai, jisse firing steady hoti hai.",
       "Hum coal crusher Sambhal, Uttar Pradesh mein brick kiln ke liye banate hain. Crushing chamber, hammers aur screen ka setup aapki coal aur required size ke hisaab se rakha jata hai. Aap kaunsa coal use karte hain aur kitna crush karna hai, ye batayein.",
@@ -980,9 +980,9 @@ export const products: Product[] = [
     tagline: "Kiln ki zaroorat ke hisaab se setup",
     description:
       "Brick kiln ke gara process ke liye requirement-led machine selection. Bharat Agricultures Sambhal, Uttar Pradesh se kiln layout aur target production ke hisaab se configuration discuss karta hai.",
-    metaTitle: "Gara Machine For Brick Kiln | Sambhal Manufacturer",
+    metaTitle: "Gara Machine for Brick Kiln | Clay Preparation Equipment",
     metaDescription:
-      "Gara machine for brick kiln manufacturer in Sambhal, UP. Mitti aur clay preparation ke liye suitable capacity. Kiln layout aur output ke hisaab se factory rate.",
+      "Brick kiln ke clay aur mitti preparation process ke liye gara machine ki details dekhein. Apne plant layout aur requirement ke hisaab se machine configuration aur quotation ke liye enquiry karein.",
     intro: [
       "Brick kiln ke liye gara machine chunte waqt kiln ka layout, istemal hone wala material aur target production samajhna zaroori hai. In details ke bina capacity ya machine configuration ka sahi faisla nahi hota.",
       "Bharat Agricultures Sambhal, Uttar Pradesh se brick kiln machinery banata hai. Apne gara process ki jankari, required output aur site ki power availability share karein; hum machine configuration aur quote par seedhi baat karenge. Final specifications order se pehle confirm ki jaati hain.",
@@ -1051,9 +1051,9 @@ export const products: Product[] = [
     tagline: "Brick production ke liye sahi machine selection",
     description:
       "Brick-making machine selection for kiln owners and brick manufacturers. Bharat Agricultures in Sambhal, Uttar Pradesh discusses the machine setup against your brick type, production target and site requirements.",
-    metaTitle: "Brick Making Machine | Sambhal Factory Direct Rate",
+    metaTitle: "Brick Making Machine for Brick Kiln | Manufacturer, Sambhal",
     metaDescription:
-      "Brick making machine manufacturer in Sambhal, UP. Output, mitti aur site requirement ke hisaab se configuration. Direct factory quote aur spare support.",
+      "Brick production requirement ke liye brick making machine ke available setup aur configuration dekhein. Mitti, required output aur site details share karke suitable machine aur factory quotation ke liye enquiry karein.",
     intro: [
       "Brick-making machine ka sahi selection brick type, production target aur site ke available space par depend karta hai. In requirements ko pehle match karne se aap apni production line ke liye relevant configuration par baat kar sakte hain.",
       "Bharat Agricultures Sambhal, Uttar Pradesh se brick kiln machinery banata hai. Apni brick requirement, expected output, material aur available power share karein. Hum configuration aur quotation discuss karenge; model aur specifications order confirm karne se pehle clear ki jaati hain.",

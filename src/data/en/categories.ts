@@ -8,9 +8,9 @@ export const agriculturalCategory: Category = {
   slug: "agricultural-machinery",
   navLabel: "Agricultural Machinery",
   name: "Agricultural Machinery",
-  metaTitle: "Agricultural Machinery Manufacturer in Sambhal, UP",
+  metaTitle: "Agricultural Equipment Manufacturer in India | Tractor Implements",
   metaDescription:
-    "Agricultural machinery manufacturer in Sambhal, UP. Thresher, paddy cleaner, disc harrow, cultivator and land leveler — direct factory rate and spare support.",
+    "Explore tractor-operated farm equipment for field preparation, crop processing and grain cleaning. Browse threshers, paddy cleaners, disc harrows, tine harrows, cultivators and land levelers from Bharat Agricultures.",
   hero: {
     kicker: "Agricultural machinery / 10 machines",
     title: "Agricultural Machinery Manufacturer in India",
@@ -111,9 +111,9 @@ export const brickKilnCategory: Category = {
   slug: "brick-kiln-machinery",
   navLabel: "Brick Kiln Machinery",
   name: "Brick Kiln Machinery",
-  metaTitle: "Brick Kiln Machinery Manufacturer in Sambhal, UP",
+  metaTitle: "Brick Kiln Machinery Manufacturer in India | Bharat Agricultures",
   metaDescription:
-    "Brick kiln machinery manufacturer in Sambhal, UP. Pugmill, gara machine, brick making machine, ID fan and coal crusher. Discuss setup, get a quote.",
+    "Find machinery used in brick manufacturing, including pugmill machines, gara machines, brick making equipment, induced draft fans and coal crushers. Discuss plant requirements and request a quotation.",
   hero: {
     kicker: "Brick kiln machinery / 05 machines",
     title: "Brick Kiln Machinery Manufacturer in India",
@@ -223,9 +223,9 @@ export const partsCategory: Category = {
   slug: "machinery-parts",
   navLabel: "Machinery Parts",
   name: "Machinery Parts",
-  metaTitle: "Agricultural & Brick Kiln Machinery Parts Manufacturer",
+  metaTitle: "Agricultural & Brick Kiln Machinery Replacement Parts",
   metaDescription:
-    "Agricultural and brick kiln machinery parts manufacturer in Sambhal, UP. Tines, blades, bearings, pugmill blades and casting parts. Direct spare support.",
+    "Source replacement components for farm equipment and brick kiln machinery. Explore tines, blades, screens, bearings, pugmill blades, crusher hammers and casting components.",
   hero: {
     kicker: "Machinery parts / 03 categories",
     title: "Machinery Parts Manufacturer in India",

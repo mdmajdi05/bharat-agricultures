@@ -43,9 +43,9 @@ export const agriculturalCategory: Category = {
   slug: "agricultural-machinery",
   navLabel: "Agricultural Machinery",
   name: "Agricultural Machinery",
-  metaTitle: "Kheti Ki Machinery — Tractor Operated | Sambhal Rate",
+  metaTitle: "Agricultural Machinery Manufacturer | Tractor Implements, Sambhal",
   metaDescription:
-    "Agricultural machinery manufacturer in Sambhal, UP. Thresher, paddy cleaner, disc harrow, cultivator aur land leveler — direct factory rate aur spare support.",
+    "Tractor ke saath use hone wali kheti ki machinery dekhein. Thresher, paddy cleaner, disc harrow, tine harrow, cultivator aur land leveler ke product details, spare parts aur factory enquiry paayein.",
   hero: {
     kicker: "Kheti machinery / 10 machines",
     title: "Kheti Machinery Manufacturer — India Mein Supply",
@@ -146,9 +146,9 @@ export const brickKilnCategory: Category = {
   slug: "brick-kiln-machinery",
   navLabel: "Brick Kiln Machinery",
   name: "Brick Kiln Machinery",
-  metaTitle: "Eent Bhatta Machinery | Sambhal Se Direct Factory Rate",
+  metaTitle: "Brick Kiln Machinery Manufacturer | Pugmill, ID Fan, Crusher",
   metaDescription:
-    "Brick kiln machinery manufacturer in Sambhal, UP. Pugmill, gara machine, brick making machine, ID fan aur coal crusher. Factory quote lein.",
+    "Eent bhatta operations ke liye pugmill machine, gara machine, brick making machine, ID fan aur coal crusher dekhein. Machine configuration aur quotation ke liye Bharat Agricultures, Sambhal se enquiry karein.",
   hero: {
     kicker: "Eent bhatta machinery / 05 machines",
     title: "Eent Bhatta Machinery Manufacturer — India Mein Supply",
@@ -258,9 +258,9 @@ export const partsCategory: Category = {
   slug: "machinery-parts",
   navLabel: "Machinery Parts",
   name: "Machinery Parts",
-  metaTitle: "Kheti Aur Bhatta Machinery Parts | Sambhal Spare Support",
+  metaTitle: "Agricultural Aur Brick Kiln Machinery Spare Parts | Sambhal",
   metaDescription:
-    "Agricultural aur brick kiln machinery parts manufacturer in Sambhal, UP. Tines, blades, jaali, bearings, pugmill blades aur casting parts. Direct spare support.",
+    "Thresher, harrow, cultivator, cleaner aur brick kiln equipment ke spare parts dekhein. Tines, blades, screens, bearings, pugmill blades aur casting components ke liye enquiry bhejein.",
   hero: {
     kicker: "Machinery parts / 03 shreniyan",
     title: "Machinery Parts Manufacturer — Kheti Aur Bhatta",
