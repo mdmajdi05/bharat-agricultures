@@ -33,10 +33,10 @@ export const homeIntroCopy = {
 
 export const homeShowcaseCopy = {
   kicker: "02 — What we make",
-  title: "Agricultural machinery manufacturer in India",
+  title: "Kheti machinery manufacturer — India mein supply",
   copy:
     "Farm machinery manufacturer aur agricultural equipment manufacturer: threshers, cleaners, harrows, land levelers aur cultivators — Sambhal, Uttar Pradesh ki apni unit se.",
-  linkLabel: "See all agricultural machinery",
+  linkLabel: "Saari kheti machinery dekhein",
   linkHref: "/agricultural-machinery",
   railNote: "Swipe to explore →",
 };
@@ -47,10 +47,10 @@ export const homeShowcaseCopy = {
 
 export const homeBrickKilnCopy = {
   kicker: "03 — Brick kiln machinery",
-  title: "Brick kiln machinery manufacturer in India",
+  title: "Eent bhatta machinery manufacturer — India mein supply",
   copy:
     "Gara aur brick-making machines, pugmills, ID fans aur coal crushers — brick factories ke process, airflow aur fuel sizing ke liye.",
-  linkLabel: "See all brick kiln machinery",
+  linkLabel: "Saari eent bhatta machinery dekhein",
   linkHref: "/brick-kiln-machinery",
   railNote: "Swipe to explore →",
 };
@@ -101,7 +101,7 @@ export const homeMachineGuideCopy = {
     },
   ],
   note: "Confusion ho to machine ka naam ya fasal batayein — hum sahi implement suggest kar denge.",
-  linkLabel: "Browse all agricultural machinery",
+  linkLabel: "Saari kheti machinery browse karein",
   linkHref: "/agricultural-machinery",
 };
 
@@ -131,7 +131,7 @@ export const homePartsCopy = {
       href: "/machinery-parts/casting-parts",
     },
   ],
-  linkLabel: "Explore machinery parts",
+  linkLabel: "Machinery parts dekhein",
   linkHref: "/machinery-parts",
 };
 
@@ -179,14 +179,14 @@ export const homeFaqCopy = {
 export const pageHero = {
   about: {
     kicker: "Company / About us",
-    title: "Agricultural & Brick Kiln Machinery Manufacturer in India",
+    title: "Kheti Aur Eent Bhatta Machinery — Sambhal, India",
     copy:
       "Bharat Agricultures: Sambhal ka agricultural machinery manufacturer. Hum kheti ki machinery aur brick kiln machinery khud banate hain — kisan, dealer aur eent bhatta maalik, sabke liye ek hi jagah se.",
     image: "barn",
     current: "About Us",
   },
   contact: {
-    kicker: "Contact / Get in touch",
+    kicker: "Contact / Baat karein",
     title: "Kaam ki baat, seedhi baat.",
     copy:
       "Machine chahiye, rate chahiye ya spare part ki zaroorat hai — call, WhatsApp ya enquiry form, jo aapko aasan lage. Hum requirement samajhkar sahi option batayenge.",
@@ -195,14 +195,14 @@ export const pageHero = {
   },
   products: {
     kicker: `Product hub / ${productCount} machines`,
-    title: "Machinery for farms and brick kilns",
+    title: "Khet aur bhatte ke liye machinery",
     copy:
       "Teen product families: agricultural machinery, brick kiln machinery aur machinery parts. Yahan se seedha category page par jaayein.",
     image: "wheat",
     current: "Products",
   },
   quality: {
-    kicker: "How we work / Quality",
+    kicker: "Kaam ka tareeka / Quality",
     title: "Quality ka matlab: kaam karta rahe",
     copy:
       "Quality kisi certificate se nahi, rozana ke kaam se pata chalti hai. Sahi material, sahi fit aur sahi spare — yahi hamara practical standard hai.",
@@ -210,7 +210,7 @@ export const pageHero = {
     current: "Quality",
   },
   infrastructure: {
-    kicker: "Capability / Infrastructure",
+    kicker: "Capability / Setup",
     title: "Kaam ke hisaab se setup",
     copy:
       "Fabrication, machining aur assembly — ek practical workshop jahan machine banti hai, check hoti hai aur dispatch ke liye taiyar hoti hai.",
@@ -225,7 +225,7 @@ export const aboutBodyCopy = {
     "Bharat Agricultures ek agricultural machinery aur brick kiln machinery manufacturer hai, jo Sambhal, Uttar Pradesh se kaam karta hai. Hamara focus simple hai: aisi machine banana jo khet aur bhatte par rozana chale, aur jab uska koi part ghis jaye to replacement bhi aasani se mile.",
     "Hum kisan, FPO, contractor, farm equipment dealer aur brick kiln owners — sabke saath kaam karte hain. Kisi ko ek machine chahiye, kisi ko poora setup, aur kisi ko sirf spare part. Teenon ke liye process ek hi hai: requirement samjho, sahi option batao, seedha rate do.",
   ],
-  linkLabel: "Explore our machinery",
+  linkLabel: "Hamari machinery dekhein",
   linkHref: "/agricultural-machinery",
   imageAlt: "Manufacturing unit ka kaam",
 };
@@ -313,7 +313,7 @@ export const aboutFaqCopy = {
 // ============================================================
 
 export const productsPageCopy = {
-  title: "Machinery for farms and brick kilns",
+  title: "Khet aur bhatte ke liye machinery",
   description:
     "Agricultural equipment aur brick kiln machinery, Sambhal, Uttar Pradesh se — threshers, cleaners, harrows, land levelers, cultivators, pugmills, ID fans aur coal crushers.",
   cards: [
@@ -321,26 +321,26 @@ export const productsPageCopy = {
       title: "Agricultural Machinery",
       copy: "Jutai, seedbed, leveling, threshing aur dana safai — 10 machines.",
       href: "/agricultural-machinery",
-      label: "Explore agricultural machinery",
+      label: "Kheti machinery dekhein",
       image: "tractor",
     },
     {
       title: "Brick Kiln Machinery",
       copy: "Clay mixing, airflow aur coal sizing — brick kiln ke core machines.",
       href: "/brick-kiln-machinery",
-      label: "Explore brick kiln machinery",
+      label: "Eent bhatta machinery dekhein",
       image: "warehouse",
     },
     {
       title: "Machinery Parts",
       copy: "Wear parts, spares aur casting components — machine chalti rahe.",
       href: "/machinery-parts",
-      label: "Explore machinery parts",
+      label: "Machinery parts dekhein",
       image: "machining",
     },
   ],
   note: "Har machine ka apna page hai — use case, parts, FAQs aur seedha quote request.",
-  noteCtaLabel: "Not sure what you need? Ask our team",
+  noteCtaLabel: "Samajh nahi aa raha? Hamari team se poochein",
   ctaTitle: "Kaam batayein — hum machine, setup aur rate, teenon bata denge.",
   ctaLabel: "Get a quote",
   faqKicker: "Sawaal jawab",
@@ -376,7 +376,7 @@ export const productsPageCopy = {
 // ============================================================
 
 export const qualityPageCopy = {
-  kicker: "How we work / Quality",
+  kicker: "Kaam ka tareeka / Quality",
   title: "Quality ka matlab: kaam karta rahe",
   copy:
     "Machine achhi tab lagti hai jab woh season bhar chale aur uska part waqt par mil jaye. Isliye hamara quality focus teen cheezon par hai — material, fit aur repeatability.",
@@ -472,18 +472,18 @@ export const qualityPageCopy = {
 // ============================================================
 
 export const infrastructurePageCopy = {
-  kicker: "Capability / Infrastructure",
+  kicker: "Capability / Setup",
   title: "Kaam ke hisaab se setup",
   copy:
     "Fabrication, machining aur assembly — ek practical workshop jahan machine banti hai, check hoti hai aur dispatch ke liye taiyar hoti hai.",
-  introKicker: "Built around the work",
+  introKicker: "Kaam ke hisaab se bana",
   introTitle: "Ek chhat ke neeche fabrication se dispatch tak",
   intro: [
     "Hamari unit mein cutting, bending, welding, machining aur assembly ka kaam ek hi jagah hota hai. Isse har stage par machine ka fit aur alignment check ho pata hai — aur galti pakadni ho to wahin pakad li jaati hai.",
     "Setup bada dikhane ke liye nahi, kaam ke hisaab se banaya gaya hai. Jahan machine ka size ya requirement alag hoti hai, wahan jig aur fixture se repeatability rakhi jaati hai.",
   ],
   introLinkLabel: "Machinery range dekhein",
-  pillarsKicker: "How our work comes together",
+  pillarsKicker: "Hamara kaam kaise judta hai",
   pillarsTitle: "Kaam ke char hisse",
   pillarsCopy: "Har section ka apna kaam hai — aur sab ek doosre se juda hua hai.",
   pillars: [
@@ -535,7 +535,7 @@ export const infrastructurePageCopy = {
 // ============================================================
 
 export const pageHeroContact = {
-  kicker: "Contact / Get in touch",
+  kicker: "Contact / Baat karein",
   title: "Kaam ki baat, seedhi baat.",
   copy:
     "Machine chahiye, rate chahiye ya spare part ki zaroorat hai — call, WhatsApp ya enquiry form, jo aapko aasan lage. Hum requirement samajhkar sahi option batayenge.",
@@ -633,7 +633,7 @@ export const contactPageCopy = {
 // ============================================================
 
 export const enquiryPageCopy = {
-  kicker: "Start a conversation",
+  kicker: "Baat shuru karein",
   title: "Apni zaroorat batayein.",
   titleAccent: "Hum sahi machine batayenge.",
   body:
@@ -739,7 +739,7 @@ export const footerCopy = {
   brandCta: "Company ke baare mein",
   contactTitle: "Get in touch",
   contactCta: "Apni requirement bhejein",
-  bottomNote: "Manufacturer · Sambhal, Uttar Pradesh · India",
+  bottomNote: "Sambhal, UP · India ka manufacturer",
 };
 
 // ============================================================
@@ -778,7 +778,7 @@ export const chromeCopy = {
 
 export const categoryTemplateCopy = {
   overviewKicker: "Overview",
-  overviewLink: "Jump to product range",
+  overviewLink: "Product range par jaayein",
   picksKicker: "Kaam ke hisaab se",
   picksTitle: "Kaunsi machine kab kaam aati hai",
   picksCopy:
@@ -807,7 +807,7 @@ export const partsTemplateCopy = {
   checksCopy:
     "Part ka match tabhi sahi hota hai jab machine aur size dono clear hon. In char cheezon se enquiry fast ho jati hai.",
   relatedTitle: "In machines ke liye parts",
-  relatedLink: "All parts categories",
+  relatedLink: "Saari parts categories",
   faqKicker: "Sawaal jawab",
   faqTitleSuffix: " ke baare mein sawaal",
   faqCopy: "Part identification, quantity aur delivery se jude common sawaal.",

@@ -49,7 +49,7 @@ export const products: Product[] = [
   {
     slug: "agricultural-dust-cleaner-machine",
     name: "Dust Cleaner",
-    eyebrow: "Agricultural Dust Cleaner Machine Manufacturer",
+    eyebrow: "Dust Cleaner Machine — Kheti Ke Liye Manufacturer",
     tagline: "Dana saaf, rate behtar",
     description:
       "Sambhal, Uttar Pradesh mein bana dust cleaner machine — dana se dhool, mitti aur halka kachra alag karta hai, taaki mandi aur storage ke liye grain taiyar rahe.",
@@ -91,7 +91,7 @@ export const products: Product[] = [
       { label: "Model", value: "Aapke requirement ke hisaab se" },
       { label: "Capacity", value: "Anaaj aur setup par depend" },
       { label: "Power", value: "Bijli ya engine — aapki suvidha" },
-      { label: "Material", value: "Fabricated steel body" },
+      { label: "Material", value: "Fabricated steel body, mazboot banawat" },
       { label: "Price", value: "Quote par — seedha factory rate" },
     ],
     faqs: [
@@ -113,14 +113,14 @@ export const products: Product[] = [
       },
     ],
     image: "/products/Dust Cleaner at Work in the Field.png",
-    imageAlt: "Bharat Agricultures dust cleaner working in the field",
+    imageAlt: "Khet mein kaam karta Bharat Agricultures dust cleaner",
     number: "01",
     category: "agricultural",
   },
   {
     slug: "paddy-cleaner-machine",
     name: "Paddy Cleaner",
-    eyebrow: "Paddy Cleaner Machine Manufacturer",
+    eyebrow: "Paddy Cleaner Machine — Dhan Safai Ke Liye",
     tagline: "Dhan ki safai, milling se pehle",
     description:
       "Paddy cleaner machine dhan se patte, bhusa, kankar aur halka kachra alag karti hai. Milling se pehle saaf dhan se broken rice kam hota hai.",
@@ -162,7 +162,7 @@ export const products: Product[] = [
       { label: "Model", value: "Mill ki capacity ke hisaab se" },
       { label: "Capacity", value: "Dhan ki variety aur setup par depend" },
       { label: "Power", value: "Motor ya engine option" },
-      { label: "Material", value: "Fabricated steel body" },
+      { label: "Material", value: "Fabricated steel body, mazboot banawat" },
       { label: "Price", value: "Quote par" },
     ],
     faqs: [
@@ -184,14 +184,14 @@ export const products: Product[] = [
       },
     ],
     image: "/products/Paddy Cleaner.png",
-    imageAlt: "Bharat Agricultures paddy cleaner machine",
+    imageAlt: "Bharat Agricultures ki paddy cleaner machine",
     number: "02",
     category: "agricultural",
   },
   {
     slug: "disc-harrow",
     name: "Disc Harrow",
-    eyebrow: "Disc Harrow Manufacturer in India",
+    eyebrow: "Disc Harrow — Khet Taiyari Ke Liye Manufacturer",
     tagline: "Zameen ki tayari, gehri aur barabar",
     description:
       "Disc harrow se khad, fasal avshesh aur sakhi mitti mix hoti hai. Primary aur secondary tillage ke liye mazboot frame aur disc gangs.",
@@ -216,7 +216,7 @@ export const products: Product[] = [
     ],
     features: [
       {
-        title: "Heavy-duty disc gangs",
+        title: "Heavy-duty disc gangs, mazboot build",
         copy: "Disc gangs ka angle aur spacing mitti ki condition ke hisaab se set hota hai, taaki har pass mein barabar kaam ho.",
       },
       {
@@ -224,7 +224,7 @@ export const products: Product[] = [
         copy: "Frame aise steel se banaya jata hai jo khet ke jhatke aur pathar wali zameen ko jhel sake.",
       },
       {
-        title: "Service-friendly bearings",
+        title: "Aasan service wale bearings",
         copy: "Bearing aur hub aise lagaye jaate hain ki greasing aur replacement ke liye baar-baar poora gang kholna na pade.",
       },
     ],
@@ -232,8 +232,8 @@ export const products: Product[] = [
     specs: [
       { label: "Model", value: "Tractor HP ke hisaab se" },
       { label: "Working width", value: "Aapke khet aur tractor ke hisaab se" },
-      { label: "Disc", value: "Boron / carbon steel options" },
-      { label: "Hitch", value: "Standard three-point linkage" },
+      { label: "Disc", value: "Boron ya carbon steel ke option" },
+      { label: "Hitch", value: "Standard three-point linkage setup" },
       { label: "Price", value: "Quote par" },
     ],
     faqs: [
@@ -255,14 +255,14 @@ export const products: Product[] = [
       },
     ],
     image: "/products/DIsc Harrow.png",
-    imageAlt: "Bharat Agricultures disc harrow for field preparation",
+    imageAlt: "Khet taiyari ke liye Bharat Agricultures disc harrow",
     number: "03",
     category: "agricultural",
   },
   {
     slug: "agricultural-harrow-machine",
     name: "Harrow",
-    eyebrow: "Agricultural Harrow Manufacturer in India",
+    eyebrow: "Agricultural Harrow — Seedbed Taiyari Ke Liye",
     tagline: "Seedbed barabar, beej ki growth behtar",
     description:
       "Tine harrow mitti ko bhusa bana kar seedbed taiyar karta hai. Beej aur khad barabar failte hain aur paani root zone tak pahunchta hai.",
@@ -287,7 +287,7 @@ export const products: Product[] = [
     ],
     features: [
       {
-        title: "Spring / rigid tine options",
+        title: "Spring ya rigid tine ke option",
         copy: "Mitti mein pathar zyada ho to spring tine shock absorb karti hai; normal zameen ke liye rigid tine zyada simple aur mazboot rehti hai.",
       },
       {
@@ -304,7 +304,7 @@ export const products: Product[] = [
       { label: "Model", value: "Tractor aur khet ke hisaab se" },
       { label: "Tine type", value: "Rigid / spring — aapki mitti ke hisaab se" },
       { label: "Working width", value: "Tractor HP par depend" },
-      { label: "Material", value: "Steel frame with replaceable tines" },
+      { label: "Material", value: "Steel frame, tines badalne ki suvidha" },
       { label: "Price", value: "Quote par" },
     ],
     faqs: [
@@ -326,14 +326,14 @@ export const products: Product[] = [
       },
     ],
     image: "/products/Harrow.png",
-    imageAlt: "Bharat Agricultures harrow for seedbed preparation",
+    imageAlt: "Seedbed taiyari ke liye Bharat Agricultures harrow",
     number: "04",
     category: "agricultural",
   },
   {
     slug: "hawa-thresher-machine",
     name: "Hawa Thresher",
-    eyebrow: "Hawa Thresher Machine Manufacturer",
+    eyebrow: "Hawa Thresher Machine — Fasal Ke Liye",
     tagline: "Halki fasal, aasan threshing",
     description:
       "Hawa thresher chhoti fasal aur kam volume ke liye bana hai. Drum aur hawa ka setup dane ko bhusa se alag karta hai, bina zyada toot-phoot ke.",
@@ -375,7 +375,7 @@ export const products: Product[] = [
       { label: "Model", value: "Fasal aur volume ke hisaab se" },
       { label: "Power", value: "Tractor PTO ya motor" },
       { label: "Drum", value: "Fasal ke hisaab se setup" },
-      { label: "Material", value: "Fabricated steel body" },
+      { label: "Material", value: "Fabricated steel body, mazboot banawat" },
       { label: "Price", value: "Quote par" },
     ],
     faqs: [
@@ -397,14 +397,14 @@ export const products: Product[] = [
       },
     ],
     image: "/products/Hawa Thresher.png",
-    imageAlt: "Bharat Agricultures Hawa Thresher machine",
+    imageAlt: "Bharat Agricultures ki Hawa Thresher machine",
     number: "05",
     category: "agricultural",
   },
   {
     slug: "agricultural-thresher-machine",
     name: "Thresher",
-    eyebrow: "Agricultural Thresher Machine Manufacturer",
+    eyebrow: "Agricultural Thresher Machine — Multi-Crop",
     tagline: "Fasal nikalo, waqt bachao",
     description:
       "Multi-crop agricultural thresher gehun, dhan aur dalhan ke liye. Drum, concave aur cleaning sieve ka setup fasal ke hisaab se adjust hota hai.",
@@ -429,7 +429,7 @@ export const products: Product[] = [
     ],
     features: [
       {
-        title: "Multi-crop drum setup",
+        title: "Multi-crop drum setup, aasan badlav",
         copy: "Drum speed aur concave gap fasal ke hisaab se badla ja sakta hai, isliye ek hi machine se gehun aur dalhan dono nikalti hai.",
       },
       {
@@ -444,9 +444,9 @@ export const products: Product[] = [
     items: ["Threshing drum", "Concave", "Cleaning sieve", "Blower fan", "Drive and belt set"],
     specs: [
       { label: "Model", value: "Fasal aur tractor ke hisaab se" },
-      { label: "Power", value: "Tractor PTO / engine" },
+      { label: "Power", value: "Tractor PTO ya engine" },
       { label: "Suitable crops", value: "Gehun, dhan, dalhan" },
-      { label: "Material", value: "Fabricated steel body" },
+      { label: "Material", value: "Fabricated steel body, mazboot banawat" },
       { label: "Price", value: "Quote par" },
     ],
     faqs: [
@@ -468,14 +468,14 @@ export const products: Product[] = [
       },
     ],
     image: "/products/Thresher.png",
-    imageAlt: "Bharat Agricultures agricultural thresher machine",
+    imageAlt: "Bharat Agricultures ki agricultural thresher machine",
     number: "06",
     category: "agricultural",
   },
   {
     slug: "maize-thresher-machine",
     name: "Maize Thresher",
-    eyebrow: "Maize Thresher Machine Manufacturer",
+    eyebrow: "Maize Thresher Machine — Makka Ke Liye",
     tagline: "Makka alag, dana salaamat",
     description:
       "Maize thresher makka ke bhutte se dana alag karta hai. Drum aur concave ka gap makke ke size ke hisaab se set hota hai, taaki dana kam toote.",
@@ -517,7 +517,7 @@ export const products: Product[] = [
       { label: "Model", value: "Makke ke volume ke hisaab se" },
       { label: "Power", value: "Tractor PTO / motor" },
       { label: "Suitable crop", value: "Maize / makka" },
-      { label: "Material", value: "Fabricated steel body" },
+      { label: "Material", value: "Fabricated steel body, mazboot banawat" },
       { label: "Price", value: "Quote par" },
     ],
     faqs: [
@@ -539,14 +539,14 @@ export const products: Product[] = [
       },
     ],
     image: "/products/Maize thresher.png",
-    imageAlt: "Bharat Agricultures maize thresher machine",
+    imageAlt: "Bharat Agricultures ki maize thresher machine",
     number: "07",
     category: "agricultural",
   },
   {
     slug: "plate-land-leveler",
     name: "Plate Land Leveler",
-    eyebrow: "Plate Land Leveler Manufacturer",
+    eyebrow: "Plate Land Leveler — Khet Barabar Karne Ke Liye",
     tagline: "Khet barabar, paani bachat",
     description:
       "Plate land leveler khet ki satah barabar karta hai, jisse sinchai ka paani ek jaisa failta hai aur low spots mein nahi rukta.",
@@ -575,7 +575,7 @@ export const products: Product[] = [
         copy: "Plate ki thickness aur width tractor ke HP ke hisaab se rakhi jati hai, taaki mitti ka pressure jhel sake.",
       },
       {
-        title: "Adjustable blade angle",
+        title: "Blade ka angle adjustable",
         copy: "Blade ka angle badalkar mitti ko kaatna ya shift karna set kiya ja sakta hai — halki aur bhaari leveling dono possible.",
       },
       {
@@ -610,14 +610,14 @@ export const products: Product[] = [
       },
     ],
     image: "/products/Plate Land Leveler.png",
-    imageAlt: "Bharat Agricultures plate land leveler",
+    imageAlt: "Bharat Agricultures ka plate land leveler",
     number: "08",
     category: "agricultural",
   },
   {
     slug: "2-in-1-land-leveler",
     name: "2 in 1 Land Leveler",
-    eyebrow: "2 in 1 Land Leveler Manufacturer",
+    eyebrow: "2 in 1 Land Leveler — Do Kaam Ek Machine",
     tagline: "Do kaam, ek implement",
     description:
       "2 in 1 land leveler ek hi implement mein mitti shift karta hai aur satah barabar karta hai — khet ki tayari ka waqt aur fuel bachta hai.",
@@ -658,7 +658,7 @@ export const products: Product[] = [
     specs: [
       { label: "Model", value: "Tractor HP ke hisaab se" },
       { label: "Working width", value: "Khet aur tractor par depend" },
-      { label: "Sections", value: "Blade + leveling plate" },
+      { label: "Sections", value: "Blade aur leveling plate" },
       { label: "Hitch", value: "Three-point linkage" },
       { label: "Price", value: "Quote par" },
     ],
@@ -681,14 +681,14 @@ export const products: Product[] = [
       },
     ],
     image: "/products/2 in 1 land leveler.png",
-    imageAlt: "Bharat Agricultures 2 in 1 land leveler",
+    imageAlt: "Bharat Agricultures ka 2 in 1 land leveler",
     number: "09",
     category: "agricultural",
   },
   {
     slug: "tractor-cultivator",
     name: "Cultivator",
-    eyebrow: "Cultivator Manufacturer in India",
+    eyebrow: "Tractor Cultivator — Kheti Ki Taiyari Ke Liye",
     tagline: "Jutai ka pehla step",
     description:
       "Tractor cultivator sakhi mitti todta hai aur khet ko sowing ke liye taiyar karta hai. Spring aur rigid tine options, tractor ke hisaab se size.",
@@ -730,7 +730,7 @@ export const products: Product[] = [
       { label: "Model", value: "Tractor HP ke hisaab se" },
       { label: "Tine type", value: "Rigid / spring" },
       { label: "Working width", value: "Tractor aur khet par depend" },
-      { label: "Material", value: "Steel frame with replaceable tines" },
+      { label: "Material", value: "Steel frame, tines badalne ki suvidha" },
       { label: "Price", value: "Quote par" },
     ],
     faqs: [
@@ -752,7 +752,7 @@ export const products: Product[] = [
       },
     ],
     image: "/products/cultivator.png",
-    imageAlt: "Bharat Agricultures tractor cultivator",
+    imageAlt: "Bharat Agricultures ka tractor cultivator",
     number: "10",
     category: "agricultural",
   },
@@ -763,7 +763,7 @@ export const products: Product[] = [
   {
     slug: "pugmill-machine",
     name: "Pugmill Machine",
-    eyebrow: "Pugmill Machine Manufacturer in India",
+    eyebrow: "Pugmill Machine — Eent Bhatta Ke Liye",
     tagline: "Mitti mix, eent strong",
     description:
       "Pugmill machine mitti, paani aur additives ko barabar mix karta hai. Brick kiln ke liye consistent clay taiyar hoti hai, jisse eent ki quality ek jaisi rehti hai.",
@@ -796,7 +796,7 @@ export const products: Product[] = [
         copy: "Paani ka flow control karke clay ki consistency set ki ja sakti hai — zyada paani se eent sikudti hai, kam paani se crack aata hai.",
       },
       {
-        title: "Service-friendly build",
+        title: "Aasan service wali banawat",
         copy: "Blades aur liners ghisne wale parts hain; inhe khol kar badalna aasan rakha jata hai taaki production zyada der ruk na paye.",
       },
     ],
@@ -804,8 +804,8 @@ export const products: Product[] = [
     specs: [
       { label: "Model", value: "Kiln ki production ke hisaab se" },
       { label: "Capacity", value: "Daily requirement par depend" },
-      { label: "Power", value: "Electric motor / diesel engine" },
-      { label: "Material", value: "Fabricated steel with wear liners" },
+      { label: "Power", value: "Electric motor ya diesel engine" },
+      { label: "Material", value: "Fabricated steel, wear liners ke saath" },
       { label: "Price", value: "Quote par" },
     ],
     faqs: [
@@ -827,14 +827,14 @@ export const products: Product[] = [
       },
     ],
     image: "/products/pugmill machine.png",
-    imageAlt: "Bharat Agricultures pugmill machine for brick kilns",
+    imageAlt: "Eent bhatte ke liye Bharat Agricultures pugmill machine",
     number: "11",
     category: "brick-kiln",
   },
   {
     slug: "id-fan-for-brick-kiln",
     name: "ID Fan",
-    eyebrow: "ID Fan Manufacturer for Brick Kiln",
+    eyebrow: "ID Fan — Eent Bhatta Ke Liye Manufacturer",
     tagline: "Airflow control, behtar firing",
     description:
       "ID fan brick kiln ka induced draught control karta hai. Sahi airflow se firing barabar hoti hai, fuel bachta hai aur dhuen ka rasta theek rehta hai.",
@@ -871,12 +871,12 @@ export const products: Product[] = [
         copy: "Bearing ko dust aur heat se bachane ke liye housing aur mounting aise design ki jaati hai ki greasing regular ho sake.",
       },
     ],
-    items: ["Fan housing", "Impeller", "Shaft and bearings", "Motor mount", "Inlet and outlet flange"],
+    items: ["Fan housing", "Impeller", "Shaft and bearings", "Motor mount", "Inlet aur outlet flange"],
     specs: [
       { label: "Model", value: "Kiln size aur duct layout ke hisaab se" },
       { label: "Airflow", value: "Aapke kiln ki requirement par depend" },
       { label: "Power", value: "Electric motor" },
-      { label: "Material", value: "Fabricated steel housing" },
+      { label: "Material", value: "Fabricated steel housing, mazboot" },
       { label: "Price", value: "Quote par" },
     ],
     faqs: [
@@ -898,14 +898,14 @@ export const products: Product[] = [
       },
     ],
     image: "/products/ID fan.png",
-    imageAlt: "Bharat Agricultures ID fan for brick kilns",
+    imageAlt: "Eent bhatte ke liye Bharat Agricultures ID fan",
     number: "12",
     category: "brick-kiln",
   },
   {
     slug: "coal-crusher-machine",
     name: "Coal Crusher",
-    eyebrow: "Coal Crusher Manufacturer for Brick Kiln",
+    eyebrow: "Coal Crusher — Eent Bhatta Ke Liye",
     tagline: "Coal sizing, steady firing",
     description:
       "Coal crusher brick kiln ke liye coal ko sahi size mein todta hai. Barabar coal size se firing consistent rehti hai aur fuel waste kam hota hai.",
@@ -946,7 +946,7 @@ export const products: Product[] = [
     specs: [
       { label: "Model", value: "Coal aur required size ke hisaab se" },
       { label: "Capacity", value: "Kiln ki daily requirement par depend" },
-      { label: "Power", value: "Electric motor / diesel engine" },
+      { label: "Power", value: "Electric motor ya diesel engine" },
       { label: "Output size", value: "Changeable screen se adjust" },
       { label: "Price", value: "Quote par" },
     ],
@@ -969,14 +969,14 @@ export const products: Product[] = [
       },
     ],
     image: "/products/Coal Crusher.png",
-    imageAlt: "Bharat Agricultures coal crusher for brick kilns",
+    imageAlt: "Eent bhatte ke liye Bharat Agricultures coal crusher",
     number: "13",
     category: "brick-kiln",
   },
   {
     slug: "gara-machine-for-brick-kiln",
     name: "Gara Machine",
-    eyebrow: "Gara Machine Manufacturer for Brick Kilns",
+    eyebrow: "Gara Machine — Eent Bhatta Ke Liye",
     tagline: "Kiln ki zaroorat ke hisaab se setup",
     description:
       "Brick kiln ke gara process ke liye requirement-led machine selection. Bharat Agricultures Sambhal, Uttar Pradesh se kiln layout aur target production ke hisaab se configuration discuss karta hai.",
@@ -1001,7 +1001,7 @@ export const products: Product[] = [
     ],
     features: [
       {
-        title: "Requirement-led selection",
+        title: "Requirement ke hisaab se selection",
         copy: "Kiln ka type, process aur desired output batayein; machine size aur configuration par uske baad baat hoti hai.",
       },
       {
@@ -1009,17 +1009,17 @@ export const products: Product[] = [
         copy: "Available floor space, material aur power supply ki jankari dene se suitable setup identify karna aasan hota hai.",
       },
       {
-        title: "Specifications confirmed before order",
+        title: "Order se pehle specification confirm",
         copy: "Capacity, drive aur final configuration requirement ke mutabik quote mein confirm karein; bina confirmation ke standard rating assume na karein.",
       },
     ],
-    items: ["Machine configuration as per requirement", "Drive and power details to be confirmed", "Installation space review", "Quotation and dispatch details"],
+    items: ["Machine configuration requirement ke hisaab se", "Drive aur power detail confirm hogi", "Installation space ka review", "Quotation aur dispatch ki detail"],
     specs: [
-      { label: "Application", value: "Brick kiln gara process" },
+      { label: "Application", value: "Eent bhatte ka gara process" },
       { label: "Model", value: "Requirement ke hisaab se confirm" },
       { label: "Capacity", value: "Target output ke hisaab se confirm" },
       { label: "Power", value: "Selected configuration ke hisaab se confirm" },
-      { label: "Price", value: "Requirement-based quotation" },
+      { label: "Price", value: "Requirement ke hisaab se quotation" },
     ],
     faqs: [
       {
@@ -1040,14 +1040,14 @@ export const products: Product[] = [
       },
     ],
     image: "/products/gara machine.webp",
-    imageAlt: "Bharat Agricultures gara machine for brick kilns",
+    imageAlt: "Eent bhatte ke liye Bharat Agricultures gara machine",
     number: "14",
     category: "brick-kiln",
   },
   {
     slug: "brick-making-machine",
     name: "Brick-Making Machine",
-    eyebrow: "Brick-Making Machine Manufacturer in India",
+    eyebrow: "Brick Making Machine — Eent Banane Ke Liye",
     tagline: "Brick production ke liye sahi machine selection",
     description:
       "Brick-making machine selection for kiln owners and brick manufacturers. Bharat Agricultures in Sambhal, Uttar Pradesh discusses the machine setup against your brick type, production target and site requirements.",
@@ -1072,7 +1072,7 @@ export const products: Product[] = [
     ],
     features: [
       {
-        title: "Production requirement matching",
+        title: "Production requirement ke hisaab se matching",
         copy: "Brick type aur expected production share karein, taaki machine configuration aapke kaam ke mutabik discuss ki ja sake.",
       },
       {
@@ -1080,17 +1080,17 @@ export const products: Product[] = [
         copy: "Installation space, material flow aur power availability ki jankari machine selection ko practical banati hai.",
       },
       {
-        title: "Clear pre-order specifications",
+        title: "Order se pehle clear specification",
         copy: "Model, capacity, drive aur price ko final quote mein confirm karein; requirements ke bina fixed ratings assume nahi ki jaati.",
       },
     ],
-    items: ["Machine configuration as per brick requirement", "Capacity and drive details to be confirmed", "Site layout review", "Quotation and dispatch details"],
+    items: ["Brick requirement ke hisaab se machine configuration", "Capacity aur drive detail confirm hogi", "Site layout review", "Quotation aur dispatch ki detail"],
     specs: [
       { label: "Application", value: "Brick production" },
       { label: "Model", value: "Requirement ke hisaab se confirm" },
       { label: "Capacity", value: "Target output ke hisaab se confirm" },
       { label: "Power", value: "Selected configuration ke hisaab se confirm" },
-      { label: "Price", value: "Requirement-based quotation" },
+      { label: "Price", value: "Requirement ke hisaab se quotation" },
     ],
     faqs: [
       {
@@ -1111,7 +1111,7 @@ export const products: Product[] = [
       },
     ],
     image: "/products/bricks making machine.webp",
-    imageAlt: "Bharat Agricultures brick-making machine",
+    imageAlt: "Bharat Agricultures ki brick-making machine",
     number: "15",
     category: "brick-kiln",
   },

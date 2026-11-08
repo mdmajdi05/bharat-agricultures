@@ -47,8 +47,8 @@ export const agriculturalCategory: Category = {
   metaDescription:
     "Agricultural machinery manufacturer in Sambhal, UP. Thresher, paddy cleaner, disc harrow, cultivator aur land leveler — direct factory rate aur spare support.",
   hero: {
-    kicker: "Agricultural machinery / 10 machines",
-    title: "Agricultural Machinery Manufacturer in India",
+    kicker: "Kheti machinery / 10 machines",
+    title: "Kheti Machinery Manufacturer — India Mein Supply",
     copy:
       "Agricultural equipment, farm machinery aur tractor implements — apni unit Sambhal, Uttar Pradesh se. Jutai se threshing aur safai tak, kisan aur dealer ke liye seedha factory rate.",
     image: "tractor",
@@ -150,8 +150,8 @@ export const brickKilnCategory: Category = {
   metaDescription:
     "Brick kiln machinery manufacturer in Sambhal, UP. Pugmill, gara machine, brick making machine, ID fan aur coal crusher. Factory quote lein.",
   hero: {
-    kicker: "Brick kiln machinery / 05 machines",
-    title: "Brick Kiln Machinery Manufacturer in India",
+    kicker: "Eent bhatta machinery / 05 machines",
+    title: "Eent Bhatta Machinery Manufacturer — India Mein Supply",
     copy:
       "Clay mixing, gara process, brick production, airflow aur coal sizing ke liye brick kiln machinery. Sambhal, Uttar Pradesh ki apni unit se, kiln owners ke liye.",
     image: "warehouse",
@@ -206,11 +206,11 @@ export const brickKilnCategory: Category = {
       copy: "Har machine ka maksad ek hi hai: kiln ka output consistent rahe aur fuel waste kam ho.",
     },
     {
-      title: "Requirement-led configuration",
+      title: "Requirement ke hisaab se configuration",
       copy: "Brick type, site layout, power aur target output ke basis par machine specifications quote se pehle confirm ki jaati hain.",
     },
     {
-      title: "Direct manufacturer rate",
+      title: "Seedha manufacturer rate",
       copy: "Machine apni unit mein banti hai, isliye rate par seedhi baat hoti hai — bina beech ke commission ke.",
     },
   ],
@@ -262,8 +262,8 @@ export const partsCategory: Category = {
   metaDescription:
     "Agricultural aur brick kiln machinery parts manufacturer in Sambhal, UP. Tines, blades, jaali, bearings, pugmill blades aur casting parts. Direct spare support.",
   hero: {
-    kicker: "Machinery parts / 03 categories",
-    title: "Machinery Parts Manufacturer in India",
+    kicker: "Machinery parts / 03 shreniyan",
+    title: "Machinery Parts Manufacturer — Kheti Aur Bhatta",
     copy:
       "Machine tab tak kaam ki hai jab tak uska spare milta rahe. Agricultural parts, brick kiln parts aur casting parts — Sambhal, Uttar Pradesh se seedha support.",
     image: "machining",

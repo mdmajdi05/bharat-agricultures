@@ -80,7 +80,7 @@ export const uiCopy = {
         "Humara maqsad hai ki farmers aur agriculture industry tak useful machinery solutions pahunch sakein. Quality, practical design aur continuous improvement humare kaam ki buniyad hain.",
       ],
       image: {
-        alt: "Agricultural tractor working in a farm field",
+        alt: "Khet mein kaam karta agricultural tractor",
         brand: "BHARAT AGRICULTURES",
         statement: "Kheti ki taqat.",
         statementAccent: "Behtar kal ki shuruaat.",
@@ -148,28 +148,28 @@ export const uiCopy = {
       kickerFallback: "Parts & Spares",
       title: "Keep Every Machine",
       titleAccent: "Running.",
-      subtitle: "Genuine Parts. Reliable Performance.",
+      subtitle: "Asli parts. Bharosemand performance.",
       description:
-        "High-quality spare parts for agricultural, brick kiln and industrial machinery.",
+        "Kheti, eent bhatta aur industrial machinery ke liye high-quality spare parts.",
       ctaLabel: "Explore All Parts",
       categories: [
         {
           icon: "sprout",
           image: "/agricultural-parts.webp",
-          alt: "Agricultural machinery spare parts",
-          parts: "Tines • Blades • Jaali • Bearings",
+          alt: "Kheti machinery ke spare parts",
+          parts: "Tine • Blade • Jaali • Bearing",
         },
         {
           icon: "layers",
           image: "/brick-kiln-parts.webp",
-          alt: "Brick kiln machinery spare parts",
-          parts: "Pugmill Blades • Hammers • Screens",
+          alt: "Eent bhatta machinery ke spare parts",
+          parts: "Pugmill blade • Hammer • Screen",
         },
         {
           icon: "settings",
           image: "/casting-parts.webp",
-          alt: "Industrial metal casting components",
-          parts: "Custom Casting • As Per Drawing",
+          alt: "Industrial metal casting ke components",
+          parts: "Custom casting • Drawing ke hisaab se",
         },
       ],
       trustItems: [

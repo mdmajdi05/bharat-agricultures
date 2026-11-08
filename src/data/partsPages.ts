@@ -38,7 +38,7 @@ export const agriculturalPartsPage: PartsPage = {
   metaDescription:
     "Agricultural machinery parts manufacturer in Sambhal, UP. Thresher, harrow, cultivator aur cleaner ke tines, blades, jaali aur bearings. Direct spare support.",
   hero: {
-    kicker: "Machinery parts / Agricultural",
+    kicker: "Machinery parts / Kheti",
     title: "Agricultural Machinery Parts",
     copy:
       "Thresher, harrow, cultivator aur cleaner ke wear parts — tines, blades, jaali, drum parts aur bearings. Sambhal, Uttar Pradesh se seedha spare support.",
@@ -112,7 +112,7 @@ export const brickKilnPartsPage: PartsPage = {
   metaDescription:
     "Brick kiln machinery parts manufacturer in Sambhal, UP. Pugmill blades, coal crusher hammers, screens aur ID fan components. Direct spare support.",
   hero: {
-    kicker: "Machinery parts / Brick kiln",
+    kicker: "Machinery parts / Eent Bhatta",
     title: "Brick Kiln Machinery Parts",
     copy:
       "Pugmill blades, crusher hammers, screens aur ID fan components — brick kiln ke wear parts, taaki firing aur production dono na ruke.",
@@ -128,7 +128,7 @@ export const brickKilnPartsPage: PartsPage = {
     {
       title: "Pugmill parts",
       copy: "Mixing blades, liners aur shaft components — clay mixing ka core wear section.",
-      items: ["Mixing blades", "Wear liners", "Shaft sleeves", "Discharge gate parts"],
+      items: ["Mixing blades", "Wear liners", "Shaft sleeves", "Discharge gate ke parts"],
     },
     {
       title: "Crusher parts",
@@ -182,7 +182,7 @@ export const castingPartsPage: PartsPage = {
   metaDescription:
     "Casting parts manufacturer in Sambhal, UP. Drawing ya sample ke hisaab se agricultural aur brick kiln machinery ke components. Factory rate aur bulk supply.",
   hero: {
-    kicker: "Machinery parts / Casting",
+    kicker: "Machinery parts / Casting kaam",
     title: "Casting Parts",
     copy:
       "Drawing ya sample ke hisaab se casting components — hubs, housings, pulleys aur custom parts, agricultural aur brick kiln machinery ke liye.",
@@ -219,7 +219,7 @@ export const castingPartsPage: PartsPage = {
   checksTitle: "Casting enquiry ke liye ye detail chahiye",
   checks: [
     "Drawing ya physical sample",
-    "Material specification",
+    "Material ki specification",
     "Quantity aur repeat requirement",
     "Machining ki zaroorat hai ya nahi",
   ],
