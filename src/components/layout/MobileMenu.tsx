@@ -113,7 +113,7 @@ export default function MobileMenu({ locale, chromeCopy }: MobileMenuProps) {
         <div className={`
           ba-mobile-menu__top flex items-center
           justify-between gap-[1rem] h-[var(--header-h)]
-          px-[var(--gutter)] [border-bottom:1px_solid_var(--c-line-dark)] shrink-0
+          px-[var(--gutter)] [border-bottom:1px_solid_var(--menu-border)] shrink-0
         `}>
           <Link href={locale === "hi" ? "/" : "/en"} className={`
           ba-mobile-menu__brand inline-flex p-[0.4rem_0.55rem]
@@ -123,14 +123,16 @@ export default function MobileMenu({ locale, chromeCopy }: MobileMenuProps) {
             <Image src="/header-logo.png" alt={site.name} width={838} height={298} />
           </Link>
           <div className="flex items-center gap-[0.55rem]">
-            <ThemeToggle />
+            <div className="ba-mobile-menu__theme flex">
+              <ThemeToggle />
+            </div>
             <button
               ref={closeRef}
               type="button"
               className={`
             ba-mobile-menu__close grid [place-items:center]
-            w-[2.75rem] h-[2.75rem] [border:1px_solid_var(--c-line-dark-strong)]
-            rounded-full bg-transparent text-cream
+            w-[2.75rem] h-[2.75rem] [border:1px_solid_var(--menu-border)]
+            rounded-full bg-transparent
           `}
               aria-label={chromeCopy.closeMenu}
               tabIndex={open ? 0 : -1}
@@ -155,7 +157,7 @@ export default function MobileMenu({ locale, chromeCopy }: MobileMenuProps) {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className={`ba-mobile-menu__link [display:flex] [align-items:baseline] [justify-content:space-between] [gap:1rem] [padding-block:0.95rem] [border-bottom:1px_solid_var(--c-line-dark)] [font-family:var(--font-display)] [font-size:clamp(1.8rem,_7.5vw,_2.6rem)] [line-height:1.1] [letter-spacing:-0.02em] [opacity:0] [transform:translateY(14px)] [transition:opacity_0.4s_var(--ease),_transform_0.4s_var(--ease),_color_0.2s_var(--ease)] [.ba-mobile-menu.ba-is-open_&]:[opacity:1] [.ba-mobile-menu.ba-is-open_&]:[transform:none] [&:nth-child(1)]:[transition-delay:0.06s] [&:nth-child(2)]:[transition-delay:0.1s] [&:nth-child(3)]:[transition-delay:0.14s] [&:nth-child(4)]:[transition-delay:0.18s] [&:nth-child(5)]:[transition-delay:0.22s] [&:nth-child(6)]:[transition-delay:0.26s] [&:hover]:[color:var(--c-gold-bright)] [&.ba-is-active]:[color:var(--c-gold-bright)] [.ba-mobile-menu-group_&]:[border-bottom:0]${active ? " ba-is-active" : ""}`}
+                    className={`ba-mobile-menu__link [display:flex] [align-items:baseline] [justify-content:space-between] [gap:1rem] [padding-block:0.95rem] [border-bottom:1px_solid_var(--menu-border)] [font-family:var(--font-display)] [font-size:clamp(1.8rem,_7.5vw,_2.6rem)] [line-height:1.1] [letter-spacing:-0.02em] [opacity:0] [transform:translateY(14px)] [transition:opacity_0.4s_var(--ease),_transform_0.4s_var(--ease),_color_0.2s_var(--ease)] [.ba-mobile-menu.ba-is-open_&]:[opacity:1] [.ba-mobile-menu.ba-is-open_&]:[transform:none] [&:nth-child(1)]:[transition-delay:0.06s] [&:nth-child(2)]:[transition-delay:0.1s] [&:nth-child(3)]:[transition-delay:0.14s] [&:nth-child(4)]:[transition-delay:0.18s] [&:nth-child(5)]:[transition-delay:0.22s] [&:nth-child(6)]:[transition-delay:0.26s] [&:hover]:[color:var(--menu-accent)] [&.ba-is-active]:[color:var(--menu-accent)] [.ba-mobile-menu-group_&]:[border-bottom:0]${active ? " ba-is-active" : ""}`}
                     aria-current={active ? "page" : undefined}
                   >
                     {item.label}
@@ -165,10 +167,10 @@ export default function MobileMenu({ locale, chromeCopy }: MobileMenuProps) {
 
               return (
                 <details className={`
-          ba-mobile-menu-group [border-bottom:1px_solid_var(--c-line-dark)] [&_summary]:cursor-pointer
+          ba-mobile-menu-group [border-bottom:1px_solid_var(--menu-border)] [&_summary]:cursor-pointer
           [&_summary]:[list-style:none] [&_summary::-webkit-details-marker]:hidden
         `} key={item.href}>
-                  <summary className={`ba-mobile-menu__link [display:flex] [align-items:baseline] [justify-content:space-between] [gap:1rem] [padding-block:0.95rem] [border-bottom:1px_solid_var(--c-line-dark)] [font-family:var(--font-display)] [font-size:clamp(1.8rem,_7.5vw,_2.6rem)] [line-height:1.1] [letter-spacing:-0.02em] [opacity:0] [transform:translateY(14px)] [transition:opacity_0.4s_var(--ease),_transform_0.4s_var(--ease),_color_0.2s_var(--ease)] [.ba-mobile-menu.ba-is-open_&]:[opacity:1] [.ba-mobile-menu.ba-is-open_&]:[transform:none] [&:nth-child(1)]:[transition-delay:0.06s] [&:nth-child(2)]:[transition-delay:0.1s] [&:nth-child(3)]:[transition-delay:0.14s] [&:nth-child(4)]:[transition-delay:0.18s] [&:nth-child(5)]:[transition-delay:0.22s] [&:nth-child(6)]:[transition-delay:0.26s] [&:hover]:[color:var(--c-gold-bright)] [&.ba-is-active]:[color:var(--c-gold-bright)] [.ba-mobile-menu-group_&]:[border-bottom:0]${active ? " ba-is-active" : ""}`}>
+                  <summary className={`ba-mobile-menu__link [display:flex] [align-items:baseline] [justify-content:space-between] [gap:1rem] [padding-block:0.95rem] [border-bottom:1px_solid_var(--menu-border)] [font-family:var(--font-display)] [font-size:clamp(1.8rem,_7.5vw,_2.6rem)] [line-height:1.1] [letter-spacing:-0.02em] [opacity:0] [transform:translateY(14px)] [transition:opacity_0.4s_var(--ease),_transform_0.4s_var(--ease),_color_0.2s_var(--ease)] [.ba-mobile-menu.ba-is-open_&]:[opacity:1] [.ba-mobile-menu.ba-is-open_&]:[transform:none] [&:nth-child(1)]:[transition-delay:0.06s] [&:nth-child(2)]:[transition-delay:0.1s] [&:nth-child(3)]:[transition-delay:0.14s] [&:nth-child(4)]:[transition-delay:0.18s] [&:nth-child(5)]:[transition-delay:0.22s] [&:nth-child(6)]:[transition-delay:0.26s] [&:hover]:[color:var(--menu-accent)] [&.ba-is-active]:[color:var(--menu-accent)] [.ba-mobile-menu-group_&]:[border-bottom:0]${active ? " ba-is-active" : ""}`}>
                     <span className={`
           ba-mobile-menu__label inline-flex items-center
           gap-[0.55rem] [&_svg]:text-gold [&_svg]:[transition:transform_0.25s_var(--ease)]
@@ -181,10 +183,10 @@ export default function MobileMenu({ locale, chromeCopy }: MobileMenuProps) {
                   <div className={`
           ba-mobile-menu__sublinks grid gap-[0.1rem]
           pb-[1.1rem] [&_a]:p-[0.45rem_0] [&_a]:text-[length:0.92rem]
-          [&_a]:leading-[1.4] [&_a]:text-muted-dark [&_a]:[transition:color_0.2s_var(--ease)]
+          [&_a]:leading-[1.4] [&_a]:text-[color:var(--menu-muted)] [&_a]:[transition:color_0.2s_var(--ease)]
           [&_a:first-child]:mb-[0.25rem] [&_a:first-child]:text-[length:0.68rem] [&_a:first-child]:font-bold
-          [&_a:first-child]:tracking-[0.16em] [&_a:first-child]:uppercase [&_a:first-child]:text-gold-bright
-          [&_a:hover]:text-gold-bright
+          [&_a:first-child]:tracking-[0.16em] [&_a:first-child]:uppercase [&_a:first-child]:text-[color:var(--menu-accent-gold)]
+          [&_a:hover]:text-[color:var(--menu-accent)]
         `}>
                     <Link href={item.href}>{chromeCopy.allPrefix} {item.label}</Link>
                     {item.children.map((child) => (
@@ -205,11 +207,11 @@ export default function MobileMenu({ locale, chromeCopy }: MobileMenuProps) {
             <div className={`
           ba-mobile-menu__language flex items-center
           justify-between gap-[1rem] pb-[0.9rem]
-          [border-bottom:1px_solid_var(--c-line-dark)]
+          [border-bottom:1px_solid_var(--menu-border)]
         `}>
               <span className={`
           text-[length:0.62rem] font-bold uppercase
-          tracking-[0.18em] text-muted-dark
+          tracking-[0.18em] text-[color:var(--menu-muted)]
         `}>
                 {ui.languageLabel}
               </span>
@@ -233,7 +235,7 @@ export default function MobileMenu({ locale, chromeCopy }: MobileMenuProps) {
         </a>
             <div className={`
           ba-mobile-menu__contact grid gap-[0.35rem]
-          text-[length:0.8rem] text-muted-dark [&_a:hover]:text-gold-bright
+          text-[length:0.8rem] text-[color:var(--menu-muted)] [&_a:hover]:text-[color:var(--menu-accent)]
         `}>
               <a href={phoneHref}>{site.phone}</a>
               <a href={emailHref}>{site.email}</a>
