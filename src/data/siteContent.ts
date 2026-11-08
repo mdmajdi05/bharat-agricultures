@@ -231,9 +231,9 @@ export const aboutBodyCopy = {
 };
 
 export const aboutStats = [
-  { value: productCount, label: "Machines, teen product families mein" },
-  { value: "02", label: "Industries: agriculture aur brick kiln" },
-  { value: "01", label: "Manufacturing base — Sambhal, UP" },
+  { value: "15+", label: "Saal se company chala rahe hain" },
+  { value: "50K+", label: "Machines 15 saal mein bechi" },
+  { value: "No. 1", label: "Sambhal, UP mein" },
 ];
 
 export const aboutSections = {
