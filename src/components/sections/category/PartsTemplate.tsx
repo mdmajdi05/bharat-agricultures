@@ -1,7 +1,9 @@
 ﻿
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Check } from "lucide-react";
+import {
+  ArrowUpRight,
+} from "lucide-react";
 import FaqSection from "@/components/sections/shared/FaqSection";
 import MiniCta from "@/components/sections/shared/MiniCta";
 import PageHero from "@/components/sections/shared/PageHero";
@@ -16,6 +18,7 @@ import { getUiCopy } from "@/data/ui";
 import type { PartsPage } from "@/data/partsPages";
 import { getLocale } from "@/lib/locale";
 import { imageSizes, images } from "@/lib/images";
+import { partIcon } from "@/lib/partIcons";
 import { whatsappQuoteHref } from "@/lib/site";
 
 type PartsTemplateProps = {
@@ -44,7 +47,7 @@ export default async function PartsTemplate({ page }: PartsTemplateProps) {
       <JsonLd
         data={itemListSchema(
           page.name,
-          page.groups.map((group) => ({ name: group.title })),
+          page.groups.flatMap((group) => group.items.map((item) => ({ name: item }))),
         )}
       />
       <JsonLd
@@ -154,22 +157,53 @@ export default async function PartsTemplate({ page }: PartsTemplateProps) {
         `}>{String(index + 1).padStart(2, "0")}</span>
                 <h3>{group.title}</h3>
                 <p>{group.copy}</p>
-                <ul className={`
-          ba-check-list grid gap-[0.6rem]
-          [&_li]:flex [&_li]:items-center [&_li]:gap-[0.55rem]
-          [&_li]:text-[length:0.85rem] [&_li]:text-ink [&_svg]:shrink-0
-          [&_svg]:text-gold-deep [.ba-parts-group_&]:mt-[0.4rem]
+                <div className={`
+          mt-[0.55rem] grid gap-[0.7rem]
+          min-[460px]:grid-cols-2
         `}>
-                  {group.items.map((item) => (
-                    <li key={item}>
-                      <Check size={15} aria-hidden="true" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                  {group.items.map((item) => {
+                    const Icon = partIcon(item);
+                    return (
+                      <Link
+                        key={item}
+                        href={whatsappQuoteHref(`${item} (part)`)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`
+                  ba-part-card group/card flex flex-col
+                  gap-[0.65rem] p-[0.95rem_1rem]
+                  bg-paper [border:1px_solid_var(--c-line)] rounded-[0.85rem]
+                  text-ink [transition:border-color_0.25s_var(--ease),_box-shadow_0.25s_var(--ease),_transform_0.25s_var(--ease)]
+                  [&:hover]:border-gold [&:hover]:shadow-soft [&:hover]:[transform:translateY(-2px)]
+                `}
+                      >
+                        <span className={`
+                  grid size-[2.2rem] place-items-center rounded-full
+                  bg-cream-soft text-gold-deep
+                  [transition:background-color_0.25s_var(--ease),_color_0.25s_var(--ease)]
+                  [.ba-part-card:hover_&]:bg-gold [.ba-part-card:hover_&]:text-forest-950
+                `}>
+                          <Icon size={16} strokeWidth={1.9} aria-hidden="true" />
+                        </span>
+                        <span className={"text-[length:0.9rem] font-semibold leading-[1.35]"}>{item}</span>
+                        <span className={`
+                  mt-auto inline-flex items-center gap-[0.3rem]
+                  text-[length:0.58rem] font-bold tracking-[0.12em]
+                  uppercase text-gold-deep
+                `}>
+                          {partsTemplateCopy.cardCta}
+                          <ArrowUpRight size={12} aria-hidden="true" />
+                        </span>
+                      </Link>
+                    );
+                  })}
+                </div>
               </Reveal>
             ))}
           </div>
+          <p className={"mt-[1.4rem] text-[length:0.8rem] leading-[1.7] text-muted"}>
+            {partsTemplateCopy.cardHint}
+          </p>
         </Container>
       </section>
 

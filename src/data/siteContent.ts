@@ -801,6 +801,8 @@ export const partsTemplateCopy = {
   groupsKicker: "Parts we supply",
   groupsTitle: "Kya kya parts aate hain",
   groupsCopy: "Har group mein wear parts aur replacement components hain. Exact match ke liye photo ya sample bhejein.",
+  cardCta: "Rate poochein",
+  cardHint: "Machine model ya photo se match karenge",
   checksKicker: "Before you order",
   checksCopy:
     "Part ka match tabhi sahi hota hai jab machine aur size dono clear hon. In char cheezon se enquiry fast ho jati hai.",
@@ -820,6 +822,11 @@ export const partsHubCopy = {
   categoriesKicker: "Parts categories",
   cardKickerSuffix: "/ Parts",
   cardLink: "View parts",
+  partCardsKicker: "Popular parts",
+  partCardsTitle: "Sabse zyada poochhe jaane wale parts",
+  partCardsCopy:
+    "Part category kholein ya WhatsApp par part ka naam bhejein — hum machine ke hisaab se match karke rate batayenge.",
+  partCardCta: "Category dekhein",
   benefitsKicker: "Why our parts",
   benefitsTitle: "Spare chhota, asar bada",
   benefitsCopy:

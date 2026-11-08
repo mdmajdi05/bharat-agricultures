@@ -16,6 +16,7 @@ import { getNavigationLabel } from "@/data/navigation";
 import { getUiCopy } from "@/data/ui";
 import { imageSizes, images } from "@/lib/images";
 import { getLocale } from "@/lib/locale";
+import { partIcon } from "@/lib/partIcons";
 import { createMetadata } from "@/lib/seo";
 import { whatsappQuoteHref } from "@/lib/site";
 
@@ -210,6 +211,69 @@ export default async function MachineryPartsPage() {
                 </Link>
               </Reveal>
             ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className={"ba-section relative py-[var(--section-y)]"}>
+        <Container>
+          <Reveal>
+            <SectionHeading
+              kicker={partsHubCopy.partCardsKicker}
+              title={partsHubCopy.partCardsTitle}
+              copy={partsHubCopy.partCardsCopy}
+            />
+          </Reveal>
+
+          <div className={`
+          ba-parts-cards-grid grid gap-[0.85rem] mt-[2rem]
+          min-[460px]:grid-cols-2 min-[800px]:grid-cols-3 min-[1100px]:grid-cols-4
+        `}>
+            {partsPages.flatMap((page) =>
+              page.groups.map((group) => {
+                const item = group.items[0];
+                const Icon = partIcon(item);
+
+                return (
+                  <Reveal key={`${page.slug}-${group.title}`}>
+                    <Link
+                      href={`/machinery-parts/${page.slug}`}
+                      className={`
+                  ba-part-card group/card flex flex-col h-full
+                  gap-[0.7rem] p-[1rem]
+                  bg-paper [border:1px_solid_var(--c-line)] rounded-[0.85rem]
+                  text-ink [transition:border-color_0.25s_var(--ease),_box-shadow_0.25s_var(--ease),_transform_0.25s_var(--ease)]
+                  [&:hover]:border-gold [&:hover]:shadow-soft [&:hover]:[transform:translateY(-2px)]
+                `}
+                    >
+                      <span className={`
+                  grid size-[2.3rem] place-items-center rounded-full
+                  bg-cream-soft text-gold-deep
+                  [transition:background-color_0.25s_var(--ease),_color_0.25s_var(--ease)]
+                  [.ba-part-card:hover_&]:bg-gold [.ba-part-card:hover_&]:text-forest-950
+                `}>
+                        <Icon size={17} strokeWidth={1.9} aria-hidden="true" />
+                      </span>
+                      <span className={"text-[length:0.92rem] font-semibold leading-[1.35]"}>{item}</span>
+                      <span className={`
+                  text-[length:0.62rem] font-bold tracking-[0.14em]
+                  uppercase text-muted
+                `}>
+                        {group.title}
+                      </span>
+                      <span className={`
+                  mt-auto inline-flex items-center gap-[0.3rem] pt-[0.35rem]
+                  text-[length:0.58rem] font-bold tracking-[0.12em]
+                  uppercase text-gold-deep
+                `}>
+                        {partsHubCopy.partCardCta}
+                        <ArrowUpRight size={12} aria-hidden="true" />
+                      </span>
+                    </Link>
+                  </Reveal>
+                );
+              }),
+            )}
           </div>
         </Container>
       </section>

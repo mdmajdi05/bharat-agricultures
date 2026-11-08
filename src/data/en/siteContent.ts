@@ -802,6 +802,8 @@ export const partsTemplateCopy = {
   groupsKicker: "Parts we supply",
   groupsTitle: "Which parts are available",
   groupsCopy: "Every group includes wear parts and replacement components. Send a photo or sample for an exact match.",
+  cardCta: "Ask for rate",
+  cardHint: "Matched by machine model or photo",
   checksKicker: "Before you order",
   checksCopy:
     "A part matches correctly only when both the machine and size are clear. These four details speed up the enquiry.",
@@ -821,6 +823,11 @@ export const partsHubCopy = {
   categoriesKicker: "Parts categories",
   cardKickerSuffix: "/ Parts",
   cardLink: "View parts",
+  partCardsKicker: "Popular parts",
+  partCardsTitle: "Most requested spare parts",
+  partCardsCopy:
+    "Open a part category or send the part name on WhatsApp — we will match it to your machine and share the rate.",
+  partCardCta: "View category",
   benefitsKicker: "Why our parts",
   benefitsTitle: "Small spare, big impact",
   benefitsCopy:
