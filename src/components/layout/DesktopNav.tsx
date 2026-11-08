@@ -4,9 +4,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown } from "lucide-react";
 import { getPrimaryNav } from "@/data/navigation";
+import { getUiCopy } from "@/data/ui";
 import type { Locale } from "@/lib/locale";
 
 export default function DesktopNav({ locale }: { locale: Locale }) {
+  const ui = getUiCopy(locale);
   const pathname = usePathname();
   const activePathname = pathname.replace(/^\/(en|hi)(?=\/|$)/, "") || "/";
 
@@ -14,7 +16,7 @@ export default function DesktopNav({ locale }: { locale: Locale }) {
     <nav className={`
           ba-desktop-nav hidden min-[1200px]:flex
           min-[1200px]:items-center min-[1200px]:gap-[1.05rem] min-[1320px]:gap-[1.5rem]
-        `} aria-label="Primary">
+        `} aria-label={ui.primaryNav}>
       {getPrimaryNav(locale).map((item) => {
         const itemPath = item.href.replace(/^\/(en|hi)(?=\/|$)/, "") || "/";
         const active = itemPath === "/" ? activePathname === "/" : activePathname.startsWith(itemPath);
@@ -47,7 +49,7 @@ export default function DesktopNav({ locale }: { locale: Locale }) {
               <ul className="grid gap-1">
                 <li>
                   <Link href={item.href} className="ba-nav-dropdown__all block rounded-md px-3 py-2 text-sm font-bold text-gold-deep transition-colors hover:bg-cream">
-                    All {item.label}
+                    {ui.allPrefix} {item.label}
                   </Link>
                 </li>
                 {item.children.map((child) => (

@@ -13,41 +13,38 @@ import {
 
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
+import { getLocale } from "@/lib/locale";
 import { getSiteContent } from "@/data/localized";
+import { getUiCopy } from "@/data/ui";
 
-const categories = [
-  {
-    icon: Sprout,
-    number: "01",
-    image: "/agricultural-parts.webp",
-    alt: "Agricultural machinery spare parts",
-    parts: "Tines • Blades • Jaali • Bearings",
-  },
-  {
-    icon: Layers,
-    number: "02",
-    image: "/brick-kiln-parts.webp",
-    alt: "Brick kiln machinery spare parts",
-    parts: "Pugmill Blades • Hammers • Screens",
-  },
-  {
-    icon: Settings,
-    number: "03",
-    image: "/casting-parts.webp",
-    alt: "Industrial metal casting components",
-    parts: "Custom Casting • As Per Drawing",
-  },
-];
+const categoryIconMap = {
+  sprout: Sprout,
+  layers: Layers,
+  settings: Settings,
+} as const;
 
-const trustItems = [
-  { icon: ShieldCheck, label: "Premium Quality" },
-  { icon: Settings, label: "Direct Manufacturer" },
-  { icon: Handshake, label: "Reliable Support" },
-];
+const trustIconMap = {
+  shield: ShieldCheck,
+  settings: Settings,
+  handshake: Handshake,
+} as const;
 
 export default async function PartsTeaser() {
-  const { homePartsCopy } = await getSiteContent();
+  const [{ homePartsCopy }, ui] = await Promise.all([
+    getSiteContent(),
+    getLocale().then((locale) => getUiCopy(locale)),
+  ]);
   const { kicker, copy, cards, linkHref } = homePartsCopy;
+  const teaserCopy = ui.partsTeaser;
+  const categories = teaserCopy.categories.map((category, index) => ({
+    ...category,
+    icon: categoryIconMap[category.icon],
+    number: String(index + 1).padStart(2, "0"),
+  }));
+  const trustItems = teaserCopy.trustItems.map((item) => ({
+    ...item,
+    icon: trustIconMap[item.icon],
+  }));
 
   return (
     <section
@@ -106,7 +103,7 @@ export default async function PartsTeaser() {
                 />
 
                 <span className="text-[10px] font-extrabold uppercase tracking-[0.13em] sm:text-base">
-                  {kicker || "Parts & Spares"}
+                  {kicker || teaserCopy.kickerFallback}
                 </span>
               </span>
 
@@ -116,9 +113,9 @@ export default async function PartsTeaser() {
             {/* MAIN HEADING */}
 
             <h2 className="mx-auto mt-5 max-w-[1000px] text-[clamp(2rem,7.5vw,4.55rem)] font-extrabold leading-[1.12] tracking-[-0.045em] text-white sm:mt-5 sm:text-[clamp(2.5rem,5.2vw,4.55rem)]">
-              Keep Every Machine{" "}
+              {teaserCopy.title}{" "}
               <span className="italic text-[#ffc52e]">
-                Running.
+                {teaserCopy.titleAccent}
               </span>
             </h2>
 
@@ -128,15 +125,14 @@ export default async function PartsTeaser() {
               <span className="hidden h-[2px] w-16 bg-gradient-to-r from-transparent to-[#e9c77a] sm:block" />
 
               <p className="text-[clamp(1rem,3.7vw,2rem)] font-semibold leading-tight text-[#f2e9c9] sm:text-[clamp(1.1rem,2.5vw,2rem)]">
-                Genuine Parts. Reliable Performance.
+                {teaserCopy.subtitle}
               </p>
 
               <span className="hidden h-[2px] w-16 bg-gradient-to-l from-transparent to-[#e9c77a] sm:block" />
             </div>
 
             <p className="mx-auto mt-3 max-w-3xl px-2 text-[12px] leading-[1.8] text-white/75 sm:text-base sm:leading-6">
-              High-quality spare parts for agricultural, brick kiln and
-              industrial machinery.
+              {teaserCopy.description}
             </p>
           </div>
         </Reveal>
@@ -266,7 +262,7 @@ export default async function PartsTeaser() {
                 href={linkHref}
                 className="group inline-flex min-h-[48px] w-full items-center justify-center gap-3 rounded-full bg-gradient-to-b from-[#ffcf39] to-[#f3ad08] px-7 py-3.5 text-[13px] font-extrabold text-[#07351e] shadow-[0_7px_20px_rgba(239,179,17,0.2)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(239,179,17,0.35)] sm:min-h-[54px] sm:w-auto sm:min-w-[250px] sm:gap-4 sm:px-8 sm:py-4 sm:text-[14px]"
               >
-                Explore All Parts
+                {teaserCopy.ctaLabel}
 
                 <ArrowRight
                   size={19}

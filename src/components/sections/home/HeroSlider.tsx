@@ -130,7 +130,7 @@ export default function HeroSlider({
     <section
       id="home"
       aria-roledescription="carousel"
-      aria-label="Featured machinery"
+      aria-label={copy.carouselLabel}
       className="ba-hero relative isolate flex h-[calc(100svh-var(--hero-offset))] min-h-[660px] w-full items-center overflow-hidden max-md:min-h-[570px]"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}

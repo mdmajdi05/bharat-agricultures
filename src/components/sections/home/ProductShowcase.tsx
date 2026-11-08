@@ -8,20 +8,17 @@ import { ArrowUpRight } from "lucide-react";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 import type { Product } from "@/data/products";
+import type { UiCopy } from "@/data/ui";
 
 type Filter = "all" | "agricultural" | "brick-kiln";
 
 interface ProductShowcaseProps {
   products: Product[];
+  copy: UiCopy["productShowcase"];
 }
 
-const filters: { label: string; shortLabel: string; value: Filter }[] = [
-  { label: "All machinery", shortLabel: "All", value: "all" },
-  { label: "Agricultural", shortLabel: "Agricultural", value: "agricultural" },
-  { label: "Brick Kiln", shortLabel: "Brick Kiln", value: "brick-kiln" },
-];
-
-export default function ProductShowcase({ products }: ProductShowcaseProps) {
+export default function ProductShowcase({ products, copy }: ProductShowcaseProps) {
+  const filters = copy.filters as readonly { label: string; shortLabel: string; value: Filter }[];
   const [activeFilter, setActiveFilter] = useState<Filter>("all");
 
   const counts: Record<Filter, number> = {
@@ -52,24 +49,23 @@ export default function ProductShowcase({ products }: ProductShowcaseProps) {
           <div className="grid gap-8 border-b border-white/10 pb-9 lg:grid-cols-[1fr_21rem] lg:items-end lg:gap-16 lg:pb-12">
             <div>
               <p className="inline-flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-[#f0b84a] before:h-px before:w-7 before:bg-current before:content-['']">
-                Our Machinery
+                {copy.kicker}
               </p>
               <h2 className="mt-5 max-w-[43rem] text-[clamp(2.2rem,4.6vw,3.7rem)] font-semibold leading-[1.04] tracking-[-0.045em] text-cream">
-                Equipment built for{" "}
-                <span className="text-[#f0b84a]">better work.</span>
+                {copy.title}{" "}
+                <span className="text-[#f0b84a]">{copy.titleAccent}</span>
               </h2>
             </div>
 
             <div>
               <p className="max-w-[22rem] text-sm leading-7 text-cream/60">
-                Explore dependable machinery designed for agricultural operations and brick kiln
-                industries. Find the right equipment for your work.
+                {copy.description}
               </p>
               <Link
                 href="/products"
                 className="group mt-5 inline-flex items-center gap-2 border-b border-white/20 pb-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-cream/80 transition-colors duration-200 hover:border-[#f0b84a] hover:text-[#f0b84a]"
               >
-                View full catalogue
+                {copy.catalogueLink}
                 <ArrowUpRight
                   aria-hidden="true"
                   className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
@@ -81,7 +77,7 @@ export default function ProductShowcase({ products }: ProductShowcaseProps) {
 
         <div className="flex flex-col gap-4 py-6 sm:flex-row sm:items-center sm:justify-between">
           <div
-            aria-label="Filter machinery"
+            aria-label={copy.filterAria}
             className="-mx-1 grid grid-cols-3 border-b border-white/10 px-1 sm:flex sm:items-center sm:gap-1 sm:border-b-0"
           >
             {filters.map((filter) => {
@@ -117,8 +113,8 @@ export default function ProductShowcase({ products }: ProductShowcaseProps) {
             aria-live="polite"
             className="shrink-0 text-[9px] font-semibold uppercase tracking-[0.16em] text-cream/35 sm:text-[10px]"
           >
-            Showing <span className="text-cream/70">{visibleProducts.length}</span>{" "}
-            {visibleProducts.length === 1 ? "product" : "products"}
+            {copy.showing} <span className="text-cream/70">{visibleProducts.length}</span>{" "}
+            {visibleProducts.length === 1 ? copy.productSingular : copy.productPlural}
           </p>
         </div>
 
@@ -131,7 +127,7 @@ export default function ProductShowcase({ products }: ProductShowcaseProps) {
               <Link
                 href={`/products/${product.slug}`}
                 className="relative block aspect-[4_/_3] overflow-hidden rounded-sm bg-white/5 ring-1 ring-white/10 transition-all duration-300 group-hover:ring-[#f0b84a]/50"
-                aria-label={`View ${product.name}`}
+                aria-label={`${copy.viewPrefix} ${product.name}`}
               >
                 <Image
                   src={product.image}
@@ -145,7 +141,7 @@ export default function ProductShowcase({ products }: ProductShowcaseProps) {
                   className="absolute inset-0 bg-[linear-gradient(0deg,rgba(2,12,7,0.55)_0%,transparent_55%)]"
                 />
                 <span className="absolute left-2.5 top-2.5 rounded-sm border border-white/15 bg-[#04130b]/60 px-2 py-1 text-[8px] font-semibold uppercase tracking-[0.12em] text-cream/75 backdrop-blur-sm sm:left-3 sm:top-3">
-                  {product.category === "brick-kiln" ? "Brick Kiln" : "Agricultural"}
+                  {copy.categoryLabels[product.category]}
                 </span>
                 <span className="absolute bottom-2.5 right-2.5 grid h-7 w-7 place-items-center rounded-full bg-[#f0b84a] text-[#071b10] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 sm:bottom-3 sm:right-3 sm:h-8 sm:w-8">
                   <ArrowUpRight size={14} strokeWidth={2} aria-hidden="true" />
@@ -167,7 +163,7 @@ export default function ProductShowcase({ products }: ProductShowcaseProps) {
                 </p>
 
                 <span className="mt-2.5 inline-flex items-center gap-1.5 text-[9px] font-semibold uppercase tracking-[0.13em] text-cream/60 transition-colors duration-200 group-hover:text-[#f0b84a]">
-                  View details
+                  {copy.viewDetails}
                   <ArrowUpRight
                     aria-hidden="true"
                     className="h-3 w-3 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"

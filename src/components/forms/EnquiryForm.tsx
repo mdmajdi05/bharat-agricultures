@@ -2,6 +2,7 @@
 import { ArrowUpRight } from "lucide-react";
 import type { Product } from "@/data/products";
 import type { enquiryFormCopy } from "@/data/siteContent";
+import { getUiCopy } from "@/data/ui";
 import type { Locale } from "@/lib/locale";
 import { whatsappMessageHref } from "@/lib/site";
 
@@ -13,6 +14,8 @@ type EnquiryFormProps = {
 };
 
 export default function EnquiryForm({ copy, defaultProduct = "", locale, products }: EnquiryFormProps) {
+  const messageCopy = getUiCopy(locale).enquiryFormMessage;
+
   return (
     <form
       className={"ba-form grid gap-[1.05rem]"}
@@ -22,17 +25,15 @@ export default function EnquiryForm({ copy, defaultProduct = "", locale, product
         const productSlug = formData.get("product")?.toString() ?? "";
         const productName =
           products.find((product) => product.slug === productSlug)?.name ??
-          (productSlug === "other" ? "Other" : "Not specified");
+          (productSlug === "other" ? messageCopy.other : messageCopy.notSpecified);
         const message = [
-          locale === "hi"
-            ? "Namaste Bharat Agricultures! Mujhe machinery ke baare mein enquiry karni hai."
-            : "Hello Bharat Agricultures! I would like to enquire about machinery.",
+          messageCopy.intro,
           "",
-          `Name: ${formData.get("name")?.toString().trim() ?? ""}`,
-          `Email: ${formData.get("email")?.toString().trim() ?? ""}`,
-          `Phone: ${formData.get("phone")?.toString().trim() || "Not provided"}`,
-          `Product: ${productName}`,
-          `Requirement: ${formData.get("message")?.toString().trim() ?? ""}`,
+          `${messageCopy.name}: ${formData.get("name")?.toString().trim() ?? ""}`,
+          `${messageCopy.email}: ${formData.get("email")?.toString().trim() ?? ""}`,
+          `${messageCopy.phone}: ${formData.get("phone")?.toString().trim() || messageCopy.phoneFallback}`,
+          `${messageCopy.product}: ${productName}`,
+          `${messageCopy.requirement}: ${formData.get("message")?.toString().trim() ?? ""}`,
         ].join("\n");
 
         window.location.assign(whatsappMessageHref(message));

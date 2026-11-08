@@ -13,7 +13,9 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import type { Category } from "@/data/categories";
 import type { Product } from "@/data/products";
 import { getSiteContent } from "@/data/localized";
+import { getUiCopy } from "@/data/ui";
 import { imageSizes, images } from "@/lib/images";
+import { getLocale } from "@/lib/locale";
 
 type CategoryTemplateProps = {
   category: Category;
@@ -21,7 +23,11 @@ type CategoryTemplateProps = {
 };
 
 export default async function CategoryTemplate({ category, products }: CategoryTemplateProps) {
-  const { categoryTemplateCopy } = await getSiteContent();
+  const [{ categoryTemplateCopy }, locale] = await Promise.all([
+    getSiteContent(),
+    getLocale(),
+  ]);
+  const ui = getUiCopy(locale);
 
   return (
     <>
@@ -41,7 +47,7 @@ export default async function CategoryTemplate({ category, products }: CategoryT
       />
       <JsonLd
         data={breadcrumbSchema([
-          { name: "Home", href: "/" },
+          { name: ui.breadcrumbHome, href: "/" },
           { name: category.name, href: `/${category.slug}` },
         ])}
       />
@@ -262,7 +268,7 @@ export default async function CategoryTemplate({ category, products }: CategoryT
                 <span className={`
           ba-step-card__kicker text-[length:0.6rem] font-bold
           tracking-[0.16em] uppercase text-muted
-        `}>Step {String(index + 1).padStart(2, "0")}</span>
+        `}>{ui.stepPrefix} {String(index + 1).padStart(2, "0")}</span>
                 <h3>{step.title}</h3>
                 <p>{step.copy}</p>
               </Reveal>

@@ -13,6 +13,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import { partsCategory as staticPartsCategory } from "@/data/categories";
 import { getCategory, getPartsPages, getSiteContent } from "@/data/localized";
 import { getNavigationLabel } from "@/data/navigation";
+import { getUiCopy } from "@/data/ui";
 import { imageSizes, images } from "@/lib/images";
 import { getLocale } from "@/lib/locale";
 import { createMetadata } from "@/lib/seo";
@@ -51,6 +52,7 @@ export default async function MachineryPartsPage() {
   ]);
   const partsCategory = category ?? staticPartsCategory;
   const partsLabel = getNavigationLabel("Machinery Parts", locale);
+  const ui = getUiCopy(locale);
 
   return (
     <>
@@ -70,7 +72,7 @@ export default async function MachineryPartsPage() {
       />
       <JsonLd
         data={breadcrumbSchema([
-          { name: "Home", href: "/" },
+          { name: ui.breadcrumbHome, href: "/" },
           { name: partsLabel, href: "/machinery-parts" },
         ])}
       />

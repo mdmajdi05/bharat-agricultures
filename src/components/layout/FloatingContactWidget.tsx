@@ -3,44 +3,19 @@
 import { useEffect, useState } from "react";
 import { ArrowUpRight, Mail, MessageCircle, Phone, X } from "lucide-react";
 
+import { getUiCopy } from "@/data/ui";
 import type { Locale } from "@/lib/locale";
 import { emailHref, phoneHref, site, whatsappHref } from "@/lib/site";
 
-const widgetCopy = {
-  en: {
-    kicker: "Straight from the manufacturer",
-    title: "Talk to us",
-    description: "Machine, rate or spare part — talk to us whichever way suits you.",
-    whatsappNote: "Chat instantly",
-    callLabel: "Call now",
-    mailLabel: "Email us",
-    openOptions: "Open contact options",
-    closeOptions: "Close contact options",
-    messenger:
-      "Hello Bharat Agricultures! I want to know about machinery, rates and spare parts.",
-  },
-  hi: {
-    kicker: "Seedha manufacturer se",
-    title: "Baat karein",
-    description: "Machine, rate ya spare part — jahan comfortable hain, wahin se baat karein.",
-    whatsappNote: "Turant chat karein",
-    callLabel: "Call karein",
-    mailLabel: "Email karein",
-    openOptions: "Contact options kholein",
-    closeOptions: "Contact options band karein",
-    messenger:
-      "Namaste Bharat Agricultures! Mujhe machinery, rate aur spare parts ke baare mein jaanna hai.",
-  },
-} as const;
-
 /** Floating chat launcher — quick WhatsApp / call / email actions on every page. */
 export default function FloatingContactWidget({ locale }: { locale: Locale }) {
-  const copy = widgetCopy[locale];
+  const ui = getUiCopy(locale);
+  const copy = ui.floatingWidget;
   const whatsappChatHref = `${whatsappHref}?text=${encodeURIComponent(copy.messenger)}`;
   const options = [
     {
       key: "whatsapp",
-      label: "WhatsApp",
+      label: ui.contactLabels.whatsapp,
       note: copy.whatsappNote,
       href: whatsappChatHref,
       external: true,

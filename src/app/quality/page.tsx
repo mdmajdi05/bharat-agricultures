@@ -11,6 +11,7 @@ import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { getSiteContent } from "@/data/localized";
+import { getUiCopy } from "@/data/ui";
 import { imageSizes, images } from "@/lib/images";
 import { getLocale } from "@/lib/locale";
 import { createMetadata } from "@/lib/seo";
@@ -33,6 +34,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function QualityPage() {
   const { pageHero, qualityPageCopy, seoMetadata } = await getSiteContent();
+  const ui = getUiCopy(await getLocale());
 
   return (
     <>
@@ -45,7 +47,7 @@ export default async function QualityPage() {
       />
       <JsonLd
         data={breadcrumbSchema([
-          { name: "Home", href: "/" },
+          { name: ui.breadcrumbHome, href: "/" },
           { name: "Quality", href: "/quality" },
         ])}
       />

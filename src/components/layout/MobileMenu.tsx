@@ -9,6 +9,7 @@ import { ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
 import LanguageSwitcher from "@/components/layout/LanguageSwitcher";
 import ThemeToggle from "@/components/layout/ThemeToggle";
 import { getPrimaryNav } from "@/data/navigation";
+import { getUiCopy } from "@/data/ui";
 import type { Locale } from "@/lib/locale";
 import { emailHref, phoneHref, site, whatsappQuoteHref } from "@/lib/site";
 
@@ -23,7 +24,7 @@ type MobileMenuProps = {
 };
 
 export default function MobileMenu({ locale, chromeCopy }: MobileMenuProps) {
-  const isHinglish = locale === "hi";
+  const ui = getUiCopy(locale);
   const [open, setOpen] = useState(false);
   const [portalContainer, setPortalContainer] = useState<HTMLElement | null>(null);
   const pathname = usePathname();
@@ -105,7 +106,7 @@ export default function MobileMenu({ locale, chromeCopy }: MobileMenuProps) {
           className={`ba-mobile-menu${open ? " ba-is-open" : ""}`}
           role="dialog"
           aria-modal={open || undefined}
-          aria-label="Mobile navigation"
+          aria-label={ui.mobileNavigation}
           aria-hidden={!open}
           inert={!open}
         >
@@ -144,7 +145,7 @@ export default function MobileMenu({ locale, chromeCopy }: MobileMenuProps) {
           ba-mobile-menu__body flex-[1] overflow-y-auto
           p-[1.5rem_var(--gutter)] flex flex-col
         `}>
-          <nav aria-label="Mobile">
+          <nav aria-label={ui.mobileNav}>
             {getPrimaryNav(locale).map((item) => {
               const itemPath = item.href.replace(/^\/(en|hi)(?=\/|$)/, "") || "/";
               const active = itemPath === "/" ? activePathname === "/" : activePathname.startsWith(itemPath);
@@ -210,7 +211,7 @@ export default function MobileMenu({ locale, chromeCopy }: MobileMenuProps) {
           text-[length:0.62rem] font-bold uppercase
           tracking-[0.18em] text-muted-dark
         `}>
-                {isHinglish ? "Bhasha" : "Language"}
+                {ui.languageLabel}
               </span>
               <LanguageSwitcher />
             </div>

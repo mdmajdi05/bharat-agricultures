@@ -11,107 +11,18 @@ import {
 import ButtonLink from "@/components/ui/ButtonLink";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
-import { getLocale, type Locale } from "@/lib/locale";
+import { getLocale } from "@/lib/locale";
 import { imageSizes, images } from "@/lib/images";
+import { getUiCopy } from "@/data/ui";
 
-/* All section content lives here */
-const contentByLocale = {
-  en: {
-    eyebrow: "01 — WHO WE ARE",
-    heading: {
-      brand: "Bharat Agricultures.",
-      accent: "Agricultural machinery manufacturer in Sambhal.",
-    },
-    paragraphs: [
-      "Bharat Agricultures is an agricultural machinery manufacturer based in Sambhal, Uttar Pradesh. We focus on building machinery and equipment for farming, designed around changing agricultural needs.",
-      "Our goal is to bring useful machinery solutions to farmers and the agriculture industry. Quality, practical design and continuous improvement are the foundation of our work.",
-    ],
-    image: {
-      alt: "Agricultural tractor working in a farm field",
-      brand: "BHARAT AGRICULTURES",
-      statement: "The strength of farming.",
-      statementAccent: "The start of a better tomorrow.",
-    },
-    badge: {
-      value: "15",
-      label: "Machines, tractors and agricultural solutions",
-    },
-    features: [
-      {
-        icon: Sprout,
-        title: "Agriculture First",
-        description: "Every decision keeps the needs of farming in focus.",
-      },
-      {
-        icon: ShieldCheck,
-        title: "Quality Focus",
-        description: "Special attention to product quality and reliability.",
-      },
-      {
-        icon: Leaf,
-        title: "Growth Mindset",
-        description: "A mindset that moves forward with modern agriculture.",
-      },
-    ],
-    cta: {
-      label: "About Us",
-      href: "/about",
-    },
-    location: "SAMBHAL, UTTAR PRADESH",
-    bottom: ["Agriculture First", "Quality Driven", "Future Focused"],
-  },
-  hi: {
-    eyebrow: "01 — WHO WE ARE",
-    heading: {
-      brand: "Bharat Agricultures.",
-      accent: "Sambhal ka agricultural machinery manufacturer.",
-    },
-    paragraphs: [
-      "Bharat Agricultures, Sambhal, Uttar Pradesh mein sthit ek agricultural machinery manufacturer hai. Hum kheti ke liye machinery aur equipment banane par focus karte hain, jo badalti agricultural needs ko dhyan mein rakhkar design kiye jaate hain.",
-      "Humara maqsad hai ki farmers aur agriculture industry tak useful machinery solutions pahunch sakein. Quality, practical design aur continuous improvement humare kaam ki buniyad hain.",
-    ],
-    image: {
-      alt: "Agricultural tractor working in a farm field",
-      brand: "BHARAT AGRICULTURES",
-      statement: "Kheti ki taqat.",
-      statementAccent: "Behtar kal ki shuruaat.",
-    },
-    badge: {
-      value: "15",
-      label: "Machines, tractors aur agricultural solutions",
-    },
-    features: [
-      {
-        icon: Sprout,
-        title: "Agriculture First",
-        description: "Har faisle mein kheti ki zarooraton ko ahmiyat.",
-      },
-      {
-        icon: ShieldCheck,
-        title: "Quality Focus",
-        description: "Product quality aur reliability par khaas dhyan.",
-      },
-      {
-        icon: Leaf,
-        title: "Growth Mindset",
-        description: "Modern agriculture ke saath aage badhne ki soch.",
-      },
-    ],
-    cta: {
-      label: "Humare Baare Mein",
-      href: "/about",
-    },
-    location: "SAMBHAL, UTTAR PRADESH",
-    bottom: ["Agriculture First", "Quality Driven", "Future Focused"],
-  },
+const iconMap = {
+  sprout: Sprout,
+  shield: ShieldCheck,
+  leaf: Leaf,
 } as const;
 
-function contentFor(locale: Locale) {
-  return locale === "hi" ? contentByLocale.hi : contentByLocale.en;
-}
-
 export default async function Introduction() {
-  const content = contentFor(await getLocale());
+  const content = getUiCopy(await getLocale()).introduction;
   return (
     <section
       id="introduction"
@@ -230,7 +141,7 @@ export default async function Introduction() {
             {/* Features */}
             <div className="mt-7 border-y border-line">
               {content.features.map((feature) => {
-                const Icon = feature.icon;
+                const Icon = iconMap[feature.icon];
 
                 return (
                   <div

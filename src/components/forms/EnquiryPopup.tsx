@@ -12,59 +12,21 @@ import {
   X,
 } from "lucide-react";
 
+import { getUiCopy } from "@/data/ui";
 import type { Locale } from "@/lib/locale";
 import { emailHref, phoneHref, site, whatsappHref } from "@/lib/site";
 
 const SHOW_DELAY_MS = 5000;
 
-const popupCopy = {
-  en: {
-    kicker: "Straight from the manufacturer",
-    title: "Talk machinery,",
-    titleAccent: "straight with us.",
-    description:
-      "Thresher, cleaner, harrow or brick kiln machine — talk to us directly for rates and guidance.",
-    actionsLabel: "How would you like to talk?",
-    callLabel: "Call us",
-    whatsappLabel: "Message on WhatsApp",
-    whatsappValue: "Talk to us instantly",
-    whatsappNote: "Send a photo or part number",
-    mailLabel: "Email us",
-    mailNote: "Attach a drawing or your requirement",
-    closeLabel: "Close contact card",
-    footerNote: "No spam · Direct advice from the manufacturer",
-    whatsappMessage:
-      "Hello Bharat Agricultures! I visited your website and would like to know more about your machinery.",
-  },
-  hi: {
-    kicker: "Seedha manufacturer se",
-    title: "Machine ki baat,",
-    titleAccent: "seedha humse.",
-    description:
-      "Thresher, cleaner, harrow ya brick kiln machine — rate aur guidance ke liye seedha humse baat karein.",
-    actionsLabel: "Kaise baat karna chahenge?",
-    callLabel: "Call karein",
-    whatsappLabel: "WhatsApp par message",
-    whatsappValue: "Turant baat karein",
-    whatsappNote: "Photo ya part number bhej dein",
-    mailLabel: "Email karein",
-    mailNote: "Drawing ya requirement attach karein",
-    closeLabel: "Contact card band karein",
-    footerNote: "No spam · Direct manufacturer se salaah",
-    whatsappMessage:
-      "Namaste Bharat Agricultures! Maine aapki website dekhi aur machinery ke baare mein jaanna chahta hoon.",
-  },
-} as const;
-
 export default function EnquiryPopup({ locale }: { locale: Locale }) {
-  const copy = popupCopy[locale];
+  const copy = getUiCopy(locale).enquiryPopup;
   const whatsappPopupHref = `${whatsappHref}?text=${encodeURIComponent(copy.whatsappMessage)}`;
   const actions = [
     {
       key: "call",
       label: copy.callLabel,
       value: site.phone,
-      note: "Mon–Sat, 9 AM – 7 PM",
+      note: copy.hours,
       href: phoneHref,
       Icon: Phone,
       external: false,
@@ -336,11 +298,11 @@ export default function EnquiryPopup({ locale }: { locale: Locale }) {
           <div className="mt-4 flex flex-wrap items-center justify-between gap-x-5 gap-y-2 border-t border-line pt-3.5">
             <span className="inline-flex items-center gap-1.5 text-[9.5px] font-medium text-muted">
               <Clock size={11} aria-hidden="true" className="text-gold-deep" />
-              Mon–Sat · 9 AM – 7 PM
+              {copy.hoursCompact}
             </span>
             <span className="inline-flex items-center gap-1.5 text-[9.5px] font-medium text-muted">
               <MapPin size={11} aria-hidden="true" className="text-gold-deep" />
-              Sambhal, Uttar Pradesh
+              {copy.location}
             </span>
           </div>
 

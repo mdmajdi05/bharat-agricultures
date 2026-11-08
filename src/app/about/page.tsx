@@ -11,10 +11,8 @@ import ButtonLink from "@/components/ui/ButtonLink";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
-import {
-  getSiteContent,
-  isHinglish,
-} from "@/data/localized";
+import { getSiteContent } from "@/data/localized";
+import { getUiCopy } from "@/data/ui";
 import { imageSizes, images } from "@/lib/images";
 import { getLocale } from "@/lib/locale";
 import { createMetadata } from "@/lib/seo";
@@ -47,7 +45,7 @@ export default async function AboutPage() {
     pageHero,
     seoMetadata,
   } = await getSiteContent();
-  const hinglish = await isHinglish();
+  const ui = getUiCopy(await getLocale());
 
   return (
     <>
@@ -61,7 +59,7 @@ export default async function AboutPage() {
       />
       <JsonLd
         data={breadcrumbSchema([
-          { name: "Home", href: "/" },
+          { name: ui.breadcrumbHome, href: "/" },
           { name: "About Us", href: "/about" },
         ])}
       />
@@ -219,7 +217,7 @@ export default async function AboutPage() {
                 <span className={`
           ba-step-card__kicker text-[length:0.6rem] font-bold
           tracking-[0.16em] uppercase text-muted
-        `}>Step {String(index + 1).padStart(2, "0")}</span>
+        `}>{ui.stepPrefix} {String(index + 1).padStart(2, "0")}</span>
                 <h3>{step.title}</h3>
                 <p>{step.copy}</p>
               </Reveal>
@@ -244,7 +242,7 @@ export default async function AboutPage() {
           min-[900px]:[.ba-showcase-head_&]:[justify-self:end] [.ba-split-body_&]:[justify-self:start] [.ba-split-body_&]:mt-[0.35rem]
           min-[900px]:[.ba-parts-teaser-head_&]:[justify-self:end]
         `}>
-              {hinglish ? "Infrastructure dekhein" : "View infrastructure"} <ArrowUpRight size={15} aria-hidden="true" />
+              {ui.aboutPage.viewInfrastructure} <ArrowUpRight size={15} aria-hidden="true" />
             </Link>
           </Reveal>
         </Container>

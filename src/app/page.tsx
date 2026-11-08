@@ -12,6 +12,7 @@ import QualityBand from "@/components/sections/home/QualityBand";
 import FaqSection from "@/components/sections/shared/FaqSection";
 import { faqSchema, JsonLd, webPageSchema } from "@/components/seo/StructuredData";
 import { getProducts, getSiteContent } from "@/data/localized";
+import { getUiCopy } from "@/data/ui";
 import { getLocale } from "@/lib/locale";
 import { createMetadata } from "@/lib/seo";
 
@@ -32,10 +33,12 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function HomePage() {
-  const [{ homeFaqCopy, seoMetadata }, products] = await Promise.all([
+  const [{ homeFaqCopy, seoMetadata }, products, locale] = await Promise.all([
     getSiteContent(),
     getProducts(),
+    getLocale(),
   ]);
+  const ui = getUiCopy(locale);
   return (
     <>
       <JsonLd
@@ -51,7 +54,7 @@ export default async function HomePage() {
       <Hero />
       <Marquee />
       <Introduction />
-      <ProductShowcase products={products} />
+      <ProductShowcase products={products} copy={ui.productShowcase} />
       <MachineGuide />
       <QualityBand />
       <Capabilities />

@@ -14,6 +14,7 @@ import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { getCategory, getPartsPage, getProduct, getProducts, getSiteContent } from "@/data/localized";
 import { products as allProducts } from "@/data/products";
+import { getUiCopy } from "@/data/ui";
 import { imageSizes } from "@/lib/images";
 import { getLocale, localizedPath } from "@/lib/locale";
 import { createMetadata } from "@/lib/seo";
@@ -64,8 +65,9 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     getPartsPage(product.category === "agricultural" ? "agricultural-parts" : "brick-kiln-parts"),
   ]);
 
+  const ui = getUiCopy(locale);
   const category = {
-    label: categoryData?.name ?? (product.category === "agricultural" ? "Agricultural Machinery" : "Brick Kiln Machinery"),
+    label: categoryData?.name ?? (product.category === "agricultural" ? ui.productFallback.agricultural : ui.productFallback.brickKiln),
     href: product.category === "agricultural" ? "/agricultural-machinery" : "/brick-kiln-machinery",
   };
 
@@ -87,7 +89,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
       />
       <JsonLd
         data={breadcrumbSchema([
-          { name: "Home", href: "/" },
+          { name: ui.breadcrumbHome, href: "/" },
           { name: category.label, href: category.href },
           { name: product.name, href: `/products/${product.slug}` },
         ])}
@@ -114,8 +116,8 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
           gap-[0.5rem] text-[length:0.62rem] font-semibold
           tracking-[0.16em] uppercase text-[color:rgba(246,_243,_233,_0.45)]
           [&_a]:[transition:color_0.2s_var(--ease)] [&_a:hover]:text-gold-bright [&_span[aria-current="page"]]:text-gold-bright
-        `} aria-label="Breadcrumb">
-                <Link href={localizedPath("/", locale)}>Home</Link>
+        `} aria-label={ui.breadcrumbAria}>
+                <Link href={localizedPath("/", locale)}>{ui.breadcrumbHome}</Link>
                 <span aria-hidden="true">/</span>
                 <Link href={category.href}>{category.label}</Link>
                 <span aria-hidden="true">/</span>

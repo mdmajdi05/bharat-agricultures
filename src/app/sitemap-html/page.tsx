@@ -3,17 +3,16 @@ import Link from "next/link";
 import { breadcrumbSchema, JsonLd, webPageSchema } from "@/components/seo/StructuredData";
 import Container from "@/components/ui/Container";
 import { getPartsPages, getProducts } from "@/data/localized";
+import { getUiCopy } from "@/data/ui";
 import { getLocale } from "@/lib/locale";
 import { createMetadata } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
-  const isHinglish = locale === "hi";
+  const copy = getUiCopy(locale).htmlSitemap;
   return createMetadata({
-    title: isHinglish ? "Website ke sabhi pages" : "HTML Sitemap",
-    description: isHinglish
-      ? "Bharat Agricultures ke pages, kheti ki machinery, eent bhatta machinery aur spare parts ek jagah dekhein."
-      : "Browse Bharat Agricultures pages, agricultural machinery, brick kiln machinery and spare parts.",
+    title: copy.title,
+    description: copy.description,
     path: "/sitemap-html",
     locale,
     keywords: ["Bharat Agricultures website pages", "agricultural machinery catalogue", "brick kiln equipment catalogue"],
@@ -26,23 +25,24 @@ export default async function HtmlSitemapPage() {
     getPartsPages(),
     getLocale(),
   ]);
-  const isHinglish = locale === "hi";
+  const copy = getUiCopy(locale).htmlSitemap;
+  const groups = copy.groups;
   const pageGroups = [
     {
-      title: isHinglish ? "Company" : "Company",
+      title: groups.company,
       links: [
-        { title: isHinglish ? "Home" : "Home", href: "/" },
-        { title: isHinglish ? "Hamare baare mein" : "About Us", href: "/about" },
-        { title: isHinglish ? "Quality ka vaada" : "Quality Commitment", href: "/quality" },
-        { title: isHinglish ? "Hamari unit" : "Infrastructure", href: "/infrastructure" },
-        { title: isHinglish ? "Sampark" : "Contact", href: "/contact" },
+        { title: groups.home, href: "/" },
+        { title: groups.about, href: "/about" },
+        { title: groups.quality, href: "/quality" },
+        { title: groups.infrastructure, href: "/infrastructure" },
+        { title: groups.contact, href: "/contact" },
       ],
     },
     {
-      title: isHinglish ? "Kheti ki machinery" : "Agricultural machinery",
+      title: groups.agricultural,
       links: [
         {
-          title: isHinglish ? "Kheti ki saari machinery" : "All Agricultural Machinery",
+          title: groups.allAgricultural,
           href: "/agricultural-machinery",
         },
         ...products
@@ -54,10 +54,10 @@ export default async function HtmlSitemapPage() {
       ],
     },
     {
-      title: isHinglish ? "Eent bhatta machinery" : "Brick kiln machinery",
+      title: groups.brickKiln,
       links: [
         {
-          title: isHinglish ? "Eent bhatta ki saari machinery" : "All Brick Kiln Machinery",
+          title: groups.allBrickKiln,
           href: "/brick-kiln-machinery",
         },
         ...products
@@ -69,10 +69,10 @@ export default async function HtmlSitemapPage() {
       ],
     },
     {
-      title: isHinglish ? "Machinery ke parts" : "Machinery parts",
+      title: groups.parts,
       links: [
         {
-          title: isHinglish ? "Saare machinery parts" : "All Machinery Parts",
+          title: groups.allParts,
           href: "/machinery-parts",
         },
         ...partsPages.map((page) => ({
@@ -87,32 +87,28 @@ export default async function HtmlSitemapPage() {
     <>
       <JsonLd
         data={webPageSchema({
-          name: isHinglish ? "Website ke sabhi pages" : "HTML Sitemap",
-          description: isHinglish
-            ? "Bharat Agricultures ke pages, kheti ki machinery, eent bhatta machinery aur spare parts ek jagah dekhein."
-            : "Browse Bharat Agricultures pages, agricultural machinery, brick kiln machinery and spare parts.",
+          name: copy.title,
+          description: copy.description,
           path: "/sitemap-html",
         })}
       />
       <JsonLd
         data={breadcrumbSchema([
-          { name: "Home", href: "/" },
-          { name: "HTML Sitemap", href: "/sitemap-html" },
+          { name: groups.home, href: "/" },
+          { name: copy.breadcrumb, href: "/sitemap-html" },
         ])}
       />
       <section className="ba-section relative py-[var(--section-y)]">
         <Container>
           <div className="mb-[2.5rem] max-w-[46rem]">
             <p className="ba-eyebrow text-gold-deep">
-              {isHinglish ? "Website explore karein" : "Explore the website"}
+              {copy.exploreKicker}
             </p>
             <h1 className="mt-[0.8rem] text-[length:var(--display-lg)]">
-              {isHinglish ? "Website ke sabhi pages" : "HTML Sitemap"}
+              {copy.title}
             </h1>
             <p className="mt-[1rem] max-w-[60ch] text-[0.95rem] leading-[1.8] text-muted">
-              {isHinglish
-                ? "Company ki jaankari, machinery range aur product pages ek jagah dekhein."
-                : "Browse our company information, machinery ranges and product pages."}
+              {copy.intro}
             </p>
           </div>
           <div className="grid gap-[1rem] min-[760px]:grid-cols-2 min-[1100px]:grid-cols-4">

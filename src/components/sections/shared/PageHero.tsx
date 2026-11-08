@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import Container from "@/components/ui/Container";
+import { getUiCopy } from "@/data/ui";
 import { imageSizes, images } from "@/lib/images";
 import { getLocale, localizedPath } from "@/lib/locale";
 
@@ -25,6 +26,7 @@ type PageHeroProps = {
 
 export default async function PageHero({ kicker, title, copy, image, current, trail }: PageHeroProps) {
   const locale = await getLocale();
+  const ui = getUiCopy(locale);
   return (
     <section className={`
           ba-page-hero relative overflow-hidden
@@ -61,8 +63,8 @@ export default async function PageHero({ kicker, title, copy, image, current, tr
           gap-[0.5rem] text-[length:0.62rem] font-semibold
           tracking-[0.16em] uppercase text-[color:rgba(246,_243,_233,_0.45)]
           [&_a]:[transition:color_0.2s_var(--ease)] [&_a:hover]:text-gold-bright [&_span[aria-current="page"]]:text-gold-bright
-        `} aria-label="Breadcrumb">
-              <Link href={localizedPath("/", locale)}>Home</Link>
+        `} aria-label={ui.breadcrumbAria}>
+              <Link href={localizedPath("/", locale)}>{ui.breadcrumbHome}</Link>
               {trail?.map((item) => (
                 <span key={item.href} className={`
           ba-breadcrumb__group inline-flex items-center

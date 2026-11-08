@@ -12,6 +12,7 @@ import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { getNavigationLabel } from "@/data/navigation";
 import { getProductsBySlugs, getSiteContent } from "@/data/localized";
+import { getUiCopy } from "@/data/ui";
 import type { PartsPage } from "@/data/partsPages";
 import { getLocale } from "@/lib/locale";
 import { imageSizes, images } from "@/lib/images";
@@ -28,6 +29,7 @@ export default async function PartsTemplate({ page }: PartsTemplateProps) {
     getLocale(),
   ]);
   const partsLabel = getNavigationLabel("Machinery Parts", locale);
+  const ui = getUiCopy(locale);
 
   return (
     <>
@@ -47,7 +49,7 @@ export default async function PartsTemplate({ page }: PartsTemplateProps) {
       />
       <JsonLd
         data={breadcrumbSchema([
-          { name: "Home", href: "/" },
+          { name: ui.breadcrumbHome, href: "/" },
           { name: partsLabel, href: "/machinery-parts" },
           { name: page.name, href: `/machinery-parts/${page.slug}` },
         ])}

@@ -6,12 +6,13 @@ import ButtonLink from "@/components/ui/ButtonLink";
 import Container from "@/components/ui/Container";
 import { getFooterColumns } from "@/data/navigation";
 import { getSiteContent } from "@/data/localized";
+import { getUiCopy } from "@/data/ui";
 import { getLocale, localizedPath } from "@/lib/locale";
 import { emailHref, phoneHref, site } from "@/lib/site";
 
 export default async function Footer() {
   const locale = await getLocale();
-  const isHinglish = locale === "hi";
+  const ui = getUiCopy(locale);
   const { footerCopy } = await getSiteContent();
   const footerColumns = getFooterColumns(locale);
 
@@ -48,7 +49,7 @@ export default async function Footer() {
               <p>
                 <MapPin size={16} aria-hidden="true" />
                 <a href={site.googleMapsUrl} target="_blank" rel="noopener noreferrer">
-                  {site.address} — {isHinglish ? "Google Maps par dekhein" : "View on Google Maps"}
+                  {site.address} — {ui.viewOnGoogleMaps}
                 </a>
               </p>
               <p>
@@ -61,13 +62,13 @@ export default async function Footer() {
 
             <div className="mt-5 grid gap-2">
               <span className="text-[length:0.64rem] font-bold uppercase tracking-[0.2em] text-gold-bright">
-                {isHinglish ? "Humein follow karein" : "Follow us"}
+                {ui.followUs}
               </span>
               <a
                 href={site.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={isHinglish ? "Bharat Agricultures ko Instagram par follow karein" : "Follow Bharat Agricultures on Instagram"}
+                aria-label={ui.followInstagramAria}
                 className="inline-flex items-center gap-2 text-[length:0.85rem] text-[color:rgba(246,_243,_233,_0.76)] transition-colors hover:text-gold-bright"
               >
                 <Camera size={16} aria-hidden="true" />
@@ -119,12 +120,12 @@ export default async function Footer() {
           min-[640px]:justify-between
         `}>
           <span>
-            © {new Date().getFullYear()} {site.name}. {isHinglish ? "Sabhi adhikar surakshit." : "All rights reserved."}
+            © {new Date().getFullYear()} {site.name}. {ui.allRightsReserved}
           </span>
           <div className="flex flex-wrap items-center gap-x-[1rem] gap-y-[0.35rem]">
             <span>{footerCopy.bottomNote}</span>
             <a href="/sitemap.xml" className="transition-colors hover:text-gold-bright">
-              {isHinglish ? "XML Sitemap" : "XML Sitemap"}
+              {ui.xmlSitemap}
             </a>
           </div>
         </div>

@@ -161,6 +161,8 @@ export const heroSlides: HeroSlide[] = [
 ];
 
 export type HeroCopy = {
+  /** Accessible label for the carousel region. */
+  carouselLabel: string;
   /** Accessible labels for the reel controls. */
   prevLabel: string;
   nextLabel: string;
@@ -169,6 +171,7 @@ export type HeroCopy = {
 };
 
 export const heroCopy: HeroCopy = {
+  carouselLabel: "Featured machinery",
   prevLabel: "Previous slide",
   nextLabel: "Next slide",
   slideLabel: "Go to slide",

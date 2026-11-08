@@ -5,12 +5,15 @@ import { usePathname, useRouter } from "next/navigation";
 import { Languages } from "lucide-react";
 import { useEffect, useRef, useState, type MouseEvent } from "react";
 
+import { getUiCopy } from "@/data/ui";
+
 const LOCALE_COOKIE = "ba-locale";
 
 export default function LanguageSwitcher() {
   const pathname = usePathname();
   const router = useRouter();
   const currentLocale = pathname === "/en" || pathname.startsWith("/en/") ? "en" : "hi";
+  const copy = getUiCopy(currentLocale).languageSwitcher;
   const [pendingLocale, setPendingLocale] = useState<"en" | "hi" | null>(null);
   const refreshPending = useRef(false);
   const activeLocale = pendingLocale ?? currentLocale;
@@ -49,7 +52,7 @@ export default function LanguageSwitcher() {
   }
 
   return (
-    <nav aria-label="Choose language" className="ba-lang-switch inline-flex items-center gap-[0.4rem]">
+    <nav aria-label={copy.chooseLabel} className="ba-lang-switch inline-flex items-center gap-[0.4rem]">
       <Languages
         size={15}
         strokeWidth={2.2}
@@ -71,8 +74,8 @@ export default function LanguageSwitcher() {
           prefetch={false}
           onClick={(event) => switchLocale("en", event)}
           aria-current={activeLocale === "en" ? "page" : undefined}
-          aria-label="Switch to English"
-          title="English version"
+          aria-label={copy.englishAria}
+          title={copy.englishTitle}
           style={activeLocale === "en" ? { color: "#0b5d2e" } : undefined}
           className={`relative z-10 rounded-full px-[0.7rem] py-[0.28rem] text-center text-[0.68rem] font-extrabold tracking-[0.02em] transition-colors duration-200 [&:focus-visible]:[outline:2px_solid_var(--c-gold-bright)] [&:focus-visible]:[outline-offset:2px] ${
             activeLocale === "en"
@@ -80,7 +83,7 @@ export default function LanguageSwitcher() {
               : "text-white/80 hover:text-white"
           }`}
         >
-          English
+          {copy.englishLabel}
         </Link>
 
         <Link
@@ -89,8 +92,8 @@ export default function LanguageSwitcher() {
           prefetch={false}
           onClick={(event) => switchLocale("hi", event)}
           aria-current={activeLocale === "hi" ? "page" : undefined}
-          aria-label="Switch to Hinglish"
-          title="Hinglish version"
+          aria-label={copy.hinglishAria}
+          title={copy.hinglishTitle}
           style={activeLocale === "hi" ? { color: "#0b5d2e" } : undefined}
           className={`relative z-10 rounded-full px-[0.7rem] py-[0.28rem] text-center text-[0.68rem] font-extrabold tracking-[0.02em] transition-colors duration-200 [&:focus-visible]:[outline:2px_solid_var(--c-gold-bright)] [&:focus-visible]:[outline-offset:2px] ${
             activeLocale === "hi"
@@ -98,7 +101,7 @@ export default function LanguageSwitcher() {
               : "text-white/80 hover:text-white"
           }`}
         >
-          Hinglish
+          {copy.hinglishLabel}
         </Link>
       </div>
     </nav>

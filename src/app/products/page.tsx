@@ -24,6 +24,7 @@ import {
   getProducts,
   getSiteContent,
 } from "@/data/localized";
+import { getUiCopy } from "@/data/ui";
 import { imageSizes, images } from "@/lib/images";
 import { getLocale } from "@/lib/locale";
 import { createMetadata } from "@/lib/seo";
@@ -47,14 +48,16 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function ProductsPage() {
-  const [{ productsPageCopy, seoMetadata }, products, agriculturalProducts, brickKilnProducts, partsPages] =
+  const [{ productsPageCopy, seoMetadata }, products, agriculturalProducts, brickKilnProducts, partsPages, locale] =
     await Promise.all([
       getSiteContent(),
       getProducts(),
       getAgriculturalProducts(),
       getBrickKilnProducts(),
       getPartsPages(),
+      getLocale(),
     ]);
+  const ui = getUiCopy(locale);
 
   const cardMeta = [
     { count: agriculturalProducts.length, unit: "machines" },
@@ -80,18 +83,18 @@ export default async function ProductsPage() {
       />
       <JsonLd
         data={breadcrumbSchema([
-          { name: "Home", href: "/" },
-          { name: "Products", href: "/products" },
+          { name: ui.breadcrumbHome, href: "/" },
+          { name: ui.pageLabels.products, href: "/products" },
         ])}
       />
       <JsonLd data={faqSchema(productsPageCopy.faqs)} />
 
       <PageHero
-        kicker={`Product hub / ${String(products.length).padStart(2, "0")} machines`}
+        kicker={`${ui.productHub.kickerPrefix} / ${String(products.length).padStart(2, "0")} ${ui.productHub.kickerSuffix}`}
         title={productsPageCopy.title}
         copy={productsPageCopy.description}
         image="wheat"
-        current="Products"
+        current={ui.pageLabels.products}
       />
 
       <section className={"ba-section relative py-[var(--section-y)]"}>

@@ -16,6 +16,7 @@ import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { emailHref, phoneHref, site, whatsappHref } from "@/lib/site";
 import { getProducts, getSiteContent } from "@/data/localized";
+import { getUiCopy } from "@/data/ui";
 import { imageSizes, images } from "@/lib/images";
 import { getLocale } from "@/lib/locale";
 import { createMetadata } from "@/lib/seo";
@@ -46,6 +47,7 @@ export default async function EnquiryPage({ searchParams }: {
     getSiteContent(),
     getProducts(),
   ]);
+  const ui = getUiCopy(locale);
   return (
     <>
       <JsonLd
@@ -58,7 +60,7 @@ export default async function EnquiryPage({ searchParams }: {
       />
       <JsonLd
         data={breadcrumbSchema([
-          { name: "Home", href: "/" },
+          { name: ui.breadcrumbHome, href: "/" },
           { name: "Send Enquiry", href: "/enquiry" },
         ])}
       />
@@ -138,7 +140,7 @@ export default async function EnquiryPage({ searchParams }: {
           [&_a]:[transition:color_0.2s_var(--ease),_border-color_0.2s_var(--ease)] [&_a_svg]:text-gold-deep [&_a:hover]:text-gold-deep
           [&_a:hover]:border-gold-deep
         `}>
-                  <span>Email</span>
+                  <span>{ui.contactLabels.email}</span>
                   <a href={emailHref}>
                     <Mail size={15} aria-hidden="true" /> {site.email}
                   </a>
@@ -152,7 +154,7 @@ export default async function EnquiryPage({ searchParams }: {
           [&_a]:[transition:color_0.2s_var(--ease),_border-color_0.2s_var(--ease)] [&_a_svg]:text-gold-deep [&_a:hover]:text-gold-deep
           [&_a:hover]:border-gold-deep
         `}>
-                  <span>Phone</span>
+                  <span>{ui.contactLabels.phone}</span>
                   <a href={phoneHref}>
                     <Phone size={15} aria-hidden="true" /> {site.phone}
                   </a>
@@ -166,7 +168,7 @@ export default async function EnquiryPage({ searchParams }: {
           [&_a]:[transition:color_0.2s_var(--ease),_border-color_0.2s_var(--ease)] [&_a_svg]:text-gold-deep [&_a:hover]:text-gold-deep
           [&_a:hover]:border-gold-deep
         `}>
-                  <span>WhatsApp</span>
+                  <span>{ui.contactLabels.whatsapp}</span>
                   <a href={whatsappHref}>
                     <MessageCircle size={15} aria-hidden="true" /> {site.phone}
                   </a>
@@ -261,7 +263,7 @@ export default async function EnquiryPage({ searchParams }: {
                 <span className={`
           ba-step-card__kicker text-[length:0.6rem] font-bold
           tracking-[0.16em] uppercase text-muted
-        `}>Step {String(index + 1).padStart(2, "0")}</span>
+        `}>{ui.stepPrefix} {String(index + 1).padStart(2, "0")}</span>
                 <h3>{step.title}</h3>
                 <p>{step.copy}</p>
               </Reveal>

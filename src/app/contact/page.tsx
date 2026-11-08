@@ -16,6 +16,7 @@ import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { getProducts, getSiteContent } from "@/data/localized";
+import { getUiCopy } from "@/data/ui";
 import { images } from "@/lib/images";
 import { getLocale } from "@/lib/locale";
 import { createMetadata } from "@/lib/seo";
@@ -47,7 +48,7 @@ const iconMap = {
 export default async function ContactPage() {
   const [locale, { contactCardData, contactPageCopy, enquiryFormCopy, pageHeroContact, seoMetadata }, products] =
     await Promise.all([getLocale(), getSiteContent(), getProducts()]);
-  const isHinglish = locale === "hi";
+  const ui = getUiCopy(locale);
 
   return (
     <>
@@ -62,7 +63,7 @@ export default async function ContactPage() {
       <JsonLd data={localBusinessSchema()} />
       <JsonLd
         data={breadcrumbSchema([
-          { name: "Home", href: "/" },
+          { name: ui.breadcrumbHome, href: "/" },
           { name: "Contact", href: "/contact" },
         ])}
       />
@@ -138,16 +139,14 @@ export default async function ContactPage() {
           <div className="ba-contact-map grid gap-[1.5rem] min-[900px]:grid-cols-[0.8fr_1.2fr] min-[900px]:items-end min-[900px]:gap-[3rem]">
             <div className="grid content-start gap-[0.9rem]">
               <span className="ba-eyebrow text-gold-deep">
-                {isHinglish ? "Hamari manufacturing unit" : "Find our manufacturing unit"}
+                {ui.contactPage.unitKicker}
               </span>
               <h2 className="text-[length:var(--display-md)]">
-                {isHinglish ? "Bharat Agricultures par aayein" : "Visit Bharat Agricultures"}
+                {ui.contactPage.unitTitle}
               </h2>
               <p className="max-w-[42ch] text-[0.9rem] leading-[1.8] text-muted">
                 {site.address}.{" "}
-                {isHinglish
-                  ? "Visit se pehle call karke samay confirm karein aur hamari team se baat karein."
-                  : "Call ahead to confirm your visit and speak with our team."}
+                {ui.contactPage.unitCopy}
               </p>
               <a
                 href={site.googleMapsUrl}
@@ -156,7 +155,7 @@ export default async function ContactPage() {
                 className="ba-btn ba-btn--dark mt-[0.35rem] inline-flex min-h-[3rem] w-fit items-center justify-center gap-[0.55rem] rounded-full bg-forest-900 px-[1.35rem] text-[0.72rem] font-bold uppercase tracking-[0.08em] text-cream transition-colors hover:bg-forest-700"
               >
                 <MapPin size={16} aria-hidden="true" />
-                {isHinglish ? "Google Maps par location kholein" : "Open location in Google Maps"}
+                {ui.contactPage.mapCta}
                 <ArrowUpRight size={15} aria-hidden="true" />
               </a>
             </div>
