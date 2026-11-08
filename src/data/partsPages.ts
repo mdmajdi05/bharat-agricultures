@@ -34,9 +34,9 @@ export const agriculturalPartsPage: PartsPage = {
   slug: "agricultural-parts",
   name: "Agricultural Machinery Parts",
   navLabel: "Agricultural Parts",
-  metaTitle: "Agricultural Machinery Parts Manufacturer in India",
+  metaTitle: "Agricultural Machinery Parts Manufacturer in Sambhal, UP",
   metaDescription:
-    "Agricultural machinery parts in Sambhal, Uttar Pradesh. Thresher, harrow, cultivator aur cleaner ke tines, blades, jaali aur bearings. Spare support aur factory rate.",
+    "Agricultural machinery parts manufacturer in Sambhal, UP. Thresher, harrow, cultivator aur cleaner ke tines, blades, jaali aur bearings. Direct spare support.",
   hero: {
     kicker: "Machinery parts / Agricultural",
     title: "Agricultural Machinery Parts",
@@ -108,9 +108,9 @@ export const brickKilnPartsPage: PartsPage = {
   slug: "brick-kiln-parts",
   name: "Brick Kiln Machinery Parts",
   navLabel: "Brick Kiln Parts",
-  metaTitle: "Brick Kiln Machinery Parts Manufacturer in India",
+  metaTitle: "Brick Kiln Machinery Parts Manufacturer in Sambhal, UP",
   metaDescription:
-    "Brick kiln machinery parts in Sambhal, Uttar Pradesh. Pugmill blades, coal crusher hammers, screens aur ID fan components. Direct spare support aur factory rate.",
+    "Brick kiln machinery parts manufacturer in Sambhal, UP. Pugmill blades, coal crusher hammers, screens aur ID fan components. Direct spare support.",
   hero: {
     kicker: "Machinery parts / Brick kiln",
     title: "Brick Kiln Machinery Parts",
@@ -178,9 +178,9 @@ export const castingPartsPage: PartsPage = {
   slug: "casting-parts",
   name: "Casting Parts",
   navLabel: "Casting Parts",
-  metaTitle: "Casting Parts Manufacturer in India | Sambhal, UP",
+  metaTitle: "Casting Parts Manufacturer in Sambhal, UP | As Per Drawing",
   metaDescription:
-    "Casting parts in Sambhal, Uttar Pradesh. Machine components drawing ya sample ke hisaab se — agricultural aur brick kiln machinery ke liye casting support.",
+    "Casting parts manufacturer in Sambhal, UP. Drawing ya sample ke hisaab se agricultural aur brick kiln machinery ke components. Factory rate aur bulk supply.",
   hero: {
     kicker: "Machinery parts / Casting",
     title: "Casting Parts",

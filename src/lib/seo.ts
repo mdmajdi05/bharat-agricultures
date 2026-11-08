@@ -26,11 +26,10 @@ export function createMetadata({
   const canonicalPath = localizedPath(path, locale);
   const url = `${site.url}${canonicalPath}`;
   const ogImage = image ?? `${site.url}/header-logo.png`;
-  const brandedTitle = title.includes(site.name)
-    ? title
-    : title.length <= 48
-      ? `${title} | ${site.name}`
-      : title;
+  const brandedTitle =
+    title.includes(site.name) || title.length + site.name.length + 3 > 60
+      ? title
+      : `${title} | ${site.name}`;
 
   return {
     title: { absolute: brandedTitle },

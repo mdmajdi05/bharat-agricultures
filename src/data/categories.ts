@@ -43,9 +43,9 @@ export const agriculturalCategory: Category = {
   slug: "agricultural-machinery",
   navLabel: "Agricultural Machinery",
   name: "Agricultural Machinery",
-  metaTitle: "Agricultural Machinery Manufacturer in India | Sambhal, UP",
+  metaTitle: "Agricultural Machinery Manufacturer in Sambhal, UP",
   metaDescription:
-    "Agricultural machinery manufacturer in India. Threshers, cleaners, harrows, land levelers aur cultivators Sambhal, Uttar Pradesh mein bane. Direct factory rate.",
+    "Agricultural machinery manufacturer in Sambhal, UP. Thresher, paddy cleaner, disc harrow, cultivator aur land leveler — direct factory rate aur spare support.",
   hero: {
     kicker: "Agricultural machinery / 10 machines",
     title: "Agricultural Machinery Manufacturer in India",
@@ -146,9 +146,9 @@ export const brickKilnCategory: Category = {
   slug: "brick-kiln-machinery",
   navLabel: "Brick Kiln Machinery",
   name: "Brick Kiln Machinery",
-  metaTitle: "Brick Kiln Machinery Manufacturer in India | Sambhal, UP",
+  metaTitle: "Brick Kiln Machinery Manufacturer in Sambhal, UP",
   metaDescription:
-    "Brick kiln machinery manufacturer in Sambhal, UP. Pugmill, gara and brick-making machines, ID fans and coal crushers. Discuss kiln setup and request a factory quote.",
+    "Brick kiln machinery manufacturer in Sambhal, UP. Pugmill, gara machine, brick making machine, ID fan aur coal crusher. Factory quote lein.",
   hero: {
     kicker: "Brick kiln machinery / 05 machines",
     title: "Brick Kiln Machinery Manufacturer in India",
@@ -258,9 +258,9 @@ export const partsCategory: Category = {
   slug: "machinery-parts",
   navLabel: "Machinery Parts",
   name: "Machinery Parts",
-  metaTitle: "Machinery Parts Manufacturer in India | Agricultural & Brick Kiln",
+  metaTitle: "Agricultural & Brick Kiln Machinery Parts Manufacturer",
   metaDescription:
-    "Machinery parts manufacturer in India. Agricultural machinery parts, brick kiln machinery parts aur casting parts Sambhal, Uttar Pradesh se. Spare support.",
+    "Agricultural aur brick kiln machinery parts manufacturer in Sambhal, UP. Tines, blades, jaali, bearings, pugmill blades aur casting parts. Direct spare support.",
   hero: {
     kicker: "Machinery parts / 03 categories",
     title: "Machinery Parts Manufacturer in India",

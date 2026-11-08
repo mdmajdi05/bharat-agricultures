@@ -880,39 +880,38 @@ export const productPageCopy = {
 
 export const seoMetadata = {
   home: {
-    title: "Agricultural & Brick Kiln Machinery Manufacturer in India",
+    title: "Farm & Brick Kiln Machinery Manufacturer in Sambhal, UP",
     description:
-      "Bharat Agricultures — agricultural machinery aur brick kiln machinery manufacturer, Sambhal, Uttar Pradesh. Thresher, cleaner, harrow, land leveler, gara machine, brick-making machine, pugmill, ID fan aur coal crusher.",
+      "Sambhal, UP ka agricultural aur brick kiln machinery manufacturer. Thresher, cleaner, disc harrow, land leveler, pugmill, ID fan, coal crusher. Factory rate.",
   },
   about: {
-    title: "About Us | Agricultural & Brick Kiln Machinery Manufacturer",
+    title: "About Bharat Agricultures | Farm Machinery Manufacturer",
     description:
-      "Bharat Agricultures, Sambhal, Uttar Pradesh — agricultural machinery aur brick kiln machinery ka direct manufacturer. Kaam karne ka tareeka, product range aur supply.",
+      "Bharat Agricultures, Sambhal, UP mein agricultural aur brick kiln machinery banata hai. Kaam karne ka tareeka, product range, quality aur direct supply jaanein.",
   },
   quality: {
-    title: "Quality Commitment | How We Build Machinery",
+    title: "Quality Commitment | Agricultural Machinery Manufacturer",
     description:
-      "Hamara quality approach: sahi material, sahi fit aur dispatch se pehle basic run test. Agricultural aur brick kiln machinery ke liye practical standards.",
+      "Sahi material, sahi fit aur dispatch se pehle basic run test — agricultural aur brick kiln machinery ke practical quality standards. Spare support bhi.",
   },
   infrastructure: {
-    title: "Infrastructure | Manufacturing Unit in Sambhal, UP",
+    title: "Manufacturing Unit in Sambhal, UP | Farm Machinery Factory",
     description:
-      "Fabrication, machining, assembly aur dispatch — hamari Sambhal, Uttar Pradesh unit ka practical setup aur kaam karne ka tareeka.",
+      "Fabrication, machining, assembly aur dispatch — Sambhal, Uttar Pradesh ki hamari manufacturing unit ka setup aur machinery banane ka practical tareeka.",
   },
   products: {
-    title: "Machinery & Parts | Agricultural and Brick Kiln",
-    description:
-      `Agricultural machinery, brick kiln machinery aur machinery parts — teen product families, ${products.length} machines aur spare support. Sambhal, Uttar Pradesh se.`,
+    title: "Agricultural & Brick Kiln Machinery | Full Product Range",
+    description: `Agricultural machinery, brick kiln machinery aur spare parts — teen product families, ${products.length} machines aur spare support. Sambhal, UP se direct factory rate.`,
   },
   contact: {
-    title: "Contact Us | Machinery Enquiry & Factory Visit",
+    title: "Contact Bharat Agricultures | Sambhal, UP Factory",
     description:
-      "Bharat Agricultures se contact karein — machine rate, spare parts ya factory visit ke liye. Sambhal, Uttar Pradesh. Call, WhatsApp ya enquiry form.",
+      "Machine rate, spare parts ya factory visit ke liye Bharat Agricultures se baat karein. Sambhal, Uttar Pradesh. Call, WhatsApp ya enquiry form.",
   },
   enquiry: {
-    title: "Send Enquiry | Machine Rate & Spare Parts",
+    title: "Send Machine Enquiry | Get Factory Price & Spare Parts",
     description:
-      "Apni machine requirement, volume aur location batayein. Hum matching model aur seedha factory rate bhej denge.",
+      "Apni machine requirement, volume aur location bhejein. Hum matching model, configuration aur seedha factory rate bhej denge. Sambhal, UP.",
   },
 };
 
